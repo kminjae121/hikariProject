@@ -85,9 +85,7 @@ public class LightSlider : MonoBehaviour
             {
                 if (_lightLevelBlockList[i].lightLevel == 1)
                 {
-                    SpriteRenderer render = _lightLevelBlockList[i].gameObject.GetComponent<SpriteRenderer>();
-                    render.DOFade(1, 1);
-                    print("¾ö");
+                    FadeLook(i);
                 }
                 else
                 {
@@ -99,9 +97,7 @@ public class LightSlider : MonoBehaviour
             {
                 if (_lightLevelBlockList[i].lightLevel == 2)
                 {
-                    SpriteRenderer render = _lightLevelBlockList[i].gameObject.GetComponent<SpriteRenderer>();
-                    render.DOFade(1, 1);
-                    print("¾ö2");
+                    FadeLook(i);
                 }
                 else
                 {
@@ -113,21 +109,25 @@ public class LightSlider : MonoBehaviour
             {
                 if (_lightLevelBlockList[i].lightLevel == 3)
                 {
-                    SpriteRenderer render = _lightLevelBlockList[i].gameObject.GetComponent<SpriteRenderer>();
-                    render.DOFade(1, 1);
-                    print("¾ö3");
+                    FadeLook(i);
                 }
                 else
                 {
-                    SpriteRenderer render = _lightLevelBlockList[i].gameObject.GetComponent<SpriteRenderer>();
-                    render.DOFade(0, 1);
+                    FadeHide(i);
                 }
             }
         }
     }
 
-    private void Fade()
+    private void FadeLook(int index)
     {
+        SpriteRenderer render = _lightLevelBlockList[index].gameObject.GetComponent<SpriteRenderer>();
+        render.DOFade(1, 1);
+    }
 
+    private void FadeHide(int index)
+    {
+        SpriteRenderer render = _lightLevelBlockList[index].gameObject.GetComponent<SpriteRenderer>();
+        render.DOFade(0, 1);
     }
 }
