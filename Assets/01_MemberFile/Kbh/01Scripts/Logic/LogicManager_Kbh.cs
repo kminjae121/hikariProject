@@ -14,6 +14,18 @@ public class LogicManager_Kbh : MonoSingleton<LogicManager_Kbh>
    /// 패널 셋팅
    /// 
 
+   [SerializeField] private GameLogic_Kbh _logicAgent;
+
+   private void Awake()
+   {
+      _logicAgent.Initialize(this, null, null);
+   }
+
+   public void DoTutorial()
+   {
+
+   }
+
 
 
 

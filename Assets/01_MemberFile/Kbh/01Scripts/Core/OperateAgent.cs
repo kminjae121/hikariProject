@@ -11,12 +11,14 @@ public enum OperateState
 
 
 [System.Serializable]
-public class OperateAgent<T> where T : Enum
+public class OperateAgent<T>
+   where T : Enum
 {
-   private MonoBehaviour _owner;
+   protected MonoBehaviour _owner;
 
-   [SerializeField] private OperateState _operateState;
+   [SerializeField] protected OperateState _operateState;
    public OperateState OperateState => _operateState;
+   protected ILinkable<T> _parent;
 
    [SerializeField] private uint _lastCount = 0;
    public int LastCount => (int)_lastCount;
@@ -26,10 +28,11 @@ public class OperateAgent<T> where T : Enum
    private YieldInstruction _yieldInstruction;
    private Coroutine _runRoutine;
 
-   public virtual void Initialize(MonoBehaviour owner, YieldInstruction yieldInstruction)
+   public virtual void Initialize(MonoBehaviour owner, YieldInstruction yieldInstruction, ILinkable<T> parent = null)
    {
       _owner = owner;
       _yieldInstruction = yieldInstruction;
+      _parent = parent;
 
       _operateState = OperateState.Sleep;
 
@@ -48,6 +51,25 @@ public class OperateAgent<T> where T : Enum
       _operateState = OperateState.Run;
       _runRoutine = _owner.StartCoroutine(AutoUpdateRoutine());
    }
+
+   /*Update*/
+   public virtual void Update()
+   {
+      if (!_isLoop)
+      {
+         if (_lastCount <= 0) return;
+         --_lastCount;
+      }
+   }
+   public IEnumerator AutoUpdateRoutine()
+   {
+      while (true)
+      {
+         Update();
+         yield return _yieldInstruction;
+      }
+   }
+
 
 
    public virtual void Sleep()
@@ -86,23 +108,5 @@ public class OperateAgent<T> where T : Enum
       _isLoop = false;
    }
 
-   /*Update*/
-   public virtual void Update()
-   {
-      if (!_isLoop)
-      {
-         if (_lastCount <= 0) return;
-         --_lastCount;
-      }
-   }
-   public IEnumerator AutoUpdateRoutine()
-   {
-      while (true)
-      {
-         Update();
-         yield return _yieldInstruction;
-      }
-   }
-
-
+   
 }
