@@ -208,6 +208,7 @@ GameObject:
   m_Component:
   - component: {fileID: 394916000}
   - component: {fileID: 394915999}
+  - component: {fileID: 394916001}
   m_Layer: 0
   m_Name: Square (1)
   m_TagString: Untagged
@@ -282,6 +283,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &394916001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 394915998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 355c276f4c336504884693d6f3a202ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lightLevel: 3
 --- !u!1 &527288523
 GameObject:
   m_ObjectHideFlags: 0
@@ -394,6 +408,7 @@ GameObject:
   m_Component:
   - component: {fileID: 579622552}
   - component: {fileID: 579622551}
+  - component: {fileID: 579622553}
   m_Layer: 0
   m_Name: Square (3)
   m_TagString: Untagged
@@ -468,6 +483,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &579622553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 579622550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 355c276f4c336504884693d6f3a202ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lightLevel: 2
 --- !u!1 &783511043
 GameObject:
   m_ObjectHideFlags: 0
@@ -553,6 +581,7 @@ GameObject:
   m_Component:
   - component: {fileID: 805081553}
   - component: {fileID: 805081552}
+  - component: {fileID: 805081554}
   m_Layer: 0
   m_Name: Square
   m_TagString: Untagged
@@ -627,6 +656,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &805081554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 805081551}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 355c276f4c336504884693d6f3a202ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lightLevel: 3
 --- !u!1 &849909594
 GameObject:
   m_ObjectHideFlags: 0
@@ -637,6 +679,7 @@ GameObject:
   m_Component:
   - component: {fileID: 849909596}
   - component: {fileID: 849909595}
+  - component: {fileID: 849909597}
   m_Layer: 0
   m_Name: Square (5)
   m_TagString: Untagged
@@ -711,6 +754,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &849909597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 849909594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 355c276f4c336504884693d6f3a202ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lightLevel: 1
 --- !u!1 &955926031
 GameObject:
   m_ObjectHideFlags: 0
@@ -792,7 +848,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1039128994}
-  - component: {fileID: 1039128993}
+  - component: {fileID: 1039128995}
   m_Layer: 0
   m_Name: BrightManager
   m_TagString: Untagged
@@ -800,29 +856,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1039128993
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1039128992}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 493c3ba7de1899044b2f626fb58a8529, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  slider: {fileID: 1142132710}
-  LowBrightObject:
-  - {fileID: 805081551}
-  - {fileID: 394915998}
-  - {fileID: 1642965438}
-  - {fileID: 579622550}
-  - {fileID: 1924750990}
-  - {fileID: 849909594}
-  MiddleBrightObject: []
-  HighBrightObject: []
-  str: 
 --- !u!4 &1039128994
 Transform:
   m_ObjectHideFlags: 0
@@ -838,6 +871,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1039128995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1039128992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: caefb34d6c6032b4995e79388bbf3cda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slider: {fileID: 1142132710}
+  LowBrightObject: []
+  MiddleBrightObject: []
+  HighBrightObject: []
+  str: 
 --- !u!1 &1142132708
 GameObject:
   m_ObjectHideFlags: 0
@@ -927,7 +977,19 @@ MonoBehaviour:
   m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1039128995}
+        m_TargetAssemblyTypeName: BrightSlider, Assembly-CSharp
+        m_MethodName: Brightness
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1236578741
 GameObject:
   m_ObjectHideFlags: 0
@@ -1150,6 +1212,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1642965440}
   - component: {fileID: 1642965439}
+  - component: {fileID: 1642965441}
   m_Layer: 0
   m_Name: Square (2)
   m_TagString: Untagged
@@ -1224,6 +1287,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1642965441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1642965438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 355c276f4c336504884693d6f3a202ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lightLevel: 2
 --- !u!1 &1784922383
 GameObject:
   m_ObjectHideFlags: 0
@@ -1302,6 +1378,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1924750992}
   - component: {fileID: 1924750991}
+  - component: {fileID: 1924750993}
   m_Layer: 0
   m_Name: Square (4)
   m_TagString: Untagged
@@ -1376,6 +1453,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1924750993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1924750990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 355c276f4c336504884693d6f3a202ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lightLevel: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
