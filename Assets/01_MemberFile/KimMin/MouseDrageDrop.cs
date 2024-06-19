@@ -5,12 +5,12 @@ using UnityEngine;
 public class MouseDrageDrop : MonoBehaviour
 {
     private Vector3 _mousePos;
-    private Vector2 _holdObjectVelocity;
-    Vector2 lastPos;
-
+    private Vector2 _lastPos;
 
     private GameObject _holdObject;
     private bool _isHeld = false;
+
+    [SerializeField] private float _rotationScale;
 
     private void Update()
     {
@@ -52,14 +52,15 @@ public class MouseDrageDrop : MonoBehaviour
             _isHeld = false;
             rigid.simulated = true;
             rigid.velocity = Vector2.zero;
+            _holdObject.transform.localRotation = Quaternion.Euler(0, 0, 0);
         }
     }
 
     private void RotateHoldObject()
     {
-        float speed = _holdObject.transform.position.x - lastPos.x;
+        float speed = _holdObject.transform.position.x - _lastPos.x;
 
-        _holdObject.transform.localRotation = Quaternion.Euler(0, 0, -speed * 50);
-        lastPos = _holdObject.transform.position;
+        _holdObject.transform.localRotation = Quaternion.Euler(0, 0, -speed * _rotationScale);
+        _lastPos = _holdObject.transform.position;
     }
 }
