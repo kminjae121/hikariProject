@@ -472,6 +472,11 @@ MonoBehaviour:
     contents: {fileID: 2200637419548047791}
     btnGoalTrm: {fileID: 324794390681944624}
     delay: 0
+  - text: Final
+    nextOverType: 2
+    contents: {fileID: 2200637419548047791}
+    btnGoalTrm: {fileID: 324794390681944624}
+    delay: 0
   _isWithFade: 0
   _fadeTime: 0.5
   _isWithBtnInterpolation: 1

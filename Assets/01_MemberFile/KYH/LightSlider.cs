@@ -45,34 +45,7 @@ public class LightSlider : MonoBehaviour
 
     private void Start()
     {
-        //_lowBrightTween = new Tween[LowBrightObject.Count];
-        //_middleBrightTween = new Tween[MiddleBrightObject.Count];
-        //_highBrightTween = new Tween[HighBrightObject.Count];
-
-        //if (slider.value >= 0 && slider.value <= 3)
-        //{
-        //    for (int i = 0; i < LowBrightObject.Count; i++)
-        //    {
-        //        render = LowBrightObject[i].GetComponent<SpriteRenderer>();
-        //        _lowBrightTween[i] = render.DOFade(endValue: 1, duration: 1);
-        //    }
-        //}
-        //else if (slider.value >= 4 && slider.value <= 7)
-        //{
-        //    for (int i = 0; i < MiddleBrightObject.Count; i++)
-        //    {
-        //        render = MiddleBrightObject[i].GetComponent<SpriteRenderer>();
-        //        _middleBrightTween[i] = render.DOFade(endValue: 1, duration: 1);
-        //    }
-        //}
-        //else if (slider.value >= 8 && slider.value <= 10)
-        //{
-        //    for (int i = 0; i < HighBrightObject.Count; i++)
-        //    {
-        //        render = HighBrightObject[i].GetComponent<SpriteRenderer>();
-        //        _highBrightTween[i] = render.DOFade(endValue: 1, duration: 1);
-        //    }
-        //}
+        Brightness();
     }
 
 
@@ -89,8 +62,7 @@ public class LightSlider : MonoBehaviour
                 }
                 else
                 {
-                    SpriteRenderer render = _lightLevelBlockList[i].gameObject.GetComponent<SpriteRenderer>();
-                    render.DOFade(0, 1);
+                    FadeHide(i);
                 }
             }
             else if(slider.value >= 4 && slider.value <= 7)
@@ -101,8 +73,7 @@ public class LightSlider : MonoBehaviour
                 }
                 else
                 {
-                    SpriteRenderer render = _lightLevelBlockList[i].gameObject.GetComponent<SpriteRenderer>();
-                    render.DOFade(0, 1);
+                    FadeHide(i);
                 }
             }
             else if (slider.value >= 8 && slider.value <= 10)
@@ -121,13 +92,17 @@ public class LightSlider : MonoBehaviour
 
     private void FadeLook(int index)
     {
-        SpriteRenderer render = _lightLevelBlockList[index].gameObject.GetComponent<SpriteRenderer>();
-        render.DOFade(1, 1);
+        //SpriteRenderer render = _lightLevelBlockList[index].gameObject.GetComponent<SpriteRenderer>();
+        //render.DOFade(1, 1);
+        Image renderUI = _lightLevelBlockList[index].gameObject.GetComponent<Image>();
+        renderUI.DOFade(1, 1);
     }
 
     private void FadeHide(int index)
     {
-        SpriteRenderer render = _lightLevelBlockList[index].gameObject.GetComponent<SpriteRenderer>();
-        render.DOFade(0, 1);
+        //SpriteRenderer render = _lightLevelBlockList[index].gameObject.GetComponent<SpriteRenderer>();
+        //render.DOFade(0, 1);
+        Image renderUI = _lightLevelBlockList[index].gameObject.GetComponent<Image>();
+        renderUI.DOFade(0, 1);
     }
 }
