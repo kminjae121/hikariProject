@@ -3,29 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Network : PlayerMovement
+public class InternetWindow : PlayerMovement
 {
     [SerializeField] private GameObject internetWindow;
     [SerializeField] private GameObject wifiWindow;
 
-    [SerializeField] private List<GameObject> wifiButton = new List<GameObject>(); // 와이파이 버튼들
-    private PlayerMovement playerMove;
-    private PlayerInput playerInput;
-
 
     void Awake()
     {
-        internetWindow.SetActive(false); // 인터넷 화면 비활성화
+         wifiWindow.SetActive(false);
 
-        for (int i = 0; i < 2; i++)
-        {
-            wifiButton[i].SetActive(false); // 와이파이 버튼 비활성화
-        }
-
-        wifiWindow.SetActive(false);
-
-        playerMove = GameObject.Find("Player").GetComponent<PlayerMovement>();
-        playerInput = GameObject.Find("Player").GetComponent<PlayerInput>();
     }
 
     private void Update()
@@ -43,23 +30,14 @@ public class Network : PlayerMovement
     public void OnClickBack() // 뒤로가기 버튼 누를 시
     {
         internetWindow.SetActive(false); 
-
-        for (int i = 0; i < 2; i++)
-        {
-            wifiButton[i].SetActive(false);
-        }
     }
 
-    public void OnClickInternet() // 인터넷 버튼 누를 시
+    public void OnClickReadMore() // 자세히보기 버튼 누를 시
     {
-        internetWindow.SetActive(true);
-
-        for (int i = 0; i < 2; i++)
-        {
-            wifiButton[i].SetActive(true);
-        }
+        wifiWindow.SetActive(true);
     }
 
+    
     public void OnClickWifi() // 와이파이 버튼 누를 시
     {
         //if (GameManager.instance.WifiOnOff == false)
