@@ -30,7 +30,7 @@ public class EnterName : MonoBehaviour
     {
         if(Input.GetMouseButtonDown(1))
         {
-            receiveText.text = $"사용자이름: 따따잇";
+            receiveText.text = $"사용자이름: 히카리여";
         }
     }
 }
