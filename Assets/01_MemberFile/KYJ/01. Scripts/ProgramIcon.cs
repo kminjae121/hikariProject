@@ -5,7 +5,7 @@ using UnityEngine;
 public class ProgramIcon : MonoBehaviour
 {
     [SerializeField] private List<GameObject> priviewWindow = new List<GameObject>();
-    private bool isContactCursor;
+    private bool isContactCursor; // 커서가 미리보기 화면에 닿았는가
 
     private void Awake()
     {
@@ -20,11 +20,10 @@ public class ProgramIcon : MonoBehaviour
         PriviewWindowOn();
     }
 
-    private void PriviewWindowOn()
+    private void PriviewWindowOn() // 미리보기 활성화 기능
     {
         if (isContactCursor == true) // 커서가 프로그램 아이콘에 닿아있는 경우
         {
-            //priviewWindow[priviewWindow.Count].SetActive(true);
             // 미리보기 화면을 활성화 시킨다.
             for (int i = 0; i < priviewWindow.Count; i++)
             {
@@ -33,7 +32,6 @@ public class ProgramIcon : MonoBehaviour
         }
         else
         {
-            //priviewWindow[priviewWindow.Count].SetActive(false);
             for (int i = 0; i < priviewWindow.Count; i++)
             {
                 priviewWindow[i].SetActive(false);

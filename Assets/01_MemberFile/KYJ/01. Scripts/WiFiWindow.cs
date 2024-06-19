@@ -8,31 +8,29 @@ public class WifiWindow : MonoBehaviour
 {
     [SerializeField] private GameObject wifiWindow;
     [SerializeField] private TextMeshProUGUI text;
-    private InternetWindow internetWindow;
 
     private void Awake()
     {
-        internetWindow = FindObjectOfType<InternetWindow>();
         wifiWindow.SetActive(false);
     }
 
-    public void OnClickBack()
+    public void OnClickBack() // 뒤로가기 버튼 누를 시
     {
         wifiWindow.SetActive(false);
     }
 
-    public void OnClickConnection()
+    public void OnClickConnection() // 연결 버튼을 누를 시
     {
-        if (WiFiManager.instance.WifiOnOff == true)
+        if (WiFiManager.instance.WifiOnOff == true) // 연결이 돼있을 때
         {
-            WiFiManager.instance.WifiOnOff = false;
-            text.text = "연결됨";
+            WiFiManager.instance.WifiOnOff = false; // 연결 끊기
+            text.text = "연결 안 됨";
         }
 
         else
         {
-            WiFiManager.instance.WifiOnOff = true;
-            text.text = "연결 안 됨";
+            WiFiManager.instance.WifiOnOff = true; // 연결하기
+            text.text = "연결됨";
         }
     }
 }
