@@ -4,8 +4,18 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UIBowl : MonoBehaviour
+public class UIAgent : BaseAgent
 {
    public Image image;
    public TextMeshProUGUI defaultText;
+
+   public override void BaseUpdate()
+   {
+
+   }
+
+   public override void Initialize()
+   {
+
+   }
 }
