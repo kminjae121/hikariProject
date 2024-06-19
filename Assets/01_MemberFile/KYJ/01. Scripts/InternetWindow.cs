@@ -8,23 +8,27 @@ public class InternetWindow : PlayerMovement
     [SerializeField] private GameObject internetWindow;
     [SerializeField] private GameObject wifiWindow;
 
+    private PlayerInput playerInput;
+    private PlayerMovement playerMovement;
+
 
     void Awake()
     {
-         wifiWindow.SetActive(false);
-
+        playerInput = FindObjectOfType<PlayerInput>();
+        playerMovement = FindObjectOfType<PlayerMovement>();
+        internetWindow.SetActive(false);
     }
 
     private void Update()
     {
-        //if (GameManager.instance.WifiOnOff == false)
-        //{
-        //    playerInput.Buffering();
-        //}
-        //else
-        //{
-        //    playerMove.PlayerMove(4f);
-        //}
+        if (WiFiManager.instance.WifiOnOff == false)
+        {
+            playerInput.Buffering();
+        }
+        else
+        {
+            playerMovement.PlayerMove(4f);
+        }
     }
 
     public void OnClickBack() // 뒤로가기 버튼 누를 시
@@ -40,13 +44,13 @@ public class InternetWindow : PlayerMovement
     
     public void OnClickWifi() // 와이파이 버튼 누를 시
     {
-        //if (GameManager.instance.WifiOnOff == false)
-        //{
-        //    GameManager.instance.WifiOnOff = true;
-        //}
-        //else
-        //{
-        //    GameManager.instance.WifiOnOff = false;
-        //}
+        if (WiFiManager.instance.WifiOnOff == false)
+        {
+            WiFiManager.instance.WifiOnOff = true;
+        }
+        else
+        {
+            WiFiManager.instance.WifiOnOff = false;
+        }
     }
 }

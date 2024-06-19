@@ -17,19 +17,22 @@ public class PlayerMovement : MonoBehaviour
         rigid = GetComponent<Rigidbody2D>();
     }
 
+
     private void Update()
     {
         Teleporting();
-        PlayerMove(4);
+        PlayerMove(4f);
     }
     
 
     public void PlayerMove(float speed) // 플레이어 이동
     {
         float x = Input.GetAxisRaw("Horizontal");
-        Vector3 moveDir = new Vector3(x * speed, rigid.velocity.y);
-        rigid.velocity = moveDir;
+        Vector2 moveDir = new Vector2(x, 0);
+        moveDir = moveDir.normalized;
+        rigid.velocity = moveDir * speed;
     }
+
 
     private void Teleporting() // 미리보기 화면으로 이동
     {
@@ -38,6 +41,7 @@ public class PlayerMovement : MonoBehaviour
             SceneManager.LoadScene("PreviewScenes"); // 씬 전환
         }
     }
+
 
     public void Buffering() // 버퍼링 기능
     {
