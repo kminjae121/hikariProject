@@ -30,7 +30,7 @@ public class MouseDrageDrop : MonoBehaviour
 
         if (hit)
         {
-            if (hit.collider.CompareTag("Player") && Input.GetMouseButton(0))
+            if (hit.collider.CompareTag("Player") || hit.collider.CompareTag("HoldObject") && Input.GetMouseButton(0))
             {
                 _holdObject = hit.collider.gameObject;
                 _holdObject.GetComponent<Rigidbody2D>().simulated = false;
