@@ -5,13 +5,10 @@ using UnityEngine.Audio;
 
 public class SoundSlider : MonoBehaviour
 {
-    public AudioSource BackgroundVolume;
-    public AudioSource BackGoundVolume2;
 
-
+    public AudioMixer audioMixer;
     public void SetMusicVolume(float volume)
     {
-        BackgroundVolume.volume = volume; 
-        BackGoundVolume2.volume = volume;
+        audioMixer.SetFloat("BackGround", Mathf.Log10(volume));
     }
 }
