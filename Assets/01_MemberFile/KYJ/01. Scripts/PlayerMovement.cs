@@ -23,7 +23,7 @@ public class PlayerMovement : MonoBehaviour
     protected virtual void PlayerMove(float speed) // 플레이어 이동
     {
         float x = Input.GetAxisRaw("Horizontal");
-        Vector3 moveDir = new Vector3(x, transform.position.y);
-        rigid.velocity = moveDir * speed;
+        Vector3 moveDir = new Vector3(x * speed, rigid.velocity.y);
+        rigid.velocity = moveDir;
     }
 }
