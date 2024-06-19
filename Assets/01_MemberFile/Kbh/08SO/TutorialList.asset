@@ -13,6 +13,4 @@ MonoBehaviour:
   m_Name: TutorialList
   m_EditorClassIdentifier: 
   _tutorialInfoList:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 6631397345296517477, guid: 6770307b770bcb545ac29cd850542c14, type: 3}

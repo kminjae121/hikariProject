@@ -9,12 +9,13 @@ using UnityEngine.UI;
 public class TutorialObject : MonoBehaviour
 {
    [Flags]
-   public enum TutorialEventEnum
+   public enum TutorialEventEnum : short
    {
-      Null = 0,
-      Time = 1,
-      Click = 2
+      Null     = 0,
+      Time     = 1,
+      Click    = 2,
    }
+
 
    [System.Serializable]
    public struct TutorialContentStruct
