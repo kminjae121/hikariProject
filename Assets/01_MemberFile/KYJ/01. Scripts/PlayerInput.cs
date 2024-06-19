@@ -5,16 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class PlayerInput : PlayerMovement
 {
-    //private NewBehaviourScript window;
-    [SerializeField] private bool isContactingPreview; // 미리보기 화면에 접촉 여부 bool
     [SerializeField] private GameObject SettingWindow;
     [SerializeField] private List<GameObject> button = new List<GameObject>();
-    private bool isCoolTime;
+    private PriviewWindow priviewWindow;
 
 
     private void Awake()
     {
-        //window = GameObject.Find("AppIcon").GetComponent<NewBehaviourScript>(); 
+        priviewWindow = GameObject.Find("PriviewWindow").GetComponent<PriviewWindow>();
+
         for (int i = 0; i < button.Count; i++)
         {
             button[i].SetActive(false);
@@ -22,11 +21,17 @@ public class PlayerInput : PlayerMovement
         SettingWindow.SetActive(false);
     }
 
+    private void Update()
+    {
+        Teleporting();
+    }
+
     private void Teleporting() // 플레이어가 미리보기 화면 속으로 이동
     {
-        if (/*window.IsTriggerCursor == true && */isContactingPreview == true && Input.GetKeyDown(KeyCode.E)) // 윈도우에 커서가 닿고, 플레이어가 닿았으며 E키를 눌렀을 경우
+        if (priviewWindow.isContactingPreview == true && Input.GetKeyDown(KeyCode.E)) // 윈도우에 커서가 닿고, 플레이어가 닿았으며 E키를 눌렀을 경우
         {
-            SceneManager.LoadScene("PreviewScene"); // 미리보기 화면으로 씬 전환
+            print("접촉");
+            SceneManager.LoadScene("PreviewScenes"); // 미리보기 화면으로 씬 전환
         }
     }
 
@@ -43,19 +48,5 @@ public class PlayerInput : PlayerMovement
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("PriviewWindow")) // 플레이어가 미리보기 화면에 닿았을 경우
-        {
-            isContactingPreview = true;
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.CompareTag("PriviewWindow")) // 플레이어가 미리보기 화면에 닿았다가 떨어졌을 경우
-        {
-            isContactingPreview = false;
-        }
-    }
+    
 }
