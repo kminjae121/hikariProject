@@ -21,12 +21,18 @@ public class PlayerInput : PlayerMovement
         SettingWindow.SetActive(false);
     }
 
+
     private void Update()
     {
         Teleporting();
     }
 
+<<<<<<< Updated upstream
     private void Teleporting() // 플레이어가 미리보기 화면 속으로 이동
+=======
+
+    private void SettingWindowOn() // esc 키를 누를 시
+>>>>>>> Stashed changes
     {
         if (priviewWindow.isContactingPreview == true && Input.GetKeyDown(KeyCode.E)) // 윈도우에 커서가 닿고, 플레이어가 닿았으며 E키를 눌렀을 경우
         {
