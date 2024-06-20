@@ -5,28 +5,6 @@ using UnityEngine.UI;
 
 public class InternetWindow : MonoBehaviour
 {
-    [SerializeField] private GameObject internetWindow;
-    [SerializeField] private GameObject wifiWindow;
-
-
-
-    void Awake()
-    {
-        internetWindow.SetActive(false);
-    }
-
-    
-
-    public void OnClickBack() // 뒤로가기 버튼 누를 시
-    {
-        internetWindow.SetActive(false); 
-    }
-
-    public void OnClickReadMore() // 자세히보기 버튼 누를 시
-    {
-        wifiWindow.SetActive(true);
-    }
-
     
     public void OnClickWifi() // 와이파이 버튼 누를 시
     {
