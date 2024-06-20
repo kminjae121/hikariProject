@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rigid;
 
     private bool isCoolTime;
-    [SerializeField] private float speed = 5;
+    [SerializeField] private float speed;
 
 
     private void Awake()
@@ -28,6 +28,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void PlayerMove(float speed) // 플레이어 이동
     {
+        this.speed = speed;
         float x = Input.GetAxisRaw("Horizontal");
         Vector2 moveDir = new Vector2(x, 0);
         moveDir = moveDir.normalized;
