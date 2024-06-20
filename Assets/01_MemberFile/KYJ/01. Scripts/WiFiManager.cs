@@ -6,7 +6,7 @@ public class WiFiManager : MonoBehaviour
 {
     public static WiFiManager instance = null;
 
-    [SerializeField] private bool wifiOnOff = false;
+    [SerializeField] private bool wifiOnOff; // 와이파이 발동 여부
 
     public bool WifiOnOff
     {
@@ -22,7 +22,7 @@ public class WiFiManager : MonoBehaviour
 
     private void Awake()
     {
-        if (instance == null)
+        if (instance == null) // 싱글톤입니다
         {
             instance = this;
         }

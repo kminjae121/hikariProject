@@ -3,31 +3,29 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class InternetWindow : PlayerMovement
+public class InternetWindow : MonoBehaviour
 {
     [SerializeField] private GameObject internetWindow;
     [SerializeField] private GameObject wifiWindow;
 
-    private PlayerInput playerInput;
     private PlayerMovement playerMovement;
 
 
     void Awake()
     {
-        playerInput = FindObjectOfType<PlayerInput>();
         playerMovement = FindObjectOfType<PlayerMovement>();
         internetWindow.SetActive(false);
     }
 
     private void Update()
     {
-        if (WiFiManager.instance.WifiOnOff == false)
+        if (WiFiManager.instance.WifiOnOff == false) // 와이파이 연결 끊겼을 때
         {
-            playerInput.Buffering();
+            playerMovement.Buffering(); // 버퍼링 기능 
         }
         else
         {
-            playerMovement.PlayerMove(4f);
+            playerMovement.PlayerMove(4f); // 아니면 그냥 이동 기능
         }
     }
 
@@ -44,9 +42,9 @@ public class InternetWindow : PlayerMovement
     
     public void OnClickWifi() // 와이파이 버튼 누를 시
     {
-        if (WiFiManager.instance.WifiOnOff == false)
+        if (WiFiManager.instance.WifiOnOff == false) // 와이파이 끊겼을 때
         {
-            WiFiManager.instance.WifiOnOff = true;
+            WiFiManager.instance.WifiOnOff = true; // 와이파이 연결하기
         }
         else
         {

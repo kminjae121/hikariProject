@@ -1730,7 +1730,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1891,7 +1891,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 10
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -2347,7 +2347,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 805226586}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1674697946}
+        m_TargetAssemblyTypeName: WifiWindow, Assembly-CSharp
+        m_MethodName: OnClickBack
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &805226586
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2501,7 +2513,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a18630d746ed1a24ba3be0c9bfe6352c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
   internetWindow: {fileID: 941008084}
   wifiWindow: {fileID: 1674697941}
 --- !u!1 &941731043
@@ -4905,7 +4916,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   internetWindow: {fileID: 941008084}
-  settingWindow: {fileID: 0}
+  settingWindow: {fileID: 1526181507}
 --- !u!1 &1571473853
 GameObject:
   m_ObjectHideFlags: 0
@@ -5377,6 +5388,7 @@ GameObject:
   - component: {fileID: 1674697945}
   - component: {fileID: 1674697944}
   - component: {fileID: 1674697943}
+  - component: {fileID: 1674697946}
   m_Layer: 5
   m_Name: WiFi_Window
   m_TagString: Untagged
@@ -5467,6 +5479,20 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 2
   m_TargetDisplay: 0
+--- !u!114 &1674697946
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1674697941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 708ead8f5af996c4f9ecd465c8b9c333, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wifiWindow: {fileID: 1674697941}
+  text: {fileID: 1116054227}
 --- !u!1 &1700126254
 GameObject:
   m_ObjectHideFlags: 0
@@ -5673,7 +5699,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -5767,7 +5793,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1716274356}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1674697946}
+        m_TargetAssemblyTypeName: WifiWindow, Assembly-CSharp
+        m_MethodName: OnClickConnection
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1716274356
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6843,6 +6881,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2012843357}
   m_CullTransparentMesh: 1
+--- !u!1 &2028815226
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2028815228}
+  - component: {fileID: 2028815227}
+  m_Layer: 0
+  m_Name: WiFiManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2028815227
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2028815226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5eea2f6e12fb624f8d2bcb939f6559d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wifiOnOff: 0
+--- !u!4 &2028815228
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2028815226}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.2454439, y: 1.4249105, z: 0.9711259}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2032252423
 GameObject:
   m_ObjectHideFlags: 0
@@ -7122,3 +7205,4 @@ SceneRoots:
   - {fileID: 1634718971}
   - {fileID: 1465971965}
   - {fileID: 1419803422}
+  - {fileID: 2028815228}
