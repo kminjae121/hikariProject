@@ -12,12 +12,10 @@ public class PlayerInput : PlayerMovement
         SettingWindow.SetActive(false);
     }
 
-
     private void Update()
     {
         SettingWindowOn();
     }
-
 
     private void SettingWindowOn() // esc 키를 누를 시
     {

@@ -14,6 +14,7 @@ public class WifiWindow : MonoBehaviour
         wifiWindow.SetActive(false);
     }
 
+
     public void OnClickBack() // 뒤로가기 버튼 누를 시
     {
         wifiWindow.SetActive(false);
