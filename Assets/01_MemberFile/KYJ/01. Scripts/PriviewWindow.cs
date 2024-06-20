@@ -5,9 +5,9 @@ using UnityEngine;
 
 public class PriviewWindow : MonoBehaviour
 {
-    [SerializeField] public bool isContactingPreview; // 미리보기 화면에 접촉 여부 bool
+    [SerializeField] public bool isContactingPreview; // 플레이어 미리보기 화면에 접촉 여부 bool
     
-    public bool IsContactingPreview
+    public bool IsContactingPreview 
     {
         get
         {

@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour
 {
     private PriviewWindow priviewWindow;
     private Rigidbody2D rigid;
+
     private bool isCoolTime;
     [SerializeField] private float speed = 5;
 
@@ -38,7 +39,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (priviewWindow.isContactingPreview == true && Input.GetKeyDown(KeyCode.E))
         {
-            SceneManager.LoadScene("PreviewScenes"); // 씬 전환
+            SceneManager.LoadScene("PreviewScenes"); // 미리보기 화면 씬으로 전환
         }
     }
 
@@ -46,21 +47,13 @@ public class PlayerMovement : MonoBehaviour
     public void Buffering() // 버퍼링 기능
     {
         int i = Random.Range(0, 100);
-        if (i < 50 && !isCoolTime)
+        if (i < 50 && !isCoolTime) // 50퍼 확률로
         {
-            PlayerMove(0.1f);
+            PlayerMove(0.1f); // 버퍼링
         }
         else
         {
-            PlayerMove(4);
+            PlayerMove(4f);
         }
-    }
-
-
-    IEnumerator BufferingCool(float cooltime) // 버퍼링 쿨타임
-    {
-        isCoolTime = true;
-        yield return new WaitForSeconds(cooltime);
-        isCoolTime = false;
     }
 }
