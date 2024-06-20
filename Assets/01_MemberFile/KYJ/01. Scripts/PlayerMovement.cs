@@ -56,12 +56,4 @@ public class PlayerMovement : MonoBehaviour
             PlayerMove(4f);
         }
     }
-
-
-    //IEnumerator BufferingCool(float cooltime) // 버퍼링 쿨타임
-    //{
-    //    isCoolTime = true;
-    //    yield return new WaitForSeconds(cooltime);
-    //    isCoolTime = false;
-    //}
 }
