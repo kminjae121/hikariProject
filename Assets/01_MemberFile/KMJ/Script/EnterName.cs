@@ -16,9 +16,17 @@ public class EnterName : MonoBehaviour
 
     public void Enter()
     {
-        receiveText.text = $"사용자이름: {display.text}";
+        if(display.text.Length < 5)
+        {
+            receiveText.text = $"사용자이름: {display.text}";
+        }
+        else
+        {
+            receiveText.text = $"다시 입력하세요";
+        }
         PlayerPrefs.SetString("이름 입력", receiveText.text);
         PlayerPrefs.Save();
+        
     }
 
 
@@ -30,7 +38,7 @@ public class EnterName : MonoBehaviour
     {
         if(Input.GetMouseButtonDown(1))
         {
-            receiveText.text = $"사용자이름: 따따잇";
+            receiveText.text = $"사용자이름: 히카리여";
         }
     }
 }

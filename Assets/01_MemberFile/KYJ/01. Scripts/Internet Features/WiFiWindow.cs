@@ -9,6 +9,8 @@ public class WifiWindow : MonoBehaviour
     [SerializeField] private GameObject wifiWindow;
     [SerializeField] private TextMeshProUGUI text;
 
+
+
     private void Awake()
     {
         wifiWindow.SetActive(false);

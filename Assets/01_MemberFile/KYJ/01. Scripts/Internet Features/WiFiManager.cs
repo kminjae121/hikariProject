@@ -91,10 +91,13 @@ public class WiFiManager : MonoBehaviour
     private IEnumerator WifiCool() // 와이파이 랜덤 연결 쿨타임
     {
         isCool = false;
-        int rand = Random.Range(3, 10);
-        yield return new WaitForSeconds(rand);
-        RandomOnOff();
-        print("실행");
+        if (wifiOnOff == true)
+        {
+            int rand = Random.Range(3, 10);
+            yield return new WaitForSeconds(rand);
+            RandomOnOff();
+            print("실행");
+        }
         isCool = true;
     }
 }
