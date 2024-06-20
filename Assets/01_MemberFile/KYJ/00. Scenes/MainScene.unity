@@ -2578,8 +2578,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a18630d746ed1a24ba3be0c9bfe6352c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  internetWindow: {fileID: 941008084}
-  wifiWindow: {fileID: 1674697941}
 --- !u!1 &941731043
 GameObject:
   m_ObjectHideFlags: 0
@@ -4830,7 +4828,7 @@ GameObject:
   - component: {fileID: 1432468234}
   - component: {fileID: 1432468233}
   - component: {fileID: 1432468232}
-  - component: {fileID: 1432468231}
+  - component: {fileID: 1432468235}
   m_Layer: 5
   m_Name: FirewallWindow
   m_TagString: Untagged
@@ -4858,20 +4856,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &1432468231
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1432468229}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a18630d746ed1a24ba3be0c9bfe6352c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  internetWindow: {fileID: 1432468229}
-  wifiWindow: {fileID: 1674697941}
 --- !u!114 &1432468232
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4935,6 +4919,18 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 1
   m_TargetDisplay: 0
+--- !u!114 &1432468235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1432468229}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6491368a03cbc4a479a46239e5fad2db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1455314502
 GameObject:
   m_ObjectHideFlags: 0
@@ -5171,6 +5167,53 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!1 &1466413253
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1466413255}
+  - component: {fileID: 1466413254}
+  m_Layer: 0
+  m_Name: FirewallManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1466413254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1466413253}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c15ad09525c5fa345aaa69d5afa96f4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firewallOnOff: 0
+  text: {fileID: 1788867219}
+  virusOnOff: 0
+--- !u!4 &1466413255
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1466413253}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 960, y: 540, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1498192128
 GameObject:
   m_ObjectHideFlags: 0
@@ -5362,6 +5405,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   internetWindow: {fileID: 941008084}
+  firewallWindow: {fileID: 0}
   settingWindow: {fileID: 1526181507}
 --- !u!1 &1571473853
 GameObject:
@@ -8029,7 +8073,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1432468231}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: InternetWindow, Assembly-CSharp
         m_MethodName: OnClickBack
         m_Mode: 1
@@ -8178,9 +8222,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1432468231}
+      - m_Target: {fileID: 1432468229}
         m_TargetAssemblyTypeName: InternetWindow, Assembly-CSharp
-        m_MethodName: OnClickWifi
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8374,3 +8418,4 @@ SceneRoots:
   - {fileID: 1419803422}
   - {fileID: 121721685}
   - {fileID: 427032163}
+  - {fileID: 1466413255}

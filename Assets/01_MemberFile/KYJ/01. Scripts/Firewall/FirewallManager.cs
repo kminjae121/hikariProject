@@ -12,6 +12,8 @@ public class FirewallManger : MonoBehaviour
 
     private PlayerMovement playerMovement;
 
+    [SerializeField] private bool virusOnOff;
+
     private bool isCool = true; // 쿨타임 제어
 
 
@@ -42,11 +44,9 @@ public class FirewallManger : MonoBehaviour
 
     private void Update()
     {
-        //if (isCool == true)
-        //    StartCoroutine(WifiCool());
 
         FirewallConnection();
-
+        VirusOnOff();
 
         if (firewallOnOff == false) // 방화벽 연결 끊겼을 때
         {
@@ -59,11 +59,9 @@ public class FirewallManger : MonoBehaviour
     }
 
 
-    private void RandomOnOff() // 바이러스 여부 방화벽 온오프
+    private void VirusOnOff() // 바이러스 여부 방화벽 온오프
     {
-        int rand = Random.Range(0, 100);
-
-        if (rand < 30)
+        if (virusOnOff == true)
         {
             firewallOnOff = false;
         }
