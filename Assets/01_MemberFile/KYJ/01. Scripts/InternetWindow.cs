@@ -8,26 +8,14 @@ public class InternetWindow : MonoBehaviour
     [SerializeField] private GameObject internetWindow;
     [SerializeField] private GameObject wifiWindow;
 
-    private PlayerMovement playerMovement;
 
 
     void Awake()
     {
-        playerMovement = FindObjectOfType<PlayerMovement>();
         internetWindow.SetActive(false);
     }
 
-    private void Update()
-    {
-        if (WiFiManager.instance.WifiOnOff == false) // 와이파이 연결 끊겼을 때
-        {
-            playerMovement.Buffering(); // 버퍼링 기능 
-        }
-        else
-        {
-            playerMovement.PlayerMove(4f); // 아니면 그냥 이동 기능
-        }
-    }
+    
 
     public void OnClickBack() // 뒤로가기 버튼 누를 시
     {
