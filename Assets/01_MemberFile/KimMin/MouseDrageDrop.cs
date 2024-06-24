@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class MouseDrageDrop : MonoBehaviour
 {
-    private Vector3 _mousePos;
-    private Vector2 _holdObjectVelocity;
-    Vector2 lastPos;
+    [SerializeField]
+    private GameObject riggingPlayer, playerSprite;
 
+    private LayerMask defalt;
+
+    private Vector3 _mousePos;
+    private Vector2 _holdObjectVelocity , lastPos;
 
     private GameObject _holdObject;
     private bool _isHeld = false;
@@ -33,8 +36,18 @@ public class MouseDrageDrop : MonoBehaviour
             if (hit.collider.CompareTag("Player") && Input.GetMouseButton(0))
             {
                 _holdObject = hit.collider.gameObject;
-                _holdObject.GetComponent<Rigidbody2D>().simulated = false;
-                _isHeld = true;
+                //_holdObject.GetComponent<Rigidbody2D>().simulated = false; ¹Î
+
+                _holdObject.GetComponent<Rigidbody2D>().gravityScale = 0f;
+
+                riggingPlayer.SetActive(true);
+                //Rigidbody2D[] tr = riggingPlayer.GetComponentsInChildren<Rigidbody2D>();
+                //foreach (var i in tr)
+                //{
+                //    i.GetComponent<Rigidbody2D>().gravityScale = 0f;
+                //}
+                _isHeld =   true;
+                playerSprite.SetActive(false);
             }
         }
     }
@@ -50,8 +63,22 @@ public class MouseDrageDrop : MonoBehaviour
             Rigidbody2D rigid = _holdObject.GetComponent<Rigidbody2D>();
 
             _isHeld = false;
-            rigid.simulated = true;
+            rigid.gravityScale = 1f;
             rigid.velocity = Vector2.zero;
+
+            //Rigidbody2D[] tr = riggingPlayer.GetComponentsInChildren<Rigidbody2D>();
+            //foreach (var i in tr)
+            //{
+            //       i.GetComponent<Rigidbody2D>().gravityScale = 9.8f;
+            //       i.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+            //}
+            Rigidbody2D[] tr = riggingPlayer.GetComponentsInChildren<Rigidbody2D>();
+            foreach (var i in tr)
+            {
+                   i.gameObject.transform.localPosition = new Vector3(0, 0, 0);
+            }
+            riggingPlayer.SetActive(false);
+            playerSprite.SetActive(true);
         }
     }
 
