@@ -44,13 +44,12 @@ public class FirewallManger : MonoBehaviour
 
     private void Update()
     {
-
         FirewallConnection();
         VirusOnOff();
 
         if (firewallOnOff == false) // 방화벽 연결 끊겼을 때
         {
-
+            // 와이파이 다운 확률 업
         }
         else
         {

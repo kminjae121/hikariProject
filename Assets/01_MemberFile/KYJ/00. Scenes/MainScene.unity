@@ -4931,6 +4931,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6491368a03cbc4a479a46239e5fad2db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  text: {fileID: 2066579991}
 --- !u!1 &1455314502
 GameObject:
   m_ObjectHideFlags: 0
@@ -5405,7 +5406,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   internetWindow: {fileID: 941008084}
-  firewallWindow: {fileID: 0}
+  firewallWindow: {fileID: 1432468229}
   settingWindow: {fileID: 1526181507}
 --- !u!1 &1571473853
 GameObject:
@@ -7558,7 +7559,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &2028815227
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8222,9 +8223,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1432468229}
-        m_TargetAssemblyTypeName: InternetWindow, Assembly-CSharp
-        m_MethodName: 
+      - m_Target: {fileID: 1432468235}
+        m_TargetAssemblyTypeName: FirewallWindow, Assembly-CSharp
+        m_MethodName: FirewallConnection
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
