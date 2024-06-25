@@ -53,7 +53,8 @@ public class MouseDrageDrop : MonoBehaviour
     }
 
     private void HoldObject()
-    {
+    {/*
+        _holdObject.GetComponent<Rigidbody2D>().velocity = Vector3.zero;*/
         _holdObject.transform.position = Vector3.Lerp(_holdObject.transform.position, _mousePos, 10f * Time.deltaTime);
 
         RotateHoldObject();
@@ -65,6 +66,7 @@ public class MouseDrageDrop : MonoBehaviour
             _isHeld = false;
             rigid.gravityScale = 1f;
             rigid.velocity = Vector2.zero;
+            rigid.gravityScale = 9.8f;
 
             //Rigidbody2D[] tr = riggingPlayer.GetComponentsInChildren<Rigidbody2D>();
             //foreach (var i in tr)
@@ -75,10 +77,12 @@ public class MouseDrageDrop : MonoBehaviour
             Rigidbody2D[] tr = riggingPlayer.GetComponentsInChildren<Rigidbody2D>();
             foreach (var i in tr)
             {
-                   i.gameObject.transform.localPosition = new Vector3(0, 0, 0);
+                i.gameObject.transform.localPosition = new Vector3(0, 0, 0);
+                i.velocity = Vector2.zero;
             }
             riggingPlayer.SetActive(false);
             playerSprite.SetActive(true);
+            _holdObject.transform.localRotation = Quaternion.Euler(0, 0,0);
         }
     }
 
