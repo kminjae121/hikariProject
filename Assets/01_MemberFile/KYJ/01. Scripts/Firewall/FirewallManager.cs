@@ -13,8 +13,6 @@ public class FirewallManger : MonoBehaviour
     [SerializeField] private bool virusOnOff;
     private bool isCool;
 
-    //private bool isCool = true; // ÄðÅ¸ÀÓ Á¦¾î
-
     private WiFiManager wifiManager;
 
 
@@ -30,9 +28,10 @@ public class FirewallManger : MonoBehaviour
         }
     }
 
+
     private void Awake()
     {
-        if (instance == null) // ½Ì±ÛÅæÀÔ´Ï´Ù
+        if (instance == null)
         {
             instance = this;
         }
@@ -47,10 +46,8 @@ public class FirewallManger : MonoBehaviour
 
     private void Update()
     {
-        //FirewallConnection();
         VirusOnOff();
         StartCoroutine(WifiCool());
-       
     }
 
 
@@ -65,21 +62,6 @@ public class FirewallManger : MonoBehaviour
             firewallOnOff = true;
         }
     }
-
-    //private void FirewallConnection() // ¹æÈ­º® ¿¬°á ½Ã ÅØ½ºÆ® º¯°æ
-    //{
-    //    if (firewallOnOff == true) // ¿¬°áÀÌ µÅÀÖÀ» ¶§
-    //    {
-    //        firewallOnOff = false;
-    //        text.text = "¿¬°á ¾È µÊ";
-    //    }
-
-    //    else
-    //    {
-    //        firewallOnOff = true;
-    //        text.text = "¿¬°áµÊ";
-    //    }
-    //}
 
     private IEnumerator WifiCool() // ¿ÍÀÌÆÄÀÌ ·£´ý ¿¬°á ÄðÅ¸ÀÓ
     {

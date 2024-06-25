@@ -14,7 +14,6 @@ public class WiFiManager : MonoBehaviour
 
     private bool isCool = true; // ƒ≈∏¿” ¡¶æÓ
 
-
     public bool WifiOnOff
     {
         get
@@ -29,7 +28,7 @@ public class WiFiManager : MonoBehaviour
 
     private void Awake()
     {
-        if (instance == null) // ΩÃ±€≈Ê¿‘¥œ¥Ÿ
+        if (instance == null)
         {
             instance = this;
         }
