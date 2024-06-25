@@ -5289,6 +5289,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57fcc1fb412247a458a3fc1b65afd839, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  riggingPlayer: {fileID: 0}
+  playerSprite: {fileID: 0}
 --- !u!4 &1243276712
 Transform:
   m_ObjectHideFlags: 0
@@ -8488,6 +8490,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6612734882097327984, guid: e84e2681d6083354983fdc9506576ad0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7481475989141798322, guid: e84e2681d6083354983fdc9506576ad0, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

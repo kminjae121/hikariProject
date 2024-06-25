@@ -39,6 +39,7 @@ public class MouseDrageDrop : MonoBehaviour
                 //_holdObject.GetComponent<Rigidbody2D>().simulated = false; ¹Î
 
                 _holdObject.GetComponent<Rigidbody2D>().gravityScale = 0f;
+                _holdObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
 
                 riggingPlayer.SetActive(true);
                 //Rigidbody2D[] tr = riggingPlayer.GetComponentsInChildren<Rigidbody2D>();
