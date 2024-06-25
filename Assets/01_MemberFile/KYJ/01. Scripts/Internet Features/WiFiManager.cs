@@ -61,11 +61,11 @@ public class WiFiManager : MonoBehaviour
     }
 
 
-    private void RandomOnOff() // 랜덤으로 와이파이 온오프
+    public void RandomOnOff(float a, float b) // 랜덤으로 와이파이 온오프
     {
-        int rand = Random.Range(0, 100);
+        float rand = Random.Range(a, b);
 
-        if (rand < 30)
+        if (rand < b)
         {
             wifiOnOff = false;
         }
@@ -95,7 +95,7 @@ public class WiFiManager : MonoBehaviour
         {
             int rand = Random.Range(3, 10);
             yield return new WaitForSeconds(rand);
-            RandomOnOff();
+            RandomOnOff(0f, 20f);
             print("실행");
         }
         isCool = true;
