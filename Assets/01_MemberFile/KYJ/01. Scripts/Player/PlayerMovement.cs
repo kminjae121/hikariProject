@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
 public class PlayerMovement : MonoBehaviour
 {
     private PriviewWindow priviewWindow;
@@ -16,6 +17,7 @@ public class PlayerMovement : MonoBehaviour
     {
         priviewWindow = GameObject.Find("PriviewWindow").GetComponent<PriviewWindow>();
         rigid = GetComponent<Rigidbody2D>();
+
     }
 
 
@@ -38,7 +40,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Teleporting() // 미리보기 화면으로 이동
     {
-        if (priviewWindow.isContactingPreview == true && Input.GetKeyDown(KeyCode.E))
+        if (priviewWindow.IsContactingPreview == true && Input.GetKeyDown(KeyCode.E))
         {
             SceneManager.LoadScene("PreviewScenes"); // 미리보기 화면 씬으로 전환
         }
