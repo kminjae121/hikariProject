@@ -5199,7 +5199,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firewallOnOff: 0
   text: {fileID: 1788867219}
-  wifi: {fileID: 0}
+  wifi: {fileID: 1009974317}
   virusOnOff: 0
 --- !u!4 &1466413255
 Transform:
@@ -7526,7 +7526,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wifiOnOff: 0
   text: {fileID: 1116054227}
-  wifi: {fileID: 0}
+  wifi: {fileID: 1009974317}
 --- !u!4 &2028815228
 Transform:
   m_ObjectHideFlags: 0
