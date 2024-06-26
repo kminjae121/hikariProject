@@ -10,6 +10,8 @@ public class WiFiManager : MonoBehaviour
     [SerializeField] private bool wifiOnOff; // 와이파이 발동 여부
     [SerializeField] private TextMeshProUGUI text; // 와이파이 연결 여부 텍스트
 
+    [SerializeField] private TextMeshProUGUI wifi; // 와이파이 연결 여부 텍스트
+
     private PlayerMovement playerMovement;
 
     private bool isCool = true; // 쿨타임 제어
@@ -63,6 +65,7 @@ public class WiFiManager : MonoBehaviour
     public void RandomOnOff(float a, float b) // 랜덤으로 와이파이 온오프
     {
         float rand = Random.Range(a, b);
+        wifi.text = $"확률 : {rand}";
 
         if (rand < b)
         {
@@ -72,6 +75,7 @@ public class WiFiManager : MonoBehaviour
         {
             wifiOnOff = true;
         }
+
     }
 
     private void WifiConnection() // 와이파이 연결 시 텍스트 변경

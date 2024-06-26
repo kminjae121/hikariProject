@@ -10,6 +10,8 @@ public class FirewallManger : MonoBehaviour
     [SerializeField] private bool firewallOnOff; // 와이파이 발동 여부
     [SerializeField] private TextMeshProUGUI text; // 와이파이 연결 여부 텍스트
 
+    [SerializeField] private TextMeshProUGUI wifi; // 와이파이 연결 여부 텍스트
+
     [SerializeField] private bool virusOnOff;
     private bool isCool;
 
