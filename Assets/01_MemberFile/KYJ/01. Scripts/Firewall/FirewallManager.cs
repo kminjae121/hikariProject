@@ -3,10 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class FirewallManger : MonoBehaviour
+public class FirewallManger : Monosingleton<FirewallManger>
 {
-    public static FirewallManger instance = null;
-
     [SerializeField] private bool firewallOnOff; // 와이파이 발동 여부
     [SerializeField] private TextMeshProUGUI text; // 와이파이 연결 여부 텍스트
 
@@ -33,15 +31,6 @@ public class FirewallManger : MonoBehaviour
 
     private void Awake()
     {
-        if (instance == null)
-        {
-            instance = this;
-        }
-        else
-        {
-            Destroy(this.gameObject);
-        }
-
         wifiManager = GameObject.Find("WiFiManager").GetComponent<WiFiManager>();
     }
 

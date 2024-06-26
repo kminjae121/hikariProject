@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class WiFiManager : MonoBehaviour
+public class WiFiManager : Monosingleton<WiFiManager>
 {
-    public static WiFiManager instance = null;
+    //public static WiFiManager instance = null;
 
     [SerializeField] private bool wifiOnOff; // 와이파이 발동 여부
     [SerializeField] private TextMeshProUGUI text; // 와이파이 연결 여부 텍스트
@@ -30,14 +30,7 @@ public class WiFiManager : MonoBehaviour
 
     private void Awake()
     {
-        if (instance == null)
-        {
-            instance = this;
-        }
-        else
-        {
-            Destroy(this.gameObject);
-        }
+        
 
         playerMovement = FindObjectOfType<PlayerMovement>();
     }
