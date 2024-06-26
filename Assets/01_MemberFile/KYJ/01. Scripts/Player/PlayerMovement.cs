@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
 public class PlayerMovement : MonoBehaviour
 {
     private PriviewWindow priviewWindow;
@@ -16,6 +17,7 @@ public class PlayerMovement : MonoBehaviour
     {
         priviewWindow = GameObject.Find("PriviewWindow").GetComponent<PriviewWindow>();
         rigid = GetComponent<Rigidbody2D>();
+
     }
 
 
