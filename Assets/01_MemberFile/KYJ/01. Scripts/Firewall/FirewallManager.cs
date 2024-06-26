@@ -10,11 +10,10 @@ public class FirewallManger : MonoBehaviour
     [SerializeField] private bool firewallOnOff; // 와이파이 발동 여부
     [SerializeField] private TextMeshProUGUI text; // 와이파이 연결 여부 텍스트
 
-    private PlayerMovement playerMovement;
-
     [SerializeField] private bool virusOnOff;
+    private bool isCool;
 
-    private bool isCool = true; // 쿨타임 제어
+    private WiFiManager wifiManager;
 
 
     public bool FirewallOnOff
@@ -29,9 +28,10 @@ public class FirewallManger : MonoBehaviour
         }
     }
 
+
     private void Awake()
     {
-        if (instance == null) // 싱글톤입니다
+        if (instance == null)
         {
             instance = this;
         }
@@ -39,23 +39,15 @@ public class FirewallManger : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+
+        wifiManager = GameObject.Find("WiFiManager").GetComponent<WiFiManager>();
     }
 
 
     private void Update()
     {
-
-        FirewallConnection();
         VirusOnOff();
-
-        if (firewallOnOff == false) // 방화벽 연결 끊겼을 때
-        {
-
-        }
-        else
-        {
-
-        }
+        StartCoroutine(WifiCool());
     }
 
 
@@ -71,26 +63,25 @@ public class FirewallManger : MonoBehaviour
         }
     }
 
-    private void FirewallConnection() // 방화벽 연결 시 텍스트 변경
+    private IEnumerator WifiCool() // 와이파이 랜덤 연결 쿨타임
     {
-        if (firewallOnOff == true) // 연결이 돼있을 때
+        if (firewallOnOff == false && isCool == false) // 방화벽 연결 끊겼을 때
         {
-            text.text = "연결됨";
+            isCool = true;
+            int rand1 = Random.Range(3, 10);
+            yield return new WaitForSeconds(rand1);
+            wifiManager.RandomOnOff(0f, 50f); // 와이파이 다운 확률 업
+            print("확률 업!");
+            isCool = false;
         }
-
-        else
+        else if (firewallOnOff == true && isCool == false)
         {
-            text.text = "연결 안 됨";
+            isCool = true;
+            int rand = Random.Range(3, 10);
+            yield return new WaitForSeconds(rand);
+            wifiManager.RandomOnOff(0f, 20f); // 확률 그대로
+            print("확률 보존!");
+            isCool = false;
         }
     }
-
-    //private IEnumerator WifiCool() // 와이파이 랜덤 연결 쿨타임
-    //{
-    //    isCool = false;
-    //    int rand = Random.Range(3, 10);
-    //    yield return new WaitForSeconds(rand);
-    //    RandomOnOff();
-    //    print("실행");
-    //    isCool = true;
-    //}
 }
