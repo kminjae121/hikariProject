@@ -38,7 +38,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Teleporting() // 미리보기 화면으로 이동
     {
-        if (priviewWindow.isContactingPreview == true && Input.GetKeyDown(KeyCode.E))
+        if (priviewWindow.IsContactingPreview == true && Input.GetKeyDown(KeyCode.E))
         {
             SceneManager.LoadScene("PreviewScenes"); // 미리보기 화면 씬으로 전환
         }

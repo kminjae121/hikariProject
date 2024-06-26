@@ -7,6 +7,10 @@ public class FirewallWindow : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI text; // 와이파이 연결 여부 텍스트
 
+    private void Awake()
+    {
+        gameObject.SetActive(false);
+    }
 
     public void FirewallConnection() // 방화벽 연결 시 텍스트 변경
     {
@@ -22,4 +26,9 @@ public class FirewallWindow : MonoBehaviour
             text.text = "연결됨";
         }
     }
+    public void OnClickBack() // 뒤로가기 버튼 누를 시
+    {
+        gameObject.SetActive(false);
+    }
+
 }

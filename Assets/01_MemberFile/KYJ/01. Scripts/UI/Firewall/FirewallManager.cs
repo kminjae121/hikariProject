@@ -5,17 +5,9 @@ using TMPro;
 
 public class FirewallManger : Monosingleton<FirewallManger>
 {
-    [SerializeField] private bool firewallOnOff; // 와이파이 발동 여부
-    [SerializeField] private TextMeshProUGUI text; // 와이파이 연결 여부 텍스트
-
-    [SerializeField] private TextMeshProUGUI wifi; // 와이파이 연결 여부 텍스트
-
-    [SerializeField] private bool virusOnOff;
     private bool isCool;
-
-    private WiFiManager wifiManager;
-
-
+    [SerializeField] private bool virusOnOff;
+    [SerializeField] private bool firewallOnOff; // 와이파이 발동 여부
     public bool FirewallOnOff
     {
         get
@@ -27,6 +19,10 @@ public class FirewallManger : Monosingleton<FirewallManger>
             firewallOnOff = value;
         }
     }
+
+    [SerializeField] private TextMeshProUGUI text; // 와이파이 연결 여부 텍스트
+
+    private WiFiManager wifiManager;
 
 
     private void Awake()
