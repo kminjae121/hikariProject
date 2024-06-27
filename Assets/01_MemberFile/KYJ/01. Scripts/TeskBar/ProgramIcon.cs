@@ -46,6 +46,11 @@ public class ProgramIcon : MonoBehaviour
         isContactCursor = true; // isContactCursor로 접촉 여부를 참으로 만든다.
     }
 
+    public void DownWindow()
+    {
+        isContactCursor = false; // isContactCursor로 접촉 여부를 참으로 만든다.
+    }
+
     //private void OnTriggerEnter2D(Collider2D other)
     //{
     //    if (other.CompareTag("Cursor")) // 커서가 프로그램 아이콘에 닿았을 경우

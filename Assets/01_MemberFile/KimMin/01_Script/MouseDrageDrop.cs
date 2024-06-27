@@ -12,6 +12,7 @@ public class MouseDrageDrop : MonoBehaviour
     private LayerMask defalt;
 
     public UnityEvent mouseTrigger;
+    public UnityEvent mouseNotTrigger;
     private Vector3 _mousePos;
     private Vector2 _holdObjectVelocity , lastPos;
 
@@ -39,6 +40,10 @@ public class MouseDrageDrop : MonoBehaviour
             if (hit.collider.CompareTag("ProgramIcon"))
             {
                 mouseTrigger?.Invoke();
+            }
+            else
+            {
+                mouseNotTrigger.Invoke();
             }
             if (hit.collider.CompareTag("Player") && Input.GetMouseButton(0))
             {
