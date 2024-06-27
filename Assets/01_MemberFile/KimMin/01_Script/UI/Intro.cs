@@ -13,12 +13,25 @@ public class Intro : MonoBehaviour
 
     private void Start()
     {
-
+        BlinkTween();
     }
 
     private void BlinkTween()
     {
         glowScreenSeq = DOTween.Sequence()
-            .Append()
+            .OnStart(() =>
+            {
+                _glowScreen.gameObject.SetActive(true);
+            })
+            .PrependInterval(5f)
+            .Append(_glowScreen.DOFade(1, 0f))
+            .Append(_glowScreen.transform.DOScaleX(400, 7f)).SetEase(Ease.OutCubic)
+            .Append(_glowScreen.transform.DOScaleY(230, 2.5f)).SetEase(Ease.OutCubic)
+            .Append(_glowScreen.DOFade(0, 1.25f));
+    }
+
+    private void IntroComplete()
+    {
+
     }
 }
