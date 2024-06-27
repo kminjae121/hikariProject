@@ -7,9 +7,7 @@ public class SettingWindow : MonoBehaviour
     [SerializeField] private GameObject internetWindow;
     [SerializeField] private GameObject firewallWindow;
     [SerializeField] private GameObject settingWindow;
-
-    [SerializeField] private GameObject[] windows;
-
+ 
     private void Awake()
     {
         internetWindow.SetActive(false); // 인터넷 화면 비활성화
