@@ -18,10 +18,7 @@ public class Intro : MonoBehaviour
 
     private void BlinkTween()
     {
-        glowScreenSeq = DOTween.Sequence();
-
-        glowScreenSeq.Append(_glowScreen.DOFade(1, _interval));
-        //glowScreenSeq.JoinCallback(TweenCallback(Random.Range(0.05f, 0.25f)));
-        glowScreenSeq.SetLoops(-1, LoopType.Yoyo);
+        glowScreenSeq = DOTween.Sequence()
+            .Append()
     }
 }
