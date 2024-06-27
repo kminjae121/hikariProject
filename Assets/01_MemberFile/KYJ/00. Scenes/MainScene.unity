@@ -4522,7 +4522,7 @@ GameObject:
   - component: {fileID: 1419803425}
   m_Layer: 0
   m_Name: ProgramIcon
-  m_TagString: PriviewWindow
+  m_TagString: ProgramIcon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
