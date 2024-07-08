@@ -6,6 +6,8 @@ using TMPro;
 public class WiFiManager : Monosingleton<WiFiManager>
 {
     private bool isCool = true; // 쿨타임 제어
+    public bool WifiRandomOnOff; // 와이파이 랜덤 여부 제어
+
     [SerializeField] private bool wifiOnOff; // 와이파이 발동 여부
 
     [SerializeField] private TextMeshProUGUI text; // 와이파이 연결 여부 텍스트
@@ -55,7 +57,7 @@ public class WiFiManager : Monosingleton<WiFiManager>
     {
         float rand = Random.Range(a, b);
 
-        if (rand < b)
+        if (rand <= b)
         {
             wifiOnOff = false;
         }
@@ -82,12 +84,11 @@ public class WiFiManager : Monosingleton<WiFiManager>
     private IEnumerator WifiCool() // 와이파이 랜덤 연결 쿨타임
     {
         isCool = false;
-        if (wifiOnOff == true)
+        if ( wifiOnOff == true)
         {
             int rand = Random.Range(3, 10);
             yield return new WaitForSeconds(rand);
             RandomOnOff(0f, 20f);
-            print("실행");
         }
         isCool = true;
     }
