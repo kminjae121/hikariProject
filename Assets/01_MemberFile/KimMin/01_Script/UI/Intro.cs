@@ -25,8 +25,9 @@ public class Intro : MonoBehaviour
             })
             .PrependInterval(5f)
             .Append(_glowScreen.DOFade(1, 0f))
-            .Append(_glowScreen.transform.DOScaleX(400, 7f)).SetEase(Ease.OutCubic)
-            .Append(_glowScreen.transform.DOScaleY(230, 2.5f)).SetEase(Ease.OutCubic)
+            .Append(_glowScreen.transform.DOScaleX(200, 7f)).SetEase(Ease.OutCubic)
+            .Join(_glowScreen.transform.DOScaleY(0.4f, 7f)).SetEase(Ease.OutCubic)
+            .Append(_glowScreen.transform.DOScaleY(120, 2.5f)).SetEase(Ease.OutCubic)
             .Append(_glowScreen.DOFade(0, 1.25f));
     }
 
