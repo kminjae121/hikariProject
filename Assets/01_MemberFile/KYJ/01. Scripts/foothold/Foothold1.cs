@@ -28,7 +28,7 @@ public class Foothold1 : MonoBehaviour
 
     IEnumerator FootholdCool()
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(0.5f);
         rigid.bodyType = RigidbodyType2D.Dynamic;
     }
 }
