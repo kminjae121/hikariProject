@@ -3,16 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class WiFiManager : MonoBehaviour
+public class WiFiManager : Monosingleton<WiFiManager>
 {
-    public static WiFiManager instance = null;
-
+    private bool isCool = true; // 쿨타임 제어
     [SerializeField] private bool wifiOnOff; // 와이파이 발동 여부
+
     [SerializeField] private TextMeshProUGUI text; // 와이파이 연결 여부 텍스트
 
     private PlayerMovement playerMovement;
-
-    private bool isCool = true; // 쿨타임 제어
 
 
     public bool WifiOnOff
@@ -29,15 +27,6 @@ public class WiFiManager : MonoBehaviour
 
     private void Awake()
     {
-        if (instance == null) // 싱글톤입니다
-        {
-            instance = this;
-        }
-        else
-        {
-            Destroy(this.gameObject);
-        }
-
         playerMovement = FindObjectOfType<PlayerMovement>();
     }
 
@@ -61,11 +50,12 @@ public class WiFiManager : MonoBehaviour
     }
 
 
-    private void RandomOnOff() // 랜덤으로 와이파이 온오프
-    {
-        int rand = Random.Range(0, 100);
 
-        if (rand < 30)
+    public void RandomOnOff(float a, float b) // 랜덤으로 와이파이 온오프
+    {
+        float rand = Random.Range(a, b);
+
+        if (rand < b)
         {
             wifiOnOff = false;
         }
@@ -73,6 +63,7 @@ public class WiFiManager : MonoBehaviour
         {
             wifiOnOff = true;
         }
+
     }
 
     private void WifiConnection() // 와이파이 연결 시 텍스트 변경
@@ -95,7 +86,7 @@ public class WiFiManager : MonoBehaviour
         {
             int rand = Random.Range(3, 10);
             yield return new WaitForSeconds(rand);
-            RandomOnOff();
+            RandomOnOff(0f, 20f);
             print("실행");
         }
         isCool = true;

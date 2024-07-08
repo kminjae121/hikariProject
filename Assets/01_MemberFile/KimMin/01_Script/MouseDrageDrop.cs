@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class MouseDrageDrop : MonoBehaviour
 {
     [SerializeField]
@@ -39,6 +40,7 @@ public class MouseDrageDrop : MonoBehaviour
                 //_holdObject.GetComponent<Rigidbody2D>().simulated = false; ¹Î
 
                 _holdObject.GetComponent<Rigidbody2D>().gravityScale = 0f;
+                _holdObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
 
                 riggingPlayer.SetActive(true);
                 //Rigidbody2D[] tr = riggingPlayer.GetComponentsInChildren<Rigidbody2D>();
@@ -57,8 +59,7 @@ public class MouseDrageDrop : MonoBehaviour
         _holdObject.GetComponent<Rigidbody2D>().velocity = Vector3.zero;*/
         _holdObject.transform.position = Vector3.Lerp(_holdObject.transform.position, _mousePos, 10f * Time.deltaTime);
 
-        RotateHoldObject();
-
+        //RotateHoldObject();
         if (Input.GetMouseButtonUp(0))
         {
             Rigidbody2D rigid = _holdObject.GetComponent<Rigidbody2D>();
