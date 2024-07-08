@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 
 public class MouseDrageDrop : MonoBehaviour
@@ -10,9 +11,10 @@ public class MouseDrageDrop : MonoBehaviour
 
     private LayerMask defalt;
 
+    public UnityEvent mouseTrigger;
+    public UnityEvent mouseNotTrigger;
     private Vector3 _mousePos;
     private Vector2 _holdObjectVelocity , lastPos;
-
     private GameObject _holdObject;
     private bool _isHeld = false;
 
@@ -34,6 +36,14 @@ public class MouseDrageDrop : MonoBehaviour
 
         if (hit)
         {
+            if (hit.collider.CompareTag("ProgramIcon"))
+            {
+                mouseTrigger?.Invoke();
+            }
+            else
+            {
+                mouseNotTrigger.Invoke();
+            }
             if (hit.collider.CompareTag("Player") && Input.GetMouseButton(0))
             {
                 _holdObject = hit.collider.gameObject;
