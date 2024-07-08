@@ -15,7 +15,6 @@ public class MouseDrageDrop : MonoBehaviour
     public UnityEvent mouseNotTrigger;
     private Vector3 _mousePos;
     private Vector2 _holdObjectVelocity , lastPos;
-
     private GameObject _holdObject;
     private bool _isHeld = false;
 
