@@ -18,6 +18,7 @@ public class MouseDrageDrop : MonoBehaviour
     private GameObject _holdObject;
     private bool _isHeld = false;
 
+
     private void Update()
     {
         MousePosRay();
@@ -44,7 +45,7 @@ public class MouseDrageDrop : MonoBehaviour
             {
                 mouseNotTrigger.Invoke();
             }
-            if (hit.collider.CompareTag("Player") && Input.GetMouseButton(0))
+            if (hit.collider.CompareTag("Player") && Input.GetMouseButtonDown(0))
             {
                 _holdObject = hit.collider.gameObject;
                 //_holdObject.GetComponent<Rigidbody2D>().simulated = false; ¹Î
@@ -61,6 +62,7 @@ public class MouseDrageDrop : MonoBehaviour
                 _isHeld =   true;
                 playerSprite.SetActive(false);
             }
+            
         }
     }
 
@@ -72,9 +74,10 @@ public class MouseDrageDrop : MonoBehaviour
         //RotateHoldObject();
         if (Input.GetMouseButtonUp(0))
         {
+            _isHeld = false;
+
             Rigidbody2D rigid = _holdObject.GetComponent<Rigidbody2D>();
 
-            _isHeld = false;
             rigid.gravityScale = 1f;
             rigid.velocity = Vector2.zero;
             rigid.gravityScale = 9.8f;
@@ -93,8 +96,10 @@ public class MouseDrageDrop : MonoBehaviour
             }
             riggingPlayer.SetActive(false);
             playerSprite.SetActive(true);
-            _holdObject.transform.localRotation = Quaternion.Euler(0, 0,0);
+            _holdObject.transform.localRotation = Quaternion.Euler(0, 0, 0);
+            
         }
+
     }
 
     private void RotateHoldObject()

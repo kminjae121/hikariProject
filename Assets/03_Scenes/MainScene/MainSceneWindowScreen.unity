@@ -152,6 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5eea2f6e12fb624f8d2bcb939f6559d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  WifiRandomOnOff: 0
   wifiOnOff: 0
   text: {fileID: 1366675041}
 --- !u!4 &1287162
@@ -3975,7 +3976,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &734031934
 MonoBehaviour:
   m_ObjectHideFlags: 0
