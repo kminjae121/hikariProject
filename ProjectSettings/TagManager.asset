@@ -6,18 +6,20 @@ TagManager:
   tags:
   - Cursor
   - PriviewWindow
+  - HoldObject
+  - ProgramIcon
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Arm
+  - Legs
+  - Head
+  - Body
+  - Cape
   - 
   - 
   - 
