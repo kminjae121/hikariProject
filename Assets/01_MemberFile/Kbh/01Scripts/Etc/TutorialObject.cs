@@ -93,7 +93,6 @@ public class TutorialObject : MonoBehaviour
       }
       else
       {
-
          _currentContent.contents.alpha = 1;
 
          _isChecking = true;
