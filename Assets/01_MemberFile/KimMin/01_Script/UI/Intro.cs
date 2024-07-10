@@ -7,7 +7,6 @@ using UnityEngine.UI;
 public class Intro : MonoBehaviour
 {
     [SerializeField] private RawImage _glowScreen;
-    [SerializeField] private float _interval = 0.05f;
 
     private Sequence glowScreenSeq;
 

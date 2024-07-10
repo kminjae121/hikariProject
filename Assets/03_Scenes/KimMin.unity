@@ -1144,6 +1144,8 @@ GameObject:
   m_Component:
   - component: {fileID: 287810768}
   - component: {fileID: 287810769}
+  - component: {fileID: 287810770}
+  - component: {fileID: 287810771}
   m_Layer: 0
   m_Name: EventFeedback
   m_TagString: Untagged
@@ -1178,6 +1180,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d19cc76cc6164de40adc9c2be09c074a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &287810770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 287810767}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 901cc30e6c5d0b840a2946a2464d973b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _popUpObject: {fileID: 944411645702513775, guid: 8c26e665ac8ead547a2b5745981f4e93, type: 3}
+  _spawnTrm: {fileID: 414165419}
+  _spawnTime: 0
+--- !u!114 &287810771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 287810767}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: baf14cf255c6ee9409813bbdcf3383da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _popUpText: {fileID: 61137152497612797, guid: dec599530ab4e814ca911befb2b77534, type: 3}
+  _spawnTrm: {fileID: 414165419}
+  _interval: 4
+  _duration: 6
 --- !u!1 &303988589
 GameObject:
   m_ObjectHideFlags: 0
@@ -1407,11 +1440,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OnPopUpEvent:
     m_PersistentCalls:
-      m_Calls: []
-  _popUpText: {fileID: 61137152497612797, guid: dec599530ab4e814ca911befb2b77534, type: 3}
-  _canvas: {fileID: 1847549689}
-  _interval: 1
-  _duration: 4
+      m_Calls:
+      - m_Target: {fileID: 287810769}
+        m_TargetAssemblyTypeName: FeedbackPlayer, Assembly-CSharp
+        m_MethodName: PlayFeedback
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!4 &357727497
 Transform:
   m_ObjectHideFlags: 0
@@ -1503,6 +1544,41 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 391006433}
   m_CullTransparentMesh: 1
+--- !u!1 &414165419
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 414165420}
+  m_Layer: 5
+  m_Name: PopUps
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &414165420
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 414165419}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1847549693}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &416586644
 GameObject:
   m_ObjectHideFlags: 0
@@ -3504,7 +3580,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _glowScreen: {fileID: 1647044696}
-  _interval: 0.05
 --- !u!1 &828255030
 GameObject:
   m_ObjectHideFlags: 0
@@ -7702,8 +7777,8 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.5019608}
-  m_FlipX: 0
+  m_Color: {r: 0, g: 0.8237357, b: 1, a: 0.2509804}
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1, y: 1}
@@ -7722,7 +7797,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -7.06, y: 35.66, z: 0}
-  m_LocalScale: {x: 2, y: 10, z: 1}
+  m_LocalScale: {x: 1, y: 10, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -8098,6 +8173,7 @@ RectTransform:
   - {fileID: 1172971630}
   - {fileID: 1865085563}
   - {fileID: 815737319}
+  - {fileID: 414165420}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
