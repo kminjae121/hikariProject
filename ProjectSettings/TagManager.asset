@@ -8,6 +8,7 @@ TagManager:
   - PriviewWindow
   - HoldObject
   - ProgramIcon
+  - Application
   layers:
   - Default
   - TransparentFX
