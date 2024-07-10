@@ -7,33 +7,35 @@ public class Foothold1 : MonoBehaviour
 {
     private Rigidbody2D rigid;
     [SerializeField] private bool isTime;
+    [SerializeField] private bool isBack;
 
-    float i = 3f;
-    Vector3 moveDir = new Vector3(0, 10f, 0);
+    private float startPos;
 
     private void Awake()
     {
         rigid = GetComponent<Rigidbody2D>();
+        startPos = transform.position.y;
     }
 
     private void Update()
     {
-        
+        if (isBack == true && isTime == false)
+        {
+            StartCoroutine(ReturnFoothold());
+        }
+        else if (startPos == gameObject.transform.position.y)
+        {
+            isBack = false;
+        }
     }
 
-    private void OnCollisionStay2D(Collision2D other)
+    private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag("Player") && isTime == false)
+        if (other.gameObject.CompareTag("Player") && isBack == false)
         {
             StartCoroutine(FootholdCool());
+            isBack = true;
         }
-        StartCoroutine(ReturnFoothold());
-            transform.DOMoveY(20, i);
-    }
-
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-
     }
 
     IEnumerator FootholdCool()
@@ -44,6 +46,11 @@ public class Foothold1 : MonoBehaviour
     
     IEnumerator ReturnFoothold()
     {
-        yield return new WaitForSeconds(3f);
+        isTime = true;
+        yield return new WaitForSeconds(5f);
+        rigid.bodyType = RigidbodyType2D.Static;
+        transform.DOMoveY(startPos, 3f);
+        //transform.position = new Vector3(transform.position.x, startPos);
+        isTime = false;
     }
 }

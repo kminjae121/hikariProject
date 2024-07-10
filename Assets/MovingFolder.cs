@@ -56,7 +56,7 @@ public class MovingFolder : MonoBehaviour
         {
             if (TriggerPlayer.Length != 0)
             {
-                holdCam
+                //holdCam
             }
             _holdObject.transform.position = _holdObject.transform.root.position;
             _isHeld = false;
