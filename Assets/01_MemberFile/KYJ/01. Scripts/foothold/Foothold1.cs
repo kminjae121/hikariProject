@@ -3,54 +3,36 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
-public class Foothold1 : MonoBehaviour
+public class Foothold1 : Foothold
 {
-    private Rigidbody2D rigid;
-    [SerializeField] private bool isTime;
-    [SerializeField] private bool isBack;
-
-    private float startPos;
-
-    private void Awake()
+    protected override void Awake()
     {
-        rigid = GetComponent<Rigidbody2D>();
+        base.Awake();
+        _rigid = GetComponent<Rigidbody2D>();
         startPos = transform.position.y;
     }
 
     private void Update()
     {
-        if (isBack == true && isTime == false)
-        {
-            StartCoroutine(ReturnFoothold());
-        }
-        else if (startPos == gameObject.transform.position.y)
-        {
-            isBack = false;
-        }
-    }
+        //base.MoveFoothold(5f, 3f);
+    }   
 
-    private void OnCollisionEnter2D(Collision2D other)
-    {
-        if (other.gameObject.CompareTag("Player") && isBack == false)
-        {
-            StartCoroutine(FootholdCool());
-            isBack = true;
-        }
-    }
+    //private void OnCollisionEnter2D(Collision2D other)
+    //{
+    //    if (other.gameObject.CompareTag("Player") && isBack == false)
+    //    {
+    //        StartCoroutine(FootholdCool(3f));
+    //        isBack = true;
+    //    }
+    //}
 
-    IEnumerator FootholdCool()
-    {
-        yield return new WaitForSeconds(0.5f);
-        rigid.bodyType = RigidbodyType2D.Dynamic;
-    }
-    
-    IEnumerator ReturnFoothold()
-    {
-        isTime = true;
-        yield return new WaitForSeconds(5f);
-        rigid.bodyType = RigidbodyType2D.Static;
-        transform.DOMoveY(startPos, 3f);
-        //transform.position = new Vector3(transform.position.x, startPos);
-        isTime = false;
-    }
+    //protected override IEnumerator ReturnFoothold(float coolTime, float dgTime)
+    //{
+    //    return base.ReturnFoothold(coolTime, dgTime);
+    //}
+
+    //protected override IEnumerator FootholdCool(float coolTime)
+    //{
+    //    return base.FootholdCool(coolTime);
+    //}
 }
