@@ -20,8 +20,17 @@ public class SearchBar : MonoBehaviour
     {
         if(_inputFieldText.text == "심해속 탐험" || _inputFieldText.text == "심해에 있는 물고기" || _inputFieldText.text == "심해속 생물")
         {
+            _inputFieldText.text = null;
+            _inputSlide.SetActive(false);
             _inputField.SetActive(false);
             _answerScreen.SetActive(true);
+        }
+        else if(_inputFieldText.text == null)
+        {
+            _inputFieldText.text = null;
+            _inputSlide.SetActive(false);
+            _inputField.SetActive(true);
+            _answerScreen.SetActive(false);
         }
     }
     
