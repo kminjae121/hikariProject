@@ -64,7 +64,7 @@ public class MovingFolder : MonoBehaviour
 
     }
 
-    void OnDrawGizmos() // ¹üÀ§ ±×¸®±â
+    void OnDrawGizmos() // ï¿½ï¿½ï¿½ï¿½ ï¿½×¸ï¿½ï¿½ï¿½
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireCube(_holdObject.transform.position, boxSize);/*
