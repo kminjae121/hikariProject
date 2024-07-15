@@ -56,7 +56,7 @@ public class MovingFolder : MonoBehaviour
         {
             if (TriggerPlayer.Length != 0)
             {
-                
+                //holdCam
             }
             _holdObject.transform.position = _holdObject.transform.root.position;
             _isHeld = false;
@@ -64,7 +64,7 @@ public class MovingFolder : MonoBehaviour
 
     }
 
-    void OnDrawGizmos() // ¹üÀ§ ±×¸®±â
+    void OnDrawGizmos() // ï¿½ï¿½ï¿½ï¿½ ï¿½×¸ï¿½ï¿½ï¿½
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireCube(_holdObject.transform.position, boxSize);/*
