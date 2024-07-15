@@ -31,7 +31,6 @@ public class TextPopUpFeedback : Feedback
     {
         Vector2 spawnPos = Camera.main.ViewportToScreenPoint(new Vector2(
             Random.Range(0.15f, 0.85f), Random.Range(0.15f, 0.85f)));
-
         return spawnPos;
     }
 
