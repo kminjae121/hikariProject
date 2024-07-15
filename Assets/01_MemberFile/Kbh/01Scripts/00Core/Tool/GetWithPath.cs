@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class GetByPath<T> : Get<T>
+public class GetWithPath<T> : Get<T>
    where T : class, IData
 {
    protected override T Find()
@@ -15,10 +15,11 @@ public class GetByPath<T> : Get<T>
          Transform root = _trm.root;
          targetTrm = _trm;
          
-         while(result is null && targetTrm != root)
+         while(result is null && targetTrm != root && targetTrm != null)
          {
             targetTrm = targetTrm.parent;
-            result = targetTrm.GetComponent<T>();
+            if(targetTrm is not null)
+               result = targetTrm.GetComponent<T>();
          }
 
          return result;

@@ -14,12 +14,6 @@ public enum AgentType
 
 }
 
-public enum PlayerState
-{
-   Idle,
-   Grab,
-   Move
-}
 
 public enum ProgramsEnum
 {

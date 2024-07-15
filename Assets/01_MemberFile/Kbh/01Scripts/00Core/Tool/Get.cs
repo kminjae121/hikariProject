@@ -10,7 +10,7 @@ public abstract class Get<T>
 {
    protected Transform _trm = null;
    [SerializeField] protected string _path = string.Empty;
-   [SerializeField] public T shell = null;
+   [SerializeField] public T data = null;
 
    public void Initialize(Transform trm)
    {
@@ -19,7 +19,7 @@ public abstract class Get<T>
    }
 
       public void TryInitComponent()
-      => shell = Find();
+      => data = Find();
 
    protected abstract T Find();
 }

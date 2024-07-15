@@ -10,6 +10,8 @@ public interface INode
       where T : class, INode;
    void SetActive(bool activeSelf);
    Transform GetTrm();
+
+   event Action OnUpdateEvt;
 }
 
 public abstract class Empty : INode
@@ -17,6 +19,7 @@ public abstract class Empty : INode
    public Transform GetTrm() => null;
    public abstract void SetActive(bool activeSelf);
    public abstract void Receive<T>(T child, bool activeSelf) where T : class, INode;
+   public event Action OnUpdateEvt = null;
 }
 
 
