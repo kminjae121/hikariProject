@@ -18,7 +18,7 @@ public class CaptureObject : MonoBehaviour
         collider.enabled = false;
 
         gameObject.GetComponent<SpriteRenderer>().sprite = captureSprite;
-        changeUI.Prepend(gameObject.transform.DOScale(2f, 1))
+        changeUI.Prepend(gameObject.transform.DOScale(new Vector3(3f,3f,0), 1))
             .Append(gameObject.transform.DOScale(1f, 1))
             .Append(gameObject.transform.DOMove(new Vector2(uiPos.position.x,uiPos.position.y), 2f));
         CanHoldObject();

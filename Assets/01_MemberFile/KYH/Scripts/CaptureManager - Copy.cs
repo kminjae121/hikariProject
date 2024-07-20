@@ -17,7 +17,7 @@ public class CaptureManager : MonoBehaviour
 
     public void Capture()
     {
-        Collider2D[] captureObject = Physics2D.OverlapBoxAll(Input.mousePosition,captureSize,0,whatIsCaptureObj);
+        Collider2D[] captureObject = Physics2D.OverlapBoxAll(gameObject.transform.position,captureSize,0,whatIsCaptureObj);
 
         if(captureObject != null)
         {
