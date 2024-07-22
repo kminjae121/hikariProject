@@ -19,11 +19,14 @@ public class CaptureManager : MonoBehaviour
     {
         Collider2D[] captureObject = Physics2D.OverlapBoxAll(gameObject.transform.position,captureSize,0,whatIsCaptureObj);
 
-        if(captureObject != null)
+        if(Input.GetMouseButtonDown(0))
         {
-            for(int i=0; i<captureObject.Length; i++)
+            if(captureObject != null)
             {
-                captureObject[i]?.GetComponent<CaptureObject>().CaptureFinish();
+                for(int i=0; i<captureObject.Length; i++)
+                {
+                    captureObject[i]?.GetComponent<CaptureObject>().CaptureFinish();
+                }
             }
         }
     }
