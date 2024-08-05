@@ -9,6 +9,8 @@ public class SearchBar : MonoBehaviour
     [SerializeField] private GameObject _inputField;
     [SerializeField] private GameObject _inputSlide;
     [SerializeField] private GameObject _answerScreen;
+    [SerializeField] private TMP_InputField _SecondSettingBar;
+
 
     private void Awake()
     {
@@ -20,6 +22,7 @@ public class SearchBar : MonoBehaviour
     {
         if(_inputFieldText.text == "심해속 탐험" || _inputFieldText.text == "심해에 있는 물고기" || _inputFieldText.text == "심해속 생물")
         {
+            _SecondSettingBar.text = _inputFieldText.text;
             _inputFieldText.text = null;
             _inputSlide.SetActive(false);
             _inputField.SetActive(false);
