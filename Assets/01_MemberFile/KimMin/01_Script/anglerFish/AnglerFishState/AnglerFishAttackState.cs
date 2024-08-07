@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AnglerFishAttackState : AnglerFishState
 {
-    public AnglerFishAttackState(AnglerFish onwer) : base(onwer)
+    public AnglerFishAttackState(AnglerFishStateMachine owner, object param) : base(owner, param)
     {
     }
 

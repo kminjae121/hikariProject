@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class AnglerFishMoveState : AnglerFishState
 {
-
-    public AnglerFishMoveState(AnglerFish onwer) : base(onwer)
+    public AnglerFishMoveState(AnglerFishStateMachine owner, object param) : base(owner, param)
     {
     }
 

@@ -4,17 +4,16 @@ using UnityEngine;
 
 public enum AnglerFishEnum
 {
-    Idle,
     Move,
     Chase,
     Attack
 }
 
-public class AnglerFishState : MonoBehaviour
+public class AnglerFishState 
 {
-    protected AnglerFish _anglerFish;
+    protected AnglerFishStateMachine _anglerFish;
 
-    public AnglerFishState(AnglerFish owner)
+    public AnglerFishState(AnglerFishStateMachine owner, object param)
     {
         _anglerFish = owner;
     }

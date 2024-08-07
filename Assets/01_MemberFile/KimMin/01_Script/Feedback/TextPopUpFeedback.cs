@@ -12,11 +12,6 @@ public class TextPopUpFeedback : Feedback
     [SerializeField] private float _interval; //생성되는 쿨타임
     [SerializeField] private float _duration; //글자가 떠있는 시간
 
-    private string prevText;
-
-    private Vector3 _maxSpawnPos;
-    private Vector3 _minSpawnPos;
-
     private string[] _popUpTexts =
     {
         "돌아가..",
@@ -26,6 +21,17 @@ public class TextPopUpFeedback : Feedback
         "나가",
         "저리가"
     }; //랜덤으로 생성될 텍스트 메시지
+
+    public override void PlayFeedback()
+    {
+        StartGenerateText();
+    }
+
+    public override void StopFeedback()
+    {
+
+    }
+
 
     private Vector2 GetSpawnPos() //스폰 위치 설정 매소드
     {
@@ -59,15 +65,5 @@ public class TextPopUpFeedback : Feedback
             GenerateText();
             yield return new WaitForSeconds(_interval);
         }
-    }
-
-    public override void PlayFeedback()
-    {
-        StartGenerateText();
-    }
-
-    public override void StopFeedback()
-    {
-
     }
 }

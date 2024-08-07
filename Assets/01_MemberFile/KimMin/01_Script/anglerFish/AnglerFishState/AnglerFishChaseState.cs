@@ -6,7 +6,7 @@ public class AnglerFishChaseState : AnglerFishState
 {
     private readonly LayerMask _playerLayer = LayerMask.GetMask("Player");
 
-    public AnglerFishChaseState(AnglerFish onwer) : base(onwer)
+    public AnglerFishChaseState(AnglerFishStateMachine owner, object param) : base(owner, param)
     {
     }
 
@@ -18,9 +18,9 @@ public class AnglerFishChaseState : AnglerFishState
     public override void UpdateState()
     {
         base.UpdateState();
-
-        Vector2 dir = _anglerFish.targetTrm.position - _anglerFish.transform.position;
-        float distance = dir.magnitude;
+/*
+        //Vector2 dir = _anglerFish.targetTrm.position - _anglerFish.transform.position;
+        //float distance = dir.magnitude;
 
         if (distance < _anglerFish.detectRadius)
         {
@@ -32,7 +32,7 @@ public class AnglerFishChaseState : AnglerFishState
         {
             _anglerFish.ChangeState(AnglerFishEnum.Move);
             return;
-        }
+        }*/
     }
 
     public override void Exit()

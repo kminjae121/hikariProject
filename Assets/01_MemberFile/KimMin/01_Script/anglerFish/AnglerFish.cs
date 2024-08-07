@@ -1,40 +1,27 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class AnglerFish : AnglerFishMovement
 {
+    public float moveSpeed;
+    public float chaseSpeed;
+    public float detectRadius;
+    public LayerMask wallLayer;
+
     public Transform targetTrm;
 
-    private AnglerFishEnum _currentStateEnum;
-    private Dictionary<AnglerFishEnum, AnglerFishState> _stateDictionay
-        = new Dictionary<AnglerFishEnum, AnglerFishState>();
-
-    private void Awake()
+    private void FixedUpdate()
     {
-        foreach (AnglerFishEnum anglerFishEnum in Enum.GetValues(typeof(AnglerFishEnum)))
-        {
-            string enumName = anglerFishEnum.ToString();
-            Type t = Type.GetType($"AnglerFish{enumName}State");
-            AnglerFishState state = Activator.CreateInstance(t) as AnglerFishState;
-            _stateDictionay.Add(anglerFishEnum, state);
-        }
-
-        ChangeState(AnglerFishEnum.Move);
+        Move(moveSpeed, wallLayer);
     }
 
-    private void Update()
+    private void OnDrawGizmos()
     {
-        _stateDictionay[_currentStateEnum].UpdateState();
-    }
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, detectRadius);
 
-    public void ChangeState(AnglerFishEnum newStateEnum)
-    {
-        if (_currentStateEnum != null)
-            _stateDictionay[_currentStateEnum].Exit();
-        _currentStateEnum = newStateEnum;
-        _stateDictionay[_currentStateEnum].Enter();
-
+        Gizmos.color = Color.white;
+        Gizmos.DrawWireSphere(transform.position, detectRadius + 2);
     }
 }
