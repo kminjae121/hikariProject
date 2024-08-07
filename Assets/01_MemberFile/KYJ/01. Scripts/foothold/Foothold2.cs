@@ -12,22 +12,20 @@ public class Foothold2 : Foothold
 
     private void Update()
     {
-        StartCoroutine(MoveFoothold(3f));
+        StartCoroutine(DownMoveFoothold(3f));
+        StartCoroutine(UpMoveFoothold(3f));
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+
+    protected override IEnumerator UpMoveFoothold(float stopTime)
     {
-        if (collision.gameObject.layer == LayerMask.NameToLayer("Water"))
-        {
-            isBack = true;
-        }
+        return base.UpMoveFoothold(stopTime);
     }
 
-    protected override IEnumerator MoveFoothold(float stopTime)
+    protected override IEnumerator DownMoveFoothold(float stopTime)
     {
-        return base.MoveFoothold(stopTime);
+        return base.DownMoveFoothold(stopTime);
     }
-
 }
 
 
