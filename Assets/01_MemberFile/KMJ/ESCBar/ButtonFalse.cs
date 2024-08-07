@@ -32,6 +32,12 @@ public class ButtonFalse : MonoBehaviour
             case 3:
                 _currentText.text = "»çÀü";
                 break;
+            case 4:
+                _currentText.text = null;
+                break;
+            case 5:
+                _currentText.text = null;
+                break;
         }
     }
 
