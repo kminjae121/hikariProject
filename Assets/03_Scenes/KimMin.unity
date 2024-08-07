@@ -1303,6 +1303,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   riggingPlayer: {fileID: 0}
   playerSprite: {fileID: 0}
+  mouseTrigger:
+    m_PersistentCalls:
+      m_Calls: []
+  mouseNotTrigger:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &337283010
 Transform:
   m_ObjectHideFlags: 0
