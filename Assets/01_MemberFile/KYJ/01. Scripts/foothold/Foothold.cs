@@ -7,38 +7,40 @@ public abstract class Foothold : MonoBehaviour
 {
     protected Rigidbody2D _rigid;
 
-    protected bool isBack;
+    [SerializeField] protected bool isBack;
 
     protected float startPos;
+    protected float targetPos;
 
     protected virtual void Awake()
     {
         _rigid = GetComponent<Rigidbody2D>();
 
         startPos = transform.position.y;
+        targetPos = transform.position.y - 15f;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+
+    protected virtual IEnumerator DownMoveFoothold(float stopTime) 
     {
-        if (collision.gameObject.layer == LayerMask.NameToLayer("Water"))
+        if (transform.position.y == startPos)
         {
+            yield return new WaitForSeconds(stopTime);
+            transform.DOMoveY(targetPos, 3f);
             isBack = true;
         }
     }
 
-    protected virtual IEnumerator MoveFoothold(float stopTime) 
+
+    protected virtual IEnumerator UpMoveFoothold(float stopTime)
     {
-        if (transform.position.y == startPos)
+        if (/*transform.position.y != startPos/* && */!isBack)
         {
-            isBack = false;
             yield return new WaitForSeconds(stopTime);
-            _rigid.bodyType = RigidbodyType2D.Dynamic;
-        }
-        else if (transform.position.y != startPos && !isBack)
-        {
-            yield return new WaitForSeconds(stopTime); 
-            _rigid.bodyType = RigidbodyType2D.Static; 
-            transform.DOMoveY(startPos, 3f); 
-        }
+            _rigid.bodyType = RigidbodyType2D.Static;
+            transform.DOMoveY(startPos, 3f);
+            isBack = false;
     }
 }
+}
+
