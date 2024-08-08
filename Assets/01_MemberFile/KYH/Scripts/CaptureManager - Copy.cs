@@ -14,13 +14,20 @@ public class CaptureManager : MonoBehaviour
     private Vector2 mousePos;
     private bool isNowCapture;
 
+    public int inventoryIdx;
+
     private void Update()
     {
         Capture();
+        MouseFollow();
+    }
+
+    private void MouseFollow()
+    {
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-        if(!isNowCapture)
-        gameObject.transform.position = Vector3.Lerp(gameObject.transform.position, mousePos, 10f * Time.deltaTime);
+        if (!isNowCapture)
+            gameObject.transform.position = Vector3.Lerp(gameObject.transform.position, mousePos, 10f * Time.deltaTime);
     }
 
     public void Capture()
@@ -34,11 +41,21 @@ public class CaptureManager : MonoBehaviour
                 isNowCapture = true;
                 for(int i=0; i<captureObject.Length; i++)
                 {
-                    captureObject[i].GetComponent<CaptureObject>().CaptureFinish();
+                    if(inventoryIdx != 5)
+                    {
+                        captureObject[i].GetComponent<CaptureObject>().CaptureFinish(inventoryIdx);
+                        inventoryIdx++;
+                    }
+                    else
+                    {
+                        inventoryIdx = 0;
+                        captureObject[i].GetComponent<CaptureObject>().CaptureFinish(inventoryIdx);
+                    }
                 }
                 StartCoroutine(WaitCaptureRoutine());
             }
-            print("캡쳐할 물ㅊㅔ가 없스니다");    
+            print("캡쳐할 물cprk djqttmq니다");
+            isNowCapture = false;
         }
     }
 
