@@ -21,10 +21,15 @@ public class CaptureObject : MonoBehaviour
 
         SpriteRenderer sprite = gameObject.GetComponent<SpriteRenderer>();
         sprite.sprite = captureSprite;
-        Sequence changeUI = DOTween.Sequence().Prepend(gameObject.transform.DOScale(2f, 0.1f).SetEase(Ease.OutQuart))
-            .Append(gameObject.transform.DOScale(1f, 1f).SetEase(Ease.OutCirc))
-            .Join(gameObject.transform.DOMove(new Vector2(uiPos.position.x, uiPos.position.y), 3f).SetEase(Ease.InOutQuint))
-        .Append(sprite.DOFade(0, 1)).JoinCallback(() => Debug.Log("½ÇÇàµÊ"));
+        Sequence changeUI = DOTween.Sequence()
+            .Prepend(gameObject.transform
+            .DOScale(2f, 0.1f).SetEase(Ease.OutQuart))
+            .Append(gameObject.transform
+            .DOScale(1f, 1f).SetEase(Ease.OutCirc))
+            .Join(gameObject.transform
+            .DOMove(new Vector2(uiPos.position.x, uiPos.position.y), 3f)
+            .SetEase(Ease.InOutQuint))
+            .Append(sprite.DOFade(0, 1)).JoinCallback(() => Debug.Log("½ÇÇàµÊ"));
 
         Image appImage = GameObject.Find("App" + invenIdx).GetComponent<Image>();
         appImage.sprite = captureSprite;
