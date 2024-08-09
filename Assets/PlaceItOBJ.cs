@@ -15,4 +15,9 @@ public class PlaceItOBJ : MonoBehaviour
             Transform objectHit = hit.transform;
         }
     }
+
+    private void OnParticleCollision(GameObject other)
+    {
+        
+    }
 }
