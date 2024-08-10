@@ -4,8 +4,9 @@ using UnityEngine;
 public class FishState
 {
     protected FishEnemy _fish;
-    protected int _animBoolHash;
     protected StateMachine _stateMachine;
+
+    protected int _animBoolHash;
     protected bool _endTriggerCalled;
 
     public FishState(FishEnemy _onwer, StateMachine state, string animHashName)
@@ -23,13 +24,13 @@ public class FishState
 
     public virtual void Enter()
     {
-        _fish.animCompo.SetBool(_animBoolHash, true);
+        _fish.AnimCompo.SetBool(_animBoolHash, true);
         _endTriggerCalled = false;
 
     }
     public virtual void Exit()
     {
-        _fish.animCompo.SetBool(_animBoolHash, false);
+        _fish.AnimCompo.SetBool(_animBoolHash, false);
     }
 
     public void AnimationEndTrigger()

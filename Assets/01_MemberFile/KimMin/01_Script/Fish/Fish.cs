@@ -5,12 +5,12 @@ using UnityEngine;
 public abstract class Fish : MonoBehaviour
 {
 
-    public FishMovement moveCompo { get; protected set; }
-    public Animator animCompo { get; protected set; }
+    public FishMovement MoveCompo { get; protected set; }
+    public Animator AnimCompo { get; protected set; }
 
     protected virtual void Awake()
     {
-        moveCompo = GetComponent<FishMovement>();
-        animCompo = GetComponent<Animator>();
+        MoveCompo = GetComponent<FishMovement>();
+        AnimCompo = transform.Find("Visual").GetComponent<Animator>();
     }
 }

@@ -2,6 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum FishStateEnum
+{
+    Move,
+    Chase,
+    Attack
+}
+
 public class AnglerFish : FishEnemy
 {
     public StateMachine _stateMachine;
@@ -9,12 +16,13 @@ public class AnglerFish : FishEnemy
     protected override void Awake()
     {
         base.Awake();
+        _stateMachine = new StateMachine();
 
-        _stateMachine.AddState(FishStateEnum.Move, new AnglerFishState(this, _stateMachine, "Move"));
-        _stateMachine.AddState(FishStateEnum.Chase, new AnglerFishState(this, _stateMachine, "Chase"));
-        _stateMachine.AddState(FishStateEnum.Attack, new AnglerFishState(this, _stateMachine, "Attack"));
+        _stateMachine.AddState(FishStateEnum.Move, new AnglerFishMoveState(this, _stateMachine, "Move"));
+        _stateMachine.AddState(FishStateEnum.Chase, new AnglerFishChaseState(this, _stateMachine, "Chase"));
+        _stateMachine.AddState(FishStateEnum.Attack, new AnglerFishAttackState(this, _stateMachine, "Attack"));
 
-        _stateMachine.ChangeState(FishStateEnum.Move);
+        _stateMachine.Initialize(FishStateEnum.Move, this);
     }
 
     private void Update()

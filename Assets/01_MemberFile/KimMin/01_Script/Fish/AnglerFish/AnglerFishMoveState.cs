@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AnglerFishMoveState : AnglerFishState
+public class AnglerFishMoveState : FishState
 {
     public AnglerFishMoveState(FishEnemy _onwer, StateMachine state, string animHashName) : base(_onwer, state, animHashName)
     {
@@ -11,6 +11,7 @@ public class AnglerFishMoveState : AnglerFishState
     public override void Enter()
     {
         base.Enter();
+        Debug.Log("¹«ºù¸Ç");
     }
 
     public override void UpdateState()
@@ -18,7 +19,7 @@ public class AnglerFishMoveState : AnglerFishState
         base.UpdateState();
 
         float distance = Vector2.Distance
-            (_anglerFish.targetTrm.position, _anglerFish.transform.position);
+            (_fish.targetTrm.position, _fish.transform.position);
 
         if (Input.GetKeyDown(KeyCode.C))
         {
