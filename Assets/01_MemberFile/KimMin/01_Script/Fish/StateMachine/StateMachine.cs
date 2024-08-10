@@ -7,9 +7,9 @@ public class StateMachine
     public Dictionary<FishStateEnum, FishState> stateDic = new Dictionary<FishStateEnum, FishState>();
     public FishState CurrentState { get; private set; }
 
-    private Fish _fish;
+    private FishEnemy _fish;
     
-    public void Initialize(FishStateEnum state, Fish fish)
+    public void Initialize(FishStateEnum state, FishEnemy fish)
     {
         _fish = fish;
         CurrentState = stateDic[state];

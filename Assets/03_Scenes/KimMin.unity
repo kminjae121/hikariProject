@@ -3208,8 +3208,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 726755288}
-  - component: {fileID: 726755287}
-  - component: {fileID: 726755286}
+  - component: {fileID: 726755289}
   m_Layer: 0
   m_Name: AnglerFish
   m_TagString: AnglerFish
@@ -3217,30 +3216,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &726755286
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 726755285}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f572ff0d5563c6d4298f6ba1c31c0ffa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &726755287
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 726755285}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b6fa9bd00ab14e479dddf60f099ddf1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &726755288
 Transform:
   m_ObjectHideFlags: 0
@@ -3257,6 +3232,24 @@ Transform:
   - {fileID: 1132118428}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &726755289
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 726755285}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f57eb99942b11446879269b22a932bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wayCount: 0
+  detectRadius: 3
+  moveSpeed: 5
+  targetTrm: {fileID: 509400741}
+  way: []
+  moveDir: {x: 0, y: 0, z: 0}
 --- !u!1 &745161675
 GameObject:
   m_ObjectHideFlags: 0
@@ -4912,7 +4905,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -946261738, guid: 3d04b0495ce02cc479e153fea0c51976, type: 3}
+  m_Sprite: {fileID: -137924195, guid: 2a34a5bde3e23ed4c8f2caf7367142ad, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -4933,7 +4926,7 @@ Animator:
   m_GameObject: {fileID: 1132118427}
   m_Enabled: 0
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 21ba569b02bfda34f84d1ce289d8b58c, type: 2}
+  m_Controller: {fileID: 9100000, guid: 06308eeddcdbf3d478797d3c8ff7ac65, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

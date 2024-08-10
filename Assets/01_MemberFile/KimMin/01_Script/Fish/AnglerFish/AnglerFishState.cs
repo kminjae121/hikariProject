@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class AnglerFishState : FishState
 {
-    protected Fish _anglerFish;
+    protected FishEnemy _anglerFish;
 
-    public AnglerFishState(Fish _onwer, StateMachine state, string animHashName) : base(_onwer, state, animHashName)
+    public AnglerFishState(FishEnemy _onwer, StateMachine state, string animHashName) : base(_onwer, state, animHashName)
     {
         _anglerFish = _onwer;
     }

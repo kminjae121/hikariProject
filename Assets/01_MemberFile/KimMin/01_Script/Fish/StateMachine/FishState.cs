@@ -3,12 +3,12 @@ using UnityEngine;
 
 public class FishState
 {
-    protected Fish _fish;
+    protected FishEnemy _fish;
     protected int _animBoolHash;
     protected StateMachine _stateMachine;
     protected bool _endTriggerCalled;
 
-    public FishState(Fish _onwer, StateMachine state, string animHashName)
+    public FishState(FishEnemy _onwer, StateMachine state, string animHashName)
     {
         _fish = _onwer;
         _stateMachine = state;

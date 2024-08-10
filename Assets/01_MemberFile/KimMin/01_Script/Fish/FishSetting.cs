@@ -7,6 +7,7 @@ public abstract class FishSetting : Fish
     public int wayCount;
     public float detectRadius;
     public float moveSpeed;
+    public Transform targetTrm;
     public Transform[] way;
     public Vector3 moveDir;
 
