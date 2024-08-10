@@ -47,6 +47,7 @@ public class LuminescentPlants : MonoBehaviour
         if (isHold == true)
         {
             OnPlants?.Invoke();
+            print("ddd");
         }
     }
 }
