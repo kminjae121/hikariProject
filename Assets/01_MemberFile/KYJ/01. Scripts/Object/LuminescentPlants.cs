@@ -1,0 +1,52 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class LuminescentPlants : MonoBehaviour
+{
+    [SerializeField] private Transform player;
+    public bool isReach;
+    public bool isHold;
+
+    public Action OnPlants;
+
+    private void Update()
+    {
+        HoldPlants(player.transform);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            isReach = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        isReach = false;
+    }
+
+
+    private void HoldPlants(Transform parent)
+    {
+        if (isReach == true && Input.GetKeyDown(KeyCode.K))
+        {
+            gameObject.transform.SetParent(parent);
+            isHold = true;
+        }
+
+        else if (isHold == true && Input.GetKeyDown(KeyCode.K))
+        {
+            gameObject.transform.SetParent(null);
+            isHold = false;
+        }
+
+        if (isHold == true)
+        {
+            OnPlants?.Invoke();
+        }
+    }
+}
