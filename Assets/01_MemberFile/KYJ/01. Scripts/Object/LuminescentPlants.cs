@@ -13,7 +13,7 @@ public class LuminescentPlants : MonoBehaviour
 
     private void Update()
     {
-        HoldPlants(player.transform);
+        HoldPlants(player);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

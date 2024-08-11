@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BlightPlants : MonoBehaviour
+public class BrightPlants : MonoBehaviour
 {
     private LuminescentPlants plants;
     private BrightFoothold brightFoothold;
@@ -25,6 +25,9 @@ public class BlightPlants : MonoBehaviour
         plants.OnPlants += BrightnessControl;
     }
 
+    private void Update()
+    {
+    }
 
     private void BrightnessControl()
     {
@@ -45,10 +48,10 @@ public class BlightPlants : MonoBehaviour
     }
     private void Overlap()
     {
-        Collider2D collision = Physics2D.OverlapCircle(pos, size, foothold);
+        Collider2D collision = Physics2D.OverlapCircle(transform.position, size, foothold);
         if (collision)
         {
-                brightFoothold.BrightStep();
+                //brightFoothold.BrightStep();
                 print("dd");
         }
     }
