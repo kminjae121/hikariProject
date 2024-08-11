@@ -9,7 +9,7 @@ public enum FishStateEnum
     Attack
 }
 
-public class AnglerFish : FishEnemy
+public class AnglerFish : FishSetting
 {
     public StateMachine _stateMachine;
 
@@ -28,14 +28,25 @@ public class AnglerFish : FishEnemy
     private void Update()
     {
         _stateMachine.CurrentState.UpdateState();
+
+/*        if (_stateMachine.CurrentState == null)
+            _stateMachine.ChangeState(FishStateEnum.Move);*/
+    }
+
+    public override void AnimationEndTrigger()
+    {
+        _stateMachine.CurrentState.AnimationEndTrigger();
     }
 
     private void OnDrawGizmos()
     {
-        Gizmos.DrawWireSphere(transform.position, detectRadius);
-        Gizmos.color = Color.red;
-
-        Gizmos.DrawWireSphere(transform.position, detectRadius + 2);
         Gizmos.color = Color.white;
+        Gizmos.DrawWireSphere(transform.position, detectRadius); //감지 범위
+
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(transform.position, detectRadius + 2); //체이스 탈출 범위
+
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, attackRadius); //공격 범위
     }
 }

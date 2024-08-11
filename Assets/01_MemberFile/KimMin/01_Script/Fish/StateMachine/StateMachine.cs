@@ -8,16 +8,11 @@ public class StateMachine
 
     public Dictionary<FishStateEnum, FishState> stateDic = new Dictionary<FishStateEnum, FishState>();
 
-    private FishEnemy _fish;
+    private FishSetting _fish;
     
-    public void Initialize(FishStateEnum state, FishEnemy fish)
+    public void Initialize(FishStateEnum state, FishSetting fish)
     {
         _fish = fish;
-
-        foreach (var states in stateDic)
-        {
-            Debug.Log($"{states.Key} {states.Value}");
-        }
 
         CurrentState = stateDic[state];
         CurrentState.Enter();

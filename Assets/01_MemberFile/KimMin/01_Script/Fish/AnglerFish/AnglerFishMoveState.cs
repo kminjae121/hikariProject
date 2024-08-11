@@ -4,24 +4,25 @@ using UnityEngine;
 
 public class AnglerFishMoveState : FishState
 {
-    public AnglerFishMoveState(FishEnemy _onwer, StateMachine state, string animHashName) : base(_onwer, state, animHashName)
+    public AnglerFishMoveState(FishSetting _onwer, StateMachine state, string animHashName) : base(_onwer, state, animHashName)
     {
     }
 
     public override void Enter()
     {
         base.Enter();
-        Debug.Log("¹«ºù¸Ç");
     }
 
     public override void UpdateState()
     {
         base.UpdateState();
 
+        _fish.Move();
+
         float distance = Vector2.Distance
             (_fish.targetTrm.position, _fish.transform.position);
 
-        if (Input.GetKeyDown(KeyCode.C))
+        if (distance < _fish.detectRadius && distance > _fish.attackRadius)
         {
             _stateMachine.ChangeState(FishStateEnum.Chase);
         }
