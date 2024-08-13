@@ -34,7 +34,7 @@ public class EnterName : MonoBehaviour
     {
         None();
     }
-    public void None()
+    private void None()
     {
         if(Input.GetMouseButtonDown(1))
         {
