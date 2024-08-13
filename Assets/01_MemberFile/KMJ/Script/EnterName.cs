@@ -24,7 +24,7 @@ public class EnterName : MonoBehaviour
         {
             receiveText.text = $"다시 입력하세요";
         }
-        PlayerPrefs.SetString("이름 입력", receiveText.text);
+        PlayerPrefs.SetString("이름 입력",  receiveText.text);
         PlayerPrefs.Save();
         
     }
