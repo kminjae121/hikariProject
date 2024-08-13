@@ -7,11 +7,14 @@ using System;
 
 public class CaptureObject : MonoBehaviour
 {
-    public Sprite captureSprite;
+    public PlaceObjSO captureSprite;
 
-    [Header("인벤토리 위치")]
-    [SerializeField]
     private Transform uiPos;
+
+    private void Awake()
+    {
+        uiPos = GameObject.Find("UIPos").GetComponent<Transform>();
+    }
 
 
     public void CaptureFinish(int invenIdx)
@@ -20,11 +23,13 @@ public class CaptureObject : MonoBehaviour
         collider.enabled = false;
 
         SpriteRenderer sprite = gameObject.GetComponent<SpriteRenderer>();
-        sprite.sprite = captureSprite;
+        sprite.sprite = captureSprite.sprite;
         DoTweenSequence(sprite);
 
-        Image appImage = GameObject.Find("App" + invenIdx).GetComponent<Image>();
-        appImage.sprite = captureSprite;
+        GameObject furniture = GameObject.Find("App" + invenIdx);
+        furniture.GetComponent<FurnitureDistince>().placeObjSO = captureSprite; 
+        Image appImage = furniture.GetComponent<Image>();
+        appImage.sprite = captureSprite.sprite;
     }
 
     private void DoTweenSequence(SpriteRenderer sprite)

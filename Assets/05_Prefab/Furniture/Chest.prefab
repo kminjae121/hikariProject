@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 3720826598377542088}
   - component: {fileID: 2348504585298381297}
   - component: {fileID: 1431719652386406098}
-  m_Layer: 0
+  - component: {fileID: 8266003442069857281}
+  m_Layer: 11
   m_Name: Chest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -158,3 +159,16 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &8266003442069857281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1430710994090879661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d2fd932be7f0fc42a6058bf2313c59c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  captureSprite: {fileID: 11400000, guid: 969236f8f0ada794382f7dc938148712, type: 2}
