@@ -1,58 +1,64 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
+using UnityEngine.Rendering.Universal ;
 
 public class BrightPlants : MonoBehaviour
 {
     private LuminescentPlants plants;
-    private BrightFoothold brightFoothold;
 
-    [ColorUsage(true, true)]
-    public Color _color;
-    public float brightStep = Mathf.Clamp(0, 0, 4);
+    public int brightStep = Math.Clamp(0 , 0, 4);
+    private Light2D light2D;
 
     public Vector2 pos;
     private float size = 3f;
-    private SpriteRenderer sprite;
     public LayerMask foothold;
+
+    private BrightFoothold brightFoothold;
+
+    public bool isOn;
 
     private void Awake()
     {
         plants = GameObject.Find("Luminescent Plants").GetComponent<LuminescentPlants>();
-        sprite = GetComponent<SpriteRenderer>();
+        light2D = GameObject.Find("Light 2D").GetComponent<Light2D>();
+        brightFoothold = GameObject.Find("Square").GetComponent<BrightFoothold>();
+
+        light2D.intensity = 0;
 
         plants.OnPlants += Overlap;
         plants.OnPlants += BrightnessControl;
     }
 
-    private void Update()
-    {
-    }
-
     private void BrightnessControl()
     {
-        sprite.color = _color;
-
         if (Input.GetKeyDown(KeyCode.I))
         {
-            _color = _color * 5f;
+            light2D.intensity += 2.5f;
             brightStep += 1;
             print(brightStep);
         }
         else if (Input.GetKeyDown(KeyCode.U))
         {
-            _color = _color * 0.1f;
+            light2D.intensity -= 2.5f;
             brightStep -= 1;
             print(brightStep);
         }
     }
+
     private void Overlap()
     {
         Collider2D collision = Physics2D.OverlapCircle(transform.position, size, foothold);
         if (collision)
         {
-                //brightFoothold.BrightStep();
-                print("dd");
+            isOn = true;
+            brightFoothold.BrightStep();
+        }
+        if(!collision)
+        {
+            isOn = false;
+            brightFoothold.BrightStep();
         }
     }
 
