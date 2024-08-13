@@ -17,7 +17,7 @@ public abstract class Foothold : MonoBehaviour
         _rigid = GetComponent<Rigidbody2D>();
 
         startPos = transform.position.y;
-        targetPos = transform.position.y - 15f;
+        targetPos = transform.position.y - 30f;
     }
 
 
@@ -28,7 +28,7 @@ public abstract class Foothold : MonoBehaviour
             yield return new WaitForSeconds(stopTime);
             transform.DOMoveY(targetPos, 3f);
             isBack = true;
-        }
+        }      
     }
 
 
