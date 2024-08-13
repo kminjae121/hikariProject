@@ -14,14 +14,6 @@ public class BrightFoothold : MonoBehaviour
     {
         plants = GameObject.Find("Visual").GetComponent<BrightPlants>();
         sprite = GameObject.Find("Square").GetComponent<SpriteRenderer>();
-
-        sprite.material.color = new Color(sprite.material.color.r, sprite.material.color.g, sprite.material.color.b, 0f);
- 
-    }
-
-    private void Update()
-    {
-        BrightStep();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -34,12 +26,12 @@ public class BrightFoothold : MonoBehaviour
 
     public void BrightStep()
     {
-        if (brightStep != plants.brightStep)
+        if (brightStep > plants.brightStep || plants.isOn == false)
         {
             sprite.material.color = new Color(sprite.material.color.r, sprite.material.color.g, sprite.material.color.b, 0f);
         }
 
-        if (brightStep <= plants.brightStep)
+        if (brightStep <= plants.brightStep && plants.isOn == true)
         {
             sprite.material.color = new Color(sprite.material.color.r, sprite.material.color.g, sprite.material.color.b, 1f);
         }
