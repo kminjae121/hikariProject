@@ -7,10 +7,11 @@ using UnityEngine.UI;
 public class DragDropObject : MonoBehaviour , IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     private Image image;
+    private GameObject furnitureObj = null;
+
+    private bool isPlace;
 
     [HideInInspector] public Transform parentAfterDrag;
-    [HideInInspector] public bool isPlaceIt;
-    [HideInInspector] public bool isMove;
 
     private void Awake()
     {
@@ -19,28 +20,33 @@ public class DragDropObject : MonoBehaviour , IBeginDragHandler, IDragHandler, I
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        parentAfterDrag = transform.parent;
-        transform.SetParent(transform.root);
+        
+        //parentAfterDrag = transform.parent;
+        //transform.SetParent(transform.root);
         transform.SetAsLastSibling();
         image.raycastTarget = false;
-        isMove = true;
+
+        PlaceObjSO placeObjSO = GetComponent<FurnitureDistince>().placeObjSO;
+        GameObject furniture = placeObjSO.prefab;
+        furnitureObj = Instantiate(furniture, transform);
+
+        GetComponent<FurnitureDistince>().placeObjSO = null;
+        GetComponent<Image>().sprite = null;
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        transform.position = Input.mousePosition;
-        print("잡고있다");
+        Vector2 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        furnitureObj.transform.position = pos;
+
+        print(furnitureObj.transform.position);
+        print(furnitureObj.name);
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        isMove = false;
-        print("아이쿠 놓쳤네");
-        if(isPlaceIt)
-        {
-            print("배치");
-        }
-        transform.SetParent(parentAfterDrag);
+        Destroy(furnitureObj);
+        furnitureObj = null;
         image.raycastTarget = true;
     }
 }
