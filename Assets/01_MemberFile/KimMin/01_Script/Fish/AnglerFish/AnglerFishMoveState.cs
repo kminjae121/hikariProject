@@ -11,6 +11,8 @@ public class AnglerFishMoveState : FishState
     public override void Enter()
     {
         base.Enter();
+
+        _fish.FindClosestWayPoint();
     }
 
     public override void UpdateState()

@@ -28,9 +28,7 @@ public class AnglerFish : FishSetting
     private void Update()
     {
         _stateMachine.CurrentState.UpdateState();
-
-/*        if (_stateMachine.CurrentState == null)
-            _stateMachine.ChangeState(FishStateEnum.Move);*/
+        SpriteFlip(targetTrm.position);
     }
 
     public override void AnimationEndTrigger()

@@ -19,7 +19,6 @@ public class AnglerFishAttackState : AnglerFishState
 
         if (_endTriggerCalled)
         {
-            _fish.FindClosestWayPoint();
             _stateMachine.ChangeState(FishStateEnum.Move);
         }
     }

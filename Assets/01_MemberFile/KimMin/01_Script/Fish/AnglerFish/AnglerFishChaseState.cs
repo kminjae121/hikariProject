@@ -11,8 +11,6 @@ public class AnglerFishChaseState : FishState
     public override void Enter()
     {
         base.Enter();
-
-        _fish.Chase();
     }
 
     public override void UpdateState()
@@ -30,7 +28,6 @@ public class AnglerFishChaseState : FishState
         }
         else if (distance > _fish.detectRadius + 2)
         {
-            _fish.FindClosestWayPoint();
             _stateMachine.ChangeState(FishStateEnum.Move);
         }
     }

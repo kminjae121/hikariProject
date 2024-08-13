@@ -31,6 +31,8 @@ public abstract class FishSetting : Fish
         float wayDistance = Vector2.Distance
             (_targetWay.position, transform.position);
 
+        Debug.Log(way[wayCount]);
+
         movingSpeed = wayDistance < 5f ? moveSpeed + 3.5f : moveSpeed;
 
         transform.position += moveDir * movingSpeed * Time.deltaTime;

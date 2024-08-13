@@ -14,4 +14,22 @@ public abstract class Fish : MonoBehaviour
         MoveCompo = GetComponent<FishMovement>();
         AnimCompo = transform.Find("Visual").GetComponent<Animator>();
     }
+
+    private bool IsFactingRight()
+    {
+        return Mathf.Approximately(transform.eulerAngles.y, 0);
+    }
+
+    public void SpriteFlip(Vector2 targetPosition)
+    {
+        bool isRight = IsFactingRight();
+        if (targetPosition.x < transform.position.x && isRight)
+        {
+            transform.eulerAngles = new Vector3(0, -180f, 0);
+        }
+        else if (targetPosition.x > transform.position.x && !isRight)
+        {
+            transform.eulerAngles = Vector3.zero;
+        }
+    }
 }
