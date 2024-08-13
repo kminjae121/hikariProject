@@ -2155,7 +2155,7 @@ Transform:
   m_GameObject: {fileID: 509400738}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.81, y: 40.52, z: 0}
+  m_LocalPosition: {x: 0.91, y: -10.47, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3259,7 +3259,7 @@ Transform:
   m_GameObject: {fileID: 726755285}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 14.89, y: 35.06, z: 0}
+  m_LocalPosition: {x: 10.64, y: -10.6, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3281,7 +3281,7 @@ MonoBehaviour:
   wayCount: 0
   detectRadius: 5
   attackRadius: 1.5
-  moveSpeed: 2
+  moveSpeed: 100
   targetTrm: {fileID: 509400741}
   way:
   - {fileID: 1314311032}
@@ -5040,7 +5040,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: -137924195, guid: 2a34a5bde3e23ed4c8f2caf7367142ad, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1.125, y: 1.125}

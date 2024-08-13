@@ -17,7 +17,7 @@ public class AnglerFishChaseState : FishState
     {
         base.UpdateState();
 
-        _fish.Chase();
+        Chase();
 
         float distance = Vector2.Distance
             (_fish.targetTrm.position, _fish.transform.position);
@@ -30,5 +30,13 @@ public class AnglerFishChaseState : FishState
         {
             _stateMachine.ChangeState(FishStateEnum.Move);
         }
+    }
+
+    public void Chase()
+    {
+        Vector2 dir = _fish.targetTrm.position - _fish.transform.position;
+        Vector2 moveDir = dir.normalized;
+
+        _fish.RigidCompo.velocity = moveDir * (_fish.moveSpeed + 1);
     }
 }
