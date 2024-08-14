@@ -22,9 +22,9 @@ public class DragDropObject : MonoBehaviour , IBeginDragHandler, IDragHandler, I
     public void OnBeginDrag(PointerEventData eventData)
     {
         
+        transform.SetAsLastSibling();
         //parentAfterDrag = transform.parent;
         //transform.SetParent(transform.root);
-        transform.SetAsLastSibling();
         image.raycastTarget = false;
 
         PlaceObjSO placeObjSO = GetComponent<FurnitureDistince>().placeObjSO;
