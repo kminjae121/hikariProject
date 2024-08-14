@@ -3278,17 +3278,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f57eb99942b11446879269b22a932bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wayCount: 0
   detectRadius: 5
   attackRadius: 1.5
-  moveSpeed: 100
+  moveSpeed: 5
   targetTrm: {fileID: 509400741}
   way:
   - {fileID: 1314311032}
   - {fileID: 856581689}
   - {fileID: 260937120}
   - {fileID: 1935246980}
-  moveDir: {x: 0, y: 0, z: 0}
+  _targetWay: {fileID: 0}
 --- !u!58 &726755290
 CircleCollider2D:
   m_ObjectHideFlags: 0
