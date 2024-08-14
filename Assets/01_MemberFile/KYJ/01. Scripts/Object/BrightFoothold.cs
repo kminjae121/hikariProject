@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class BrightFoothold : MonoBehaviour
 {
+    [SerializeField]
     private SpriteRenderer sprite;
+    [SerializeField]
     private BrightPlants plants;
     private BoxCollider2D boxCollider;
     public float brightStep;
@@ -13,8 +15,6 @@ public class BrightFoothold : MonoBehaviour
 
     private void Awake()
     {
-        plants = GameObject.Find("Visual").GetComponent<BrightPlants>();
-        sprite = GameObject.Find("Square").GetComponent<SpriteRenderer>();
         boxCollider = GetComponentInChildren<BoxCollider2D>();
     }
 
