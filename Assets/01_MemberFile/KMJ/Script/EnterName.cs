@@ -9,6 +9,10 @@ public class EnterName : MonoBehaviour
     public TextMeshProUGUI receiveText;
     public TMP_InputField display;
 
+    public List<string> str = new List<string>();
+
+    
+
     private void Start()
     {
         receiveText.text = PlayerPrefs.GetString("이름 입력");
@@ -33,7 +37,20 @@ public class EnterName : MonoBehaviour
     private void Update()
     {
         None();
+        Filtering();
     }
+
+    private void Filtering()
+    {
+        foreach (string no in str)
+        {
+            if(display.text == no)
+            {
+                receiveText.text = "부적절한 이름입니다";
+            }
+        }
+    }
+
     private void None()
     {
         if(Input.GetMouseButtonDown(1))

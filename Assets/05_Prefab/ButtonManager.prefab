@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2758093924431629695}
   - component: {fileID: 1238280758736222542}
-  - component: {fileID: 7364738163473345004}
+  - component: {fileID: 5336215407055096161}
   m_Layer: 0
   m_Name: ButtonManager
   m_TagString: Untagged
@@ -51,7 +51,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   SceneNumber: 0
---- !u!114 &7364738163473345004
+--- !u!114 &5336215407055096161
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
