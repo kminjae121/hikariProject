@@ -5,6 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "ObjSO/PlaceObj")]
 public class PlaceObjSO : ScriptableObject
 {
+    public Sprite sprite;
     public string name;
-    public Transform prefab;
+    public GameObject prefab;
 }
