@@ -23,7 +23,9 @@ public class ObjectGarher : MonoBehaviour
     private Rigidbody2D _playerRigidBody;
     [SerializeField] private Vector2 _boxSize;
     [SerializeField] private int _jumpPower;
-    [SerializeField] private LayerMask _player;
+    [SerializeField] private int _flyingSpeed;
+    [SerializeField] private LayerMask _playerLayer;
+    [SerializeField] private Rigidbody2D rigid;
 
 
     private void Start()
@@ -47,17 +49,37 @@ public class ObjectGarher : MonoBehaviour
             case ObjectType.ElectricFan:
                 ElectricFan();
                 break;
+            case ObjectType.WalkingDoll:
+                WalkingDoll();
+                break;
         }
     }
 
-    private void ElectricFan()
+    private void WalkingDoll(float multiplier = 1f)
     {
         
+        
+        rigid.AddForce(Vector2.right * _flyingSpeed * multiplier, ForceMode2D.Impulse); 
+    }
+
+    private void ElectricFan(float multiplier = 1f)
+    {
+        Collider2D hit = Physics2D.OverlapBox(transform.position, _boxSize, 0, _playerLayer);
+
+        if(hit == true)
+        {
+            _playerRigidBody.gravityScale = 0;
+            _playerRigidBody.AddForce(Vector2.right * _flyingSpeed * multiplier, ForceMode2D.Impulse);
+        }
+        else
+        {
+            _playerRigidBody.gravityScale = 1;
+        }
     }
 
     private void Sofa(float multiplier = 1f)
     {
-        Collider2D hit = Physics2D.OverlapBox(transform.position, _boxSize, 0,_player);
+        Collider2D hit = Physics2D.OverlapBox(transform.position, _boxSize, 0,_playerLayer);
 
         if (hit == true)
         {
