@@ -6,25 +6,24 @@ using UnityEngine.Rendering.Universal ;
 
 public class BrightPlants : MonoBehaviour
 {
+    [SerializeField]
     private LuminescentPlants plants;
+    [SerializeField]
+    private Light2D light2D;
+    [SerializeField]
+    private BrightFoothold brightFoothold;
 
     public int brightStep = Math.Clamp(0 , 0, 4);
-    private Light2D light2D;
 
     public Vector2 pos;
     private float size = 3f;
     public LayerMask foothold;
 
-    private BrightFoothold brightFoothold;
 
     public bool isOn;
 
     private void Awake()
     {
-        plants = GameObject.Find("Luminescent Plants").GetComponent<LuminescentPlants>();
-        light2D = GameObject.Find("Light 2D").GetComponent<Light2D>();
-        brightFoothold = GameObject.Find("Square").GetComponent<BrightFoothold>();
-
         light2D.intensity = 0;
 
         plants.OnPlants += Overlap;

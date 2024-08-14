@@ -29,7 +29,6 @@ public class LuminescentPlants : MonoBehaviour
         isReach = false;
     }
 
-
     private void HoldPlants(Transform parent)
     {
         if (isReach == true && Input.GetKeyDown(KeyCode.K))
@@ -47,7 +46,6 @@ public class LuminescentPlants : MonoBehaviour
         if (isHold == true)
         {
             OnPlants?.Invoke();
-            print("ddd");
         }
     }
 }

@@ -4,16 +4,18 @@ using UnityEngine;
 
 public class BrightFoothold : MonoBehaviour
 {
+    [SerializeField]
     private SpriteRenderer sprite;
+    [SerializeField]
     private BrightPlants plants;
+    private BoxCollider2D boxCollider;
     public float brightStep;
 
     private bool isReach;
 
     private void Awake()
     {
-        plants = GameObject.Find("Visual").GetComponent<BrightPlants>();
-        sprite = GameObject.Find("Square").GetComponent<SpriteRenderer>();
+        boxCollider = GetComponentInChildren<BoxCollider2D>();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -28,7 +30,7 @@ public class BrightFoothold : MonoBehaviour
     {
         if (brightStep > plants.brightStep || plants.isOn == false)
         {
-            sprite.material.color = new Color(sprite.material.color.r, sprite.material.color.g, sprite.material.color.b, 0f);
+            
         }
 
         if (brightStep <= plants.brightStep && plants.isOn == true)
