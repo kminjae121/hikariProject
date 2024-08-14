@@ -24,7 +24,7 @@ public class PlayerMovement : MonoBehaviour
         Teleporting();
         PlayerMove(4f);
     }
-    
+
 
     public void PlayerMove(float speed) // 플레이어 이동
     {
