@@ -7,24 +7,66 @@ using TMPro;
 
 public class ButtonMnager : MonoBehaviour
 {
+    private int _value;
+
     [SerializeField] private TextMeshProUGUI _currentText;
     [SerializeField] private Button _brightButton;
+    [Header("¹æÈ­º®")]
+    [SerializeField] private TextMeshProUGUI _FireWallTrueText;
+    public bool IsFireWallTrue;
+    [Header("Wifi")]
+    [SerializeField] private TextMeshProUGUI _WifiCollectText;
+    public bool IsWifiTrue;
+    [Header("Sound")]
+    [SerializeField] private TextMeshProUGUI _SoundText;
+    [SerializeField] private Slider _musicSlider;
 
+    [Header("ButtonList")]
     public List<GameObject> ChangeButton = new List<GameObject>();
     public int SceneNumber;
 
     private void Awake()
     {
+        IsWifiTrue = false;
+        IsFireWallTrue = false;
         _brightButton.interactable = false;
+    }
+
+    private void Start()
+    {
+        _FireWallTrueText.text = "¿¬°á ¾ÈµÊ";
+        _WifiCollectText.text = "¿¬°á ¾ÈµÊ";
+
     }
 
     private void Update()
     {
+        _value = (int)_musicSlider.value;
         SceneNumber = SceneManager.GetActiveScene().buildIndex;
 
         SceneTextChange();
 
         InteractablFalse();
+
+        _SoundText.text = $"{_value}";
+
+        if (IsFireWallTrue == true)
+        {
+            _FireWallTrueText.text = "¿¬°áµÊ";
+        }
+        else if (IsFireWallTrue == false )
+        {
+            _FireWallTrueText.text = "¿¬°á ¾ÈµÊ";
+        }
+
+        if (IsWifiTrue == true)
+        {
+            _WifiCollectText.text = "¿¬°áµÊ";
+        }
+        else if (IsWifiTrue == false)
+        {
+            _WifiCollectText.text = "¿¬°á ¾ÈµÊ";
+        }
     }
 
     private void SceneTextChange()
@@ -57,6 +99,30 @@ public class ButtonMnager : MonoBehaviour
         else
         {
             _brightButton.interactable = false;
+        }
+    }
+
+    public void FireWall()
+    {
+        if(IsFireWallTrue == true)
+        {
+            IsFireWallTrue = false;
+        }
+        else
+        {
+            IsFireWallTrue = true;
+        }    
+    }
+
+    public void WifiTrue()
+    {
+        if (IsWifiTrue == true)
+        {
+            IsWifiTrue = false;
+        }
+        else
+        {
+            IsWifiTrue = true;
         }
     }
 }
