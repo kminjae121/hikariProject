@@ -25,6 +25,7 @@ public class ObjectGarher : MonoBehaviour
     [SerializeField] private int _jumpPower;
     [SerializeField] private int _flyingSpeed;
     [SerializeField] private LayerMask _playerLayer;
+    [SerializeField] private Rigidbody2D rigid;
 
 
     private void Start()
@@ -48,7 +49,17 @@ public class ObjectGarher : MonoBehaviour
             case ObjectType.ElectricFan:
                 ElectricFan();
                 break;
+            case ObjectType.WalkingDoll:
+                WalkingDoll();
+                break;
         }
+    }
+
+    private void WalkingDoll(float multiplier = 1f)
+    {
+        
+        
+        rigid.AddForce(Vector2.right * _flyingSpeed * multiplier, ForceMode2D.Impulse); 
     }
 
     private void ElectricFan(float multiplier = 1f)
