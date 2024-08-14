@@ -6,41 +6,65 @@ using UnityEngine.UI;
 
 public class DragDropObject : MonoBehaviour , IBeginDragHandler, IDragHandler, IEndDragHandler
 {
+    private CaptureManager captureManager;
+
     private Image image;
+    private GameObject furnitureObj = null;
 
     [HideInInspector] public Transform parentAfterDrag;
-    [HideInInspector] public bool isPlaceIt;
-    [HideInInspector] public bool isMove;
 
     private void Awake()
     {
+        captureManager = FindAnyObjectByType<CaptureManager>();
         image = GetComponent<Image>();
     }
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        parentAfterDrag = transform.parent;
-        transform.SetParent(transform.root);
+        
         transform.SetAsLastSibling();
+        //parentAfterDrag = transform.parent;
+        //transform.SetParent(transform.root);
         image.raycastTarget = false;
-        isMove = true;
+
+        PlaceObjSO placeObjSO = GetComponent<FurnitureDistince>().placeObjSO;
+        GameObject furniture = placeObjSO.prefab;
+        furnitureObj = Instantiate(furniture, transform);
+        furnitureObj.GetComponent<Rigidbody2D>().simulated = false;
+
+        GetComponent<FurnitureDistince>().placeObjSO = null;
+        GetComponent<Image>().sprite = null;
+        furnitureObj.GetComponent<PlaceObj>().PlaceIt();
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        transform.position = Input.mousePosition;
-        print("잡고있다");
+        Vector2 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        furnitureObj.transform.position = pos;
+
+        print(furnitureObj.transform.position);
+        print(furnitureObj.name);
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        isMove = false;
-        print("아이쿠 놓쳤네");
-        if(isPlaceIt)
+        PlaceObj placeObj = furnitureObj.GetComponent<PlaceObj>();
+        if(furnitureObj.GetComponent<PlaceObj>().isPlaceTure)
         {
-            print("배치");
+            placeObj.placeHelp.GetComponent<Rigidbody2D>().simulated = true;
+            placeObj.placeHelp.GetComponent<SpriteRenderer>().color = Color.white;
         }
-        transform.SetParent(parentAfterDrag);
+        else if(!furnitureObj.GetComponent<PlaceObj>().isPlaceTure)
+        {
+            placeObj.placeHelp.GetComponent<CaptureObject>().CaptureFinish(captureManager.inventoryIdx);
+            captureManager.inventoryIdx++;
+            Destroy(placeObj.placeHelp);
+        }
+
+        placeObj.isPlaceStart = false;
+
+        Destroy(furnitureObj);
+        furnitureObj = null;
         image.raycastTarget = true;
     }
 }
