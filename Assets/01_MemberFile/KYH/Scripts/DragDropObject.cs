@@ -6,15 +6,16 @@ using UnityEngine.UI;
 
 public class DragDropObject : MonoBehaviour , IBeginDragHandler, IDragHandler, IEndDragHandler
 {
+    private CaptureManager captureManager;
+
     private Image image;
     private GameObject furnitureObj = null;
-
-    private bool isPlace;
 
     [HideInInspector] public Transform parentAfterDrag;
 
     private void Awake()
     {
+        captureManager = FindAnyObjectByType<CaptureManager>();
         image = GetComponent<Image>();
     }
 
@@ -29,9 +30,11 @@ public class DragDropObject : MonoBehaviour , IBeginDragHandler, IDragHandler, I
         PlaceObjSO placeObjSO = GetComponent<FurnitureDistince>().placeObjSO;
         GameObject furniture = placeObjSO.prefab;
         furnitureObj = Instantiate(furniture, transform);
+        furnitureObj.GetComponent<Rigidbody2D>().simulated = false;
 
         GetComponent<FurnitureDistince>().placeObjSO = null;
         GetComponent<Image>().sprite = null;
+        furnitureObj.GetComponent<PlaceObj>().PlaceIt();
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -45,6 +48,21 @@ public class DragDropObject : MonoBehaviour , IBeginDragHandler, IDragHandler, I
 
     public void OnEndDrag(PointerEventData eventData)
     {
+        PlaceObj placeObj = furnitureObj.GetComponent<PlaceObj>();
+        if(furnitureObj.GetComponent<PlaceObj>().isPlaceTure)
+        {
+            placeObj.placeHelp.GetComponent<Rigidbody2D>().simulated = true;
+            placeObj.placeHelp.GetComponent<SpriteRenderer>().color = Color.white;
+        }
+        else if(!furnitureObj.GetComponent<PlaceObj>().isPlaceTure)
+        {
+            placeObj.placeHelp.GetComponent<CaptureObject>().CaptureFinish(captureManager.inventoryIdx);
+            captureManager.inventoryIdx++;
+            Destroy(placeObj.placeHelp);
+        }
+
+        placeObj.isPlaceStart = false;
+
         Destroy(furnitureObj);
         furnitureObj = null;
         image.raycastTarget = true;

@@ -9,6 +9,7 @@ TagManager:
   - HoldObject
   - ProgramIcon
   - Application
+  - Ground
   layers:
   - Default
   - TransparentFX
