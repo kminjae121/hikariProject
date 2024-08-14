@@ -1,39 +1,38 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class BrightFoothold : MonoBehaviour
 {
     [SerializeField]
     private SpriteRenderer sprite;
     [SerializeField]
-    private BrightPlants plants;
-    private BoxCollider2D boxCollider;
-    public float brightStep;
+    private BrightPlants brightPlants;
 
-    private bool isReach;
+    public float brightnessLevel;
+
+    public Action OnBrightnessDetection;
 
     private void Awake()
     {
-        boxCollider = GetComponentInChildren<BoxCollider2D>();
+        OnBrightnessDetection += BrightnessDetection
+;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void Update()
     {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            isReach = true;
-        }
+        OnBrightnessDetection?.Invoke();
     }
 
-    public void BrightStep()
+    public void BrightnessDetection()
     {
-        if (brightStep > plants.brightStep || plants.isOn == false)
+        if (brightnessLevel > brightPlants.brightStep || brightPlants.isReach == false)
         {
-            
+            sprite.material.color = new Color(sprite.material.color.r, sprite.material.color.g, sprite.material.color.b, 0f);
         }
 
-        if (brightStep <= plants.brightStep && plants.isOn == true)
+        if (brightnessLevel <= brightPlants.brightStep && brightPlants.isReach == true)
         {
             sprite.material.color = new Color(sprite.material.color.r, sprite.material.color.g, sprite.material.color.b, 1f);
         }

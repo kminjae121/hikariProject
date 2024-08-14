@@ -7,9 +7,9 @@ using UnityEngine.Rendering.Universal ;
 public class BrightPlants : MonoBehaviour
 {
     [SerializeField]
-    private LuminescentPlants plants;
+    private LuminescentPlants luminescentPlants;
     [SerializeField]
-    private Light2D light2D;
+    private Light2D light;
     [SerializeField]
     private BrightFoothold brightFoothold;
 
@@ -19,45 +19,44 @@ public class BrightPlants : MonoBehaviour
     private float size = 3f;
     public LayerMask foothold;
 
-
-    public bool isOn;
+    public bool isReach;
 
     private void Awake()
     {
-        light2D.intensity = 0;
+        light.intensity = 0;
 
-        plants.OnPlants += Overlap;
-        plants.OnPlants += BrightnessControl;
+        luminescentPlants.OnPlants += BrightnessRange;
+        luminescentPlants.OnPlants += BrightnessControl;
     }
 
     private void BrightnessControl()
     {
         if (Input.GetKeyDown(KeyCode.I))
         {
-            light2D.intensity += 2.5f;
+            light.intensity += 2.5f;
             brightStep += 1;
             print(brightStep);
         }
         else if (Input.GetKeyDown(KeyCode.U))
         {
-            light2D.intensity -= 2.5f;
+            light.intensity -= 2.5f;
             brightStep -= 1;
             print(brightStep);
         }
     }
 
-    private void Overlap()
+    private void BrightnessRange()
     {
         Collider2D collision = Physics2D.OverlapCircle(transform.position, size, foothold);
         if (collision)
         {
-            isOn = true;
-            brightFoothold.BrightStep();
+            isReach = true;
+            brightFoothold.BrightnessDetection();
         }
         if(!collision)
         {
-            isOn = false;
-            brightFoothold.BrightStep();
+            isReach = false;
+            brightFoothold.BrightnessDetection();
         }
     }
 
