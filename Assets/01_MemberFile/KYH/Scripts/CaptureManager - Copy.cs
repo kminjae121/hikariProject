@@ -39,23 +39,28 @@ public class CaptureManager : MonoBehaviour
             if(captureObject != null)
             {
                 isNowCapture = true;
-                for(int i=0; i<captureObject.Length; i++)
-                {
-                    if(inventoryIdx != 5)
-                    {
-                        captureObject[i].GetComponent<CaptureObject>().CaptureFinish(inventoryIdx);
-                        inventoryIdx++;
-                    }
-                    else
-                    {
-                        inventoryIdx = 0;
-                        captureObject[i].GetComponent<CaptureObject>().CaptureFinish(inventoryIdx);
-                    }
-                }
+                SaveInventory(captureObject);
                 StartCoroutine(WaitCaptureRoutine());
             }
             print("캡쳐할 물cprk djqttmq니다");
             isNowCapture = false;
+        }
+    }
+
+    private void SaveInventory(Collider2D[] captureObject)
+    {
+        for (int i = 0; i < captureObject.Length; i++)
+        {
+            if (inventoryIdx != 5)
+            {
+                captureObject[i].GetComponent<CaptureObject>().CaptureFinish(inventoryIdx);
+                inventoryIdx++;
+            }
+            else
+            {
+                inventoryIdx = 0;
+                captureObject[i].GetComponent<CaptureObject>().CaptureFinish(inventoryIdx);
+            }
         }
     }
 
