@@ -57,8 +57,14 @@ public class ObjectGarher : MonoBehaviour
 
     private void WalkingDoll(float multiplier = 1f)
     {
-        
-        
+        Collider2D[] hit = Physics2D.OverlapBoxAll(transform.position, _boxSize, 0);
+        foreach(Collider2D Stop in hit)
+        {
+            if(Stop.gameObject.layer != _playerLayer)
+            {
+                rigid.velocity = new Vector3(0,0);
+            }
+        }
         rigid.AddForce(Vector2.right * _flyingSpeed * multiplier, ForceMode2D.Impulse); 
     }
 
