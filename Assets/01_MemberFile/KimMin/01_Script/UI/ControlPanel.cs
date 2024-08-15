@@ -25,6 +25,7 @@ public class ControlPannel : MonoBehaviour
 
     public void OnCloseClick()
     {
+        OpenControlPanel._isTrue = true;
         gameObject.SetActive(false);
     }
 }

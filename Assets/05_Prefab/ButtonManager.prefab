@@ -47,6 +47,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _currentText: {fileID: 0}
   _brightButton: {fileID: 0}
+  _FireWallTrueText: {fileID: 0}
+  IsFireWallTrue: 0
+  _WifiCollectText: {fileID: 0}
+  IsWifiTrue: 0
+  _SoundText: {fileID: 0}
+  _musicSlider: {fileID: 0}
   ChangeButton:
   - {fileID: 0}
   - {fileID: 0}
@@ -65,3 +71,59 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   receiveText: {fileID: 0}
   display: {fileID: 0}
+  str:
+  - "\uC528\uBC1C"
+  - "\uAC1C\uC0C8\uB07C"
+  - "\uC528\uBC1C\uB188"
+  - "\uB178\uBB34\uD604"
+  - "\uC88C\uD30C"
+  - "\uC6B0\uD30C"
+  - "\uC886"
+  - "\uBC8C\uB808"
+  - "\uBC84\uB7EC\uC9C0"
+  - "\uAC1C\uBC8C\uB808"
+  - "\uC7A5\uC5FC"
+  - "\uD770\uC8FD"
+  - "\uC886\uBC8C\uB808"
+  - "\u3148\uBC25"
+  - "\uCF54\uB4DC\uC2F8\uAC1C"
+  - "\uBB38\uC7AC\uC778"
+  - "\uC724\uC11D\uC5F4"
+  - "\uC548\uCCA0\uC218"
+  - "\uB4DC\uB7FC\uD1B5"
+  - "\uBCD1\uC2E0"
+  - "\uBCD1\uC2E0\uB828"
+  - "\uC5C4"
+  - "\uB290\uAE08\uB9C8"
+  - "\uB290\uAC1C\uBE44"
+  - "\uC77C\uBCA0"
+  - "\u3134\u3131\u3141"
+  - "\u31347\u3141"
+  - "\uB2901\uAE08\uB9C8"
+  - "\uB29012\uAE08\uB9C8"
+  - "\uC139\uC2A4"
+  - "\uC1391\uC2A4"
+  - "\uC13912\uC2A4"
+  - "\uC139@\uC2A4"
+  - "\uC139/\uC2A4"
+  - "\uB2C8\uAC70"
+  - "\uB2C8\uAC70\uB828"
+  - "\uB2C8@\uAC70\uB828"
+  - "\uB2C8\uAC70@\uB828"
+  - "\uB2C8!\uAC70\uB828"
+  - "\u3134\u3131\uC0C8\uB07C"
+  - "\uB2C8\uAC70\uC0C8\uB07C"
+  - "\uAE5C\uB465\uC774"
+  - "\uD751\uC778"
+  - "\uAC80\uC740"
+  - "\uC5B4\uB450\uC6B4"
+  - "\uAE4C\uB9CC"
+  - Fuck
+  - fuck
+  - sex
+  - Sex
+  - sEx
+  - seX
+  - SEx
+  - SeX
+  - sEX
