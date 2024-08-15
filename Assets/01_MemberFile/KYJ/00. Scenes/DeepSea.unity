@@ -121710,6 +121710,10 @@ PrefabInstance:
       propertyPath: sprite
       value: 
       objectReference: {fileID: 136951152}
+    - target: {fileID: 3407517322073610695, guid: b8b36ce02bee31b42a5400a84d40b823, type: 3}
+      propertyPath: brightPlants
+      value: 
+      objectReference: {fileID: 2111467624}
     - target: {fileID: 8720507251658783331, guid: b8b36ce02bee31b42a5400a84d40b823, type: 3}
       propertyPath: m_Name
       value: BrightObj
@@ -122970,6 +122974,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8424339241180300347, guid: 8420e576b5f34f8489c3c14b5dbc4a62, type: 3}
+      propertyPath: light
+      value: 
+      objectReference: {fileID: 1332932134}
+    - target: {fileID: 8424339241180300347, guid: 8420e576b5f34f8489c3c14b5dbc4a62, type: 3}
       propertyPath: plants
       value: 
       objectReference: {fileID: 602931850}
@@ -122981,6 +122989,10 @@ PrefabInstance:
       propertyPath: brightFoothold
       value: 
       objectReference: {fileID: 136951151}
+    - target: {fileID: 8424339241180300347, guid: 8420e576b5f34f8489c3c14b5dbc4a62, type: 3}
+      propertyPath: luminescentPlants
+      value: 
+      objectReference: {fileID: 602931850}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
