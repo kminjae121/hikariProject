@@ -57,8 +57,15 @@ public class DragDropObject : MonoBehaviour , IBeginDragHandler, IDragHandler, I
         else if(!furnitureObj.GetComponent<PlaceObj>().isPlaceTure)
         {
             placeObj.placeHelp.GetComponent<CaptureObject>().CaptureFinish(captureManager.inventoryIdx);
-            captureManager.inventoryIdx++;
-            Destroy(placeObj.placeHelp);
+            if (captureManager.inventoryIdx != 5)
+            {
+                captureManager.inventoryIdx++;
+            }
+            else
+            {
+                captureManager.inventoryIdx = 0;
+            }
+                Destroy(placeObj.placeHelp);
         }
 
         placeObj.isPlaceStart = false;

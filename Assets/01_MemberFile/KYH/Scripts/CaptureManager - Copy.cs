@@ -20,8 +20,6 @@ public class CaptureManager : MonoBehaviour
     {
         Capture();
         MouseFollow();
-
-        print(inventoryIdx);
     }
 
     private void MouseFollow()

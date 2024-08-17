@@ -13,7 +13,7 @@ public class BrightPlants : MonoBehaviour
     [SerializeField]
     private BrightFoothold brightFoothold;
 
-    public int brightStep = Math.Clamp(0 , 0, 4);
+    public float brightStep ;
 
     public Vector2 pos;
     private float size = 3f;
@@ -29,21 +29,26 @@ public class BrightPlants : MonoBehaviour
         luminescentPlants.OnPlants += BrightnessControl;
     }
 
+
     private void BrightnessControl()
     {
+
         if (Input.GetKeyDown(KeyCode.I))
         {
-            light.intensity += 2.5f;
-            brightStep += 1;
+            light.intensity += 2;
+            light.intensity = Mathf.Clamp(light.intensity, 0, 8);
+            brightStep = light.intensity / 2;
             print(brightStep);
         }
         else if (Input.GetKeyDown(KeyCode.U))
         {
-            light.intensity -= 2.5f;
-            brightStep -= 1;
+            light.intensity -= 2;
+            light.intensity = Mathf.Clamp(light.intensity, 0, 8);
+            brightStep = light.intensity / 2;
             print(brightStep);
         }
     }
+
 
     private void BrightnessRange()
     {
