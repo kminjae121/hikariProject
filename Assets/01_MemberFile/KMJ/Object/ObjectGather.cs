@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 enum ObjectType
@@ -19,62 +16,89 @@ public class ObjectGarher : MonoBehaviour
 {
     [SerializeField] private ObjectType _objectType;
 
-    
+
     private Rigidbody2D _playerRigidBody;
+    private bool _IsSofa;
+    private bool _IsElectricFan;
+    private bool _IsWalkintDool;
     [SerializeField] private Vector2 _boxSize;
     [SerializeField] private int _jumpPower;
     [SerializeField] private int _flyingSpeed;
     [SerializeField] private LayerMask _playerLayer;
-    [SerializeField] private Rigidbody2D rigid;
+    [SerializeField] private Rigidbody2D _rigid;
+    [SerializeField] private Transform _overlapPlace;
 
+    private void Awake()
+    {
+        _IsSofa = false;
+        _IsElectricFan = false;
+        _IsWalkintDool = false;
+    }
 
     private void Start()
     {
         _playerRigidBody = GameObject.Find("Player").GetComponent<Rigidbody2D>();
+        ObjectAbility();
     }
 
 
     private void Update()
     {
-        ObjectAbility();    
+        if (_IsSofa == true)
+        {
+            Sofa();
+        }
+
+        if (_IsWalkintDool == true)
+        {
+            WalkingDoll();
+        }
+
+        if (_IsElectricFan == true)
+        {
+            ElectricFan();
+        }
     }
 
     private void ObjectAbility()
     {
-        switch(_objectType)
+        switch (_objectType)
         {
             case ObjectType.Sofa:
-                Sofa();
+                _IsSofa = true;
                 break;
             case ObjectType.ElectricFan:
-                ElectricFan();
+                _IsElectricFan = true;
                 break;
             case ObjectType.WalkingDoll:
-                WalkingDoll();
+                _IsWalkintDool = true;
                 break;
         }
     }
 
     private void WalkingDoll(float multiplier = 1f)
     {
-        Collider2D[] hit = Physics2D.OverlapBoxAll(transform.position, _boxSize, 0);
-        foreach(Collider2D Stop in hit)
+        Collider2D hit = Physics2D.OverlapBox(_overlapPlace.position, _boxSize, 0, _playerLayer);
+
+        if (hit != true)
         {
-            if(Stop.gameObject.layer != _playerLayer)
-            {
-                rigid.velocity = new Vector3(0,0);
-            }
+            _rigid.velocity = Vector2.zero;
         }
-        rigid.AddForce(Vector2.right * _flyingSpeed * multiplier, ForceMode2D.Impulse); 
+        else if (hit == true)
+        {
+            _rigid.velocity = Vector2.zero;
+            _rigid.AddForce(Vector2.right * _flyingSpeed * multiplier, ForceMode2D.Impulse);
+        }
     }
 
     private void ElectricFan(float multiplier = 1f)
     {
-        Collider2D hit = Physics2D.OverlapBox(transform.position, _boxSize, 0, _playerLayer);
+        Collider2D hit = Physics2D.OverlapBox(_overlapPlace.position, _boxSize, 0, _playerLayer);
 
-        if(hit == true)
+        if (hit == true)
         {
             _playerRigidBody.gravityScale = 0;
+            _playerRigidBody.velocity = Vector2.zero;
             _playerRigidBody.AddForce(Vector2.right * _flyingSpeed * multiplier, ForceMode2D.Impulse);
         }
         else
@@ -85,12 +109,20 @@ public class ObjectGarher : MonoBehaviour
 
     private void Sofa(float multiplier = 1f)
     {
-        Collider2D hit = Physics2D.OverlapBox(transform.position, _boxSize, 0,_playerLayer);
+        Collider2D hit = Physics2D.OverlapBox(_overlapPlace.position, _boxSize, 0, _playerLayer);
 
         if (hit == true)
         {
             _playerRigidBody.velocity = Vector2.zero;
             _playerRigidBody.AddForce(Vector2.up * _jumpPower * multiplier, ForceMode2D.Impulse);
         }
+
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireCube(_overlapPlace.position, _boxSize);
+        Gizmos.color = Color.white;
     }
 }
