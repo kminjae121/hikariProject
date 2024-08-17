@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8147215859493366611}
   - component: {fileID: 7674431702116881095}
-  - component: {fileID: 1514734098653566499}
   - component: {fileID: 3113936843582907905}
+  - component: {fileID: 1514734098653566499}
   m_Layer: 0
   m_Name: Luminescent Plants
   m_TagString: Untagged
@@ -82,21 +82,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.5, y: 0.5}
   m_EdgeRadius: 0
---- !u!114 &1514734098653566499
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 598386727754540808}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 77df9122899cf2f4b933f6e974787734, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  isReach: 0
-  isHold: 0
 --- !u!50 &3113936843582907905
 Rigidbody2D:
   serializedVersion: 4
@@ -124,6 +109,21 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1514734098653566499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 598386727754540808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77df9122899cf2f4b933f6e974787734, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  isReach: 0
+  isHold: 0
 --- !u!1 &751805088953754918
 GameObject:
   m_ObjectHideFlags: 0
@@ -216,7 +216,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8382357464777410268}
   - component: {fileID: 3673248250995922364}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -293,9 +293,9 @@ GameObject:
   m_Component:
   - component: {fileID: 8658602338162016795}
   - component: {fileID: 4294341647043601666}
-  - component: {fileID: 8424339241180300347}
   - component: {fileID: 344918857069434160}
-  m_Layer: 0
+  - component: {fileID: 8424339241180300347}
+  m_Layer: 13
   m_Name: Visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -369,27 +369,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8424339241180300347
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5007698187742847738}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 606d25bc8cddb7d4fa5107d0b106bf99, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  luminescentPlants: {fileID: 0}
-  light: {fileID: 0}
-  brightFoothold: {fileID: 0}
-  brightStep: 0
-  pos: {x: 0, y: 0}
-  foothold:
-    serializedVersion: 2
-    m_Bits: 4096
-  isReach: 0
 --- !u!61 &344918857069434160
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -435,3 +414,24 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &8424339241180300347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5007698187742847738}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 606d25bc8cddb7d4fa5107d0b106bf99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  luminescentPlants: {fileID: 0}
+  light: {fileID: 0}
+  brightFoothold: {fileID: 0}
+  brightStep: 0
+  pos: {x: 0, y: 0}
+  foothold:
+    serializedVersion: 2
+    m_Bits: 4096
+  isReach: 0
