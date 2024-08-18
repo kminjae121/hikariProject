@@ -8,7 +8,7 @@ public class BrightFoothold : MonoBehaviour
     [SerializeField]
     private SpriteRenderer sprite;
     [SerializeField]
-    private BrightPlants brightPlants;
+    public BrightPlants brightPlants;
 
     public float brightnessLevel;
 

@@ -29,7 +29,7 @@ public abstract class FishSetting : Fish
 
     public void Attack()
     {
-        BrightPlant.brightStep = 0;
+        BrightFoodHold.brightPlants.brightStep = 0;
     }
 
     public abstract void AnimationEndTrigger();
