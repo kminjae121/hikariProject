@@ -34,6 +34,9 @@ public class AnglerFishMoveState : FishState
 
         if (distance < _fish.detectRadius && distance > _fish.attackRadius)
         {
+            if (_fish.BrightFoodHold.brightPlants.brightStep != 0)
+                _stateMachine.ChangeState(FishStateEnum.Chase);
+
             if (_fish.isDark)
                 return;
 
