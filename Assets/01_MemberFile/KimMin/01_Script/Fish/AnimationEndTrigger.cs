@@ -8,7 +8,7 @@ public class AnimationEndTrigger : MonoBehaviour
 
     public void AnimationEnd()
     {
-        _fish.AnimationEndTrigger();
+        _fish.AnimationEndTrigger() ;
     }
 
     public void AnimationAttackTrigger()

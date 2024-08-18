@@ -34,7 +34,15 @@ public class AnglerFishMoveState : FishState
 
         if (distance < _fish.detectRadius && distance > _fish.attackRadius)
         {
+            if (_fish.isDark)
+                return;
+
             _stateMachine.ChangeState(FishStateEnum.Chase);
+        }
+
+        if (distance > _fish.detectRadius + 2)
+        {
+            _fish.isDark = false;
         }
     }
 

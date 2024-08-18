@@ -16,6 +16,7 @@ public class AnglerFishChaseState : FishState
     public override void UpdateState()
     {
         base.UpdateState();
+        Debug.Log("ㄴㅇㄹ");
 
         Chase();
 
@@ -25,6 +26,12 @@ public class AnglerFishChaseState : FishState
         if (distance < _fish.attackRadius)
         {
             _stateMachine.ChangeState(FishStateEnum.Attack);
+        }
+        else if (_fish.BrightPlant.brightStep == 0)
+        {
+            Debug.Log($"너무 어두워... 밝기 : {_fish.BrightPlant.brightStep}");
+            _fish.isDark = true;
+            _stateMachine.ChangeState(FishStateEnum.Move);
         }
         else if (distance > _fish.detectRadius + 2)
         {
