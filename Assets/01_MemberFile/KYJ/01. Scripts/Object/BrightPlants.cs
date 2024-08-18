@@ -6,59 +6,62 @@ using UnityEngine.Rendering.Universal ;
 
 public class BrightPlants : MonoBehaviour
 {
-    private LuminescentPlants plants;
+    [SerializeField]
+    private LuminescentPlants luminescentPlants;
+    [SerializeField]
+    private Light2D light;
+    [SerializeField]
+    private BrightFoothold brightFoothold;
 
-    public int brightStep = Math.Clamp(0 , 0, 4);
-    private Light2D light2D;
+    public float brightStep ;
 
     public Vector2 pos;
     private float size = 3f;
     public LayerMask foothold;
 
-    private BrightFoothold brightFoothold;
-
-    public bool isOn;
+    public bool isReach;
 
     private void Awake()
     {
-        plants = GameObject.Find("Luminescent Plants").GetComponent<LuminescentPlants>();
-        light2D = GameObject.Find("Light 2D").GetComponent<Light2D>();
-        brightFoothold = GameObject.Find("Square").GetComponent<BrightFoothold>();
+        light.intensity = 0;
 
-        light2D.intensity = 0;
-
-        plants.OnPlants += Overlap;
-        plants.OnPlants += BrightnessControl;
+        luminescentPlants.OnPlants += BrightnessRange;
+        luminescentPlants.OnPlants += BrightnessControl;
     }
+
 
     private void BrightnessControl()
     {
+
         if (Input.GetKeyDown(KeyCode.I))
         {
-            light2D.intensity += 2.5f;
-            brightStep += 1;
+            light.intensity += 2;
+            light.intensity = Mathf.Clamp(light.intensity, 0, 8);
+            brightStep = light.intensity / 2;
             print(brightStep);
         }
         else if (Input.GetKeyDown(KeyCode.U))
         {
-            light2D.intensity -= 2.5f;
-            brightStep -= 1;
+            light.intensity -= 2;
+            light.intensity = Mathf.Clamp(light.intensity, 0, 8);
+            brightStep = light.intensity / 2;
             print(brightStep);
         }
     }
 
-    private void Overlap()
+
+    private void BrightnessRange()
     {
         Collider2D collision = Physics2D.OverlapCircle(transform.position, size, foothold);
         if (collision)
         {
-            isOn = true;
-            brightFoothold.BrightStep();
+            isReach = true;
+            brightFoothold.BrightnessDetection();
         }
         if(!collision)
         {
-            isOn = false;
-            brightFoothold.BrightStep();
+            isReach = false;
+            brightFoothold.BrightnessDetection();
         }
     }
 

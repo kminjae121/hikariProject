@@ -9145,6 +9145,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   receiveText: {fileID: 235829585}
   display: {fileID: 71514332}
+  str: []
 --- !u!1 &2085490238
 GameObject:
   m_ObjectHideFlags: 0
