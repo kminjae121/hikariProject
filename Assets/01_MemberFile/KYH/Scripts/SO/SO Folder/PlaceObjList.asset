@@ -15,3 +15,8 @@ MonoBehaviour:
   placeObjSO:
   - {fileID: 11400000, guid: ab2085ff96c6d3a4dac1c31363d381f9, type: 2}
   - {fileID: 11400000, guid: 969236f8f0ada794382f7dc938148712, type: 2}
+  - {fileID: 11400000, guid: 5868c2b5855edab44b668648bff95612, type: 2}
+  - {fileID: 11400000, guid: 2f50b3616c265f74f87e8fe4565620d5, type: 2}
+  - {fileID: 11400000, guid: 5c8b66a057d57164c83b19f3ac890de4, type: 2}
+  - {fileID: 11400000, guid: 10d5ed67c65e04c41a708e5f8b298ec9, type: 2}
+  - {fileID: 11400000, guid: c50221cb60821d94e9acf128ff4c3716, type: 2}
