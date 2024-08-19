@@ -13,7 +13,9 @@ GameObject:
   - component: {fileID: 5840526118384468311}
   - component: {fileID: 7583965434527521619}
   - component: {fileID: 3303380606402982908}
-  m_Layer: 0
+  - component: {fileID: -3570575315172722885}
+  - component: {fileID: 5554429356514843094}
+  m_Layer: 11
   m_Name: TwoFloorBed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -179,6 +181,34 @@ PlatformEffector2D:
   m_UseSideFriction: 0
   m_UseSideBounce: 0
   m_SideArc: 1
+--- !u!114 &-3570575315172722885
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4792981936377408962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d2fd932be7f0fc42a6058bf2313c59c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  captureSprite: {fileID: 11400000, guid: 2f50b3616c265f74f87e8fe4565620d5, type: 2}
+--- !u!114 &5554429356514843094
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4792981936377408962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe97d03d60bac2548989f2fd005acb3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  placeHelp: {fileID: 0}
+  isPlaceStart: 0
+  isPlaceTure: 0
 --- !u!1 &5078008068260609776
 GameObject:
   m_ObjectHideFlags: 0

@@ -44,7 +44,9 @@ GameObject:
   - component: {fileID: 2739803575937052793}
   - component: {fileID: 1555257288606654822}
   - component: {fileID: 456093963141686976}
-  m_Layer: 0
+  - component: {fileID: -7596342830130883501}
+  - component: {fileID: 8097309307932403198}
+  m_Layer: 11
   m_Name: WalkingDool
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -212,3 +214,31 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 6
+--- !u!114 &-7596342830130883501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6760271705040464676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d2fd932be7f0fc42a6058bf2313c59c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  captureSprite: {fileID: 11400000, guid: 5868c2b5855edab44b668648bff95612, type: 2}
+--- !u!114 &8097309307932403198
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6760271705040464676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe97d03d60bac2548989f2fd005acb3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  placeHelp: {fileID: 0}
+  isPlaceStart: 0
+  isPlaceTure: 0
