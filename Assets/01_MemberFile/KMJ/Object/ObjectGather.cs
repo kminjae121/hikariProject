@@ -36,6 +36,7 @@ public class ObjectGarher : MonoBehaviour
         _IsSofa = false;
         _IsElectricFan = false;
         _IsWalkintDool = false;
+        _isBallon = false;
     }
 
     private void Start()
