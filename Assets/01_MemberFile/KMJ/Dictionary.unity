@@ -803,10 +803,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sofa
       objectReference: {fileID: 0}
-    - target: {fileID: 7199731060242410248, guid: a054ab184cc678547857b5a6f1d00a76, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1096,10 +1092,6 @@ PrefabInstance:
     - target: {fileID: 6760271705040464676, guid: 2b628bc63ed07d44bb6a4c5ae34c8a0f, type: 3}
       propertyPath: m_Name
       value: WalkingDool
-      objectReference: {fileID: 0}
-    - target: {fileID: 6760271705040464676, guid: 2b628bc63ed07d44bb6a4c5ae34c8a0f, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7307414003955338052, guid: 2b628bc63ed07d44bb6a4c5ae34c8a0f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1412,10 +1404,6 @@ PrefabInstance:
     - target: {fileID: 8523488740190210719, guid: d9ae6193da0e05c4a8626344efa3852a, type: 3}
       propertyPath: m_Name
       value: Ballon
-      objectReference: {fileID: 0}
-    - target: {fileID: 8523488740190210719, guid: d9ae6193da0e05c4a8626344efa3852a, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
