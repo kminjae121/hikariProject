@@ -53,15 +53,13 @@ public class BrightPlants : MonoBehaviour
         Collider2D collision = Physics2D.OverlapCircle(transform.position, size, foothold);
         if (collision)
         {
-            isReach = false;
+            isReach = true;
             brightFoothold.BrightnessDetection();
-            print("dd");
         }
         else if(!collision)
         {
-            isReach = true;
+            isReach = false;
             brightFoothold.BrightnessDetection();
-            print("dddddd");
         }
     }
 
