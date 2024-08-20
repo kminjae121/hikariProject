@@ -37,17 +37,16 @@ public class LuminescentPlants : MonoBehaviour
 
     private void HoldPlants(Transform parent)
     {
-        if (isReach == true && Input.GetKeyDown(KeyCode.K))
+        if (isReach == true && !isHold && Input.GetKeyDown(KeyCode.K))
         {
             gameObject.transform.SetParent(parent);
             isHold = true;
             rigid.bodyType = RigidbodyType2D.Kinematic;
         }
 
-        if (isHold == true && Input.GetKeyDown(KeyCode.K))
+        else if (isHold == true && Input.GetKeyDown(KeyCode.K))
         {
             gameObject.transform.SetParent(null);
-            //rigid.bodyType = RigidbodyType2D.Dynamic;
             isHold = false;
         }
 
