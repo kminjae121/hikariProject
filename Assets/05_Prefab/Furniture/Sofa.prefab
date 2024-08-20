@@ -13,7 +13,9 @@ GameObject:
   - component: {fileID: 5632131956840726027}
   - component: {fileID: 5177905600455639116}
   - component: {fileID: 4600098469258140024}
-  m_Layer: 0
+  - component: {fileID: 5553984027709340454}
+  - component: {fileID: -7622215725821490806}
+  m_Layer: 11
   m_Name: Sofa
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -181,6 +183,34 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 6
+--- !u!114 &5553984027709340454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7199731060242410248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d2fd932be7f0fc42a6058bf2313c59c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  captureSprite: {fileID: 11400000, guid: 5c8b66a057d57164c83b19f3ac890de4, type: 2}
+--- !u!114 &-7622215725821490806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7199731060242410248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe97d03d60bac2548989f2fd005acb3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  placeHelp: {fileID: 0}
+  isPlaceStart: 0
+  isPlaceTure: 0
 --- !u!1 &7844729619203609009
 GameObject:
   m_ObjectHideFlags: 0

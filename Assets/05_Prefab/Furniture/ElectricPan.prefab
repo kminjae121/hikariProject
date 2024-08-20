@@ -13,7 +13,9 @@ GameObject:
   - component: {fileID: 7766981088218622300}
   - component: {fileID: 2533467227320749019}
   - component: {fileID: 1369597588212853429}
-  m_Layer: 0
+  - component: {fileID: -5326673407445562525}
+  - component: {fileID: -2010380347485080885}
+  m_Layer: 11
   m_Name: ElectricPan
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -181,6 +183,34 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 6
+--- !u!114 &-5326673407445562525
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7130338374306468576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d2fd932be7f0fc42a6058bf2313c59c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  captureSprite: {fileID: 11400000, guid: c50221cb60821d94e9acf128ff4c3716, type: 2}
+--- !u!114 &-2010380347485080885
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7130338374306468576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe97d03d60bac2548989f2fd005acb3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  placeHelp: {fileID: 0}
+  isPlaceStart: 0
+  isPlaceTure: 0
 --- !u!1 &7214341515950842089
 GameObject:
   m_ObjectHideFlags: 0
