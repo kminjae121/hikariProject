@@ -7,7 +7,7 @@ public abstract class Foothold : MonoBehaviour
 {
     protected Rigidbody2D _rigid;
 
-    [SerializeField] protected bool isBack;
+    [SerializeField] protected bool isStartingPoint;
 
     protected float startPos;
     protected float targetPos;
@@ -20,27 +20,25 @@ public abstract class Foothold : MonoBehaviour
         targetPos = transform.position.y - 30f;
     }
 
-
     protected virtual IEnumerator DownMoveFoothold(float stopTime) 
     {
-        if (transform.position.y == startPos)
+        if (isStartingPoint)
         {
             yield return new WaitForSeconds(stopTime);
             transform.DOMoveY(targetPos, 3f);
-            isBack = true;
+            isStartingPoint = false;
         }      
     }
 
-
     protected virtual IEnumerator UpMoveFoothold(float stopTime)
     {
-        if (/*transform.position.y != startPos/* && */!isBack)
+        if (!isStartingPoint)
         {
             yield return new WaitForSeconds(stopTime);
             _rigid.bodyType = RigidbodyType2D.Static;
             transform.DOMoveY(startPos, 3f);
-            isBack = false;
+            isStartingPoint = true;
+        }
     }
-}
 }
 
