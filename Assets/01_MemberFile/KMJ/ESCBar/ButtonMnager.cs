@@ -9,6 +9,7 @@ public class ButtonMnager : MonoBehaviour
 {
     private int _value;
 
+    [SerializeField] private GameObject _Esc;
     [SerializeField] private TextMeshProUGUI _currentText;
     [SerializeField] private Button _brightButton;
     [Header("πÊ»≠∫Æ")]
@@ -27,6 +28,7 @@ public class ButtonMnager : MonoBehaviour
 
     private void Awake()
     {
+        _Esc.SetActive(false);
         IsWifiTrue = false;
         IsFireWallTrue = false;
         _brightButton.interactable = false;
