@@ -1532,7 +1532,7 @@ GameObject:
   - component: {fileID: 127067625}
   - component: {fileID: 127067627}
   - component: {fileID: 127067626}
-  m_Layer: 5
+  m_Layer: 15
   m_Name: Controller
   m_TagString: Application
   m_Icon: {fileID: 0}
@@ -1625,6 +1625,9 @@ MonoBehaviour:
     m_Bits: 16384
   windowBackGroundCam: {fileID: 0}
   holdCam: {fileID: 0}
+  whatIsApp:
+    serializedVersion: 2
+    m_Bits: 32768
 --- !u!61 &127067626
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2140,7 +2143,7 @@ GameObject:
   - component: {fileID: 176681710}
   - component: {fileID: 176681712}
   - component: {fileID: 176681711}
-  m_Layer: 5
+  m_Layer: 15
   m_Name: file
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2233,6 +2236,9 @@ MonoBehaviour:
     m_Bits: 16384
   windowBackGroundCam: {fileID: 0}
   holdCam: {fileID: 0}
+  whatIsApp:
+    serializedVersion: 2
+    m_Bits: 32768
 --- !u!50 &176681711
 Rigidbody2D:
   serializedVersion: 4
@@ -15405,7 +15411,7 @@ GameObject:
   - component: {fileID: 1773573744}
   - component: {fileID: 1773573746}
   - component: {fileID: 1773573745}
-  m_Layer: 5
+  m_Layer: 15
   m_Name: ExitIcon
   m_TagString: Application
   m_Icon: {fileID: 0}
@@ -15498,6 +15504,9 @@ MonoBehaviour:
     m_Bits: 16384
   windowBackGroundCam: {fileID: 0}
   holdCam: {fileID: 0}
+  whatIsApp:
+    serializedVersion: 2
+    m_Bits: 32768
 --- !u!61 &1773573745
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -16548,7 +16557,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 1000
+  far clip plane: 50
   field of view: 60
   orthographic: 1
   orthographic size: 5
