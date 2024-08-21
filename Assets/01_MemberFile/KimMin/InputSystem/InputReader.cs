@@ -7,7 +7,7 @@ using static Controls;
 public class InputReader : ScriptableObject, IPlayerActions
 {
     private Controls _controls;
-
+    
     public event Action JumpKeyEvent;
     public Vector2 Movement { get; private set; }
 
