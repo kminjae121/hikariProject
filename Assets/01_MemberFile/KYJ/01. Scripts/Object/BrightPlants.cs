@@ -11,7 +11,7 @@ public class BrightPlants : MonoBehaviour
     [SerializeField]
     private Light2D light;
     [SerializeField]
-    private BrightFoothold brightFoothold;
+    public BrightFoothold brightFoothold;
 
     public float brightStep ;
 
