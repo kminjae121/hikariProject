@@ -20,7 +20,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8822869914076179613
 Transform:
   m_ObjectHideFlags: 0
@@ -185,4 +185,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe97d03d60bac2548989f2fd005acb3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  placeObjListSO: {fileID: 11400000, guid: 2735a0001178c6c4aab868c1f9f8970d, type: 2}
+  placeHelp: {fileID: 0}
+  isPlaceStart: 0
+  isPlaceTure: 0
