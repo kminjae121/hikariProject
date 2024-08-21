@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5540202341798573953}
   - component: {fileID: 6847014516252878198}
   m_Layer: 12
-  m_Name: BrightObj
+  m_Name: BrightObj_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   brightPlants: {fileID: 0}
-  brightnessLevel: 2
+  brightnessLevel: 3
 --- !u!1 &4003550350571377242
 GameObject:
   m_ObjectHideFlags: 0
@@ -174,7 +174,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -1728135471, guid: 3b11d0b80c7d12e4e8ba888aaf198865, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.34844178, g: 1, b: 0.2320754, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
