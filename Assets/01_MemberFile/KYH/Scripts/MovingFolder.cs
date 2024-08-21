@@ -20,6 +20,8 @@ public class MovingFolder : MonoBehaviour
     [SerializeField]
     private CinemachineVirtualCamera holdCam;
 
+    public LayerMask whatIsApp;
+
     void Update()
     {
 
@@ -28,24 +30,23 @@ public class MovingFolder : MonoBehaviour
         {
             HoldObject();
         }
-
-        Debug.Log(transform.position);
     }
 
     private void ClickFolder()
     {
         _mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         _mousePos.z = 0;
-        RaycastHit2D hit = Physics2D.Raycast(_mousePos, Vector2.zero, Mathf.Infinity);
+        RaycastHit2D hit = Physics2D.Raycast(_mousePos, Vector2.zero, 0, whatIsApp);
 
         if (hit)
         {
+            print(hit.collider.name);
             if (hit.collider.CompareTag("Application") && Input.GetMouseButtonDown(0))
             {
                 _holdObject = hit.collider.gameObject;
                 _holdObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
                 _isHeld = true;
-                transform.SetParent(null);
+                _holdObject.transform.SetParent(null);
             }
         }
     }
@@ -73,6 +74,7 @@ public class MovingFolder : MonoBehaviour
             //_holdObject.transform.position = _holdObject.transform.root.position;
             _isHeld = false;
             _holdObject.transform.localPosition = Vector2.zero;
+            _holdObject = null;
         }
 
     }

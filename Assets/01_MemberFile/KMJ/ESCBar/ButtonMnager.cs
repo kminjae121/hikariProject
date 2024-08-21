@@ -8,6 +8,7 @@ using TMPro;
 public class ButtonMnager : MonoBehaviour
 {
     private int _value;
+    public static int i = 0;
 
     [SerializeField] private GameObject _Esc;
     [SerializeField] private TextMeshProUGUI _currentText;
@@ -44,9 +45,7 @@ public class ButtonMnager : MonoBehaviour
     private void Update()
     {
         _value = (int)_musicSlider.value;
-        SceneNumber = SceneManager.GetActiveScene().buildIndex;
 
-        SceneTextChange();
 
         InteractablFalse();
 
@@ -68,27 +67,6 @@ public class ButtonMnager : MonoBehaviour
         else if (IsWifiTrue == false)
         {
             _WifiCollectText.text = "¿¬°á ¾ÈµÊ";
-        }
-    }
-
-    private void SceneTextChange()
-    {
-        int i = 0;
-        switch(SceneNumber)
-        {
-            case 3:
-                _currentText.text = "»çÀü";
-                ChangeButton[i].SetActive(true);
-                i++;
-                break;
-            case 4:
-                _currentText.text = "Ä¸ÃÄ";
-                ChangeButton[i - 1].SetActive(false);
-                ChangeButton[i].SetActive(true);
-                break;
-            case 5:
-                _currentText.text = null;
-                break;
         }
     }
 
