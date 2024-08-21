@@ -7,38 +7,32 @@ using TMPro;
 
 public class PostIt : MonoBehaviour
 {
-    [SerializeField] private Sprite[] _sprites;
-    [SerializeField] private GameObject _postItPrefab;
-    [SerializeField] private RectTransform _attachPos;
+    public static PostIt Instance;
 
-    [SerializeField] private List<string> textList;
+    public Sprite[] _sprites;
+    public GameObject _postItPrefab;
+    public RectTransform _attachPos;
+    public GameObject _canvas;
 
-    private bool isAttached;
+    public List<string> textList;
 
-    private TMP_Text _text;
+    public bool isAttached;
 
-    private Transform _canvas;
-    private GameObject _postIt;
-    private Image _image;
-    private Sequence seq;
+    public TMP_Text _text;
+
+    [HideInInspector]  public GameObject _postIt;
+    [HideInInspector]  public Image _image;
+    [HideInInspector]  public Sequence seq;
 
     private void Awake()
     {
-        _canvas = GameObject.Find("Canvas").transform;
-        seq = DOTween.Sequence();
-    }
+        if(gameObject != null)
+        {
+            Destroy(gameObject);
+        }
+        Instance = this;
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            Attach(2);
-        }
-        
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            Detach();
-        }
+        seq = DOTween.Sequence();
     }
 
     private void Initialize(Image image)
@@ -47,7 +41,7 @@ public class PostIt : MonoBehaviour
         image.sprite = _sprites[rand];
     }
 
-    private void Attach(int index)
+    public void Attach(int index)
     {
         _postIt = Instantiate
             (_postItPrefab, _attachPos.position, Quaternion.identity, _canvas);
@@ -66,7 +60,7 @@ public class PostIt : MonoBehaviour
             .SetEase(Ease.InExpo);
     }
 
-    private void Detach()
+    public void Detach()
     {
         if (!isAttached)
             return;
@@ -79,7 +73,7 @@ public class PostIt : MonoBehaviour
         StartCoroutine(DtachCoroutine());
     }
 
-    IEnumerator DtachCoroutine()
+    private IEnumerator DtachCoroutine()
     {
         yield return new WaitForSeconds(0.2f);
         Destroy(_image.gameObject);
