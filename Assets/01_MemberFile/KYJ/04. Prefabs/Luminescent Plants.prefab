@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 598386727754540808}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 147.73, y: 30.87, z: 0}
+  m_LocalPosition: {x: 146.76807, y: 30.541813, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -295,6 +295,7 @@ GameObject:
   - component: {fileID: 4294341647043601666}
   - component: {fileID: 344918857069434160}
   - component: {fileID: 8424339241180300347}
+  - component: {fileID: 106936748476481430}
   m_Layer: 13
   m_Name: Visual
   m_TagString: Untagged
@@ -426,8 +427,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 606d25bc8cddb7d4fa5107d0b106bf99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  luminescentPlants: {fileID: 0}
-  light: {fileID: 0}
+  luminescentPlants: {fileID: 1514734098653566499}
+  light: {fileID: 2760194067065482843}
   brightFoothold: {fileID: 0}
   brightStep: 0
   pos: {x: 0, y: 0}
@@ -435,3 +436,24 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4096
   isReach: 0
+--- !u!95 &106936748476481430
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5007698187742847738}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2067f4797f2f47948be395bd652878b7, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

@@ -29,7 +29,6 @@ public class BrightPlants : MonoBehaviour
         luminescentPlants.OnPlants += BrightnessControl;
     }
 
-
     private void BrightnessControl()
     {
 
@@ -49,7 +48,6 @@ public class BrightPlants : MonoBehaviour
         }
     }
 
-
     private void BrightnessRange()
     {
         Collider2D collision = Physics2D.OverlapCircle(transform.position, size, foothold);
@@ -58,7 +56,7 @@ public class BrightPlants : MonoBehaviour
             isReach = true;
             brightFoothold.BrightnessDetection();
         }
-        if(!collision)
+        else if(!collision)
         {
             isReach = false;
             brightFoothold.BrightnessDetection();
