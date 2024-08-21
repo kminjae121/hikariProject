@@ -20,6 +20,8 @@ public class MovingFolder : MonoBehaviour
     [SerializeField]
     private CinemachineVirtualCamera holdCam;
 
+    public LayerMask whatIsApp;
+
     void Update()
     {
 
@@ -34,7 +36,7 @@ public class MovingFolder : MonoBehaviour
     {
         _mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         _mousePos.z = 0;
-        RaycastHit2D hit = Physics2D.Raycast(_mousePos, Vector2.zero, Mathf.Infinity);
+        RaycastHit2D hit = Physics2D.Raycast(_mousePos, Vector2.zero, 0, whatIsApp);
 
         if (hit)
         {
