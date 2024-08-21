@@ -28,8 +28,6 @@ public class MovingFolder : MonoBehaviour
         {
             HoldObject();
         }
-
-        Debug.Log(transform.position);
     }
 
     private void ClickFolder()
@@ -40,12 +38,13 @@ public class MovingFolder : MonoBehaviour
 
         if (hit)
         {
+            print(hit.collider.name);
             if (hit.collider.CompareTag("Application") && Input.GetMouseButtonDown(0))
             {
                 _holdObject = hit.collider.gameObject;
                 _holdObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
                 _isHeld = true;
-                transform.SetParent(null);
+                _holdObject.transform.SetParent(null);
             }
         }
     }
@@ -73,6 +72,7 @@ public class MovingFolder : MonoBehaviour
             //_holdObject.transform.position = _holdObject.transform.root.position;
             _isHeld = false;
             _holdObject.transform.localPosition = Vector2.zero;
+            _holdObject = null;
         }
 
     }
