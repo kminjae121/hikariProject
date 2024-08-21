@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
+using TMPro;
 
 public class PostIt : MonoBehaviour
 {
@@ -10,7 +11,11 @@ public class PostIt : MonoBehaviour
     [SerializeField] private GameObject _postItPrefab;
     [SerializeField] private RectTransform _attachPos;
 
+    [SerializeField] private List<string> textList;
+
     private bool isAttached;
+
+    private TMP_Text _text;
 
     private Transform _canvas;
     private GameObject _postIt;
@@ -27,7 +32,7 @@ public class PostIt : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.R))
         {
-            Attach();
+            Attach(2);
         }
         
         if (Input.GetKeyDown(KeyCode.F))
@@ -42,20 +47,23 @@ public class PostIt : MonoBehaviour
         image.sprite = _sprites[rand];
     }
 
-    private void Attach()
+    private void Attach(int index)
     {
         _postIt = Instantiate
             (_postItPrefab, _attachPos.position, Quaternion.identity, _canvas);
 
         _image = _postIt.GetComponent<Image>();
+
         Initialize(_image);
+
+        _text = _postIt.GetComponentInChildren<TMP_Text>();
+        _text.text = textList[index];
 
         isAttached = true;
 
         seq.Append(_image.DOFade(1, 0.1f))
-            .Join(_image.transform.DOScale(2.5f, 0.15f))
-            .Append(_image.transform.DOScale(1f, 0.4f))
-            .SetEase(Ease.OutExpo);
+            .Join(_image.transform.DOScale(1, 0.25f))
+            .SetEase(Ease.InExpo);
     }
 
     private void Detach()
@@ -65,10 +73,15 @@ public class PostIt : MonoBehaviour
 
         seq.Append(_image.DOFade(0, 0.15f))
             .Join(_image.transform.DOScale(3f, 0.4f))
-            .SetEase(Ease.OutExpo)
-            .OnComplete(() =>
-            {
-                Destroy(_postIt);
-            });
+            .SetEase(Ease.InExpo);
+
+        Destroy(_text.gameObject);
+        StartCoroutine(DtachCoroutine());
+    }
+
+    IEnumerator DtachCoroutine()
+    {
+        yield return new WaitForSeconds(0.2f);
+        Destroy(_image.gameObject);
     }
 }
