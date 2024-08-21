@@ -30,7 +30,7 @@ public class BrightFoothold : MonoBehaviour
 
     public void BrightnessDetection()
     {
-        if (brightnessLevel > brightPlants.brightStep || brightPlants.isReach == false)
+        if (brightnessLevel > brightPlants.brightStep ||  brightnessLevel < brightPlants.brightStep || brightPlants.isReach == false)
         {
             polygonCollider.isTrigger = true;
             anim.SetBool("Fold", true);
