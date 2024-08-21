@@ -7,7 +7,6 @@ public class Foothold1 : Foothold
 {
     protected override void Awake()
     {
-        base.Awake();
         _rigid = GetComponent<Rigidbody2D>();
         startPos = transform.position.y;
     }
@@ -16,9 +15,9 @@ public class Foothold1 : Foothold
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            print("ddd");
             StartCoroutine(DownMoveFoothold(0.5f));
             StartCoroutine(UpMoveFoothold(4f));
-
         }
     }
 
