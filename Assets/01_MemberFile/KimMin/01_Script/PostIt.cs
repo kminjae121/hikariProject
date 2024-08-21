@@ -32,6 +32,7 @@ public class PostIt : MonoBehaviour
         }
         Instance = this;
 
+        DontDestroyOnLoad(this);
         seq = DOTween.Sequence();
     }
 
@@ -44,7 +45,7 @@ public class PostIt : MonoBehaviour
     public void Attach(int index)
     {
         _postIt = Instantiate
-            (_postItPrefab, _attachPos.position, Quaternion.identity, _canvas);
+            (_postItPrefab, _attachPos.position, Quaternion.identity, _canvas.transform);
 
         _image = _postIt.GetComponent<Image>();
 
