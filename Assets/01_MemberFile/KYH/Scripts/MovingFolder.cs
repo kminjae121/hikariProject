@@ -14,7 +14,7 @@ public class MovingFolder : MonoBehaviour
     [SerializeField]
     private Vector2 boxSize;
     [SerializeField]
-    private LayerMask whatIsPlayer;
+    private LayerMask whatIsPutStation;
     [SerializeField]
     private CinemachineVirtualCamera windowBackGroundCam;
     [SerializeField]
@@ -22,11 +22,14 @@ public class MovingFolder : MonoBehaviour
 
     void Update()
     {
+
         ClickFolder();
         if (_isHeld)
         {
             HoldObject();
         }
+
+        Debug.Log(transform.position);
     }
 
     private void ClickFolder()
@@ -42,32 +45,45 @@ public class MovingFolder : MonoBehaviour
                 _holdObject = hit.collider.gameObject;
                 _holdObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
                 _isHeld = true;
+                transform.SetParent(null);
             }
         }
     }
 
     private void HoldObject()
-    {/*
-        _holdObject.GetComponent<Rigidbody2D>().velocity = Vector3.zero;*/
-        _holdObject.transform.position = Vector3.Lerp(_holdObject.transform.position, _mousePos, 10f * Time.deltaTime);
-        Collider2D[] TriggerPlayer = Physics2D.OverlapBoxAll(_holdObject.transform.position, boxSize, 0, whatIsPlayer);
+    {
 
+        _holdObject.transform.position = Vector3.Lerp(_holdObject.transform.position, _mousePos, 10f * Time.deltaTime);
+        Collider2D putStation = Physics2D.OverlapBox(_holdObject.transform.position, boxSize, 0, whatIsPutStation);
+
+        print(putStation.name);
         if (Input.GetMouseButtonUp(0))
         {
-            if (TriggerPlayer.Length != 0)
+            if (putStation != null)
             {
-                //holdCam
+                if (putStation.CompareTag("Player"))
+                {
+
+                }
+                else if(putStation.CompareTag("Slot"))
+                {
+                    _holdObject.transform.SetParent(putStation.transform);
+                }
             }
-            _holdObject.transform.position = _holdObject.transform.root.position;
+            //_holdObject.transform.position = _holdObject.transform.root.position;
             _isHeld = false;
+            _holdObject.transform.localPosition = Vector2.zero;
         }
 
     }
 
     void OnDrawGizmos() // ���� �׸���
     {
+        if (_holdObject == null) return;
         Gizmos.color = Color.red;
-        Gizmos.DrawWireCube(_holdObject.transform.position, boxSize);/*
+        Gizmos.DrawWireCube(_holdObject.transform.position, boxSize);
+        Gizmos.color = Color.white;
+        /*
         Gizmos.DrawWireSphere(transform.position, 4f);*/
     }
 }

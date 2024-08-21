@@ -48,7 +48,7 @@ public class MouseDrageDrop : MonoBehaviour
             if (hit.collider.CompareTag("Player") && Input.GetMouseButtonDown(0))
             {
                 _holdObject = hit.collider.gameObject;
-                //_holdObject.GetComponent<Rigidbody2D>().simulated = false; ¹Î
+                //_holdObject.GetComponent<Rigidbody2D>().simulated = false; ¹Î¾È³çÇÏ¼¼¿ä
 
                 _holdObject.GetComponent<Rigidbody2D>().gravityScale = 0f;
                 _holdObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;

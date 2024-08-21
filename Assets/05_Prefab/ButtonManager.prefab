@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f91f941c7d4e66b47be04b7f0636bb18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _Esc: {fileID: 0}
   _currentText: {fileID: 0}
   _brightButton: {fileID: 0}
   _FireWallTrueText: {fileID: 0}

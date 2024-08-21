@@ -10,6 +10,8 @@ TagManager:
   - ProgramIcon
   - Application
   - Ground
+  - AnglerFish
+  - Slot
   layers:
   - Default
   - TransparentFX
@@ -25,7 +27,7 @@ TagManager:
   - CaptureObj
   - Foothold
   - Plants
-  - 
+  - PutStation
   - 
   - 
   - 

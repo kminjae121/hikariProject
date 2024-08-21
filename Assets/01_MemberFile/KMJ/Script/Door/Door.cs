@@ -51,6 +51,7 @@ public class Door : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.F))
             {
                 SceneManager.LoadScene(_currentSceneIndex += 1);
+                Debug.Log("다음 씬 없음");
             }
         }
     }
@@ -64,6 +65,7 @@ public class Door : MonoBehaviour
             if (_isOpen == true && Input.GetKeyDown(KeyCode.F))
             {
                 SceneManager.LoadScene(_currentSceneIndex += 1);
+                Debug.Log("다음 씬 없음");
             }
         }
     }

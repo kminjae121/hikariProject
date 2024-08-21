@@ -11,6 +11,7 @@ public class AppIconMove : MonoBehaviour , IBeginDragHandler, IDragHandler, IEnd
     }
     public void OnDrag(PointerEventData eventData)
     {
+        print(Input.mousePosition);
         Vector2 mouseDir = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         transform.position = mouseDir;
     }
@@ -18,17 +19,5 @@ public class AppIconMove : MonoBehaviour , IBeginDragHandler, IDragHandler, IEnd
     public void OnEndDrag(PointerEventData eventData)
     {
 
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
