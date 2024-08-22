@@ -16,19 +16,20 @@ public class SeaWeedLadder : MonoBehaviour
         _rigid = _target.GetComponent<Rigidbody2D>();
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        _rigid.gravityScale = 0f;
+    }
+
     private void OnTriggerStay2D(Collider2D collision)
     {
         float y = Input.GetAxisRaw("Vertical");
+
         canLadder = true;
 
         if (Mathf.Abs(y) > 0 && canLadder)
         {
-            _rigid.gravityScale = 0f;
             _rigid.velocity = new Vector2(_rigid.velocity.x, y * _power);
-        }
-        else
-        {
-            _rigid.gravityScale = 1f;
         }
     }
 
