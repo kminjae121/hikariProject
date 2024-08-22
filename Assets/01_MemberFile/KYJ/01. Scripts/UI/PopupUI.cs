@@ -14,6 +14,9 @@ public class PopupUI : MonoBehaviour
 
     private Vector2 pos;
 
+    private bool isDrag;
+
+
     private void Awake()
     {
         popupUI.gameObject.SetActive(false);
@@ -22,6 +25,7 @@ public class PopupUI : MonoBehaviour
     private void Update()
     {
         EnablingHelp();
+        DragPopupUI();
     }
 
     private void EnablingHelp()
@@ -38,6 +42,7 @@ public class PopupUI : MonoBehaviour
             float randY = Random.Range(-2.4f, 2.4f);
             pos = new Vector2(randX, randY);
             Instantiate(popupUI, pos, Quaternion.identity, GameObject.Find("PopupManager").transform);
+            //popupUIPrefab.name = "Popup";
             StartCoroutine(PopupSpawnCool());
         }
     }
@@ -47,5 +52,10 @@ public class PopupUI : MonoBehaviour
         isTrue = true;
         yield return new WaitForSeconds(5f);
         isTrue = false;
+    }
+
+    private void DragPopupUI()
+    {
+        
     }
 }
