@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,19 +10,19 @@ public class MovingFolder : MonoBehaviour
 
     [SerializeField]
     private GameObject holdObject;
+
     [SerializeField]
-    private GameObject prevObject;
+    private GameObject settingObject;
+    [SerializeField]
+    private CinemachineVirtualCamera settingCamera;
 
     [SerializeField]
     private Vector2 boxSize;
     [SerializeField]
     private LayerMask whatIsPutStation;
-    [SerializeField]
-    private CinemachineVirtualCamera windowBackGroundCam;
-    [SerializeField]
-    private CinemachineVirtualCamera holdCam;
 
     public LayerMask whatIsApp;
+    public LayerMask whatIsPlayer;
 
     void Update()
     {
@@ -55,22 +54,19 @@ public class MovingFolder : MonoBehaviour
 
     private void HoldObject()
     {
-
         holdObject.transform.position = Vector3.Lerp(holdObject.transform.position, _mousePos, 10f * Time.deltaTime);
-        Collider2D putStation = Physics2D.OverlapBox(holdObject.transform.position, boxSize, 0, whatIsPutStation);
+        Collider2D putStation = Physics2D.OverlapBox(holdObject.transform.position, boxSize, 0, whatIsPutStation); // 슬롯
+        Collider2D player = Physics2D.OverlapBox(holdObject.transform.position, boxSize, 0, whatIsPlayer); // 플레이어
 
         if (Input.GetMouseButtonUp(0))
         {
-            if (putStation != null && putStation.gameObject.transform.childCount < 1)
+            if (player)
             {
-                if (putStation.CompareTag("Player"))
-                {
-
-                }
-                else if(putStation.CompareTag("Slot"))
-                {
-                    holdObject.transform.SetParent(putStation.transform);
-                }
+                    print("플레이어");
+            }
+            else if ((putStation.gameObject.transform.childCount < 1 && putStation.CompareTag("Slot")))
+            {
+                holdObject.transform.SetParent(putStation.transform);
             }
             else
             {
@@ -84,7 +80,7 @@ public class MovingFolder : MonoBehaviour
 
     }
 
-    void OnDrawGizmos() // ���� �׸���
+    void OnDrawGizmos()
     {
         if (holdObject == null) return;
         Gizmos.color = Color.red;
