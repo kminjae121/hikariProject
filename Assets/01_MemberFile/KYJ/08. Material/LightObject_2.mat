@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: LightObject
+  m_Name: LightObject_2
   m_Shader: {fileID: -6465566751694194690, guid: b3f6fda774652364c93c7732c33b7ef8, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -46,7 +46,7 @@ Material:
     m_Ints: []
     m_Floats: []
     m_Colors:
-    - _Color: {r: 4.1921735, g: 4.1921735, b: 4.1921735, a: 1}
+    - _Color: {r: 6.2800403, g: 3.5091755, b: 0, a: 1}
   m_BuildTextureStacks: []
 --- !u!114 &5811008046025335487
 MonoBehaviour:
