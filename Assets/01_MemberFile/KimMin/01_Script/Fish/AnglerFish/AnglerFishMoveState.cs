@@ -28,6 +28,7 @@ public class AnglerFishMoveState : FishState
         base.UpdateState();
 
         Move();
+        _fish.MoveFlip();
 
         float distance = Vector2.Distance
             (_fish.targetTrm.position, _fish.transform.position);
