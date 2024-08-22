@@ -5,35 +5,43 @@ using UnityEngine;
 
 public class PopupPrefab : MonoBehaviour
 {
-    public bool CanDrag;
+    public bool canDrag;
 
-    private GameObject Popup;
+    private GameObject popUp;
 
-    private LayerMask 
+    public LayerMask wahtIsPopup;
+    private Vector2 mousePos;
 
     private void Update()
     {
         ClickPopup();
-        DragChecker();
+        
+        if(canDrag)
+            DragChecker();
     }
 
     private void ClickPopup()
     {
-        Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        RaycastHit2D hit = Physics2D.Raycast(mousePos, Vector2.zero, 0,);
+        mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        RaycastHit2D hit = Physics2D.Raycast(mousePos, Vector2.zero, 0, wahtIsPopup);
+
+        if(hit)
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                popUp = hit.collider.gameObject;
+                canDrag = true;
+            }
+        }
     }
 
     private void DragChecker()
     {
-        if ( Input.GetMouseButton(0) && CanDrag)
-        {
-            
-        }
-
+        popUp.transform.position = Vector3.Lerp(popUp.transform.position,mousePos, Time.deltaTime * 10);
+        
         if (Input.GetMouseButtonUp(0))
         {
-            CanDrag = false;
-            transform.position = transform.position;
+            canDrag = false;
         }
     }
 }

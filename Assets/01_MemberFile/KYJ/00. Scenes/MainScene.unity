@@ -8142,6 +8142,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Popup
       objectReference: {fileID: 0}
+    - target: {fileID: 4168549886272005627, guid: 6cbf9bb93637770458e8bb0f5366bdc5, type: 3}
+      propertyPath: m_Layer
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 6917506191187258650, guid: 6cbf9bb93637770458e8bb0f5366bdc5, type: 3}
+      propertyPath: wahtIsPopup.m_Bits
+      value: 262144
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
