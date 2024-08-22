@@ -16,9 +16,9 @@ public class AnglerFishChaseState : FishState
     public override void UpdateState()
     {
         base.UpdateState();
-        Debug.Log("¤¤¤·¤©");
 
         Chase();
+        _fish.SpriteFlip(_fish.targetTrm.position);
 
         float distance = Vector2.Distance
             (_fish.targetTrm.position, _fish.transform.position);
