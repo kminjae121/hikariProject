@@ -18,7 +18,7 @@ public class PlayerWifi : MonoBehaviour
     private void Start()
     {
         _mySequence = DOTween.Sequence()
-                        .Append(transform.DOMoveX(transform.position.x + 0.3f, 0.1f))
+                        .Append(transform.DOMoveX(transform.position.x + 1f, 0.1f))
                         .Append(transform.DOMoveX(transform.position.x - 0f, 0.1f))
                         .AppendInterval(1f)
                         .SetLoops(-1, LoopType.Yoyo)

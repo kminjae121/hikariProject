@@ -2013,17 +2013,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 765051210}
   m_CullTransparentMesh: 1
---- !u!114 &767352740 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5718194757224215156, guid: 1571ca8fafdce73498a1f70ccd3771f2, type: 3}
-  m_PrefabInstance: {fileID: 4361783475894469817}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 947164851}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a4a9c3fb6e9b9fe4ca788691e1c4be99, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &862157646 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4555390907703594849, guid: 0e9c12ff637be9e4693450b829e5e371, type: 3}
@@ -2317,33 +2306,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 934664592}
   m_CullTransparentMesh: 1
---- !u!1 &947164851 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 9216871937048155315, guid: 1571ca8fafdce73498a1f70ccd3771f2, type: 3}
-  m_PrefabInstance: {fileID: 4361783475894469817}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &947164854 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8400907023815607731, guid: 1571ca8fafdce73498a1f70ccd3771f2, type: 3}
   m_PrefabInstance: {fileID: 4361783475894469817}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &947164855
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 947164851}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e0bf746b21b02ae48a3fcb8cbff49db0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _sprite: {fileID: 21300000, guid: 29b2d736b4b39014885cb4b3c9e7984b, type: 3}
-  _falseSprite: {fileID: 21300000, guid: 38e1c360df028b247ab0a0c0a6ba2d15, type: 3}
-  _buttonManager: {fileID: 2018863811}
-  _playerMove: {fileID: 767352740}
-  _spriteCompo: {fileID: 979572226}
 --- !u!1001 &956909873
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2481,11 +2448,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 964637743}
   m_CullTransparentMesh: 1
---- !u!212 &979572226 stripped
-SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 9174654773124217761, guid: 1571ca8fafdce73498a1f70ccd3771f2, type: 3}
-  m_PrefabInstance: {fileID: 4361783475894469817}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1034450914 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8625688503182608832, guid: 0e9c12ff637be9e4693450b829e5e371, type: 3}
@@ -3539,7 +3501,7 @@ RectTransform:
   m_GameObject: {fileID: 1541815933}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.5, y: 2, z: 1}
+  m_LocalScale: {x: 1, y: 1.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1140381077}
@@ -3547,7 +3509,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 798, y: 433}
+  m_AnchoredPosition: {x: 851.65, y: 463}
   m_SizeDelta: {x: 216.7013, y: 103.9582}
   m_Pivot: {x: 0.5, y: 0.50000006}
 --- !u!114 &1541815935
@@ -5120,14 +5082,10 @@ PrefabInstance:
       propertyPath: _buttonManager
       value: 
       objectReference: {fileID: 2018863811}
-    - target: {fileID: 5718194757224215156, guid: 1571ca8fafdce73498a1f70ccd3771f2, type: 3}
-      propertyPath: _whatIsGround.m_Bits
-      value: 65536
-      objectReference: {fileID: 0}
-    - target: {fileID: 5718194757224215156, guid: 1571ca8fafdce73498a1f70ccd3771f2, type: 3}
-      propertyPath: <_moveSpeed>k__BackingField
-      value: 5
-      objectReference: {fileID: 0}
+    - target: {fileID: 7431139567732997365, guid: 1571ca8fafdce73498a1f70ccd3771f2, type: 3}
+      propertyPath: _buttonManager
+      value: 
+      objectReference: {fileID: 2018863811}
     - target: {fileID: 8400907023815607731, guid: 1571ca8fafdce73498a1f70ccd3771f2, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.11
@@ -5168,26 +5126,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8400907023815607731, guid: 1571ca8fafdce73498a1f70ccd3771f2, type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9174654773124217761, guid: 1571ca8fafdce73498a1f70ccd3771f2, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 38e1c360df028b247ab0a0c0a6ba2d15, type: 3}
-    - target: {fileID: 9174654773124217761, guid: 1571ca8fafdce73498a1f70ccd3771f2, type: 3}
-      propertyPath: m_Color.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9174654773124217761, guid: 1571ca8fafdce73498a1f70ccd3771f2, type: 3}
-      propertyPath: m_Color.g
-      value: 0.28349966
-      objectReference: {fileID: 0}
-    - target: {fileID: 9174654773124217761, guid: 1571ca8fafdce73498a1f70ccd3771f2, type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 9216871937048155315, guid: 1571ca8fafdce73498a1f70ccd3771f2, type: 3}
       propertyPath: m_Name
       value: PlayerPrefab
@@ -5195,10 +5133,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 9216871937048155315, guid: 1571ca8fafdce73498a1f70ccd3771f2, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 947164855}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1571ca8fafdce73498a1f70ccd3771f2, type: 3}
 --- !u!1001 &4391472062068724193
 PrefabInstance:
