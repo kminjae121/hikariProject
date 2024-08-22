@@ -7,11 +7,28 @@ public class PlayerWifi : MonoBehaviour
     [SerializeField] private Sprite _falseSprite;
     [SerializeField] private ButtonMnager _buttonManager;
     [SerializeField] private PlayerMove _playerMove;
-    private SpriteRenderer _spriteCompo;
+    [SerializeField] private SpriteRenderer _spriteCompo;
+
+    private Sequence _mySequence;
 
     private void Awake()
     {
-        _spriteCompo = GetComponent<SpriteRenderer>();
+    }
+
+    private void Start()
+    {
+        _mySequence = DOTween.Sequence()
+                        .Append(transform.DOMoveX(transform.position.x + 0.3f, 0.1f))
+                        .Append(transform.DOMoveX(transform.position.x - 0f, 0.1f))
+                        .AppendInterval(1f)
+                        .SetLoops(-1, LoopType.Yoyo)
+                        .SetAutoKill(false);
+    }
+
+
+    private void OnDisable()
+    {
+        _mySequence.Pause();
     }
 
     private void Update()
@@ -33,17 +50,14 @@ public class PlayerWifi : MonoBehaviour
         }
     }
 
-    private bool Buffering(bool IsWifi)
+    private void Buffering(bool IsWifi)
     {
-        _playerMove.mySequence.OnPlay(() => IsWifi = false);
+        if (IsWifi == false)
+            _mySequence.Play();
 
-        Debug.Log("æ∆¿’ ª–");
+        if (IsWifi == true)
+            _mySequence.Pause();
 
-        _playerMove.mySequence.OnPause(() => IsWifi = true);
-
-        Debug.Log("æ∆¿’ ª–");
-
-        return IsWifi;
     }
 
     private void FixedUpdate()

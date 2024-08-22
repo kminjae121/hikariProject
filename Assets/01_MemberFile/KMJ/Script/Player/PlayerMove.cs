@@ -1,4 +1,3 @@
-using DG.Tweening;
 using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
@@ -13,8 +12,7 @@ public class PlayerMove : MonoBehaviour
 
     [SerializeField] private ButtonMnager _buttonManager;
 
-    public Sequence mySequence;
-
+    private bool _isSecondJump;
     public bool _isJump { get; set; }
     public Rigidbody2D _rigid { get; set; }
     private Vector2 _xmove;
@@ -25,17 +23,11 @@ public class PlayerMove : MonoBehaviour
         _inputReader.JumpKeyEvent += Jump;
         _rigid = GetComponent<Rigidbody2D>();
     }
+
     private void Start()
     {
-        mySequence = DOTween.Sequence()
-                        .Append(transform.DOMoveX(transform.position.x + 0.3f, 0.1f))
-                        .Append(transform.DOMoveX(transform.position.x - 0f, 0.1f))
-                        .AppendInterval(1f)
-                        .SetLoops(-1, LoopType.Yoyo)
-                        .SetAutoKill(false);
-        
-    }
 
+    }
     private void OnDestroy()
     {
         _inputReader.JumpKeyEvent -= Jump;
@@ -44,7 +36,7 @@ public class PlayerMove : MonoBehaviour
     private void Update()
     {
         _isJump = Physics2D.OverlapBox(_groundChecker.position,
-            _boxSize, 0, _whatIsGround);
+                _boxSize, 0, _whatIsGround);
 
         SetMove(_inputReader.Movement.x);
     }
@@ -61,6 +53,16 @@ public class PlayerMove : MonoBehaviour
             _rigid.velocity = Vector2.zero;
 
             _rigid.AddForce(Vector2.up * _jumpSpeed * 1, ForceMode2D.Impulse);
+
+            _isSecondJump = true;
+        }
+
+        else if (_isSecondJump == true)
+        {
+            _rigid.velocity = Vector2.zero;
+            _rigid.AddForce(Vector2.up * _jumpSpeed, ForceMode2D.Impulse);
+
+            _isSecondJump = false;
         }
     }
 

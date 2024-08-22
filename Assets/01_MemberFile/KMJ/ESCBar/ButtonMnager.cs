@@ -19,6 +19,7 @@ public class ButtonMnager : MonoBehaviour
     [Header("Wifi")]
     [SerializeField] private TextMeshProUGUI _WifiCollectText;
     [field :SerializeField] public bool IsWifiTrue { get; set; }
+    [field: SerializeField] private Animator _wifiAniamtion;
     [Header("Sound")]
     [SerializeField] private TextMeshProUGUI _SoundText;
     [SerializeField] private Slider _musicSlider;
@@ -54,19 +55,25 @@ public class ButtonMnager : MonoBehaviour
         if (IsFireWallTrue == true)
         {
             _FireWallTrueText.text = "¿¬°áµÊ";
+            _FireWallTrueText.color = Color.green;
         }
         else if (IsFireWallTrue == false )
         {
             _FireWallTrueText.text = "¿¬°á ¾ÈµÊ";
+            _FireWallTrueText.color = Color.red;
         }
 
         if (IsWifiTrue == true)
         {
             _WifiCollectText.text = "¿¬°áµÊ";
+            _WifiCollectText.color = Color.green;
+            _wifiAniamtion.enabled = true;
         }
         else if (IsWifiTrue == false)
         {
             _WifiCollectText.text = "¿¬°á ¾ÈµÊ";
+            _WifiCollectText.color = Color.red;
+            _wifiAniamtion.enabled = false;
         }
     }
 
