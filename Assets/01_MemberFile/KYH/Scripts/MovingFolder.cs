@@ -46,7 +46,7 @@ public class MovingFolder : MonoBehaviour
         if (!isSettingPanelChoose)
         {
             ClickFolder();
-            if (_isHeld)
+            if (_isHeld && settingButton.holdObject != null)
                 HoldObject();
         }
 
@@ -73,7 +73,7 @@ public class MovingFolder : MonoBehaviour
 
     private void HoldObject()
     {
-
+        print("실행중");
         Collider2D player = null;
         Collider2D putStation = null;
 
@@ -108,7 +108,6 @@ public class MovingFolder : MonoBehaviour
         print("실행확인");
         _isHeld = false;
         settingButton.holdObject.transform.localPosition = Vector2.zero;
-        settingButton.holdObject = null;
     }
 
     void OnDrawGizmos()
@@ -126,7 +125,7 @@ public class MovingFolder : MonoBehaviour
         print(settingButton.holdObject);
         settingButton.holdObject.transform.SetParent(returnPos.transform);
         settingButton.holdObject.transform.localPosition = Vector2.zero;
-        EndHold();
+        settingButton.holdObject = null;
     }
 
 }
