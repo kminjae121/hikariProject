@@ -1,18 +1,26 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using Cinemachine;
+using System;
+using UnityEngine;
+
+public enum App
+{
+    Exit,
+    WhatControll,
+    File,
+    Download,
+    Game
+}
+
 
 public class MovingFolder : MonoBehaviour
 {
     private Vector3 _mousePos;
     private bool _isHeld = false;
 
-    [SerializeField]
-    private GameObject holdObject;
+    public SettingButtonManager settingButton;
 
-    [SerializeField]
-    private GameObject settingObject;
+    //[SerializeField]
+    //private GameObject settingObject;
     [SerializeField]
     private CinemachineVirtualCamera settingCamera;
 
@@ -26,21 +34,24 @@ public class MovingFolder : MonoBehaviour
 
     [SerializeField]
     private Transform usingApp;
-    [SerializeField]
-    private GameObject settingPanel;
 
     private static bool isSettingPanelChoose;
     private static Collider2D returnPos;
 
+    public App thisObjectIsWhat;
+
+
     void Update()
     {
-        if(!isSettingPanelChoose)
+        if (!isSettingPanelChoose)
         {
             ClickFolder();
             if (_isHeld)
                 HoldObject();
         }
+
     }
+
 
     private void ClickFolder()
     {
@@ -51,10 +62,10 @@ public class MovingFolder : MonoBehaviour
         if (hit)
         {
             print(hit.collider.name);
-            if (hit.collider.CompareTag("Application") && Input.GetMouseButtonDown(0))
+            if (hit.collider == GetComponent<Collider2D>() && Input.GetMouseButtonDown(0))
             {
-                holdObject = hit.collider.gameObject;
-                holdObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+                settingButton.holdObject = hit.collider.gameObject;
+                settingButton.holdObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
                 _isHeld = true;
             }
         }
@@ -62,29 +73,30 @@ public class MovingFolder : MonoBehaviour
 
     private void HoldObject()
     {
-        holdObject.transform.position = Vector3.Lerp(holdObject.transform.position, _mousePos, 10f * Time.deltaTime);
-        Collider2D putStation = Physics2D.OverlapBox(holdObject.transform.position, boxSize, 0, whatIsPutStation); // 슬롯
-        Collider2D player = Physics2D.OverlapBox(holdObject.transform.position, boxSize, 0, whatIsPlayer); // 플레이어
+
+        Collider2D player = null;
+        Collider2D putStation = null;
+
+        settingButton.holdObject.transform.position = Vector3.Lerp(settingButton.holdObject.transform.position, _mousePos, 10f * Time.deltaTime);
+        putStation = Physics2D.OverlapBox(settingButton.holdObject.transform.position, boxSize, 0, whatIsPutStation); // 슬롯
+        player = Physics2D.OverlapBox(settingButton.holdObject.transform.position, boxSize, 0, whatIsPlayer); // 플레이어
 
         if (Input.GetMouseButtonUp(0))
         {
             if (player)
             {
                 settingCamera.Priority = 2;
-                holdObject.transform.SetParent(usingApp);
-                holdObject.transform.localPosition = Vector2.zero;
-                settingPanel.SetActive(true);
+                settingButton.holdObject.transform.SetParent(usingApp);
+                settingButton.holdObject.transform.localPosition = Vector2.zero;
+                settingButton.gameObject.SetActive(true);
                 isSettingPanelChoose = true;
                 returnPos = putStation;
+                settingButton.currentAPP = thisObjectIsWhat;
                 return;
             }
             else if ((putStation.gameObject.transform.childCount < 1 && putStation.CompareTag("Slot")))
             {
-                holdObject.transform.SetParent(putStation.transform);
-            }
-            else
-            {
-                holdObject.transform.localPosition = Vector2.zero;
+                settingButton.holdObject.transform.SetParent(putStation.transform);
             }
             EndHold();
         }
@@ -93,25 +105,28 @@ public class MovingFolder : MonoBehaviour
 
     private void EndHold()
     {
+        print("실행확인");
         _isHeld = false;
-        holdObject = null;
+        settingButton.holdObject.transform.localPosition = Vector2.zero;
+        settingButton.holdObject = null;
     }
 
     void OnDrawGizmos()
     {
-        if (holdObject == null) return;
+        if (settingButton.holdObject == null) return;
         Gizmos.color = Color.red;
-        Gizmos.DrawWireCube(holdObject.transform.position, boxSize);
+        Gizmos.DrawWireCube(settingButton.holdObject.transform.position, boxSize);
         Gizmos.color = Color.white;
     }
-
     public void CancelButton()
     {
         isSettingPanelChoose = false;
         settingCamera.Priority = 0;
-        settingPanel.SetActive(false);
-        holdObject.transform.SetParent(returnPos.transform);
-        holdObject.transform.localPosition = Vector2.zero;
+        settingButton.gameObject.SetActive(false);
+        print(settingButton.holdObject);
+        settingButton.holdObject.transform.SetParent(returnPos.transform);
+        settingButton.holdObject.transform.localPosition = Vector2.zero;
         EndHold();
     }
+
 }
