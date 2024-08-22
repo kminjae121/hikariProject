@@ -5078,6 +5078,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 675355059472778757, guid: 1571ca8fafdce73498a1f70ccd3771f2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3010835643527972255, guid: 1571ca8fafdce73498a1f70ccd3771f2, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5718194757224215156, guid: 1571ca8fafdce73498a1f70ccd3771f2, type: 3}
       propertyPath: _buttonManager
       value: 
