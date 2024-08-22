@@ -24,13 +24,21 @@ public class MovingFolder : MonoBehaviour
     public LayerMask whatIsApp;
     public LayerMask whatIsPlayer;
 
+    [SerializeField]
+    private Transform usingApp;
+    [SerializeField]
+    private GameObject settingPanel;
+
+    private static bool isSettingPanelChoose;
+    private static Collider2D returnPos;
+
     void Update()
     {
-
-        ClickFolder();
-        if (_isHeld)
+        if(!isSettingPanelChoose)
         {
-            HoldObject();
+            ClickFolder();
+            if (_isHeld)
+                HoldObject();
         }
     }
 
@@ -62,7 +70,13 @@ public class MovingFolder : MonoBehaviour
         {
             if (player)
             {
-                    print("플레이어");
+                settingCamera.Priority = 2;
+                holdObject.transform.SetParent(usingApp);
+                holdObject.transform.localPosition = Vector2.zero;
+                settingPanel.SetActive(true);
+                isSettingPanelChoose = true;
+                returnPos = putStation;
+                return;
             }
             else if ((putStation.gameObject.transform.childCount < 1 && putStation.CompareTag("Slot")))
             {
@@ -72,12 +86,15 @@ public class MovingFolder : MonoBehaviour
             {
                 holdObject.transform.localPosition = Vector2.zero;
             }
-            //_holdObject.transform.position = _holdObject.transform.root.position;
-            _isHeld = false;
-            holdObject.transform.localPosition = Vector2.zero;
-            holdObject = null;
+            EndHold();
         }
 
+    }
+
+    private void EndHold()
+    {
+        _isHeld = false;
+        holdObject = null;
     }
 
     void OnDrawGizmos()
@@ -86,7 +103,15 @@ public class MovingFolder : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireCube(holdObject.transform.position, boxSize);
         Gizmos.color = Color.white;
-        /*
-        Gizmos.DrawWireSphere(transform.position, 4f);*/
+    }
+
+    public void CancelButton()
+    {
+        isSettingPanelChoose = false;
+        settingCamera.Priority = 0;
+        settingPanel.SetActive(false);
+        holdObject.transform.SetParent(returnPos.transform);
+        holdObject.transform.localPosition = Vector2.zero;
+        EndHold();
     }
 }
