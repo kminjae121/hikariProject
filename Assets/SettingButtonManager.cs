@@ -10,16 +10,20 @@ public class SettingButtonManager : MonoBehaviour
 
     public void InvokeApp()
     {
-        Invoke($"{currentAPP}App", 0.1f);
-
-        GetType().GetMethod("currnetApp").Invoke(this, new object[] {3, 4 });
-
+        GetType().GetMethod($"{currentAPP}App").Invoke(this, null);
+        //GetType().GetMethod("currnetApp").Invoke(this, new object[] {3, 4 });
     }
 
     private void ExitApp()
     {
 
     }
+
+    private void SteamApp()
+    {
+
+    }
+
     private void WhatControllApp()
     {
 

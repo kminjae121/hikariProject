@@ -5,10 +5,14 @@ using UnityEngine;
 public enum App
 {
     Exit,
-    WhatControll,
+    HowControll,
     File,
-    Download,
-    Game
+    Translate,
+    Game,
+    Steam,
+    Youtube,
+    PowerPoint,
+    Discord
 }
 
 
