@@ -12,7 +12,8 @@ public enum App
     Steam,
     Youtube,
     PowerPoint,
-    Discord
+    Discord,
+    Chrome
 }
 
 
@@ -44,6 +45,12 @@ public class MovingFolder : MonoBehaviour
 
     public App thisObjectIsWhat;
 
+    private Animator playerAnimator;
+
+    private void Awake()
+    {
+        playerAnimator = GameObject.Find("PlayerAnimation").GetComponent<Animator>();
+    }
 
     void Update()
     {
@@ -96,6 +103,7 @@ public class MovingFolder : MonoBehaviour
                 isSettingPanelChoose = true;
                 returnPos = putStation;
                 settingButton.currentAPP = thisObjectIsWhat;
+                playerAnimator.SetBool("Hold",true);
                 return;
             }
             else if ((putStation.gameObject.transform.childCount < 1 && putStation.CompareTag("Slot")))
@@ -123,6 +131,7 @@ public class MovingFolder : MonoBehaviour
     }
     public void CancelButton()
     {
+        playerAnimator.SetBool("Hold", false);
         isSettingPanelChoose = false;
         settingCamera.Priority = 0;
         settingButton.gameObject.SetActive(false);
