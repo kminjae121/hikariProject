@@ -12,7 +12,7 @@ public enum App
     Steam,
     Youtube,
     PowerPoint,
-    Discord,
+    PortPolio,
     Chrome
 }
 
