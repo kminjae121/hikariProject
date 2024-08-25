@@ -12,7 +12,7 @@ enum ObjectType
     Ballon,
     WalkingDoll,
 }
-public class ObjectGarher : MonoBehaviour
+public class ObjectGather : MonoBehaviour
 {
     [SerializeField] private ObjectType _objectType;
 
@@ -41,7 +41,7 @@ public class ObjectGarher : MonoBehaviour
 
     private void Start()
     {
-        _playerRigidBody = GameObject.Find("Player").GetComponent<Rigidbody2D>();
+        _playerRigidBody = GameObject.Find("PlayerPrefab").GetComponent<Rigidbody2D>();
         ObjectAbility();
         _isUp = true;
     }
@@ -124,7 +124,7 @@ public class ObjectGarher : MonoBehaviour
         else if (hit == true)
         {
             _rigid.velocity = Vector2.zero;
-            _rigid.AddForce(Vector2.right.normalized * _flyingSpeed * multiplier, ForceMode2D.Impulse);
+            _rigid.AddForce(Vector2.right * _flyingSpeed * multiplier, ForceMode2D.Impulse);
         }
     }
 
@@ -132,10 +132,10 @@ public class ObjectGarher : MonoBehaviour
     {
         Collider2D hit = Physics2D.OverlapBox(_overlapPlace.position, _boxSize, 0, _playerLayer);
         if (hit == true)
-        {
+        { 
             _playerRigidBody.gravityScale = 0;
             _playerRigidBody.velocity = Vector2.zero;
-            _playerRigidBody.AddForce(Vector2.right.normalized * _flyingSpeed * multiplier, ForceMode2D.Impulse);
+            _playerRigidBody.AddForce(Vector2.right.normalized * _jumpPower * multiplier, ForceMode2D.Impulse);   
         }
         else
         {

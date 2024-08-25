@@ -5,23 +5,25 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
 
-public class ButtonMnager : MonoBehaviour
+public class ButtonManager : MonoBehaviour
 {
     private int _value;
-    public static int i = 0;
 
-    [SerializeField] private GameObject _Esc;
+    [SerializeField] private GameObject _esc;
     [SerializeField] private TextMeshProUGUI _currentText;
     [SerializeField] private Button _brightButton;
     [Header("¹æÈ­º®")]
-    [SerializeField] private TextMeshProUGUI _FireWallTrueText;
+    [SerializeField] private TextMeshProUGUI _fireWallTrueText;
+    [SerializeField] private Texture _basicFireWallSprtie;
+    [SerializeField] private Texture _falseFireWallSprtie;
+    [SerializeField] private RawImage _fireWallManager;
     public bool IsFireWallTrue;
     [Header("Wifi")]
-    [SerializeField] private TextMeshProUGUI _WifiCollectText;
+    [SerializeField] private TextMeshProUGUI _wifiCollectText;
     [field :SerializeField] public bool IsWifiTrue { get; set; }
-    [field: SerializeField] private Animator _wifiAniamtion;
+    [SerializeField] private Animator _wifiAniamtion;
     [Header("Sound")]
-    [SerializeField] private TextMeshProUGUI _SoundText;
+    [SerializeField] private TextMeshProUGUI _soundText;
     [SerializeField] private Slider _musicSlider;
 
     [Header("ButtonList")]
@@ -30,7 +32,7 @@ public class ButtonMnager : MonoBehaviour
 
     private void Awake()
     {
-        _Esc.SetActive(false);
+        _esc.SetActive(false);
         IsWifiTrue = false;
         IsFireWallTrue = false;
         _brightButton.interactable = false;
@@ -38,8 +40,8 @@ public class ButtonMnager : MonoBehaviour
 
     private void Start()
     {
-        _FireWallTrueText.text = "¿¬°á ¾ÈµÊ";
-        _WifiCollectText.text = "¿¬°á ¾ÈµÊ";
+        _fireWallTrueText.text = "¿¬°á ¾ÈµÊ";
+        _wifiCollectText.text = "¿¬°á ¾ÈµÊ";
 
     }
 
@@ -50,29 +52,33 @@ public class ButtonMnager : MonoBehaviour
 
         InteractablFalse();
 
-        _SoundText.text = $"{_value}";
+        _soundText.text = $"{_value}";
 
         if (IsFireWallTrue == true)
         {
-            _FireWallTrueText.text = "¿¬°áµÊ";
-            _FireWallTrueText.color = Color.green;
+            _fireWallManager.texture = _basicFireWallSprtie;
+            _fireWallManager.color = Color.green;
+            _fireWallTrueText.color = Color.green;
+            _fireWallTrueText.SetText("¿¬°áµÊ");
         }
         else if (IsFireWallTrue == false )
         {
-            _FireWallTrueText.text = "¿¬°á ¾ÈµÊ";
-            _FireWallTrueText.color = Color.red;
+            _fireWallManager.texture = _falseFireWallSprtie;
+            _fireWallManager.color = Color.red;
+            _fireWallTrueText.SetText("¿¬°á ¾ÈµÊ");
+            _fireWallTrueText.color = Color.red;
         }
 
         if (IsWifiTrue == true)
         {
-            _WifiCollectText.text = "¿¬°áµÊ";
-            _WifiCollectText.color = Color.green;
+            _wifiCollectText.SetText("¿¬°áµÊ");
+            _wifiCollectText.color = Color.green;
             _wifiAniamtion.enabled = true;
         }
         else if (IsWifiTrue == false)
         {
-            _WifiCollectText.text = "¿¬°á ¾ÈµÊ";
-            _WifiCollectText.color = Color.red;
+            _wifiCollectText.SetText("¿¬°á ¾ÈµÊ");
+            _wifiCollectText.color = Color.red;
             _wifiAniamtion.enabled = false;
         }
     }

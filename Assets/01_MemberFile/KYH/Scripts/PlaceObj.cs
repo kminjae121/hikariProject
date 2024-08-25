@@ -7,7 +7,7 @@ public class PlaceObj : MonoBehaviour
     private PlaceObjSO placeObjSO;
 
     private Vector2 mouseDir;
-    private GameObject furniturePrefab;
+    public GameObject furniturePrefab { get; set; }
     public GameObject placeHelp = null;
     public bool isPlaceStart;
     public bool isPlaceTure;
@@ -23,8 +23,10 @@ public class PlaceObj : MonoBehaviour
             placeHelp.transform.position = hit.point;//이거로 배치할 곳 띄우고 배치
 
             SpriteRenderer sp = placeHelp.GetComponent<SpriteRenderer>();
+
             if (hit.collider.CompareTag("Ground") || hit.collider.CompareTag("CaptureObj"))
             {
+                placeHelp.GetComponent<ObjectGather>().enabled = false;
                 sp.color = Color.green;
                 isPlaceTure = true;
             }
@@ -55,6 +57,7 @@ public class PlaceObj : MonoBehaviour
         print("실행");
         placeHelp = Instantiate(furniturePrefab);
         placeHelp.GetComponent<Rigidbody2D>().simulated = false;
+        placeHelp.GetComponent<ObjectGather>().enabled = false;
         isPlaceStart = true;
     }
     
