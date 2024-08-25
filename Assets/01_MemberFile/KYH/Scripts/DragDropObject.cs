@@ -32,6 +32,7 @@ public class DragDropObject : MonoBehaviour , IBeginDragHandler, IDragHandler, I
         furniture = placeObjSO.prefab;
         furnitureObj = Instantiate(furniture, transform);
         furnitureObj.GetComponent<Rigidbody2D>().simulated = false;
+        furnitureObj.GetComponent<ObjectGather>().enabled = false;
 
         GetComponent<FurnitureDistince>().placeObjSO = null;
         GetComponent<Image>().sprite = null;

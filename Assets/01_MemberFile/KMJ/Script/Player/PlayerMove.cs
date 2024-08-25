@@ -9,6 +9,7 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] private Transform _groundChecker;
     [SerializeField] private Vector2 _boxSize;
     [SerializeField] private LayerMask _whatIsGround;
+    [SerializeField] private LayerMask _whatIsObject;
 
     [SerializeField] private ButtonManager _buttonManager;
 

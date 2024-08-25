@@ -128,18 +128,18 @@ public class ObjectGather : MonoBehaviour
         }
     }
 
-    private void ElectricFan(float multiplier = 1f)
+    private void ElectricFan()
     {
         Collider2D hit = Physics2D.OverlapBox(_overlapPlace.position, _boxSize, 0, _playerLayer);
         if (hit == true)
-        { 
+        {
             _playerRigidBody.gravityScale = 0;
             _playerRigidBody.velocity = Vector2.zero;
-            _playerRigidBody.AddForce(Vector2.right.normalized * _jumpPower * multiplier, ForceMode2D.Impulse);   
+            _playerRigidBody.AddForce(Vector2.right * _flyingSpeed, ForceMode2D.Impulse);   
         }
         else
         {
-            _playerRigidBody.gravityScale = 1;
+            _playerRigidBody.gravityScale = 3.14f;
         }
     }
 
