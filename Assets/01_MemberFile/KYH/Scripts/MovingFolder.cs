@@ -5,10 +5,15 @@ using UnityEngine;
 public enum App
 {
     Exit,
-    WhatControll,
+    HowControll,
     File,
-    Download,
-    Game
+    Translate,
+    Game,
+    Steam,
+    Youtube,
+    PowerPoint,
+    PortPolio,
+    Chrome
 }
 
 
@@ -40,13 +45,19 @@ public class MovingFolder : MonoBehaviour
 
     public App thisObjectIsWhat;
 
+    private Animator playerAnimator;
+
+    private void Awake()
+    {
+        playerAnimator = GameObject.Find("PlayerAnimation").GetComponent<Animator>();
+    }
 
     void Update()
     {
         if (!isSettingPanelChoose)
         {
             ClickFolder();
-            if (_isHeld)
+            if (_isHeld && settingButton.holdObject != null)
                 HoldObject();
         }
 
@@ -73,7 +84,7 @@ public class MovingFolder : MonoBehaviour
 
     private void HoldObject()
     {
-
+        print("실행중");
         Collider2D player = null;
         Collider2D putStation = null;
 
@@ -92,6 +103,7 @@ public class MovingFolder : MonoBehaviour
                 isSettingPanelChoose = true;
                 returnPos = putStation;
                 settingButton.currentAPP = thisObjectIsWhat;
+                playerAnimator.SetBool("Hold",true);
                 return;
             }
             else if ((putStation.gameObject.transform.childCount < 1 && putStation.CompareTag("Slot")))
@@ -108,7 +120,6 @@ public class MovingFolder : MonoBehaviour
         print("실행확인");
         _isHeld = false;
         settingButton.holdObject.transform.localPosition = Vector2.zero;
-        settingButton.holdObject = null;
     }
 
     void OnDrawGizmos()
@@ -120,13 +131,14 @@ public class MovingFolder : MonoBehaviour
     }
     public void CancelButton()
     {
+        playerAnimator.SetBool("Hold", false);
         isSettingPanelChoose = false;
         settingCamera.Priority = 0;
         settingButton.gameObject.SetActive(false);
         print(settingButton.holdObject);
         settingButton.holdObject.transform.SetParent(returnPos.transform);
         settingButton.holdObject.transform.localPosition = Vector2.zero;
-        EndHold();
+        settingButton.holdObject = null;
     }
 
 }
