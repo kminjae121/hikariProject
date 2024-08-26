@@ -12,6 +12,7 @@ TagManager:
   - Ground
   - AnglerFish
   - Slot
+  - CaptureObj
   layers:
   - Default
   - TransparentFX
