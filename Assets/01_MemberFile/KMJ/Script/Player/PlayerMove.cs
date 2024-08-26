@@ -9,8 +9,9 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] private Transform _groundChecker;
     [SerializeField] private Vector2 _boxSize;
     [SerializeField] private LayerMask _whatIsGround;
+    [SerializeField] private LayerMask _whatIsObject;
 
-    [SerializeField] private ButtonMnager _buttonManager;
+    [SerializeField] private ButtonManager _buttonManager;
 
     private bool _isSecondJump;
     public bool _isJump { get; set; }
