@@ -6,6 +6,6 @@ public class ExitButton : MonoBehaviour
 {
     public void Exit()
     {
-        Destroy(gameObject.transform.root);
+        Destroy(transform.root.gameObject);
     }
 }

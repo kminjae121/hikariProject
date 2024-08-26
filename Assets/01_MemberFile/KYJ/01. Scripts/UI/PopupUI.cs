@@ -14,9 +14,6 @@ public class PopupUI : MonoBehaviour
 
     private Vector2 pos;
 
-    private bool isDrag;
-
-
     private void Awake()
     {
         popupUI.gameObject.SetActive(false);
@@ -25,7 +22,6 @@ public class PopupUI : MonoBehaviour
     private void Update()
     {
         EnablingHelp();
-        DragPopupUI();
     }
 
     private void EnablingHelp()
@@ -52,10 +48,5 @@ public class PopupUI : MonoBehaviour
         isTrue = true;
         yield return new WaitForSeconds(5f);
         isTrue = false;
-    }
-
-    private void DragPopupUI()
-    {
-        
     }
 }
