@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79f642b03eee636429633ac584adb8af, type: 3}
   m_Name: WarkingDoll
   m_EditorClassIdentifier: 
-  sprite: {fileID: -668527640, guid: fbdad05dfc3eb244ca296792b087dc39, type: 3}
+  sprite: {fileID: 21300000, guid: 56f80367000f14b46896f56fd006de02, type: 3}
   name: WalkingDoll
   prefab: {fileID: 6760271705040464676, guid: 2b628bc63ed07d44bb6a4c5ae34c8a0f, type: 3}
