@@ -12,12 +12,7 @@ public class SettingButtonManager : MonoBehaviour
 
     public void InvokeApp()
     {
-        if (currentAPP == App.PortPolio)
-            PortPolioApp();
-        else if (currentAPP == App.Youtube)
-            YoutubeApp();
-
-        //GetType().GetMethod($"{currentAPP}App", BindingFlags.Public | BindingFlags.NonPublic);
+        GetType().GetMethod($"{currentAPP}App", BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance).Invoke(this,null);
         //GetType().GetMethod("currnetApp").Invoke(this, new object[] {3, 4 });
     }
 
