@@ -30,7 +30,6 @@ public class ObjectGather : MonoBehaviour
     [SerializeField] private Rigidbody2D _rigid;
     [SerializeField] private Transform _overlapPlace;
 
-
     private void Awake()
     {
         _IsSofa = false;
@@ -116,13 +115,17 @@ public class ObjectGather : MonoBehaviour
 
     private void WalkingDoll(float multiplier = 1f)
     {
+        Animator animator = GetComponent<Animator>();
+
         Collider2D hit = Physics2D.OverlapBox(_overlapPlace.position, _boxSize, 0, _playerLayer);
         if (hit != true)
         {
+            animator.SetBool("Walk", false);
             _rigid.velocity = Vector2.zero;
         }
         else if (hit == true)
         {
+            animator.SetBool("Walk", true);
             _rigid.velocity = Vector2.zero;
             _rigid.AddForce(Vector2.right * _flyingSpeed * multiplier, ForceMode2D.Impulse);
         }
@@ -134,8 +137,7 @@ public class ObjectGather : MonoBehaviour
         if (hit == true)
         {
             _playerRigidBody.gravityScale = 0;
-            _playerRigidBody.velocity = Vector2.zero;
-            _playerRigidBody.AddForce(Vector2.right * _flyingSpeed, ForceMode2D.Impulse);   
+            _playerRigidBody.AddForce(Vector2.right * _flyingSpeed, ForceMode2D.Impulse);
         }
         else
         {
