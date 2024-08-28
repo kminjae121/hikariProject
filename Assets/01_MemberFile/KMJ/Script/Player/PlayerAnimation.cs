@@ -91,5 +91,5 @@ public class PlayerAnimation : MonoBehaviour
         {
             _animator.SetBool("FlowerWalk", false);
         }
-    }     
+    }
 }

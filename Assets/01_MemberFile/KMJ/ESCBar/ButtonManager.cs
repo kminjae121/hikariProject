@@ -20,6 +20,7 @@ public class ButtonManager : MonoBehaviour
     public bool IsFireWallTrue;
     [Header("Wifi")]
     [SerializeField] private TextMeshProUGUI _wifiCollectText;
+    [SerializeField] private SpriteRenderer _wifiRenderer;
     [field :SerializeField] public bool IsWifiTrue { get; set; }
     [SerializeField] private Animator _wifiAniamtion;
     [Header("Sound")]
