@@ -5,7 +5,7 @@ public class PlayerWifi : MonoBehaviour
 {
     [SerializeField] private Sprite _sprite;
     [SerializeField] private Sprite _falseSprite;
-    [SerializeField] private ButtonMnager _buttonManager;
+    [SerializeField] private ButtonManager _buttonManager;
     [SerializeField] private PlayerMove _playerMove;
     [SerializeField] private SpriteRenderer _spriteCompo;
 

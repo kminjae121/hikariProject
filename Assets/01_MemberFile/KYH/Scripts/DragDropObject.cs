@@ -10,6 +10,7 @@ public class DragDropObject : MonoBehaviour , IBeginDragHandler, IDragHandler, I
 
     private Image image;
     private GameObject furnitureObj = null;
+    private GameObject furniture;
 
     [HideInInspector] public Transform parentAfterDrag;
 
@@ -28,9 +29,10 @@ public class DragDropObject : MonoBehaviour , IBeginDragHandler, IDragHandler, I
         image.raycastTarget = false;
 
         PlaceObjSO placeObjSO = GetComponent<FurnitureDistince>().placeObjSO;
-        GameObject furniture = placeObjSO.prefab;
+        furniture = placeObjSO.prefab;
         furnitureObj = Instantiate(furniture, transform);
         furnitureObj.GetComponent<Rigidbody2D>().simulated = false;
+        furnitureObj.GetComponent<ObjectGather>().enabled = false;
 
         GetComponent<FurnitureDistince>().placeObjSO = null;
         GetComponent<Image>().sprite = null;
@@ -45,12 +47,14 @@ public class DragDropObject : MonoBehaviour , IBeginDragHandler, IDragHandler, I
         print(furnitureObj.transform.position);
         print(furnitureObj.name);
     }
-
+    
     public void OnEndDrag(PointerEventData eventData)
     {
         PlaceObj placeObj = furnitureObj.GetComponent<PlaceObj>();
         if(furnitureObj.GetComponent<PlaceObj>().isPlaceTure)
         {
+            placeObj.placeHelp.GetComponent<ObjectGather>().enabled = true;
+            placeObj.placeHelp.GetComponent<BoxCollider2D>().enabled = true;
             placeObj.placeHelp.GetComponent<Rigidbody2D>().simulated = true;
             placeObj.placeHelp.GetComponent<SpriteRenderer>().color = Color.white;
         }

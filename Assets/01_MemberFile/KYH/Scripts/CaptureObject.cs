@@ -24,6 +24,7 @@ public class CaptureObject : MonoBehaviour
 
         SpriteRenderer sprite = gameObject.GetComponent<SpriteRenderer>();
         sprite.sprite = captureSprite.sprite;
+        gameObject.GetComponent<ObjectGather>().enabled = false;
         DoTweenSequence(sprite);
 
         GameObject furniture = GameObject.Find("App" + invenIdx);
