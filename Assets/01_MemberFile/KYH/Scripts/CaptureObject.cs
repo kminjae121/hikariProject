@@ -19,14 +19,15 @@ public class CaptureObject : MonoBehaviour
 
     public void CaptureFinish(int invenIdx)
     {
-        Collider2D collider = gameObject?.GetComponent<Collider2D>();
+        Collider2D collider = gameObject.GetComponent<Collider2D>();
         collider.enabled = false;
 
         SpriteRenderer sprite = gameObject.GetComponent<SpriteRenderer>();
         sprite.sprite = captureSprite.sprite;
-        gameObject.GetComponent<ObjectGather>().enabled = false;
-        DoTweenSequence(sprite);
+        if(gameObject.GetComponent<ObjectGather>() != null)
+            gameObject.GetComponent<ObjectGather>().enabled = false;
 
+        DoTweenSequence(sprite);
         GameObject furniture = GameObject.Find("App" + invenIdx);
         furniture.GetComponent<FurnitureDistince>().placeObjSO = captureSprite; 
         Image appImage = furniture.GetComponent<Image>();

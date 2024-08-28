@@ -137,8 +137,7 @@ public class ObjectGather : MonoBehaviour
         if (hit == true)
         {
             _playerRigidBody.gravityScale = 0;
-            _playerRigidBody.velocity = Vector2.zero;
-            _playerRigidBody.AddForce(Vector2.right * _flyingSpeed, ForceMode2D.Impulse);   
+            _playerRigidBody.AddForce(Vector2.right * _flyingSpeed, ForceMode2D.Impulse);
         }
         else
         {
