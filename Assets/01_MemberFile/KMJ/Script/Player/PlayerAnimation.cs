@@ -9,21 +9,38 @@ public class PlayerAnimation : MonoBehaviour
     [SerializeField] private InputReader _inputReader;
     private Animator _animator;
     private SpriteRenderer _spriteCompo;
+    [field: SerializeField] public bool isFlower { get; set; }
     
 
     private void Awake()
-    {
+    { 
         _spriteCompo = GetComponent<SpriteRenderer>();
         _animator = GetComponent<Animator>();
     }
 
     private void Update()
     {
+        ChangeAnimation();
+        FlowerAnimation();
         RunAnimation();
         PlayerFilpX();
         JumpAniamtion();
     }
 
+
+    private void ChangeAnimation()
+    {
+        if(isFlower)
+        {
+            _animator.SetLayerWeight(0, 0f);
+            _animator.SetLayerWeight(1, 1f);
+        }    
+        else
+        {
+            _animator.SetLayerWeight(0, 1f);
+            _animator.SetLayerWeight(1, 0f);
+        }
+    }
     private void PlayerFilpX()
     {
         if (_inputReader.Movement.x < 0)
@@ -41,7 +58,7 @@ public class PlayerAnimation : MonoBehaviour
     }
     private void RunAnimation()
     {
-        if (_inputReader.Movement.x != 0)
+        if (_inputReader.Movement.x != 0 && isFlower == false)
         {
             _animator.SetBool("Run", true);
         }
@@ -53,7 +70,7 @@ public class PlayerAnimation : MonoBehaviour
 
     private void JumpAniamtion()
     {
-        if(_playerMove._isJump == false)
+        if(_playerMove._isJump == false && isFlower == false)
         {
             _animator.SetBool("Jump", true);
         }
@@ -62,4 +79,17 @@ public class PlayerAnimation : MonoBehaviour
             _animator.SetBool("Jump", false);
         }    
     }
+
+
+    private void FlowerAnimation()
+    {
+        if (_inputReader.Movement.x != 0)
+        {
+            _animator.SetBool("FlowerWalk", true);
+        }
+        else
+        {
+            _animator.SetBool("FlowerWalk", false);
+        }
+    }     
 }
