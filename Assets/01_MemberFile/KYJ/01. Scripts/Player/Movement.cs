@@ -24,6 +24,8 @@ public class Movement : MonoBehaviour
     private Rigidbody2D rigid;
     private SpriteRenderer sprite;
 
+    [SerializeField] private Anchor anchor;
+
     public bool isLieDown; // 엎드리기 감지, 엎드린 상태에서 점프 막기 위함
     private bool isGround = false;
     private float Ray = 0.7f;
@@ -40,6 +42,7 @@ public class Movement : MonoBehaviour
         PlayerMove();
         PlayerJump();
         CheackGround();
+
     }
 
     private void PlayerMove() // 플레이어 이동
