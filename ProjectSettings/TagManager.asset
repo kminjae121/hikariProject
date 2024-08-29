@@ -13,6 +13,7 @@ TagManager:
   - AnglerFish
   - Slot
   - CaptureObj
+  - Lock
   layers:
   - Default
   - TransparentFX
