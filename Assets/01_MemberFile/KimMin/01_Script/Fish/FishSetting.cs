@@ -10,8 +10,9 @@ public abstract class FishSetting : Fish
 
     public Transform targetTrm;
     public Transform[] way;
-
     public Transform _targetWay;
+
+    public bool isDark = false;
 
     protected override void Awake()
     {
@@ -28,7 +29,7 @@ public abstract class FishSetting : Fish
 
     public void Attack()
     {
-        //빛 생기면 추가 예정
+        BrightFoodHold.brightPlants.brightStep = 0;
     }
 
     public abstract void AnimationEndTrigger();
