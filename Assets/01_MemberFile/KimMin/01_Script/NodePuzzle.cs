@@ -9,20 +9,22 @@ using UnityEngine.EventSystems;
 
 public class NodePuzzle : MonoBehaviour
 {
+    const int SIZE = 4;
+    const int RANGE = 100000;
+
     private Button[] _valueBtn;
     private TextMeshProUGUI[] _valueTxt;
     private RawImage[] _nodes;
-    private int[] _valueOrder = new int[4];
-    private int[,] _valueArr = new int[4, 10];
+    private int[] _valueOrder = new int[4]; //값들의 순서를 저장하는 배열
+    private int[,] _valueArr = new int[4, SIZE]; //실질적인 값이 들어가는 배열
+    private int[] answer = new int[4];
 
+    private int _sum = 0; //현재 값들의 합
     private TextMeshProUGUI _reqTxt;
     private TextMeshProUGUI _sumTxt;
 
-    private int _sum = 0;
-
-    [Range(0, 100000), SerializeField] private int _range;
     [SerializeField] private int[] Answer = new int[4];
-    [SerializeField] private int _answer;
+    [SerializeField] private int _answer; //정답
 
     private void Awake()
     {
@@ -54,15 +56,15 @@ public class NodePuzzle : MonoBehaviour
     private void InitializePuzzle() //퍼즐 초기화
     {
         int sum = 0;
-        _answer = Random.Range(0, _range);
+        _answer = Random.Range(0, RANGE);
         StartCoroutine(DesireTextAnim());
-
-        int[] answer = new int[4];
 
         for (int i = 0; i < 3; i++)
         {
             answer[i] = Random.Range
-                (i * (_answer / 2), _answer);
+                (0, _answer / 4);
+
+            answer[i] = CheckOdd(answer[i], i);
 
             sum += answer[i];
         }
@@ -72,15 +74,18 @@ public class NodePuzzle : MonoBehaviour
         for (int i = 0; i < 4; i++)
             Answer[i] = answer[i];
 
-        for(int i = 0; i < 4; i++)
+        for (int i = 0; i < 4; i++)
         {
-            int index = Random.Range(0, 10);
-            for (int j = 0; j < 10; j++)
+            int index = Random.Range(0, SIZE);
+            for (int j = 0; j < SIZE; j++)
             {
                 if (j == index)
                     _valueArr[i, j] = answer[i];
                 else
-                    _valueArr[i, j] = Random.Range(j^3 * 100, j^3 * 1000);
+                {
+                    _valueArr[i, j] = SetValueArr(j);
+                    _valueArr[i, j] = CheckOdd(_valueArr[i, j], i);
+                }
             }
         }
 
@@ -92,12 +97,40 @@ public class NodePuzzle : MonoBehaviour
         GetSum();
     }
 
-    private void SetReqireButton(int value) //버튼 현재 카운트 설정
+    private int CheckOdd(int num, int index)
     {
-        int rand = Random.Range(1, 11);
+        if (index % 2 == 0)
+        {
+            if (num % 2 == 0)
+                num++;
+            else
+                num--;
+        }
+        else
+        {
+            if (num % 2 == 0)
+                num--;
+            else
+                num++;
+        }
 
-        _valueOrder[value] = rand;
-        _valueTxt[value].text = _valueArr[value, rand - 1].ToString();
+        return num;
+    }
+
+    private int SetValueArr(int j)
+    {
+        int min = ((j * j) * 10) * (j * 10);
+        int max = (j * j + 1) * 20 * (j * 10 + 1);
+
+        return Random.Range(min, max);
+    }
+
+    private void SetReqireButton(int index) //버튼 현재 카운트 설정
+    {
+        int rand = Random.Range(0, SIZE - 1);
+
+        _valueOrder[index] = rand;
+        _valueTxt[index].text = _valueArr[index, rand].ToString();
     }
 
     public void OnReqireClick() //버튼 클릭
@@ -107,15 +140,16 @@ public class NodePuzzle : MonoBehaviour
 
         int index = int.Parse(button.Substring(button.Length - 1)) - 1;
 
-        GetSum();
+        _valueOrder[index]++;
+
+        if (_valueOrder[index] >= SIZE)
+            _valueOrder[index] = 0;
 
         _valueTxt[index].text = _valueArr
             [index, _valueOrder[index]].ToString();
 
-        _valueOrder[index]++;
-
-        if (_valueOrder[index] >= 10)
-            _valueOrder[index] = 0;
+        GetSum();
+        CheckEqual();
     }
 
     private void GetSum()
@@ -128,11 +162,22 @@ public class NodePuzzle : MonoBehaviour
         _sumTxt.text = $"합계 : {_sum}";
     }
 
+    private void CheckEqual()
+    {
+        if (_sum == _answer)
+            Sucess();
+    }
+
+    private void Sucess()
+    {
+        Debug.Log("정답");
+    }
+
     private IEnumerator DesireTextAnim() //숫자 바뀌는 효과
     {
         for (int i = 0; i < 25; i++)
         {
-            _reqTxt.text = Random.Range(0, _range).ToString();
+            _reqTxt.text = Random.Range(0, RANGE).ToString();
             yield return new WaitForSeconds(0.05f);
         }
 
