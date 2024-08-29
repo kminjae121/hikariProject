@@ -1,15 +1,13 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
-using System.Linq;
-using UnityEngine.Events;
 using UnityEngine.EventSystems;
+using DG.Tweening;
 
 public class NodePuzzle : MonoBehaviour
 {
-    const int SIZE = 4;
+    const int SIZE = 10;
     const int RANGE = 100000;
 
     private Button[] _valueBtn;
@@ -19,17 +17,31 @@ public class NodePuzzle : MonoBehaviour
     private int[,] _valueArr = new int[4, SIZE]; //실질적인 값이 들어가는 배열
     private int[] answer = new int[4];
 
-    private int _sum = 0; //현재 값들의 합
+    private float _sum = 0; //현재 값들의 합
+    [SerializeField] private float _approxRatio, _ratio, _prevApproxRatio;
+    private float _currentVelocity;
+
+    private bool _isStart;
+
     private TextMeshProUGUI _reqTxt;
     private TextMeshProUGUI _sumTxt;
 
-    [SerializeField] private int[] Answer = new int[4];
+    [SerializeField] private Slider _approxSlider;
     [SerializeField] private int _answer; //정답
 
     private void Awake()
     {
         Assignment();
         InitializePuzzle();
+    }
+
+    private void Update()
+    {
+        if (_isStart)
+        {
+            float current = Mathf.SmoothDamp(_approxSlider.value, _ratio, ref _currentVelocity, 0.1f, 5f);
+            _approxSlider.value = current;
+        }
     }
 
     private void Assignment()
@@ -56,7 +68,7 @@ public class NodePuzzle : MonoBehaviour
     private void InitializePuzzle() //퍼즐 초기화
     {
         int sum = 0;
-        _answer = Random.Range(0, RANGE);
+        _answer = Random.Range(RANGE / 10, RANGE);
         StartCoroutine(DesireTextAnim());
 
         for (int i = 0; i < 3; i++)
@@ -72,9 +84,6 @@ public class NodePuzzle : MonoBehaviour
         answer[3] = _answer - sum;
 
         for (int i = 0; i < 4; i++)
-            Answer[i] = answer[i];
-
-        for (int i = 0; i < 4; i++)
         {
             int index = Random.Range(0, SIZE);
             for (int j = 0; j < SIZE; j++)
@@ -83,7 +92,7 @@ public class NodePuzzle : MonoBehaviour
                     _valueArr[i, j] = answer[i];
                 else
                 {
-                    _valueArr[i, j] = SetValueArr(j);
+                    _valueArr[i, j] = SetValueArr(j + 1);
                     _valueArr[i, j] = CheckOdd(_valueArr[i, j], i);
                 }
             }
@@ -101,17 +110,13 @@ public class NodePuzzle : MonoBehaviour
     {
         if (index % 2 == 0)
         {
-            if (num % 2 == 0)
-                num++;
-            else
-                num--;
+            if (num % 2 == 0) num++;
+            else num--;
         }
         else
         {
-            if (num % 2 == 0)
-                num--;
-            else
-                num++;
+            if (num % 2 == 0) num--;
+            else num++;
         }
 
         return num;
@@ -120,7 +125,7 @@ public class NodePuzzle : MonoBehaviour
     private int SetValueArr(int j)
     {
         int min = ((j * j) * 10) * (j * 10);
-        int max = (j * j + 1) * 20 * (j * 10 + 1);
+        int max = (j * j) * 20 * (j * 10);
 
         return Random.Range(min, max);
     }
@@ -149,7 +154,7 @@ public class NodePuzzle : MonoBehaviour
             [index, _valueOrder[index]].ToString();
 
         GetSum();
-        CheckEqual();
+        ApproximateRatio();
     }
 
     private void GetSum()
@@ -162,15 +167,35 @@ public class NodePuzzle : MonoBehaviour
         _sumTxt.text = $"합계 : {_sum}";
     }
 
-    private void CheckEqual()
+    private void ApproximateRatio()
     {
-        if (_sum == _answer)
+        _approxRatio = (_answer - _sum) / _answer;
+
+        if (_approxRatio > 0)
+        {
+            _ratio = 1 - _approxRatio;
+            _prevApproxRatio = _ratio;
+        }
+        else
+        {
+            _ratio = 1 - Mathf.Abs(_approxRatio);
+            _prevApproxRatio -= _ratio;
+        }
+
+        _isStart = true;
+
+        if (1 - _ratio <= 0.05f)
             Sucess();
     }
 
     private void Sucess()
     {
         Debug.Log("정답");
+
+        foreach (RawImage node in _nodes)
+        {
+            node.DOColor(Color.green, 1.5f);
+        }
     }
 
     private IEnumerator DesireTextAnim() //숫자 바뀌는 효과
