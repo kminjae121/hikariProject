@@ -26,7 +26,8 @@ public class PlaceObj : MonoBehaviour
 
             if (hit.collider.CompareTag("Ground") || hit.collider.CompareTag("CaptureObj"))
             {
-                placeHelp.GetComponent<ObjectGather>().enabled = false;
+                if (gameObject.GetComponent<ObjectGather>() != null)
+                    placeHelp.GetComponent<ObjectGather>().enabled = false;
                 sp.color = Color.green;
                 isPlaceTure = true;
             }
@@ -57,7 +58,9 @@ public class PlaceObj : MonoBehaviour
         print("½ÇÇà");
         placeHelp = Instantiate(furniturePrefab);
         placeHelp.GetComponent<Rigidbody2D>().simulated = false;
-        placeHelp.GetComponent<ObjectGather>().enabled = false;
+
+        if (gameObject.GetComponent<ObjectGather>() != null)
+            placeHelp.GetComponent<ObjectGather>().enabled = false;
         isPlaceStart = true;
     }
     

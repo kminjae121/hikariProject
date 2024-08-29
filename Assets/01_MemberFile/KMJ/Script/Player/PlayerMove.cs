@@ -5,13 +5,16 @@ public class PlayerMove : MonoBehaviour
     [Header("Setting")]
     [SerializeField] private InputReader _inputReader;
     [field: SerializeField] public int _moveSpeed { get; set; }
-    [SerializeField] private int _jumpSpeed;
+    [field: SerializeField] public int _jumpSpeed { get; set; }
+    [field: SerializeField] public int _swimSpeed { get; set; }
     [SerializeField] private Transform _groundChecker;
     [SerializeField] private Vector2 _boxSize;
     [SerializeField] private LayerMask _whatIsGround;
     [SerializeField] private LayerMask _whatIsObject;
 
     [SerializeField] private ButtonManager _buttonManager;
+
+    [field: SerializeField] public bool isSwimming { get; set; }
 
     private bool _isSecondJump;
     public bool _isJump { get; set; }
@@ -20,6 +23,7 @@ public class PlayerMove : MonoBehaviour
 
     private void Awake()
     {
+        isSwimming = false;
         _isJump = true;
         _inputReader.JumpKeyEvent += Jump;
         _rigid = GetComponent<Rigidbody2D>();
@@ -40,6 +44,18 @@ public class PlayerMove : MonoBehaviour
                 _boxSize, 0, _whatIsGround);
 
         SetMove(_inputReader.Movement.x);
+    }
+
+    private void Swimming(int SwimSpeed)
+    {
+        _rigid.velocity = new Vector2(Vector2.right.x * SwimSpeed, _rigid.velocity.y);
+
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            _rigid.velocity = Vector2.zero;
+
+            _rigid.AddForce(Vector2.up * _jumpSpeed * 1, ForceMode2D.Impulse);
+        }
     }
 
     private void SetMove(float Xmove)
@@ -76,7 +92,10 @@ public class PlayerMove : MonoBehaviour
 
     private void FixedUpdate()
     {
-        _rigid.velocity = new Vector2(_xmove.x * _moveSpeed, _rigid.velocity.y);
+        if (isSwimming)
+            Swimming(_swimSpeed);
+        else
+            PlayerMovement(_moveSpeed);
     }
 
     private void OnDrawGizmos()
