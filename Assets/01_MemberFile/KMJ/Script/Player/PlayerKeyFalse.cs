@@ -32,9 +32,11 @@ public class PlayerKeyFalse : MonoBehaviour
             {
                 case 1:
                     _playerMove._jumpSpeed = BlockJump;
+                    Debug.Log("Á¡ÇÁ ¾ÈµÊ");
                     break;
                 case 2:
                     OpenControlPanel._isTrue = false;
+                    Debug.Log("Esc ¾ÈµÊ");
                     break;
             }
         }
