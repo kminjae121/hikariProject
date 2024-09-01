@@ -6,7 +6,7 @@ using System;
 public class BrightFoothold : MonoBehaviour
 {
     [SerializeField]
-    private BrightPlants brightPlants;
+    public BrightPlants brightPlants;
 
     public float brightnessLevel;
 

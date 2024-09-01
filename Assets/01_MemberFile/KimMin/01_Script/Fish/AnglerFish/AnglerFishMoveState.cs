@@ -28,13 +28,25 @@ public class AnglerFishMoveState : FishState
         base.UpdateState();
 
         Move();
+        _fish.MoveFlip();
 
         float distance = Vector2.Distance
             (_fish.targetTrm.position, _fish.transform.position);
 
         if (distance < _fish.detectRadius && distance > _fish.attackRadius)
         {
+            if (_fish.BrightFoodHold.brightPlants.brightStep != 0)
+                _stateMachine.ChangeState(FishStateEnum.Chase);
+
+            if (_fish.isDark)
+                return;
+
             _stateMachine.ChangeState(FishStateEnum.Chase);
+        }
+
+        if (distance > _fish.detectRadius + 2)
+        {
+            _fish.isDark = false;
         }
     }
 
