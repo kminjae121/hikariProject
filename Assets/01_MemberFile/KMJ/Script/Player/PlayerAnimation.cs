@@ -25,6 +25,7 @@ public class PlayerAnimation : MonoBehaviour
         RunAnimation();
         PlayerFilpX();
         JumpAniamtion();
+        SwimAnimation();
     }
 
 
@@ -90,6 +91,22 @@ public class PlayerAnimation : MonoBehaviour
         else
         {
             _animator.SetBool("FlowerWalk", false);
+        }
+    }
+
+    private void SwimAnimation()
+    {
+        if(_playerMove.isSwimming == true)
+        {
+            _animator.SetLayerWeight(2, 1f);
+            _animator.SetLayerWeight(0, 0f);
+            _animator.SetLayerWeight(1, 0f);
+        }
+        else
+        {
+            _animator.SetLayerWeight(2, 0f);
+            _animator.SetLayerWeight(0, 1f);
+            _animator.SetLayerWeight(1, 0f);
         }
     }
 }
