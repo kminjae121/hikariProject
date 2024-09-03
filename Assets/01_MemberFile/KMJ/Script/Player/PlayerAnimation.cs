@@ -94,6 +94,15 @@ public class PlayerAnimation : MonoBehaviour
         {
             _animator.SetBool("FlowerWalk", false);
         }
+
+        if (_playerMove._isJump == false)
+        {
+            _animator.SetBool("FlowerJump", true);
+        }
+        else
+        {
+            _animator.SetBool("FlowerJump", false);
+        }
     }
 
     private void SwimAnimation()
