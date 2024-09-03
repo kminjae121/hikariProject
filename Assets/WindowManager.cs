@@ -10,6 +10,9 @@ public class WindowManager : MonoBehaviour
     CinemachineVirtualCamera vc;
     CinemachineBasicMultiChannelPerlin noise;
 
+    [SerializeField]
+    private VideoPlayer player;
+
     public void OnButton()
     {
         vc.Priority = 10;
@@ -29,7 +32,7 @@ public class WindowManager : MonoBehaviour
         noise.m_AmplitudeGain = 0f;
         noise.m_FrequencyGain = 0f;
 
-        VideoPlayer player = null;
+        player = null;
         double videoTime = player.length;
         double videoCurrentTime = player.time;
 
