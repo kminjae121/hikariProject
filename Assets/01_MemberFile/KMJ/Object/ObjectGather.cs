@@ -128,6 +128,7 @@ public class ObjectGather : MonoBehaviour
             animator.SetBool("Walk", false);
             _rigid.velocity = Vector2.zero;
         }
+
         else if (hit == true)
         {
             animator.SetBool("Walk", true);
@@ -143,12 +144,10 @@ public class ObjectGather : MonoBehaviour
         {
             _playerRigidBody.gravityScale = 0;
             _playerRigidBody.velocity = Vector2.zero;
-            _playermove._moveSpeed = 1;
-            _player.position = Vector2.MoveTowards(_player.position,_endPosition.position, _flyingSpeed* Time.deltaTime);
+            _player.position = Vector2.MoveTowards(_player.position,_endPosition.position, _flyingSpeed * Time.deltaTime);
         }
         else
         {
-            _playermove._moveSpeed = 5;
             _playerRigidBody.gravityScale = 3.14f;
         }
     }

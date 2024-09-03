@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 6886952615910082312}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.57, y: 1.78, z: 0}
+  m_LocalPosition: {x: 5.39, y: 1.48, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -182,7 +182,7 @@ MonoBehaviour:
   _objectType: 6
   _boxSize: {x: 3, y: 1}
   _jumpPower: 5
-  _flyingSpeed: 2
+  _flyingSpeed: 5
   _playerLayer:
     serializedVersion: 2
     m_Bits: 8

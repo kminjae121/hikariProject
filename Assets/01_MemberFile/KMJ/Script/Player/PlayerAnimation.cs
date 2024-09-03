@@ -33,15 +33,17 @@ public class PlayerAnimation : MonoBehaviour
     {
         if(isFlower)
         {
-            _animator.SetLayerWeight(0, 0f);
+            _animator.SetLayerWeight(0, 1f);
             _animator.SetLayerWeight(1, 1f);
-        }    
+        }
         else
         {
             _animator.SetLayerWeight(0, 1f);
             _animator.SetLayerWeight(1, 0f);
         }
     }
+
+
     private void PlayerFilpX()
     {
         if (_inputReader.Movement.x < 0)
@@ -98,15 +100,14 @@ public class PlayerAnimation : MonoBehaviour
     {
         if(_playerMove.isSwimming == true)
         {
-            _animator.SetLayerWeight(2, 1f);
+            _spriteCompo.flipX = false;
             _animator.SetLayerWeight(0, 0f);
-            _animator.SetLayerWeight(1, 0f);
+            _animator.SetLayerWeight(2, 1f);
         }
         else
         {
-            _animator.SetLayerWeight(2, 0f);
             _animator.SetLayerWeight(0, 1f);
-            _animator.SetLayerWeight(1, 0f);
+            _animator.SetLayerWeight(2, 0f);
         }
     }
 }
