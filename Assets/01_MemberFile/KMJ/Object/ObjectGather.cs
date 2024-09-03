@@ -29,6 +29,9 @@ public class ObjectGather : MonoBehaviour
     [SerializeField] private LayerMask _playerLayer;
     [SerializeField] private Rigidbody2D _rigid;
     [SerializeField] private Transform _overlapPlace;
+    [SerializeField] private Transform _endPosition;
+    [SerializeField] private Transform _player;
+    private PlayerMove _playermove;
 
     private void Awake()
     {
@@ -40,7 +43,9 @@ public class ObjectGather : MonoBehaviour
 
     private void Start()
     {
+        _playermove = GameObject.Find("PlayerPrefab").GetComponent<PlayerMove>();
         _playerRigidBody = GameObject.Find("PlayerPrefab").GetComponent<Rigidbody2D>();
+        _player = GameObject.Find("PlayerPrefab").transform;
         ObjectAbility();
         _isUp = true;
     }
@@ -137,10 +142,13 @@ public class ObjectGather : MonoBehaviour
         if (hit == true)
         {
             _playerRigidBody.gravityScale = 0;
-            _playerRigidBody.AddForce(Vector2.right * _flyingSpeed, ForceMode2D.Impulse);
+            _playerRigidBody.velocity = Vector2.zero;
+            _playermove._moveSpeed = 1;
+            _player.position = Vector2.MoveTowards(_player.position,_endPosition.position, _flyingSpeed* Time.deltaTime);
         }
         else
         {
+            _playermove._moveSpeed = 5;
             _playerRigidBody.gravityScale = 3.14f;
         }
     }
