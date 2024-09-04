@@ -13,6 +13,11 @@ public class WindowManager : MonoBehaviour
     [SerializeField]
     private VideoPlayer player;
 
+    private void Update()
+    {
+        print(player.time);
+    }
+
     public void OnButton()
     {
         vc.Priority = 10;
@@ -31,10 +36,11 @@ public class WindowManager : MonoBehaviour
         yield return new WaitForSeconds(1f);
         noise.m_AmplitudeGain = 0f;
         noise.m_FrequencyGain = 0f;
+        yield return new WaitForSeconds(1f);
 
-        player = null;
-        double videoTime = player.length;
-        double videoCurrentTime = player.time;
+        //if(player.length < 31f)
+
+        //double videoCurrentTime = player.time;
 
     }
 }

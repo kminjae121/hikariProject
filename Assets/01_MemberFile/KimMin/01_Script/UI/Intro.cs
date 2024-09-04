@@ -11,16 +11,13 @@ public class Intro : MonoBehaviour
 
     private Sequence glowScreenSeq;
 
-    private void Awake()
+
+    public void BlinkTween()
     {
         _background.gameObject.SetActive(true);
         _glowScreen.gameObject.SetActive(true);
 
-        BlinkTween();
-    }
 
-    private void BlinkTween()
-    {
         glowScreenSeq = DOTween.Sequence()
             .OnStart(() =>
             {
