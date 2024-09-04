@@ -38,6 +38,7 @@ public class PopupUI : MonoBehaviour
             float randY = Random.Range(-2.4f, 2.4f);
             pos = new Vector2(randX, randY);
             Instantiate(popupUI, pos, Quaternion.identity, GameObject.Find("PopupManager").transform);
+            //popupUIPrefab.name = "Popup";
             StartCoroutine(PopupSpawnCool());
         }
     }

@@ -5,7 +5,6 @@ using System;
 
 public class BrightFoothold : MonoBehaviour
 {
-    [SerializeField]
     public BrightPlants brightPlants;
 
     public float brightnessLevel;
@@ -15,31 +14,25 @@ public class BrightFoothold : MonoBehaviour
     private Animator anim;
     private PolygonCollider2D polygonCollider;
 
+    public bool isTure; // ´êÀ½°¨Áö
 
     private void Awake()
     {
         anim = GetComponentInChildren<Animator>();
         polygonCollider = GetComponent<PolygonCollider2D>();
-        OnBrightnessDetection += BrightnessDetection;
     }
 
-    private void Update()
+    public void BrightnessDetection(bool canPlant, float brightStep)
     {
-        OnBrightnessDetection?.Invoke();
-    }
-
-    public void BrightnessDetection()
-    {
-        if (brightnessLevel > brightPlants.brightStep ||  brightnessLevel < brightPlants.brightStep || brightPlants.isReach == false)
-        {
-            polygonCollider.isTrigger = true;
-            anim.SetBool("Fold", true);
-        }
-
-        if (brightnessLevel == brightPlants.brightStep && brightPlants.isReach == true)
+        if (brightnessLevel == brightStep && canPlant)
         {
             polygonCollider.isTrigger = false;
             anim.SetBool("Fold", false);
+        }
+        if (brightnessLevel != brightStep || !canPlant)
+        {
+            polygonCollider.isTrigger = true;
+            anim.SetBool("Fold", true);
         }
     }
 }

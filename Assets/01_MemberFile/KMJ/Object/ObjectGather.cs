@@ -142,8 +142,8 @@ public class ObjectGather : MonoBehaviour
         Collider2D hit = Physics2D.OverlapBox(_overlapPlace.position, _boxSize, 0, _playerLayer);
         if (hit == true)
         {
-            _playerRigidBody.gravityScale = 0;
             _playerRigidBody.velocity = Vector2.zero;
+            _playerRigidBody.gravityScale = 0;
             _player.position = Vector2.MoveTowards(_player.position,_endPosition.position, _flyingSpeed * Time.deltaTime);
         }
         else
@@ -157,7 +157,6 @@ public class ObjectGather : MonoBehaviour
         Collider2D hit = Physics2D.OverlapBox(_overlapPlace.position, _boxSize, 0, _playerLayer);
         if (hit == true)
         {
-            _playerRigidBody.velocity = Vector2.zero;
             _playerRigidBody.AddForce(Vector2.up.normalized * _jumpPower * multiplier, ForceMode2D.Impulse);
         }
 
