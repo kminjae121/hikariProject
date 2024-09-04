@@ -973,7 +973,7 @@ GameObject:
   m_Component:
   - component: {fileID: 643950744}
   m_Layer: 5
-  m_Name: NumberButtons
+  m_Name: ValueButtons
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1741,8 +1741,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12c7df2bef5dc5f4f8ff718b62e9d9b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _approximateSlider: {fileID: 1780225419}
-  _answer: 0
+  _approxSlider: {fileID: 1780225419}
 --- !u!4 &1076691832
 Transform:
   m_ObjectHideFlags: 0
