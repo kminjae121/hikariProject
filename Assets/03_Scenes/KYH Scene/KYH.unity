@@ -386,6 +386,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6216705198024720204, guid: 1571ca8fafdce73498a1f70ccd3771f2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7431139567732997365, guid: 1571ca8fafdce73498a1f70ccd3771f2, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8400907023815607731, guid: 1571ca8fafdce73498a1f70ccd3771f2, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.9
@@ -1348,12 +1356,28 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1483552526}
     - target: {fileID: 2533467227320749019, guid: fa9fc95a4cf13c34ebd08e210eef0eb3, type: 3}
-      propertyPath: _flyingSpeed
-      value: 3
+      propertyPath: _boxSize.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3407237771456285421, guid: fa9fc95a4cf13c34ebd08e210eef0eb3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 3407237771456285421, guid: fa9fc95a4cf13c34ebd08e210eef0eb3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.81
       objectReference: {fileID: 0}
     - target: {fileID: 7130338374306468576, guid: fa9fc95a4cf13c34ebd08e210eef0eb3, type: 3}
       propertyPath: m_Name
       value: ElectricPan
+      objectReference: {fileID: 0}
+    - target: {fileID: 7796212915961935840, guid: fa9fc95a4cf13c34ebd08e210eef0eb3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 4.91
+      objectReference: {fileID: 0}
+    - target: {fileID: 7796212915961935840, guid: fa9fc95a4cf13c34ebd08e210eef0eb3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.76
       objectReference: {fileID: 0}
     - target: {fileID: 9140128704103826495, guid: fa9fc95a4cf13c34ebd08e210eef0eb3, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1408,9 +1432,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3303380606402982908, guid: e614513db391e5348886efb1e0943078, type: 3}
+      propertyPath: m_SurfaceArc
+      value: 80
+      objectReference: {fileID: 0}
     - target: {fileID: 4792981936377408962, guid: e614513db391e5348886efb1e0943078, type: 3}
       propertyPath: m_Name
       value: TwoFloorBed
+      objectReference: {fileID: 0}
+    - target: {fileID: 5537223651797739984, guid: e614513db391e5348886efb1e0943078, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 5537223651797739984, guid: e614513db391e5348886efb1e0943078, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1418,11 +1450,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5537223651797739984, guid: e614513db391e5348886efb1e0943078, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.1413453
+      value: -2.59
       objectReference: {fileID: 0}
     - target: {fileID: 5537223651797739984, guid: e614513db391e5348886efb1e0943078, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.011
+      value: 0.04
       objectReference: {fileID: 0}
     - target: {fileID: 5537223651797739984, guid: e614513db391e5348886efb1e0943078, type: 3}
       propertyPath: m_LocalRotation.w
