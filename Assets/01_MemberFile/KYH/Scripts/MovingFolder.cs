@@ -52,6 +52,11 @@ public class MovingFolder : MonoBehaviour
         playerAnimator = GameObject.Find("PlayerAnimation").GetComponent<Animator>();
     }
 
+    private void Start()
+    {
+        playerAnimator.gameObject.SetActive(false);
+    }
+
     void Update()
     {
         if (!isSettingPanelChoose)
@@ -72,7 +77,11 @@ public class MovingFolder : MonoBehaviour
 
         if (hit)
         {
-            print(hit.collider.name);
+            if (hit.collider.CompareTag("Lock") && Input.GetMouseButtonDown(0))
+            {
+                print("ttqq");
+                hit.collider.gameObject.GetComponent<LockfadeIn>().LockFade();
+            }
             if (hit.collider == GetComponent<Collider2D>() && Input.GetMouseButtonDown(0))
             {
                 settingButton.holdObject = hit.collider.gameObject;

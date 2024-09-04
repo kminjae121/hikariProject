@@ -22,7 +22,7 @@ public class Bubble : MonoBehaviour
 
     private void AddingForce()
     {
-        _rigid.AddForce(Vector2.up * _speed, ForceMode2D.Impulse);
+        _rigid.AddForce(Vector2.up * _speed, ForceMode2D.Force);
     }
 
     private void CheckBubble()

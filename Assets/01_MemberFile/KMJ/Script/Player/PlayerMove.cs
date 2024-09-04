@@ -53,7 +53,6 @@ public class PlayerMove : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Space))
         {
             _rigid.velocity = Vector2.zero;
-
             _rigid.AddForce(Vector2.up * _jumpSpeed * 1, ForceMode2D.Impulse);
         }
     }

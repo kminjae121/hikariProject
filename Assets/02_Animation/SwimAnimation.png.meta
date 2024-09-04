@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 423ecf6f530c3c24fb340f5bd0191f9f
+guid: 027bdbcc3d95d034dab9bebc316afd4b
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 64
+  spritePixelsToUnits: 128
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -132,30 +132,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: tvOS
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Bubble_0
+      name: SwimAnimation_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 64
-        height: 64
+        x: 11
+        y: 24
+        width: 34
+        height: 23
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -163,20 +150,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3912084967f2ddf41891995e4627cc10
-      internalID: 446865784
+      spriteID: 5efa768ff1d7d2e488c0684c554c0b20
+      internalID: -2106654589
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bubble_1
+      name: SwimAnimation_1
       rect:
         serializedVersion: 2
-        x: 64
-        y: 0
-        width: 64
-        height: 64
+        x: 75
+        y: 23
+        width: 34
+        height: 24
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -184,20 +171,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0b384251dff3f65448bcbfef74fa8af7
-      internalID: 1026062350
+      spriteID: 0ee97e6136044d24aa9f1578ff6347c6
+      internalID: -1048376618
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bubble_2
+      name: SwimAnimation_2
       rect:
         serializedVersion: 2
-        x: 128
-        y: 0
-        width: 64
-        height: 64
+        x: 141
+        y: 23
+        width: 33
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -205,20 +192,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4d34948dd37ba3141adcf8b88ea9c19c
-      internalID: -1779872420
+      spriteID: 6fc9e23acb07a6c46b274a988467093b
+      internalID: 228440116
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bubble_3
+      name: SwimAnimation_3
       rect:
         serializedVersion: 2
-        x: 192
-        y: 0
-        width: 64
-        height: 64
+        x: 203
+        y: 24
+        width: 34
+        height: 21
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -226,20 +213,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dcfc8e9f86fc8eb45993b32c0b788f54
-      internalID: 291729928
+      spriteID: 9be1dedf376de6640b0040ff2785681c
+      internalID: 1881475364
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bubble_4
+      name: SwimAnimation_4
       rect:
         serializedVersion: 2
-        x: 256
-        y: 0
-        width: 64
-        height: 64
+        x: 268
+        y: 24
+        width: 32
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -247,20 +234,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 958cdc95bd845c64987533fa7f6c7b47
-      internalID: -1403863820
+      spriteID: 87c14814613d0d34da677f482b309f78
+      internalID: 678812269
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bubble_5
+      name: SwimAnimation_5
       rect:
         serializedVersion: 2
-        x: 320
-        y: 0
-        width: 64
-        height: 64
+        x: 332
+        y: 24
+        width: 33
+        height: 23
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -268,20 +255,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b280678bc02dbe248b0e592edb4859c1
-      internalID: 679586894
+      spriteID: 9be2589433966b84aa143c52140fd6c5
+      internalID: 430933157
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bubble_6
+      name: SwimAnimation_6
       rect:
         serializedVersion: 2
-        x: 384
-        y: 0
-        width: 64
-        height: 64
+        x: 396
+        y: 21
+        width: 33
+        height: 26
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -289,8 +276,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: da2eb9df6395d6d49bab4a8d02a9136a
-      internalID: 927375842
+      spriteID: b78e4cc0acd9aac4eb94e125382de94b
+      internalID: -1492440960
       vertices: []
       indices: 
       edges: []
@@ -306,13 +293,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Bubble_0: 446865784
-      Bubble_1: 1026062350
-      Bubble_2: -1779872420
-      Bubble_3: 291729928
-      Bubble_4: -1403863820
-      Bubble_5: 679586894
-      Bubble_6: 927375842
+      SwimAnimation_0: -2106654589
+      SwimAnimation_1: -1048376618
+      SwimAnimation_2: 228440116
+      SwimAnimation_3: 1881475364
+      SwimAnimation_4: 678812269
+      SwimAnimation_5: 430933157
+      SwimAnimation_6: -1492440960
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

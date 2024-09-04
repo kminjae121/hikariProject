@@ -13,6 +13,7 @@ TagManager:
   - AnglerFish
   - Slot
   - CaptureObj
+  - Lock
   layers:
   - Default
   - TransparentFX
@@ -31,8 +32,8 @@ TagManager:
   - PutStation
   - App
   - Ground
+  - Bubble
   - 
-  - Popup
   - 
   - 
   - 

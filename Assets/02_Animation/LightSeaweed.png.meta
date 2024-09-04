@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 3d04b0495ce02cc479e153fea0c51976
+guid: 52ef547063f5c6d479dcbc0b833dd984
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 64
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -149,13 +149,160 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: angler_fish_0
+      name: LightSeaweed_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea6f922287bd3c3458aab082bdf1840e
+      internalID: 1092768876
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LightSeaweed_1
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 64
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6956a8aa0de66a45a20fd2ddd6c3b68
+      internalID: 755718573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LightSeaweed_2
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 64
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8861d59d26c9fb741b162300a153f1af
+      internalID: -937879155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LightSeaweed_3
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 64
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 254b429d84e08b3409b2b89726e03d27
+      internalID: -2077197056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LightSeaweed_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f93b2fccb6d12ed478031a3e9435871b
+      internalID: -511524006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LightSeaweed_5
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 32
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8f02d5cd0c8fd54c9d922059a6528cf
+      internalID: 1169187044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LightSeaweed_6
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 32
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52daa2329e672c6429fd0ed1671b6315
+      internalID: 1604559684
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LightSeaweed_7
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 72
-        height: 72
+        width: 16
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -163,20 +310,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5bd2c06b58d12724fa7a72539112bcf2
-      internalID: -946261738
+      spriteID: 97f6946de7c55154aad2063925a67086
+      internalID: 2015852643
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: angler_fish_1
+      name: LightSeaweed_8
       rect:
         serializedVersion: 2
-        x: 72
+        x: 16
         y: 0
-        width: 72
-        height: 72
+        width: 16
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -184,20 +331,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c304022c37342e541bf5fd4e3bd75743
-      internalID: 1287408361
+      spriteID: 5ea7536f6aa68a64789eaa23563910a9
+      internalID: 1379339593
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: angler_fish_2
+      name: LightSeaweed_9
       rect:
         serializedVersion: 2
-        x: 144
+        x: 32
         y: 0
-        width: 72
-        height: 72
+        width: 16
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -205,20 +352,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f3b15012217c0664aa59f80ff76f60a8
-      internalID: 373793188
+      spriteID: 3a83a428d42f5044291104c575d360b5
+      internalID: 679480583
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: angler_fish_3
+      name: LightSeaweed_10
       rect:
         serializedVersion: 2
-        x: 216
+        x: 48
         y: 0
-        width: 72
-        height: 72
+        width: 16
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -226,71 +373,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 52e837871f914eb4dbdc6e9f88f5397b
-      internalID: -862101503
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: angler_fish_4
-      rect:
-        serializedVersion: 2
-        x: 288
-        y: 0
-        width: 72
-        height: 72
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 84d6587221ee6b94c8ffea5c044cc14f
-      internalID: -369519962
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: angler_fish_5
-      rect:
-        serializedVersion: 2
-        x: 360
-        y: 0
-        width: 72
-        height: 72
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7fbe85377c983a640b8f2bd7a42c5819
-      internalID: -243174730
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: angler_fish_6
-      rect:
-        serializedVersion: 2
-        x: 432
-        y: 0
-        width: 72
-        height: 72
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d785e478adb030c40ae10111188fb024
-      internalID: -396385702
+      spriteID: fe25e7eb9884b724ca8a8847c784a546
+      internalID: -1164612278
       vertices: []
       indices: 
       edges: []
@@ -306,13 +390,17 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      angler_fish_0: -946261738
-      angler_fish_1: 1287408361
-      angler_fish_2: 373793188
-      angler_fish_3: -862101503
-      angler_fish_4: -369519962
-      angler_fish_5: -243174730
-      angler_fish_6: -396385702
+      LightSeaweed_0: 1092768876
+      LightSeaweed_1: 755718573
+      LightSeaweed_10: -1164612278
+      LightSeaweed_2: -937879155
+      LightSeaweed_3: -2077197056
+      LightSeaweed_4: -511524006
+      LightSeaweed_5: 1169187044
+      LightSeaweed_6: 1604559684
+      LightSeaweed_7: 2015852643
+      LightSeaweed_8: 1379339593
+      LightSeaweed_9: 679480583
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
