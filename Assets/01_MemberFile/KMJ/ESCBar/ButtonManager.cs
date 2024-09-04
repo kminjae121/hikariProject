@@ -7,7 +7,8 @@ using TMPro;
 
 public class ButtonManager : MonoBehaviour
 {
-    private int _value;
+    private int _mainvalue;
+    private int _effectvalue;
 
     [SerializeField] private GameObject _esc;
     [SerializeField] private TextMeshProUGUI _currentText;
@@ -24,8 +25,11 @@ public class ButtonManager : MonoBehaviour
     [field :SerializeField] public bool IsWifiTrue { get; set; }
     [SerializeField] private Animator _wifiAniamtion;
     [Header("Sound")]
-    [SerializeField] private TextMeshProUGUI _soundText;
-    [SerializeField] private Slider _musicSlider;
+    [SerializeField] private TextMeshProUGUI _MainsoundText;
+    [SerializeField] private Slider _MainmusicSlider;
+
+    [SerializeField] private TextMeshProUGUI _EffectsoundText;
+    [SerializeField] private Slider _EffectmusicSlider;
 
     [Header("ButtonList")]
     public List<GameObject> ChangeButton = new List<GameObject>();
@@ -48,12 +52,14 @@ public class ButtonManager : MonoBehaviour
 
     private void Update()
     {
-        _value = (int)_musicSlider.value;
-
+        _mainvalue = (int)_MainmusicSlider.value;
+        _effectvalue = (int)_EffectmusicSlider.value;
 
         InteractablFalse();
 
-        _soundText.text = $"{_value}";
+        _MainsoundText.text = $"{_mainvalue}";
+
+        _EffectsoundText.text = $"{_effectvalue}";
 
         if (IsFireWallTrue == true)
         {
