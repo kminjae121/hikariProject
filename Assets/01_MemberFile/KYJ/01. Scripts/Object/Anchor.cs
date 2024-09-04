@@ -8,13 +8,26 @@ public class Anchor : MonoBehaviour
     [SerializeField] private Rigidbody2D _agentRigidCompo;
     [SerializeField] private GameObject _agent;
 
+    [SerializeField] private PlayerMovement _agentMove;
+
     public bool isKnockback;
     private float knockbackPower = 5f;
     private float knockbackTime = 0.5f;
 
+    public bool ddd;
+
     private void Awake()
     {
         _rigidCompo = GetComponent<Rigidbody2D>();
+    }
+
+    private void Update()
+    {
+        if (ddd == true)
+        {
+            _agentRigidCompo.velocity = Vector2.zero;
+        }
+        KnockedBack();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -40,12 +53,15 @@ public class Anchor : MonoBehaviour
 
     public void KnockedBack()
     {
-        if(isKnockback)
+
+        if(/*isKnockback &&*/ Input.GetKeyDown(KeyCode.K))
         {
+            ddd = true;
             _rigidCompo.velocity = Vector2.zero;
             _rigidCompo.AddForce(-transform.position.normalized * knockbackPower, ForceMode2D.Impulse);
             print("³Ë¹é");
             //isKnockback = false;
+            ddd = false;
         }
     }
 }

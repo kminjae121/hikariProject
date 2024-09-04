@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8950525850440124504}
-  - component: {fileID: 4809562793052405444}
   - component: {fileID: 3799725163251517951}
-  m_Layer: 0
+  - component: {fileID: 3791761620775718815}
+  m_Layer: 3
   m_Name: Fish
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27,26 +27,12 @@ Transform:
   m_GameObject: {fileID: 5537564652927551490}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 145.1016, y: 32.30618, z: -0.044176675}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.1, y: 0.05, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4809562793052405444
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5537564652927551490}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf52cc48e3c3d7a4696220eefc125481, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_MaxSpeed: 2
-  m_MaxTurnSpeed: 0.5
 --- !u!212 &3799725163251517951
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -88,8 +74,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 4d3fceb1fded2414087f519167df7733, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: -668527640, guid: fbdad05dfc3eb244ca296792b087dc39, type: 3}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -99,3 +85,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &3791761620775718815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5537564652927551490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf52cc48e3c3d7a4696220eefc125481, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxSpeed: 2
+  _maxTurnSpeed: 1
+  _targetFish: {fileID: 5537564652927551490}

@@ -4,29 +4,29 @@ using UnityEngine;
 
 public class Flock : MonoBehaviour
 {
-    public GameObject m_Prfbfish;
-    public GameObject m_PrntFish;
-    public int m_Fish = 30;
-    public static int m_Boundary = 7;
-    public static GameObject[] m_Fishes;
-    public static Vector3 m_TargetPosition = Vector3.zero;
+    public GameObject _fishPrefab;
+    public GameObject _parentFish;
+    public int _fishCount = 30;
+    public static int _boundary = 7;
+    public static GameObject[] _fishList;
+    public static Vector3 _targetPosition = Vector3.zero;
 
     void Start()
     {
-        m_Fishes = new GameObject[m_Fish];
+        _fishList = new GameObject[_fishCount];
 
-        for (int i = 0; i < m_Fish; i++)
+        for (int i = 0; i < _fishCount; i++)
         {
             Vector3 position = new Vector3(
-                Random.Range(-m_Boundary, m_Boundary),
-                Random.Range(-m_Boundary, m_Boundary),
-                Random.Range(-m_Boundary, m_Boundary)
+                Random.Range(-_boundary, _boundary),
+                Random.Range(-_boundary, _boundary),
+                Random.Range(-_boundary, _boundary)
             );
 
-            GameObject fish = (GameObject)Instantiate(m_Prfbfish, position, Quaternion.identity);
+            GameObject fish = (GameObject)Instantiate(_fishPrefab, position, Quaternion.identity);
 
-            fish.transform.parent = m_PrntFish.transform;
-            m_Fishes[i] = fish;
+            fish.transform.parent = _parentFish.transform;
+            _fishList[i] = fish;
         }
     }
 
@@ -39,10 +39,10 @@ public class Flock : MonoBehaviour
     {
         if (Random.Range(1, 10000) < 50)
         {
-            m_TargetPosition = new Vector3(
-                Random.Range(-m_Boundary, m_Boundary),
-                Random.Range(-m_Boundary, m_Boundary),
-                Random.Range(-m_Boundary, m_Boundary)
+            _targetPosition = new Vector3(
+                Random.Range(-_boundary, _boundary),
+                Random.Range(-_boundary, _boundary),
+                Random.Range(-_boundary, _boundary)
             );
         }
     }
