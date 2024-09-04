@@ -9,7 +9,7 @@ public class FireWallText : MonoBehaviour
 {
     [SerializeField] private ButtonManager _buttonManager;
 
-    [SerializeField] private Text _fireWallText;
+    [SerializeField] private TextMeshPro _fireWallText;
 
 
     private Sequence _textSequence;

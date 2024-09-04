@@ -52,8 +52,6 @@ public class PlayerMove : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.Space))
         {
-            _rigid.velocity = Vector2.zero;
-
             _rigid.AddForce(Vector2.up * _jumpSpeed * 1, ForceMode2D.Impulse);
         }
     }
@@ -67,8 +65,6 @@ public class PlayerMove : MonoBehaviour
     {
         if (_isJump == true)
         {
-            _rigid.velocity = Vector2.zero;
-
             _rigid.AddForce(Vector2.up * _jumpSpeed * 1, ForceMode2D.Impulse);
 
             _isSecondJump = true;
@@ -76,7 +72,6 @@ public class PlayerMove : MonoBehaviour
 
         else if (_isSecondJump == true)
         {
-            _rigid.velocity = Vector2.zero;
             _rigid.AddForce(Vector2.up * _jumpSpeed, ForceMode2D.Impulse);
 
             _isSecondJump = false;

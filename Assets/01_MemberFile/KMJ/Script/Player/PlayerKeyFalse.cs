@@ -18,10 +18,19 @@ public class PlayerKeyFalse : MonoBehaviour
     private void Start()
     {
         Debug.Log(_randNum);
+        if(_randNum == 1)
+        {
+            Debug.Log("Á¡ÇÁ ºÀ¼â");
+        }
+        else if(_randNum == 2)
+        {
+            Debug.Log("Esc ºÀ¼â");
+        }
     }
     private void Update()
     {
         BlockKey(8,0);
+
     }
 
     private void BlockKey(int OriginJumpPower, int BlockJump)
