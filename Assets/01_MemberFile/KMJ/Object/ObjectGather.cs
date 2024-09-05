@@ -23,6 +23,8 @@ public class ObjectGather : MonoBehaviour
     private bool _IsWalkintDool;
     private bool _isBallon;
     private bool _isUp;
+    private bool _isDraw;
+
     [SerializeField] private Vector2 _boxSize;
     [SerializeField] private int _jumpPower;
     [SerializeField] private int _flyingSpeed;
@@ -57,21 +59,25 @@ public class ObjectGather : MonoBehaviour
         if (_IsSofa == true)
         {
             Sofa();
+            _isDraw = true;
         }
 
         if (_IsWalkintDool == true)
         {
             WalkingDoll();
+            _isDraw = true;
         }
 
         if (_IsElectricFan == true)
         {
             ElectricFan();
+            _isDraw = true;
         }
 
         if (_isBallon == true)
         {
             Ballon();
+            _isDraw = true;
         }
     }
 
@@ -164,8 +170,13 @@ public class ObjectGather : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireCube(_overlapPlace.position, _boxSize);
-        Gizmos.color = Color.white;
+        if (_isDraw == true)
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireCube(_overlapPlace.position, _boxSize);
+            Gizmos.color = Color.white;
+        }
+        else
+            return;
     }
 }
