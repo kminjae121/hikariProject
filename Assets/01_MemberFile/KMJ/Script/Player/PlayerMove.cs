@@ -18,6 +18,7 @@ public class PlayerMove : MonoBehaviour
 
     private bool _isSecondJump;
     public bool _isJump { get; set; }
+    public bool _isForce;
     public Rigidbody2D _rigid { get; set; }
     private Vector2 _xmove;
 
@@ -87,10 +88,13 @@ public class PlayerMove : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (isSwimming)
-            Swimming(_swimSpeed);
-        else
-            PlayerMovement(_moveSpeed);
+        if(!_isForce)
+        {
+            if (isSwimming)
+                Swimming(_swimSpeed);
+            else
+                PlayerMovement(_moveSpeed);
+        }
     }
 
     private void OnDrawGizmos()
