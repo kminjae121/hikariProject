@@ -4,8 +4,15 @@ using UnityEngine;
 
 public class Vine : MonoBehaviour
 {
-    public bool speedDown;
     [SerializeField] private PlayerMove player;
+
+    public bool speedDown;
+    private int previousSpeed;
+
+    private void Awake()
+    {
+        previousSpeed = player._moveSpeed;
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -25,16 +32,16 @@ public class Vine : MonoBehaviour
         VineSpeed(player._moveSpeed);
     }
 
-    private void VineSpeed(int _moveSpeed)
+    private void VineSpeed(int currentMoveSpeed)
     {
         if (speedDown)
         {
-            _moveSpeed -= 3;
+            currentMoveSpeed = 1;
+            player._moveSpeed = currentMoveSpeed;
         }
-        else if(!speedDown)
+        if (!speedDown)
         {
-           _moveSpeed = player._moveSpeed;
+            player._moveSpeed = previousSpeed;   
         }
-        player._moveSpeed = _moveSpeed;
     }
 }
