@@ -21,6 +21,7 @@ public class CaptureObject : MonoBehaviour
     {
         Collider2D collider = gameObject.GetComponent<Collider2D>();
         collider.enabled = false;
+        collider.enabled = false;
 
         SpriteRenderer sprite = gameObject.GetComponent<SpriteRenderer>();
         sprite.sprite = captureSprite.sprite;

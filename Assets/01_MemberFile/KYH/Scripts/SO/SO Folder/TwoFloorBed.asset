@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: 75df8ecd31a861d45a1a067767112824, type: 3}
   name: TwoFloorBed
-  prefab: {fileID: 4792981936377408962, guid: e614513db391e5348886efb1e0943078, type: 3}
+  prefab: {fileID: 2551562204046910103, guid: e614513db391e5348886efb1e0943078, type: 3}
