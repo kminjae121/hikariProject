@@ -1207,7 +1207,6 @@ Transform:
   - {fileID: 1526181508}
   - {fileID: 121721685}
   - {fileID: 427032163}
-  - {fileID: 1878025072}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &225147217
@@ -6846,11 +6845,11 @@ Transform:
   m_GameObject: {fileID: 1878025071}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -960, y: -540, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 223906629}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1878025073
 MonoBehaviour:
@@ -8100,11 +8099,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3870146838865368309, guid: 6cbf9bb93637770458e8bb0f5366bdc5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6
+      value: 5.3
       objectReference: {fileID: 0}
     - target: {fileID: 3870146838865368309, guid: 6cbf9bb93637770458e8bb0f5366bdc5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.4
+      value: -0.85
       objectReference: {fileID: 0}
     - target: {fileID: 3870146838865368309, guid: 6cbf9bb93637770458e8bb0f5366bdc5, type: 3}
       propertyPath: m_LocalPosition.z
@@ -8142,6 +8141,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Popup
       objectReference: {fileID: 0}
+    - target: {fileID: 4168549886272005627, guid: 6cbf9bb93637770458e8bb0f5366bdc5, type: 3}
+      propertyPath: m_Layer
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 5653547276062313337, guid: 6cbf9bb93637770458e8bb0f5366bdc5, type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6917506191187258650, guid: 6cbf9bb93637770458e8bb0f5366bdc5, type: 3}
+      propertyPath: wahtIsPopup.m_Bits
+      value: 262144
+      objectReference: {fileID: 0}
+    - target: {fileID: 8528292911056963779, guid: 6cbf9bb93637770458e8bb0f5366bdc5, type: 3}
+      propertyPath: m_Size.y
+      value: 2.834396
+      objectReference: {fileID: 0}
+    - target: {fileID: 8528292911056963779, guid: 6cbf9bb93637770458e8bb0f5366bdc5, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.3221476
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8159,3 +8178,4 @@ SceneRoots:
   - {fileID: 2003145996}
   - {fileID: 223906629}
   - {fileID: 1765184162}
+  - {fileID: 1878025072}
