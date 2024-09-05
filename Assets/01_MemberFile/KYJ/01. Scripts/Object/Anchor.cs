@@ -5,16 +5,12 @@ using UnityEngine;
 public class Anchor : MonoBehaviour
 {
     private Rigidbody2D _rigidCompo;
-    [SerializeField] private Rigidbody2D _agentRigidCompo;
-    [SerializeField] private GameObject _agent;
+    [SerializeField] private PlayerMove _agentMove;
 
-    [SerializeField] private PlayerMovement _agentMove;
+    private float knockbackPower = 15f;
+    [SerializeField] private float knockbackTime = 1.5f;
 
-    public bool isKnockback;
-    private float knockbackPower = 5f;
-    private float knockbackTime = 0.5f;
-
-    public bool ddd;
+    private bool CanKnockback;
 
     private void Awake()
     {
@@ -23,19 +19,13 @@ public class Anchor : MonoBehaviour
 
     private void Update()
     {
-        if (ddd == true)
-        {
-            _agentRigidCompo.velocity = Vector2.zero;
-        }
-        KnockedBack();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.CompareTag("Player"))
         {
-            isKnockback = true;
-            KnockedBack();
+            KnockedBack(_agentMove.transform.position);
         }
     }
 
@@ -51,17 +41,20 @@ public class Anchor : MonoBehaviour
         yield return new WaitForSeconds(5f);
     }
 
-    public void KnockedBack()
+    public void KnockedBack(Vector2 playerDirection)
     {
+        _agentMove._isForce = true;
+        _agentMove._rigid.velocity = Vector2.zero;
 
-        if(/*isKnockback &&*/ Input.GetKeyDown(KeyCode.K))
-        {
-            ddd = true;
-            _rigidCompo.velocity = Vector2.zero;
-            _rigidCompo.AddForce(-transform.position.normalized * knockbackPower, ForceMode2D.Impulse);
-            print("넉백");
-            //isKnockback = false;
-            ddd = false;
-        }
+        _agentMove._rigid.AddForce((playerDirection - (Vector2)transform.position) * knockbackPower, ForceMode2D.Impulse);
+ 
+        print("넉백");
+        StartCoroutine(JumpRoutine());
+    }
+
+    private IEnumerator JumpRoutine() //코루틴 뒤에 무조건 Routine 붙이기!
+    {
+        yield return new WaitForSeconds(knockbackTime);
+        _agentMove._isForce = false;
     }
 }

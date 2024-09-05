@@ -7,7 +7,7 @@ public enum App
     Exit,
     HowControll,
     File,
-    Translate,
+    Notion,
     Game,
     Steam,
     Youtube,
