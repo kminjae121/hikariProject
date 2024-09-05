@@ -7,7 +7,7 @@ public class Anchor : MonoBehaviour
     private Rigidbody2D _rigidCompo;
     [SerializeField] private PlayerMove _agentMove;
 
-    private float knockbackPower = 5f;
+    private float knockbackPower = 15f;
     [SerializeField] private float knockbackTime = 1.5f;
 
     private bool CanKnockback;
@@ -44,7 +44,10 @@ public class Anchor : MonoBehaviour
     public void KnockedBack(Vector2 playerDirection)
     {
         _agentMove._isForce = true;
-        _agentMove._rigid.AddForce(playerDirection.normalized * knockbackPower, ForceMode2D.Impulse);
+        _agentMove._rigid.velocity = Vector2.zero;
+
+        _agentMove._rigid.AddForce((playerDirection - (Vector2)transform.position) * knockbackPower, ForceMode2D.Impulse);
+ 
         print("³Ë¹é");
         StartCoroutine(JumpRoutine());
     }

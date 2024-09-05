@@ -1917,12 +1917,13 @@ MonoBehaviour:
   _boxSize: {x: 1, y: 0.2}
   _whatIsGround:
     serializedVersion: 2
-    m_Bits: 67584
+    m_Bits: 71680
   _whatIsObject:
     serializedVersion: 2
     m_Bits: 2048
   _buttonManager: {fileID: 0}
   <isSwimming>k__BackingField: 0
+  _isForce: 0
 --- !u!114 &7431139567732997365
 MonoBehaviour:
   m_ObjectHideFlags: 0
