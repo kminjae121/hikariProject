@@ -13,10 +13,6 @@ public class WindowManager : MonoBehaviour
     [SerializeField]
     private VideoPlayer player;
 
-    private void Update()
-    {
-        print(player.time);
-    }
 
     public void OnButton()
     {
