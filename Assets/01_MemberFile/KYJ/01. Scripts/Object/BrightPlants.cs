@@ -35,16 +35,16 @@ public class BrightPlants : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.I))
         {
-            _light.intensity += 2;
-            _light.intensity = Mathf.Clamp(_light.intensity, 0, 8);
-            brightStep = _light.intensity / 2;
+            _light.intensity += 0.1f;
+            _light.intensity = Mathf.Clamp(_light.intensity, 0, 0.8f);
+            brightStep = _light.intensity * 10;
             print(brightStep);
         }
         else if (Input.GetKeyDown(KeyCode.U))
         {
-            _light.intensity -= 2;
-            _light.intensity = Mathf.Clamp(_light.intensity, 0, 8);
-            brightStep = _light.intensity / 2;
+            _light.intensity -= 0.1f;
+            _light.intensity = Mathf.Clamp(_light.intensity, 0, 0.8f);
+            brightStep = _light.intensity * 10;
             print(brightStep);
         }
     }

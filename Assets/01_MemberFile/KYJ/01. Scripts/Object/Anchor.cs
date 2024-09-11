@@ -5,40 +5,31 @@ using UnityEngine;
 public class Anchor : MonoBehaviour
 {
     private Rigidbody2D _rigidCompo;
-    [SerializeField] private PlayerMove _agentMove;
+    private PlayerMove _agentMove;
+    private AnchorSpawner _anchorSpawner;
 
-    private float knockbackPower = 15f;
-    [SerializeField] private float knockbackTime = 1.5f;
-
-    private bool CanKnockback;
+    [SerializeField] private float knockbackPower = 12f;
+    private float knockbackTime = 1.5f;
 
     private void Awake()
     {
         _rigidCompo = GetComponent<Rigidbody2D>();
-    }
-
-    private void Update()
-    {
+        _anchorSpawner = GetComponentInParent<AnchorSpawner>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
+            _agentMove = collision.GetComponent<PlayerMove>();
             KnockedBack(_agentMove.transform.position);
         }
     }
 
-    private void DroppedAnchor()
+    public void DroppedAnchor()
     {
-        StartCoroutine(DropCool());
         _rigidCompo.bodyType = RigidbodyType2D.Dynamic;
-    }
-
-    private IEnumerator DropCool()
-    {
-        float rand = Random.Range(0, 5);
-        yield return new WaitForSeconds(5f);
+        _rigidCompo.constraints = RigidbodyConstraints2D.FreezePositionX;
     }
 
     public void KnockedBack(Vector2 playerDirection)
@@ -48,7 +39,6 @@ public class Anchor : MonoBehaviour
 
         _agentMove._rigid.AddForce((playerDirection - (Vector2)transform.position) * knockbackPower, ForceMode2D.Impulse);
  
-        print("³Ë¹é");
         StartCoroutine(JumpRoutine());
     }
 
