@@ -6498,7 +6498,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &183783634
 Transform:
   m_ObjectHideFlags: 0
@@ -10225,6 +10225,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 344918857069434160, guid: 8420e576b5f34f8489c3c14b5dbc4a62, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 344918857069434160, guid: 8420e576b5f34f8489c3c14b5dbc4a62, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 598386727754540808, guid: 8420e576b5f34f8489c3c14b5dbc4a62, type: 3}
       propertyPath: m_Name
       value: Luminescent Plants
@@ -10233,6 +10241,38 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 129537944485824208}
+    - target: {fileID: 2760194067065482843, guid: 8420e576b5f34f8489c3c14b5dbc4a62, type: 3}
+      propertyPath: m_Intensity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2760194067065482843, guid: 8420e576b5f34f8489c3c14b5dbc4a62, type: 3}
+      propertyPath: m_PointLightInnerRadius
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2760194067065482843, guid: 8420e576b5f34f8489c3c14b5dbc4a62, type: 3}
+      propertyPath: m_PointLightOuterRadius
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4294341647043601666, guid: 8420e576b5f34f8489c3c14b5dbc4a62, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 638fa2459efb8084a8a89ebbb853c1d2, type: 3}
+    - target: {fileID: 4294341647043601666, guid: 8420e576b5f34f8489c3c14b5dbc4a62, type: 3}
+      propertyPath: m_SortingLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4294341647043601666, guid: 8420e576b5f34f8489c3c14b5dbc4a62, type: 3}
+      propertyPath: m_SortingOrder
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4294341647043601666, guid: 8420e576b5f34f8489c3c14b5dbc4a62, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -231193373
+      objectReference: {fileID: 0}
+    - target: {fileID: 4294341647043601666, guid: 8420e576b5f34f8489c3c14b5dbc4a62, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 8147215859493366611, guid: 8420e576b5f34f8489c3c14b5dbc4a62, type: 3}
       propertyPath: m_LocalPosition.x
       value: 6.27
@@ -11468,17 +11508,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f57eb99942b11446879269b22a932bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  detectRadius: 5
+  detectRadius: 6.5
   attackRadius: 1.5
   moveSpeed: 2
-  targetTrm: {fileID: 509400741}
+  targetTrm: {fileID: 129537944485824208}
   way:
   - {fileID: 435067692485042345}
   - {fileID: 3989631240969347854}
   - {fileID: 8003530344872381459}
   - {fileID: 4798388939282448793}
   _targetWay: {fileID: 0}
-  isDark: 0
+  isSpotted: 0
 --- !u!58 &726755290
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -12787,6 +12827,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _glowScreen: {fileID: 1647044696}
   _background: {fileID: 0}
+  particleSystem: {fileID: 0}
+  blueBackGround: {fileID: 0}
 --- !u!1 &828255030
 GameObject:
   m_ObjectHideFlags: 0
@@ -129796,7 +129838,7 @@ Transform:
   m_GameObject: {fileID: 770918518192052176}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.69, y: 5.91, z: 0}
+  m_LocalPosition: {x: 1.69, y: -1.58, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -131002,7 +131044,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 40
+      scalar: 30
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -131440,9 +131482,9 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 1, g: 1, b: 1, a: 1}
-        key1: {r: 1, g: 1, b: 1, a: 0}
-        key2: {r: 0, g: 0, b: 0, a: 1}
+        key0: {r: 1, g: 1, b: 1, a: 0}
+        key1: {r: 1, g: 1, b: 1, a: 1}
+        key2: {r: 0, g: 0, b: 0, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
         key5: {r: 0, g: 0, b: 0, a: 0}
@@ -131457,7 +131499,7 @@ ParticleSystem:
         ctime6: 0
         ctime7: 0
         atime0: 0
-        atime1: 65535
+        atime1: 12079
         atime2: 65535
         atime3: 0
         atime4: 0
@@ -131467,7 +131509,7 @@ ParticleSystem:
         m_Mode: 0
         m_ColorSpace: 0
         m_NumColorKeys: 2
-        m_NumAlphaKeys: 2
+        m_NumAlphaKeys: 3
       minGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -135486,6 +135528,7 @@ MonoBehaviour:
     m_Bits: 0
   _buttonManager: {fileID: 0}
   <isSwimming>k__BackingField: 0
+  _isForce: 0
 --- !u!4 &4221233332950095106
 Transform:
   m_ObjectHideFlags: 0
