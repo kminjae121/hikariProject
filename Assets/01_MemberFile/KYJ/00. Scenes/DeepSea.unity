@@ -23297,6 +23297,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 344918857069434160, guid: 8420e576b5f34f8489c3c14b5dbc4a62, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 598386727754540808, guid: 8420e576b5f34f8489c3c14b5dbc4a62, type: 3}
       propertyPath: m_Name
       value: Luminescent Plants
@@ -23305,10 +23309,34 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 883557690818219812, guid: 8420e576b5f34f8489c3c14b5dbc4a62, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 883557690818219812, guid: 8420e576b5f34f8489c3c14b5dbc4a62, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 883557690818219812, guid: 8420e576b5f34f8489c3c14b5dbc4a62, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 883557690818219812, guid: 8420e576b5f34f8489c3c14b5dbc4a62, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1514734098653566499, guid: 8420e576b5f34f8489c3c14b5dbc4a62, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 1653094031}
+    - target: {fileID: 3146101549485885373, guid: 8420e576b5f34f8489c3c14b5dbc4a62, type: 3}
+      propertyPath: m_Radius
+      value: 0.23138952
+      objectReference: {fileID: 0}
+    - target: {fileID: 3146101549485885373, guid: 8420e576b5f34f8489c3c14b5dbc4a62, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.0682683
+      objectReference: {fileID: 0}
     - target: {fileID: 8147215859493366611, guid: 8420e576b5f34f8489c3c14b5dbc4a62, type: 3}
       propertyPath: m_LocalPosition.x
       value: 93.19
@@ -23357,7 +23385,12 @@ PrefabInstance:
       propertyPath: brightFoothold
       value: 
       objectReference: {fileID: 1434431642}
-    m_RemovedComponents: []
+    - target: {fileID: 8658602338162016795, guid: 8420e576b5f34f8489c3c14b5dbc4a62, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.133
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 3673248250995922364, guid: 8420e576b5f34f8489c3c14b5dbc4a62, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -24304,8 +24337,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anchorPrefab: {fileID: 1432285363928986920, guid: 0944f443fe015da42bf2b1b65ffa152a, type: 3}
-  isSpawn: 0
-  spawnPoint:
+  spawnPoints:
   - {fileID: 198125929}
   - {fileID: 301964053}
   - {fileID: 1035281814}

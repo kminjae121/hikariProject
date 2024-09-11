@@ -162,7 +162,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74c7a2e610a2a994993b1793b5ee0207, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _agentMove: {fileID: 0}
   knockbackPower: 15
 --- !u!1 &6851395097393883394
 GameObject:
@@ -203,7 +202,7 @@ CapsuleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6851395097393883394}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
