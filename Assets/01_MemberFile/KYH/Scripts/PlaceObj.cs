@@ -11,6 +11,7 @@ public class PlaceObj : MonoBehaviour
     public GameObject placeHelp = null;
     public bool isPlaceStart;
     public bool isPlaceTure;
+    public LayerMask whatIsGround;
 
     private void FixedUpdate()
     {
@@ -24,7 +25,9 @@ public class PlaceObj : MonoBehaviour
 
             SpriteRenderer sp = placeHelp.GetComponent<SpriteRenderer>();
 
-            if (hit.collider.CompareTag("Ground") || hit.collider.CompareTag("CaptureObj"))
+            LayerMask colliisionMask = 1 << hit.transform.gameObject.layer;
+
+            if (hit.collider.CompareTag("CaptureObj") || hit.collider.CompareTag("Ground"))
             {
                 if (gameObject.GetComponent<ObjectGather>() != null)
                     placeHelp.GetComponent<ObjectGather>().enabled = false;

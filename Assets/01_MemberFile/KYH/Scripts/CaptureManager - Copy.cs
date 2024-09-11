@@ -15,6 +15,7 @@ public class CaptureManager : MonoBehaviour
     private bool isNowCapture;
 
     public int inventoryIdx;
+    [SerializeField] private Transform _captureCollection;
 
     private void Update()
     {
@@ -34,7 +35,7 @@ public class CaptureManager : MonoBehaviour
     {
         Collider2D[] captureObject = Physics2D.OverlapBoxAll(gameObject.transform.position,captureSize,0,whatIsCaptureObj);
 
-        if(Input.GetMouseButtonDown(0) && !isNowCapture)
+        if(Input.GetMouseButtonDown(0) && !isNowCapture && transform.localPosition != _captureCollection.localPosition)
         {
             if(captureObject != null)
             {
