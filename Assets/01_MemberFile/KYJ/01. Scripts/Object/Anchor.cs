@@ -7,18 +7,12 @@ public class Anchor : MonoBehaviour
     private Rigidbody2D _rigidCompo;
     [SerializeField] private PlayerMove _agentMove;
 
-    private float knockbackPower = 15f;
-    [SerializeField] private float knockbackTime = 1.5f;
-
-    private bool CanKnockback;
+    [SerializeField] private float knockbackPower = 12f;
+    private float knockbackTime = 1.5f;
 
     private void Awake()
     {
         _rigidCompo = GetComponent<Rigidbody2D>();
-    }
-
-    private void Update()
-    {
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -29,16 +23,9 @@ public class Anchor : MonoBehaviour
         }
     }
 
-    private void DroppedAnchor()
+    public void DroppedAnchor()
     {
-        StartCoroutine(DropCool());
         _rigidCompo.bodyType = RigidbodyType2D.Dynamic;
-    }
-
-    private IEnumerator DropCool()
-    {
-        float rand = Random.Range(0, 5);
-        yield return new WaitForSeconds(5f);
     }
 
     public void KnockedBack(Vector2 playerDirection)
