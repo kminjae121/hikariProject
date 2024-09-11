@@ -7,7 +7,7 @@ public abstract class Fish : MonoBehaviour
     public Rigidbody2D RigidCompo { get; private set; }
     public FishMovement MoveCompo { get; protected set; }
     public Animator AnimCompo { get; protected set; }
-    public BrightFoothold BrightFoodHold { get; private set; }
+    public BrightPlants BrightPlant { get; private set; }
 
     private GameObject _brightObj;
 
@@ -17,8 +17,8 @@ public abstract class Fish : MonoBehaviour
         MoveCompo = GetComponent<FishMovement>();
         AnimCompo = transform.Find("Visual").GetComponent<Animator>();
 
-        _brightObj = GameObject.Find("BrightObj");
-        BrightFoodHold = _brightObj.GetComponent<BrightFoothold>();
+        _brightObj = GameObject.Find("Luminescent Plants");
+        BrightPlant = _brightObj.transform.Find("Visual").GetComponent<BrightPlants>();
     }
 
     private bool IsFactingRight()

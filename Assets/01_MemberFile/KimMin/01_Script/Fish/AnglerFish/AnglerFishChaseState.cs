@@ -27,11 +27,12 @@ public class AnglerFishChaseState : FishState
         {
             _stateMachine.ChangeState(FishStateEnum.Attack);
         }
-        else if (_fish.BrightFoodHold.brightPlants.brightStep == 0)
+
+        if (_fish.BrightPlant.brightStep == 0)
         {
-            _fish.isDark = true;
             _stateMachine.ChangeState(FishStateEnum.Move);
         }
+
         else if (distance > _fish.detectRadius + 2)
         {
             _stateMachine.ChangeState(FishStateEnum.Move);
