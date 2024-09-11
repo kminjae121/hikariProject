@@ -1,11 +1,13 @@
 using System;
 using UnityEngine;
 using DG.Tweening;
+using System.Threading;
 
 public class KeyPuzzle : MonoBehaviour
 {
     private GameObject _key;
     private GameObject _keyHole;
+    private GameObject _barrier;
     private Transform _keyPosition;
     private CheckPlayerCollide _checkPlayer;
 
@@ -16,24 +18,36 @@ public class KeyPuzzle : MonoBehaviour
     private void Awake()
     {
         _key = GameObject.Find("Key");
-        _keyPosition = GameObject.Find("KeyPosition").transform;
         _keyHole = GameObject.Find("KeyHole");
+        _barrier = GameObject.Find("Barrier");
+        _keyPosition = GameObject.Find("KeyPosition").transform;
 
-        _checkPlayer = _key.GetComponent<CheckPlayerCollide>();
+        _checkPlayer = GameObject.Find("Player")
+            .GetComponent<CheckPlayerCollide>();
 
         _checkPlayer.OnPlayerCollide += HandlePlayerCollide;
-        _checkPlayer.OnKeyHoleCollide += HandleKeyHoleCollide;
     }
 
-    private void HandleKeyHoleCollide()
+    private void HandlePlayerCollide(string name)
     {
-        isHoleHit = true;
+        if (name == "Key")
+        {
+            _key.transform.DOScale(0.5f, 0.5f);
+            hasKey = true;
+        }
+        else if (name == "KeyHole")
+        {
+            isHoleHit = true;
+        }
     }
 
-    private void HandlePlayerCollide()
+    private void Update()
     {
-        _key.transform.DOScale(0.5f, 0.5f);
-        hasKey = true;
+        if (isHoleHit && hasKey)
+        {
+            if (Input.GetKeyDown(KeyCode.E))
+                OnKeyEnter();
+        }
     }
 
     private void FixedUpdate()
@@ -41,13 +55,6 @@ public class KeyPuzzle : MonoBehaviour
         if (hasKey)
         {
             FollowPlayer();
-        }
-        else if (isHoleHit && hasKey)
-        {
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-                OnKeyEnter();
-            }
         }
     }
 
@@ -61,7 +68,7 @@ public class KeyPuzzle : MonoBehaviour
     {
         hasKey = false;
 
-        Destroy(_key);
-        Debug.Log("Å° µé¾î¿È");
+        _key.gameObject.SetActive(false) ;
+        _barrier.gameObject.SetActive(false);
     }
 }

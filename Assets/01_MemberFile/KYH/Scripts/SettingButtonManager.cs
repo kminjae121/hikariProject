@@ -6,14 +6,24 @@ using System.Reflection;
 
 public class SettingButtonManager : MonoBehaviour
 {
-    public GameObject holdObject;
+    [SerializeField]
+    private FolderManager folderManager;
 
+    public GameObject holdObject;
     public App currentAPP;
 
     public void InvokeApp()
     {
         GetType().GetMethod($"{currentAPP}App", BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance).Invoke(this,null);
         //GetType().GetMethod("currnetApp").Invoke(this, new object[] {3, 4 });
+    }
+
+
+
+    private void ChromeApp()
+    {
+        folderManager.CancelButton();
+        WindowObj.Instance.popUpChrome.SetActive(true);
     }
 
     private void ExitApp()
@@ -34,7 +44,7 @@ public class SettingButtonManager : MonoBehaviour
     {
         Process.Start("https://ggm.gondr.net/circle/info/7");
     }
-    private void DownloadApp()
+    private void PowerPointApp()
     {
 
     }
