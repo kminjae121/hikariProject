@@ -12,14 +12,14 @@ public class BrightFoothold : MonoBehaviour
     public Action OnBrightnessDetection;
 
     private Animator anim;
-    private PolygonCollider2D polygonCollider;
+    private BoxCollider2D polygonCollider;
 
     public bool isTure; // ´êÀ½°¨Áö
 
     private void Awake()
     {
         anim = GetComponentInChildren<Animator>();
-        polygonCollider = GetComponent<PolygonCollider2D>();
+        polygonCollider = GetComponent<BoxCollider2D>();
     }
 
     public void BrightnessDetection(bool canPlant, float brightStep)
