@@ -161,11 +161,11 @@ public class ObjectGather : MonoBehaviour
     private void Sofa(float multiplier = 1f)
     {
         Collider2D hit = Physics2D.OverlapBox(_overlapPlace.position, _boxSize, 0, _playerLayer);
+
         if (hit == true)
         {
             _playerRigidBody.AddForce(Vector2.up.normalized * _jumpPower * multiplier, ForceMode2D.Impulse);
         }
-
     }
 
     private void OnDrawGizmos()
