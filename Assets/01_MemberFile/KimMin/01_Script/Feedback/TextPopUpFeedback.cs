@@ -49,14 +49,18 @@ public class TextPopUpFeedback : Feedback
             _spawnTrm.transform); //텍스트 생성
 
         newText.text = $"{_popUpTexts[Random.Range(0, _popUpTexts.Length)]}"; //텍스트 글자 설정
+        newText.DOFade(0, 0f);
 
-        newText.DOFade(0f, _duration); //서서히 사라진다
+        newText.DOFade(1, 0.5f);
+        DOVirtual.DelayedCall(_duration - 1f, () => newText.DOFade(0f, 1f));
+
     }
 
     public void StartGenerateText() //이벤트 발동시 실행되는 매소드
     {
         StartCoroutine(GenerateTextCoroutine());
     }
+
 
     private IEnumerator GenerateTextCoroutine() //텍스트 생성 매소드를 실행시켜주는 코루틴
     {
