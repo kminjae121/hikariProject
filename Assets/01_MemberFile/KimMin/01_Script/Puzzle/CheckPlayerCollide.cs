@@ -13,7 +13,6 @@ public class CheckPlayerCollide : MonoBehaviour
     {
         if (targets.Contains(collision.name))
         {
-            Debug.Log("»Ñ½¹");
             OnPlayerCollide?.Invoke(collision.name);
         }
     }
