@@ -16,7 +16,6 @@ public class ObjectGather : MonoBehaviour
 {
     [SerializeField] private ObjectType _objectType;
 
-
     private Rigidbody2D _playerRigidBody;
     private bool _IsSofa;
     private bool _IsElectricFan;
@@ -24,11 +23,13 @@ public class ObjectGather : MonoBehaviour
     private bool _isBallon;
     private bool _isUp;
     private bool _isDraw;
+    private CaptureObject _captureObj;
 
     [SerializeField] private Vector2 _boxSize;
     [SerializeField] private int _jumpPower;
     [SerializeField] private int _flyingSpeed;
     [SerializeField] private LayerMask _playerLayer;
+    [SerializeField] private LayerMask _GroundLayer;
     [SerializeField] private Rigidbody2D _rigid;
     [SerializeField] private Transform _overlapPlace;
     [SerializeField] private Transform _endPosition;
@@ -45,6 +46,7 @@ public class ObjectGather : MonoBehaviour
 
     private void Start()
     {
+        _captureObj = GetComponent<CaptureObject>();
         _playermove = GameObject.Find("PlayerPrefab").GetComponent<PlayerMove>();
         _playerRigidBody = GameObject.Find("PlayerPrefab").GetComponent<Rigidbody2D>();
         _player = GameObject.Find("PlayerPrefab").transform;
@@ -100,9 +102,10 @@ public class ObjectGather : MonoBehaviour
         }
     }
 
-    private void Ballon()
+    private void Ballon()   
     {
         Collider2D hit = Physics2D.OverlapBox(_overlapPlace.position, _boxSize, 0, _playerLayer);
+
         if (hit == true)
         {
             if (Input.GetKeyDown(KeyCode.E))
@@ -112,15 +115,21 @@ public class ObjectGather : MonoBehaviour
                     _rigid.gravityScale = -0.5f;
                     _playerRigidBody.gravityScale = -0.5f;
                     _isUp = false;
+                    _playermove.enabled = false;
+                    _captureObj.enabled = false;
+                    _playerRigidBody.mass = 0.0001f;
                 }
-                else if(_isUp  == false)
+                else if (_isUp == false)
                 {
                     _playerRigidBody.gravityScale = 3.14f;
                     _isUp = true;
+                    _playermove.enabled = true;
+                    _captureObj.enabled = true; 
+                    _playerRigidBody.mass = 1f;
                 }
             }
-
         }
+
     }
 
 
@@ -129,6 +138,7 @@ public class ObjectGather : MonoBehaviour
         Animator animator = GetComponent<Animator>();
 
         Collider2D hit = Physics2D.OverlapBox(_overlapPlace.position, _boxSize, 0, _playerLayer);
+
         if (hit != true)
         {
             animator.SetBool("Walk", false);
@@ -146,11 +156,11 @@ public class ObjectGather : MonoBehaviour
     private void ElectricFan()
     {
         Collider2D hit = Physics2D.OverlapBox(_overlapPlace.position, _boxSize, 0, _playerLayer);
+
         if (hit == true)
         {
             _playerRigidBody.velocity = Vector2.zero;
-            _playerRigidBody.gravityScale = 0;
-            _player.position = Vector2.MoveTowards(_player.position,_endPosition.position, _flyingSpeed * Time.deltaTime);
+            _player.position = Vector2.MoveTowards(_player.position, _endPosition.position, _flyingSpeed * Time.deltaTime);
         }
         else
         {
@@ -164,7 +174,8 @@ public class ObjectGather : MonoBehaviour
 
         if (hit == true)
         {
-            _playerRigidBody.AddForce(Vector2.up.normalized * _jumpPower * multiplier, ForceMode2D.Impulse);
+            if (Input.GetKeyDown(KeyCode.Space))
+                _playerRigidBody.AddForce(Vector2.up.normalized * _jumpPower * multiplier, ForceMode2D.Impulse);
         }
     }
 

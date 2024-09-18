@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/01_MemberFile/KYJ/00. Scenes/PreviewScenes.unity
     guid: 43443827e0a5c1b4e8b4d76bff20ca15
+  - enabled: 1
+    path: Assets/01_MemberFile/KMJ/CaptureStage/CaptureStage2.unity
+    guid: cac99aa1ae3387445b1b5280fb25a1d3
   m_configObjects: {}

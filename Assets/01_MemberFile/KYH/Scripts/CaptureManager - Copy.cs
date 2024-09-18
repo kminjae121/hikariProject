@@ -2,10 +2,12 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class CaptureManager : MonoBehaviour
 {
     [Header("Ä¸ÃÄ ¼³Á¤°ª")]
+    private Door _door;
     [SerializeField]
     private Vector2 captureSize;
     [SerializeField]
@@ -16,6 +18,7 @@ public class CaptureManager : MonoBehaviour
 
     public int inventoryIdx;
     [SerializeField] private Transform _captureCollection;
+  
 
     private void Update()
     {
@@ -56,6 +59,7 @@ public class CaptureManager : MonoBehaviour
             {
                 captureObject[i].GetComponent<CaptureObject>().CaptureFinish(inventoryIdx);
                 inventoryIdx++;
+               
             }
             else
             {

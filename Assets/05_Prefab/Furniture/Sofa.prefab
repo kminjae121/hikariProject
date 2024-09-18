@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4600098469258140024}
   - component: {fileID: 5553984027709340454}
   - component: {fileID: -7622215725821490806}
-  m_Layer: 11
+  m_Layer: 18
   m_Name: Sofa
   m_TagString: CaptureObj
   m_Icon: {fileID: 0}
@@ -148,8 +148,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _objectType: 4
-  _boxSize: {x: 3.04, y: 1.1}
-  _jumpPower: 4
+  _boxSize: {x: 3.14, y: 1.1}
+  _jumpPower: 5
   _flyingSpeed: 2
   _playerLayer:
     serializedVersion: 2
@@ -225,7 +225,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1038945858180936620}
-  m_Layer: 0
+  m_Layer: 18
   m_Name: OverlapPlace
   m_TagString: Untagged
   m_Icon: {fileID: 0}

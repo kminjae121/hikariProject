@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8335278015597250338}
-  m_Layer: 0
+  m_Layer: 18
   m_Name: OverlapPlace
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 4610379598212135641}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.04, y: 0.68, z: 0}
+  m_LocalPosition: {x: 0.1, y: 1.53, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -47,9 +47,9 @@ GameObject:
   - component: {fileID: -7596342830130883501}
   - component: {fileID: 8097309307932403198}
   - component: {fileID: 5687029991646083842}
-  m_Layer: 11
+  m_Layer: 18
   m_Name: WalkingDool
-  m_TagString: Untagged
+  m_TagString: CaptureObj
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -121,7 +121,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!61 &2739803575937052793
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -154,18 +154,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.022549152, y: 0.9357865}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.882353, y: 1.882353}
+    pivot: {x: 0.5, y: 0}
+    oldSize: {x: 1.2352941, y: 1.882353}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.4058828, y: 1.7441163}
   m_EdgeRadius: 0
 --- !u!114 &1555257288606654822
 MonoBehaviour:
@@ -188,6 +188,8 @@ MonoBehaviour:
     m_Bits: 8
   _rigid: {fileID: 456093963141686976}
   _overlapPlace: {fileID: 8335278015597250338}
+  _endPosition: {fileID: 0}
+  _player: {fileID: 0}
 --- !u!50 &456093963141686976
 Rigidbody2D:
   serializedVersion: 4
@@ -243,6 +245,9 @@ MonoBehaviour:
   placeHelp: {fileID: 0}
   isPlaceStart: 0
   isPlaceTure: 0
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!95 &5687029991646083842
 Animator:
   serializedVersion: 5

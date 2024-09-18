@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -4272689063138825736}
   - component: {fileID: 3121807327911610361}
   - component: {fileID: 8430635114393808633}
-  m_Layer: 11
+  m_Layer: 18
   m_Name: Closet
   m_TagString: CaptureObj
   m_Icon: {fileID: 0}
@@ -191,7 +191,7 @@ MonoBehaviour:
   isPlaceTure: 0
   whatIsGround:
     serializedVersion: 2
-    m_Bits: 329728
+    m_Bits: 0
 --- !u!114 &8430635114393808633
 MonoBehaviour:
   m_ObjectHideFlags: 0

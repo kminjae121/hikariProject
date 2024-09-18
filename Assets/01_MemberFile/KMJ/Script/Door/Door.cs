@@ -11,27 +11,23 @@ public enum DoorType
 }
 public class Door : MonoBehaviour
 {
+    private PlayerKeyFalse _playerKeyFalse;
     [SerializeField] private Transform _doorTransform;
     [SerializeField] private Vector2 _boxSize;
     [SerializeField] private LayerMask _player;
     [SerializeField] private DoorType _doorType;
 
-    private int _currentSceneIndex;
-    public List<GameObject> Stage = new List<GameObject>();
+    private static int _currentSceneIndex =1;
     public bool _isOpen;
-    private static int _value;
+    public bool _isClear;
 
 
     private void Awake()
     {
+        _playerKeyFalse = GameObject.Find("PlayerPrefab").GetComponent<PlayerKeyFalse>();
         _isOpen = false;
     }
 
-
-    private void Start()
-    {
-        _currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-    }
     private void LateUpdate()
     {
         if (_doorType == DoorType.Normal)
@@ -52,35 +48,24 @@ public class Door : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.F))
             {
-                foreach (var StageList in Stage)
-                {
-                    Stage[_value].SetActive(true);
-                    Stage[_value -= 1].SetActive(false);
-
-                    _value++;
-                }
+                SceneManager.LoadScene($"CaptureStage{_currentSceneIndex += 1}");
+            }
+            if(_currentSceneIndex >= 2)
+            {
+                _playerKeyFalse.blockKey = true;
             }
         }
     }
 
     private void LockDoor()
     {
-        int Value = 1;
         Collider2D hit = Physics2D.OverlapBox(_doorTransform.position, _boxSize, 0, _player);
 
         if (hit == true)
         {
             if (_isOpen == true && Input.GetKeyDown(KeyCode.F))
             {
-                if (Input.GetKeyDown(KeyCode.F))
-                {
-                    foreach (var StageList in Stage)
-                    {
-                        Stage[Value].SetActive(true);
-
-                        Value += 1;
-                    }
-                }
+                SceneManager.LoadScene($"CaptureStage{_currentSceneIndex += 1}");
             }
         }
     }
