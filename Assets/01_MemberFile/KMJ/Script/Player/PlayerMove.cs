@@ -95,10 +95,6 @@ public class PlayerMove : MonoBehaviour
             else
                 PlayerMovement(_moveSpeed);
         }
-        else
-        {
-            print("jjjjjしししししし袴嬢");
-        }
     }
 
     private void OnDrawGizmos()
