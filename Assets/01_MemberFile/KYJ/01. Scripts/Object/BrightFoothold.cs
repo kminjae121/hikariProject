@@ -2,37 +2,32 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.Events;
 
 public class BrightFoothold : MonoBehaviour
 {
     public BrightPlants brightPlants;
 
+    public UnityEvent onInvokeBrightObj;
+    public UnityEvent offInvokeBrightObj;
+
     public float brightnessLevel;
 
     public Action OnBrightnessDetection;
 
-    private Animator anim;
-    private BoxCollider2D polygonCollider;
+
 
     public bool isTure; // ´êÀ½°¨Áö
-
-    private void Awake()
-    {
-        anim = GetComponentInChildren<Animator>();
-        polygonCollider = GetComponent<BoxCollider2D>();
-    }
 
     public void BrightnessDetection(bool canPlant, float brightStep)
     {
         if (brightnessLevel == brightStep && canPlant)
         {
-            polygonCollider.isTrigger = false;
-            anim.SetBool("Fold", false);
+            onInvokeBrightObj?.Invoke();
         }
         if (brightnessLevel != brightStep || !canPlant)
         {
-            polygonCollider.isTrigger = true;
-            anim.SetBool("Fold", true);
+            offInvokeBrightObj?.Invoke();
         }
     }
 }

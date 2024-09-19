@@ -59,7 +59,7 @@ public class BrightPlants : MonoBehaviour
             {
                 collision[i].GetComponent<BrightFoothold>().BrightnessDetection(true, brightStep);
             }
-            if (!collision[i])
+            else
             {
                 brightFoothold.BrightnessDetection(false, brightStep);
             }
