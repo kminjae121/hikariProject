@@ -30,7 +30,7 @@ public class AnglerFishMoveState : FishState
         base.UpdateState();
 
         Move();
-        _fish.MoveFlip();
+        _fish.MoveFlip(_moveDir);
 
         float distance = Vector2.Distance
             (_fish.targetTrm.position, _fish.transform.position);
@@ -55,7 +55,7 @@ public class AnglerFishMoveState : FishState
 
 
         Vector3 dir = _fish._targetWay.position - _fishTrm.position;
-        Vector3 moveDir = dir.normalized;
+        _moveDir = dir.normalized;
 
         float movingSpeed;
         float wayDistance = Vector2.Distance
@@ -63,7 +63,7 @@ public class AnglerFishMoveState : FishState
 
         movingSpeed = wayDistance < 5f ? _fish.moveSpeed + 3.5f : _fish.moveSpeed;
 
-        _fishTrm.position += moveDir * movingSpeed * Time.deltaTime;
+        _fishTrm.position += _moveDir * movingSpeed * Time.deltaTime;
 
         if (Vector3.Distance(_fishTrm.position, _fish._targetWay.position) < 0.1f)
         {

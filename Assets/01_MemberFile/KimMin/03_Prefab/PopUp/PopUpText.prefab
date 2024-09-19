@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5132776399841472178}
   - component: {fileID: 8189879251671487605}
   - component: {fileID: 61137152497612797}
+  - component: {fileID: 2095063525970737821}
   m_Layer: 5
   m_Name: PopUpText
   m_TagString: Untagged
@@ -134,3 +135,15 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &2095063525970737821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4650853632845127092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a53a0a9d282e504e99380a53aa2c16f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
