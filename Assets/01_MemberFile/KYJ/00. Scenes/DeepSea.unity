@@ -23329,6 +23329,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1653094031}
+    - target: {fileID: 3113936843582907905, guid: 8420e576b5f34f8489c3c14b5dbc4a62, type: 3}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 3146101549485885373, guid: 8420e576b5f34f8489c3c14b5dbc4a62, type: 3}
       propertyPath: m_Radius
       value: 0.23138952
