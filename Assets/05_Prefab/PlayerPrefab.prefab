@@ -1915,7 +1915,7 @@ MonoBehaviour:
   <_jumpSpeed>k__BackingField: 8
   <_swimSpeed>k__BackingField: 5
   _groundChecker: {fileID: 5357142592218981264}
-  _boxSize: {x: 1, y: 0.2}
+  _boxSize: {x: 0.6, y: 0.2}
   _whatIsGround:
     serializedVersion: 2
     m_Bits: 327680
@@ -1955,7 +1955,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 011b1388e4eca4940848f92a97a7fc8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <blockKey>k__BackingField: 0
+  <blockKey>k__BackingField: 1
 --- !u!1001 &8498066520028686464
 PrefabInstance:
   m_ObjectHideFlags: 0

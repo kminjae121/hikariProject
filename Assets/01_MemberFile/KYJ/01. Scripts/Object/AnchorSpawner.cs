@@ -14,13 +14,12 @@ public class AnchorSpawner : MonoBehaviour
 
     [SerializeField] private Transform[] spawnPoints;
 
-    private Anchor _anchor;
+    public event Action OnSpawn;
 
     private bool test;
 
     private void Awake()
     {
-        _anchor = GetComponentInChildren<Anchor>();
         CreatAnchorPool();
     }
 

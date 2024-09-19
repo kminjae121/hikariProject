@@ -22,14 +22,9 @@ public class Anchor : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             _agentMove = collision.GetComponent<PlayerMove>();
+            if(!_agentMove._isForce)
             KnockedBack(_agentMove.transform.position);
         }
-    }
-
-    public void DroppedAnchor()
-    {
-        _rigidCompo.bodyType = RigidbodyType2D.Dynamic;
-        _rigidCompo.constraints = RigidbodyConstraints2D.FreezePositionX;
     }
 
     public void KnockedBack(Vector2 playerDirection)
@@ -40,11 +35,17 @@ public class Anchor : MonoBehaviour
         _agentMove._rigid.AddForce((playerDirection - (Vector2)transform.position) * knockbackPower, ForceMode2D.Impulse);
  
         StartCoroutine(JumpRoutine());
+
+        print("dd");
     }
 
     private IEnumerator JumpRoutine() //코루틴 뒤에 무조건 Routine 붙이기!
     {
-        yield return new WaitForSeconds(knockbackTime);
-        _agentMove._isForce = false;
+        if(!_agentMove._isForce)
+        {
+            yield return new WaitForSeconds(knockbackTime);
+            _agentMove._isForce = false;
+        }
+        
     }
 }

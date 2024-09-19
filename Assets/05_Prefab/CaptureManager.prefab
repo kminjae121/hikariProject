@@ -213,11 +213,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee1a54423cff938459a6b3083251c085, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  captureSize: {x: 4.84, y: 3.85}
+  captureSize: {x: 0.5, y: 0.5}
   whatIsCaptureObj:
     serializedVersion: 2
     m_Bits: 264192
   inventoryIdx: 0
+  _captureCollection: {fileID: 0}
 --- !u!212 &4243844718114618954
 SpriteRenderer:
   m_ObjectHideFlags: 0
