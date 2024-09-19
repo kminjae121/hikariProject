@@ -19,6 +19,11 @@ public class Vine : MonoBehaviour
         if (collision.gameObject. CompareTag("Player"))
         {
             speedDown = true;
+            player._isVine = true;
+        }
+        else
+        {
+            player._isVine = false;
         }
     }
 
@@ -38,10 +43,13 @@ public class Vine : MonoBehaviour
         {
             currentMoveSpeed = 1;
             player._moveSpeed = currentMoveSpeed;
+            player._isJump = false;
         }
         if (!speedDown)
         {
-            player._moveSpeed = previousSpeed;   
+            player._moveSpeed = previousSpeed;
+            player._isJump = true;
+
         }
     }
 }

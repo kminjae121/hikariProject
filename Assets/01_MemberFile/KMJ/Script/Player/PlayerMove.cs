@@ -19,6 +19,7 @@ public class PlayerMove : MonoBehaviour
     private bool _isSecondJump;
     [field : SerializeField] public bool _isJump { get; set; }
     public bool _isForce;
+    public bool _isVine;
     public Rigidbody2D _rigid { get; set; }
     private Vector2 _xmove;
 
@@ -41,9 +42,11 @@ public class PlayerMove : MonoBehaviour
 
     private void Update()
     {
-        _isJump = Physics2D.OverlapBox(_groundChecker.position,
-                _boxSize, 0, _whatIsGround);
-
+        if (!_isVine)
+        {
+            _isJump = Physics2D.OverlapBox(_groundChecker.position,
+                    _boxSize, 0, _whatIsGround);
+        }
         SetMove(_inputReader.Movement.x);
     }
 
