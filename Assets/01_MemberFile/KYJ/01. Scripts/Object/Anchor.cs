@@ -35,12 +35,17 @@ public class Anchor : MonoBehaviour
         _agentMove._rigid.AddForce((playerDirection - (Vector2)transform.position) * knockbackPower, ForceMode2D.Impulse);
  
         StartCoroutine(JumpRoutine());
+
+        print("dd");
     }
 
     private IEnumerator JumpRoutine() //코루틴 뒤에 무조건 Routine 붙이기!
     {
         if(!_agentMove._isForce)
-        yield return new WaitForSeconds(knockbackTime);
-        _agentMove._isForce = false;
+        {
+            yield return new WaitForSeconds(knockbackTime);
+            _agentMove._isForce = false;
+        }
+        
     }
 }
