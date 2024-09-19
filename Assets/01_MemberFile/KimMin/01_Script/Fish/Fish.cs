@@ -39,9 +39,9 @@ public abstract class Fish : MonoBehaviour
         }
     }
 
-    public void MoveFlip()
+    public void MoveFlip(Vector3 dir)
     {
-        if (RigidCompo.velocity.x > 0)
+        if (dir.x > 0)
         {
             transform.eulerAngles = Vector3.zero;
         }
