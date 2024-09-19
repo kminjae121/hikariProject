@@ -12,7 +12,7 @@ public abstract class FishSetting : Fish
     public Transform[] way;
     public Transform _targetWay;
 
-    public bool isDark = false;
+    public bool isSpotted = false;
 
     protected override void Awake()
     {
@@ -29,7 +29,7 @@ public abstract class FishSetting : Fish
 
     public void Attack()
     {
-        BrightFoodHold.brightPlants.brightStep = 0;
+        BrightPlant.brightStep = 0;
     }
 
     public abstract void AnimationEndTrigger();

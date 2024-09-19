@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 1312372914158218597}
   m_Layer: 18
   m_Name: Chest
-  m_TagString: Untagged
+  m_TagString: CaptureObj
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -189,6 +189,9 @@ MonoBehaviour:
   placeHelp: {fileID: 0}
   isPlaceStart: 0
   isPlaceTure: 0
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 329728
 --- !u!114 &1312372914158218597
 MonoBehaviour:
   m_ObjectHideFlags: 0

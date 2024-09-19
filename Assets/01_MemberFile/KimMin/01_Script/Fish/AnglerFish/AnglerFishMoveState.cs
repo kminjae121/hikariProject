@@ -25,6 +25,8 @@ public class AnglerFishMoveState : FishState
 
     public override void UpdateState()
     {
+        //Debug.Log(_fish.BrightPlant.brightStep);
+
         base.UpdateState();
 
         Move();
@@ -35,18 +37,10 @@ public class AnglerFishMoveState : FishState
 
         if (distance < _fish.detectRadius && distance > _fish.attackRadius)
         {
-            if (_fish.BrightFoodHold.brightPlants.brightStep != 0)
-                _stateMachine.ChangeState(FishStateEnum.Chase);
-
-            if (_fish.isDark)
+            if (_fish.BrightPlant.brightStep == 0)
                 return;
 
             _stateMachine.ChangeState(FishStateEnum.Chase);
-        }
-
-        if (distance > _fish.detectRadius + 2)
-        {
-            _fish.isDark = false;
         }
     }
 

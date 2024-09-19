@@ -42,9 +42,9 @@ public class PlayerKeyFalse : MonoBehaviour
                 case 1:
                     _playerMove._jumpSpeed = BlockJump;
                     break;
-                case 2:
-                    OpenControlPanel._isTrue = false;
-                    break;
+                //case 2:
+                    //OpenControlPanel._isTrue = false;
+                   // break;
             }
         }
         else

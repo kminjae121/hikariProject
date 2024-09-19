@@ -17,7 +17,7 @@ public class PlayerMove : MonoBehaviour
     [field: SerializeField] public bool isSwimming { get; set; }
 
     private bool _isSecondJump;
-    public bool _isJump { get; set; }
+    [field : SerializeField] public bool _isJump { get; set; }
     public bool _isForce;
     public Rigidbody2D _rigid { get; set; }
     private Vector2 _xmove;
@@ -94,6 +94,10 @@ public class PlayerMove : MonoBehaviour
                 Swimming(_swimSpeed);
             else
                 PlayerMovement(_moveSpeed);
+        }
+        else
+        {
+            print("jjjjjしししししし袴嬢");
         }
     }
 

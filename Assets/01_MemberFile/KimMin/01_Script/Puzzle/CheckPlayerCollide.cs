@@ -2,21 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using System.Linq;
 
 public class CheckPlayerCollide : MonoBehaviour
 {
-    public event Action OnPlayerCollide;
-    public event Action OnKeyHoleCollide;
+    public event Action<string> OnPlayerCollide;
+    public string[] targets;
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (targets.Contains(collision.name))
         {
-            OnPlayerCollide?.Invoke();
-        }
-        else if (collision.CompareTag("KeyHole"))
-        {
-            OnKeyHoleCollide?.Invoke();
+            Debug.Log("»Ñ½¹");
+            OnPlayerCollide?.Invoke(collision.name);
         }
     }
 }
