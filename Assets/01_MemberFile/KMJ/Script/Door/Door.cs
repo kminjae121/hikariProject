@@ -1,4 +1,6 @@
 using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 
 
@@ -9,29 +11,25 @@ public enum DoorType
 }
 public class Door : MonoBehaviour
 {
+    private PlayerKeyFalse _playerKeyFalse;
     [SerializeField] private Transform _doorTransform;
     [SerializeField] private Vector2 _boxSize;
     [SerializeField] private LayerMask _player;
     [SerializeField] private DoorType _doorType;
 
-    private int _currentSceneIndex;
-
+    private static int _currentSceneIndex =1;
     public bool _isOpen;
+    public bool _isClear;
 
 
     private void Awake()
     {
+        _playerKeyFalse = GameObject.Find("PlayerPrefab").GetComponent<PlayerKeyFalse>();
         _isOpen = false;
     }
 
-
-    private void Start()
+    private void LateUpdate()
     {
-        _currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-    }
-    private void Update()
-    {
-
         if (_doorType == DoorType.Normal)
         {
             NormalDoor();
@@ -50,8 +48,11 @@ public class Door : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.F))
             {
-                SceneManager.LoadScene(_currentSceneIndex += 1);
-                Debug.Log("´ÙÀ½ ¾À ¾øÀ½");
+                SceneManager.LoadScene($"CaptureStage{_currentSceneIndex += 1}");
+            }
+            if(_currentSceneIndex >= 2)
+            {
+                _playerKeyFalse.blockKey = true;
             }
         }
     }
@@ -64,8 +65,7 @@ public class Door : MonoBehaviour
         {
             if (_isOpen == true && Input.GetKeyDown(KeyCode.F))
             {
-                SceneManager.LoadScene(_currentSceneIndex += 1);
-                Debug.Log("´ÙÀ½ ¾À ¾øÀ½");
+                SceneManager.LoadScene($"CaptureStage{_currentSceneIndex += 1}");
             }
         }
     }

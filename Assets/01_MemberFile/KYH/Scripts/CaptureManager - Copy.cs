@@ -2,10 +2,12 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class CaptureManager : MonoBehaviour
 {
     [Header("Ä¸ÃÄ ¼³Á¤°ª")]
+    private Door _door;
     [SerializeField]
     private Vector2 captureSize;
     [SerializeField]
@@ -15,6 +17,8 @@ public class CaptureManager : MonoBehaviour
     private bool isNowCapture;
 
     public int inventoryIdx;
+    [SerializeField] private Transform _captureCollection;
+  
 
     private void Update()
     {
@@ -34,7 +38,7 @@ public class CaptureManager : MonoBehaviour
     {
         Collider2D[] captureObject = Physics2D.OverlapBoxAll(gameObject.transform.position,captureSize,0,whatIsCaptureObj);
 
-        if(Input.GetMouseButtonDown(0) && !isNowCapture)
+        if(Input.GetMouseButtonDown(0) && !isNowCapture && transform.localPosition != _captureCollection.localPosition)
         {
             if(captureObject != null)
             {
@@ -55,6 +59,7 @@ public class CaptureManager : MonoBehaviour
             {
                 captureObject[i].GetComponent<CaptureObject>().CaptureFinish(inventoryIdx);
                 inventoryIdx++;
+               
             }
             else
             {
