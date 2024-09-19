@@ -74,7 +74,7 @@ public class FolderManager : MonoBehaviour
                 print("ttqq");
                 hit.gameObject.GetComponent<LockfadeIn>().LockFade();
             }
-            if (hit.CompareTag("Application"))
+            else if (hit.CompareTag("Application"))
             {
                 print("´ï");
                 settingButton.holdObject = hit.gameObject;
