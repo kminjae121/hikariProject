@@ -36,14 +36,14 @@ public class BrightPlants : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.I))
         {
             _light.intensity += 0.1f;
-            _light.intensity = Mathf.Clamp(_light.intensity, 0, 0.8f);
+            _light.intensity = Mathf.Clamp(_light.intensity, 0, 0.4f);
             brightStep = _light.intensity * 10;
             print(brightStep);
         }
         else if (Input.GetKeyDown(KeyCode.U))
         {
             _light.intensity -= 0.1f;
-            _light.intensity = Mathf.Clamp(_light.intensity, 0, 0.8f);
+            _light.intensity = Mathf.Clamp(_light.intensity, 0, 0.4f);
             brightStep = _light.intensity * 10;
             print(brightStep);
         }
@@ -57,7 +57,8 @@ public class BrightPlants : MonoBehaviour
         {
             if (collision != null)
             {
-                collision[i].GetComponent<BrightFoothold>().BrightnessDetection(true, brightStep);
+                collision[i]?.GetComponent<IBrightDetection>()
+                    .BrightnessDetection(true, brightStep);
             }
             else
             {

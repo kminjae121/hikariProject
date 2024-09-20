@@ -4,7 +4,12 @@ using UnityEngine;
 using System;
 using UnityEngine.Events;
 
-public class BrightFoothold : MonoBehaviour
+public interface IBrightDetection
+{
+    public void BrightnessDetection(bool canPlant, float brightStep);
+}
+
+public class BrightFoothold : MonoBehaviour, IBrightDetection
 {
     public BrightPlants brightPlants;
 
