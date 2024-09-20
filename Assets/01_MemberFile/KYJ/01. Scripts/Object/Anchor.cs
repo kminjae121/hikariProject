@@ -4,18 +4,11 @@ using UnityEngine;
 
 public class Anchor : MonoBehaviour
 {
-    private Rigidbody2D _rigidCompo;
     private PlayerMove _agentMove;
-    private AnchorSpawner _anchorSpawner;
 
     [SerializeField] private float knockbackPower = 12f;
     private float knockbackTime = 1.5f;
 
-    private void Awake()
-    {
-        _rigidCompo = GetComponent<Rigidbody2D>();
-        _anchorSpawner = GetComponentInParent<AnchorSpawner>();
-    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
