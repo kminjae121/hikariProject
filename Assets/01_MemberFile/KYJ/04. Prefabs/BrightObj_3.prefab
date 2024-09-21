@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5207039687348335373}
   - component: {fileID: 6847014516252878198}
   - component: {fileID: 8501501285119112588}
+  - component: {fileID: 5409841045886629739}
   m_Layer: 12
   m_Name: BrightObj_3
   m_TagString: Untagged
@@ -93,6 +94,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   brightPlants: {fileID: 0}
+  onInvokeBrightObj:
+    m_PersistentCalls:
+      m_Calls: []
+  offInvokeBrightObj:
+    m_PersistentCalls:
+      m_Calls: []
   brightnessLevel: 3
   isTure: 0
 --- !u!251 &8501501285119112588
@@ -114,6 +121,18 @@ PlatformEffector2D:
   m_UseSideFriction: 0
   m_UseSideBounce: 0
   m_SideArc: 1
+--- !u!114 &5409841045886629739
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1885889531909842598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29ec39c99ae7dc949ba0efbb2fb3ef8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4003550350571377242
 GameObject:
   m_ObjectHideFlags: 0

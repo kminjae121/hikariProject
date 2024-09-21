@@ -9,12 +9,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3795337037020696762}
-  - component: {fileID: 1341842693854358819}
-  - component: {fileID: 4098452994114929475}
+  - component: {fileID: 2477532647133774190}
+  - component: {fileID: 8070382066480313062}
   - component: {fileID: 6847014516252878198}
-  - component: {fileID: -4009111338993628265}
+  - component: {fileID: -6760132993244651979}
   m_Layer: 12
-  m_Name: BrightObj_1
+  m_Name: BrightObj_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29,14 +29,14 @@ Transform:
   m_GameObject: {fileID: 1885889531909842598}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -1.2484131, y: -0.830492, z: 0.040062495}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8221417788984378699}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &1341842693854358819
+--- !u!61 &2477532647133774190
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -81,7 +81,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.2, y: 0.3}
   m_EdgeRadius: 0
---- !u!251 &4098452994114929475
+--- !u!251 &8070382066480313062
 PlatformEffector2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -115,37 +115,13 @@ MonoBehaviour:
   brightPlants: {fileID: 0}
   onInvokeBrightObj:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: -4009111338993628265}
-        m_TargetAssemblyTypeName: BrightFlower, Assembly-CSharp
-        m_MethodName: FoldFlower
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   offInvokeBrightObj:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: -4009111338993628265}
-        m_TargetAssemblyTypeName: BrightFlower, Assembly-CSharp
-        m_MethodName: ExpandFlower
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  brightnessLevel: 1
+      m_Calls: []
+  brightnessLevel: 0
   isTure: 0
---- !u!114 &-4009111338993628265
+--- !u!114 &-6760132993244651979
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -185,7 +161,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.8, y: 0.5, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3795337037020696762}
@@ -231,7 +207,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1728135471, guid: 3b11d0b80c7d12e4e8ba888aaf198865, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 70a18e1cd4f7fe74d8820dc97d4b8b96, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
