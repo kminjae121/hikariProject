@@ -9,7 +9,10 @@ public class TextMove : MonoBehaviour
     Vector3[] vertices;
     Color[] colors;
 
-    private void TextUpDownMove(TMP_Text text, bool isStart)
+
+
+
+    public void TextUpDownMove(TMP_Text text, bool isStart)
     {
         mesh = text.mesh;
         vertices = mesh.vertices;
@@ -24,10 +27,5 @@ public class TextMove : MonoBehaviour
 
         mesh.SetVertices(vertices);
         mesh.SetColors(colors);
-    }
-
-    private void Update()
-    {
-        
     }
 }
