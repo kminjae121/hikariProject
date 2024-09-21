@@ -10,12 +10,26 @@ public class VIdeoManager : MonoBehaviour
     private VideoPlayer introVideo;
 
     [SerializeField]
+    private GameObject introCanvas;
+
+    [SerializeField]
+    private GameObject windowVolume;
+
+    [SerializeField]
     private Intro intro;
 
     [SerializeField]
     private GameObject videoRawImage;
     [SerializeField]
     private GameObject[] testActiveFalse;
+
+
+
+    public void StartVideo()
+    {
+        introCanvas.SetActive(true);
+        introVideo.Play();
+    }
 
     private void Update()
     {
@@ -24,8 +38,9 @@ public class VIdeoManager : MonoBehaviour
             intro.BlinkTween();
             introVideo.Stop();
             videoRawImage.SetActive(false);
+            windowVolume.SetActive(true);
 
-            for(int i =0; i<testActiveFalse.Length; i++)
+            for (int i =0; i<testActiveFalse.Length; i++)
             {
                 testActiveFalse[i].SetActive(false);
             }

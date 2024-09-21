@@ -9,6 +9,9 @@ public class GameManager : MonoSingleton<GameManager>
     public Action OnClickDown;
     public Action OnClickUp;
 
+    public bool isClearSea;
+    public bool isCapture;
+
    private void Awake()
    {
       IDOTweenInit dotweenInit = DOTween.Init(true, true, LogBehaviour.Verbose);

@@ -9,12 +9,14 @@ public class BrightPlants : MonoBehaviour
     [SerializeField]
     private LuminescentPlants luminescentPlants;
     [SerializeField]
-    private BrightFoothold brightFoothold;
-    [SerializeField]
     private Light2D _light;
     [SerializeField]
 
     public float brightStep;
+
+    private int _cut;
+
+    [SerializeField] private Collider2D[] _colliders;
 
     public Vector2 pos;
     private float size = 3f;
@@ -23,12 +25,24 @@ public class BrightPlants : MonoBehaviour
     public bool _isReach;
     public bool canPlant;
 
+
+    [SerializeField]
+    private IBrightDetection[] existsNowBrightObj;
+
     private void Awake()
     {
         _light.intensity = 0;
 
         luminescentPlants.OnPlants += BrightnessRange;
         luminescentPlants.OnPlants += BrightnessControl;
+
+    }
+
+    private void Start()
+    {
+        _colliders = new Collider2D[20];
+
+        existsNowBrightObj = GameObject.Find("BrightObjManager").GetComponentsInChildren<IBrightDetection>();
     }
 
     private void BrightnessControl()
@@ -48,21 +62,39 @@ public class BrightPlants : MonoBehaviour
             print(brightStep);
         }
     }
+   
+
+    public Collider2D GetBright()
+    {
+        _cut = Physics2D.OverlapCircleNonAlloc(transform.position, size, _colliders, foothold);
+        return  _cut > 0 ?_colliders[0] : null;
+    }
 
     private void BrightnessRange()
     {
-        Collider2D[] collision = Physics2D.OverlapCircleAll(transform.position, size, foothold);
-
-        for (int i = 0; i < collision.Length; i++)
+        
+        if (GetBright())
         {
-            if (collision != null)
+            for (int i = 0; i < _colliders.Length; i++)
             {
-                collision[i]?.GetComponent<IBrightDetection>()
-                    .BrightnessDetection(true, brightStep);
+
+                IBrightDetection keepBright = _colliders[i]?.GetComponent<IBrightDetection>();
+                if (keepBright != null)
+                {
+                    print($"{_colliders[i].name}µé¾î¿È");
+                    keepBright.BrightnessDetection(true, brightStep);
+                }
             }
-            else
+        }
+        else
+        {
+            print("¾È ´êÀ½");
+            if (existsNowBrightObj.Length > 0)
             {
-                brightFoothold.BrightnessDetection(false, brightStep);
+                for (int j = 0; j < existsNowBrightObj.Length; j++)
+                {
+                    existsNowBrightObj[j].BrightnessDetection(false, brightStep);
+                }
             }
         }
     }
