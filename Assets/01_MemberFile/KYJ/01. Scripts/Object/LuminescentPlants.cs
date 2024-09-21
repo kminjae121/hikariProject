@@ -12,7 +12,7 @@ public class LuminescentPlants : MonoBehaviour
     public  Action OnPlants;
     private Rigidbody2D _rigidCompo;
 
-    private Rigidbody2D _playerRigidCompo;
+    [SerializeField] private InputReader _inputReader;
 
     private void Awake()
     {
@@ -22,6 +22,8 @@ public class LuminescentPlants : MonoBehaviour
     private void Update()
     {
         HoldPlants(_playerTrm);
+        print(_inputReader.Movement.x);
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -64,11 +66,21 @@ public class LuminescentPlants : MonoBehaviour
     {
         transform.position = new Vector2(_playerTrm.position.x - 0.3f, _playerTrm.position.y);
 
-        _playerRigidCompo = GetComponentInParent<Rigidbody2D>();
+        //float scaleX = transform.position.x;
+        //float scaleY = transform.position.y;
+        //float scaleZ = transform.position.z;
 
-        if (_playerRigidCompo.velocity.x > 0)
-        {
-            transform.localScale = transform.localScale = new Vector3(transform.localScale.x, -1 * Mathf.Abs(transform.localScale.y), transform.localScale.z);
-        }
+        //if (_inputReader.Movement.x < 0)
+        //{
+        //    transform.position = new Vector3(-scaleX, scaleY, scaleZ);
+        //}
+        //else if (_inputReader.Movement.x == 0 )
+        //{
+        //    transform.position = new Vector3(-scaleX, scaleY, scaleZ);
+        //}
+        //else
+        //{
+        //    transform.position = new Vector3(scaleX, scaleY, scaleZ);
+        //}
     }
 }

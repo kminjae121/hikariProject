@@ -81,14 +81,12 @@ public class BrightPlants : MonoBehaviour
                 IBrightDetection keepBright = _colliders[i]?.GetComponent<IBrightDetection>();
                 if (keepBright != null)
                 {
-                    print($"{_colliders[i].name}µé¾î¿È");
                     keepBright.BrightnessDetection(true, brightStep);
                 }
             }
         }
         else
         {
-            print("¾È ´êÀ½");
             if (existsNowBrightObj.Length > 0)
             {
                 for (int j = 0; j < existsNowBrightObj.Length; j++)

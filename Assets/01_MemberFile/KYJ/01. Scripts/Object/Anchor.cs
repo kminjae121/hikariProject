@@ -37,7 +37,6 @@ public class Anchor : MonoBehaviour
     {
         if(_agentMove._isForce)
         {
-            print("d");
             yield return new WaitForSeconds(knockbackTime);
             _agentMove._isForce = false;
         }
