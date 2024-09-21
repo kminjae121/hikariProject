@@ -7,14 +7,17 @@ public class Anchor : MonoBehaviour
     private PlayerMove _agentMove;
 
     [SerializeField] private float knockbackPower = 12f;
-    private float knockbackTime = 1.5f;
+    private float knockbackTime = 0.5f;
 
+    private void Awake()
+    {
+        _agentMove = GameObject.Find("PlayerPrefab").GetComponent<PlayerMove>();
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
-            _agentMove = collision.GetComponent<PlayerMove>();
             if(!_agentMove._isForce)
             KnockedBack(_agentMove.transform.position);
         }
@@ -32,11 +35,11 @@ public class Anchor : MonoBehaviour
 
     private IEnumerator JumpRoutine() //코루틴 뒤에 무조건 Routine 붙이기!
     {
-        if(!_agentMove._isForce)
+        if(_agentMove._isForce)
         {
+            print("d");
             yield return new WaitForSeconds(knockbackTime);
             _agentMove._isForce = false;
         }
-        
     }
 }

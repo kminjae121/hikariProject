@@ -22986,7 +22986,7 @@ GameObject:
   m_Component:
   - component: {fileID: 178741969}
   m_Layer: 0
-  m_Name: BrightFoothold
+  m_Name: BrightObjManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -23010,6 +23010,7 @@ Transform:
   - {fileID: 58055662}
   - {fileID: 2073648667}
   - {fileID: 1122506778}
+  - {fileID: 2012588643}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &192385784
@@ -23103,7 +23104,7 @@ Transform:
   m_GameObject: {fileID: 198125928}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.5, y: 0, z: 0}
+  m_LocalPosition: {x: -2.36, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -23513,6 +23514,14 @@ PrefabInstance:
       propertyPath: brightPlants
       value: 
       objectReference: {fileID: 291688540}
+    - target: {fileID: 6847014516252878198, guid: b8b36ce02bee31b42a5400a84d40b823, type: 3}
+      propertyPath: onInvokeBrightObj.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ExpandFlower
+      objectReference: {fileID: 0}
+    - target: {fileID: 6847014516252878198, guid: b8b36ce02bee31b42a5400a84d40b823, type: 3}
+      propertyPath: offInvokeBrightObj.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: FoldFlower
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -23659,7 +23668,7 @@ Transform:
   m_GameObject: {fileID: 569066040}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 100.8, y: 15.21, z: -10}
+  m_LocalPosition: {x: 84.48, y: 17.05, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -23993,7 +24002,7 @@ Transform:
   m_GameObject: {fileID: 896149680}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 100.8, y: 15.21, z: -10}
+  m_LocalPosition: {x: 84.48, y: 17.05, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -24138,6 +24147,62 @@ PrefabInstance:
       propertyPath: brightPlants
       value: 
       objectReference: {fileID: 291688540}
+    - target: {fileID: 6847014516252878198, guid: 6c76214c1d44c384d8f50c782c776aef, type: 3}
+      propertyPath: onInvokeBrightObj.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6847014516252878198, guid: 6c76214c1d44c384d8f50c782c776aef, type: 3}
+      propertyPath: offInvokeBrightObj.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6847014516252878198, guid: 6c76214c1d44c384d8f50c782c776aef, type: 3}
+      propertyPath: onInvokeBrightObj.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6847014516252878198, guid: 6c76214c1d44c384d8f50c782c776aef, type: 3}
+      propertyPath: offInvokeBrightObj.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6847014516252878198, guid: 6c76214c1d44c384d8f50c782c776aef, type: 3}
+      propertyPath: onInvokeBrightObj.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 8005484858852157104, guid: 6c76214c1d44c384d8f50c782c776aef, type: 3}
+    - target: {fileID: 6847014516252878198, guid: 6c76214c1d44c384d8f50c782c776aef, type: 3}
+      propertyPath: offInvokeBrightObj.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 8005484858852157104, guid: 6c76214c1d44c384d8f50c782c776aef, type: 3}
+    - target: {fileID: 6847014516252878198, guid: 6c76214c1d44c384d8f50c782c776aef, type: 3}
+      propertyPath: onInvokeBrightObj.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6847014516252878198, guid: 6c76214c1d44c384d8f50c782c776aef, type: 3}
+      propertyPath: offInvokeBrightObj.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6847014516252878198, guid: 6c76214c1d44c384d8f50c782c776aef, type: 3}
+      propertyPath: onInvokeBrightObj.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ExpandFlower
+      objectReference: {fileID: 0}
+    - target: {fileID: 6847014516252878198, guid: 6c76214c1d44c384d8f50c782c776aef, type: 3}
+      propertyPath: offInvokeBrightObj.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: FoldFlower
+      objectReference: {fileID: 0}
+    - target: {fileID: 6847014516252878198, guid: 6c76214c1d44c384d8f50c782c776aef, type: 3}
+      propertyPath: onInvokeBrightObj.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: BrightFlower, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6847014516252878198, guid: 6c76214c1d44c384d8f50c782c776aef, type: 3}
+      propertyPath: offInvokeBrightObj.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: BrightFlower, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6847014516252878198, guid: 6c76214c1d44c384d8f50c782c776aef, type: 3}
+      propertyPath: onInvokeBrightObj.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 6847014516252878198, guid: 6c76214c1d44c384d8f50c782c776aef, type: 3}
+      propertyPath: offInvokeBrightObj.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -24168,7 +24233,7 @@ Transform:
   m_GameObject: {fileID: 1035281813}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.5, y: 0, z: 0}
+  m_LocalPosition: {x: 2.63, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -24327,7 +24392,7 @@ Transform:
   m_GameObject: {fileID: 1341744614}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 88.59, y: 22.48, z: -0.07606798}
+  m_LocalPosition: {x: 86.3, y: 22.48, z: -0.07606798}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -24409,6 +24474,14 @@ PrefabInstance:
       propertyPath: brightPlants
       value: 
       objectReference: {fileID: 291688540}
+    - target: {fileID: 6847014516252878198, guid: b8b36ce02bee31b42a5400a84d40b823, type: 3}
+      propertyPath: onInvokeBrightObj.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ExpandFlower
+      objectReference: {fileID: 0}
+    - target: {fileID: 6847014516252878198, guid: b8b36ce02bee31b42a5400a84d40b823, type: 3}
+      propertyPath: offInvokeBrightObj.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: FoldFlower
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -24518,11 +24591,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8400907023815607731, guid: 1571ca8fafdce73498a1f70ccd3771f2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 100.8
+      value: 84.48
       objectReference: {fileID: 0}
     - target: {fileID: 8400907023815607731, guid: 1571ca8fafdce73498a1f70ccd3771f2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 15.21
+      value: 17.05
       objectReference: {fileID: 0}
     - target: {fileID: 8400907023815607731, guid: 1571ca8fafdce73498a1f70ccd3771f2, type: 3}
       propertyPath: m_LocalPosition.z
@@ -24570,6 +24643,123 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3795337037020696762, guid: 6c76214c1d44c384d8f50c782c776aef, type: 3}
   m_PrefabInstance: {fileID: 1007678458}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1524847742
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 178741969}
+    m_Modifications:
+    - target: {fileID: 1885889531909842598, guid: e6a65cfde89287142a6970210fbbc330, type: 3}
+      propertyPath: m_Name
+      value: BrightObj_0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3795337037020696762, guid: e6a65cfde89287142a6970210fbbc330, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -4.891411
+      objectReference: {fileID: 0}
+    - target: {fileID: 3795337037020696762, guid: e6a65cfde89287142a6970210fbbc330, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.5216312
+      objectReference: {fileID: 0}
+    - target: {fileID: 3795337037020696762, guid: e6a65cfde89287142a6970210fbbc330, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.07341781
+      objectReference: {fileID: 0}
+    - target: {fileID: 3795337037020696762, guid: e6a65cfde89287142a6970210fbbc330, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3795337037020696762, guid: e6a65cfde89287142a6970210fbbc330, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3795337037020696762, guid: e6a65cfde89287142a6970210fbbc330, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3795337037020696762, guid: e6a65cfde89287142a6970210fbbc330, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3795337037020696762, guid: e6a65cfde89287142a6970210fbbc330, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3795337037020696762, guid: e6a65cfde89287142a6970210fbbc330, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3795337037020696762, guid: e6a65cfde89287142a6970210fbbc330, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6847014516252878198, guid: e6a65cfde89287142a6970210fbbc330, type: 3}
+      propertyPath: brightPlants
+      value: 
+      objectReference: {fileID: 291688540}
+    - target: {fileID: 6847014516252878198, guid: e6a65cfde89287142a6970210fbbc330, type: 3}
+      propertyPath: onInvokeBrightObj.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6847014516252878198, guid: e6a65cfde89287142a6970210fbbc330, type: 3}
+      propertyPath: offInvokeBrightObj.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6847014516252878198, guid: e6a65cfde89287142a6970210fbbc330, type: 3}
+      propertyPath: onInvokeBrightObj.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6847014516252878198, guid: e6a65cfde89287142a6970210fbbc330, type: 3}
+      propertyPath: offInvokeBrightObj.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6847014516252878198, guid: e6a65cfde89287142a6970210fbbc330, type: 3}
+      propertyPath: onInvokeBrightObj.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2012588639}
+    - target: {fileID: 6847014516252878198, guid: e6a65cfde89287142a6970210fbbc330, type: 3}
+      propertyPath: offInvokeBrightObj.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2012588639}
+    - target: {fileID: 6847014516252878198, guid: e6a65cfde89287142a6970210fbbc330, type: 3}
+      propertyPath: onInvokeBrightObj.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6847014516252878198, guid: e6a65cfde89287142a6970210fbbc330, type: 3}
+      propertyPath: offInvokeBrightObj.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6847014516252878198, guid: e6a65cfde89287142a6970210fbbc330, type: 3}
+      propertyPath: onInvokeBrightObj.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ExpandFlower
+      objectReference: {fileID: 0}
+    - target: {fileID: 6847014516252878198, guid: e6a65cfde89287142a6970210fbbc330, type: 3}
+      propertyPath: offInvokeBrightObj.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: FoldFlower
+      objectReference: {fileID: 0}
+    - target: {fileID: 6847014516252878198, guid: e6a65cfde89287142a6970210fbbc330, type: 3}
+      propertyPath: onInvokeBrightObj.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: BrightFlower, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6847014516252878198, guid: e6a65cfde89287142a6970210fbbc330, type: 3}
+      propertyPath: offInvokeBrightObj.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: BrightFlower, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6847014516252878198, guid: e6a65cfde89287142a6970210fbbc330, type: 3}
+      propertyPath: onInvokeBrightObj.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 6847014516252878198, guid: e6a65cfde89287142a6970210fbbc330, type: 3}
+      propertyPath: offInvokeBrightObj.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e6a65cfde89287142a6970210fbbc330, type: 3}
 --- !u!1001 &1557467804
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24957,6 +25147,14 @@ PrefabInstance:
       propertyPath: brightPlants
       value: 
       objectReference: {fileID: 291688540}
+    - target: {fileID: 6847014516252878198, guid: b8b36ce02bee31b42a5400a84d40b823, type: 3}
+      propertyPath: onInvokeBrightObj.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ExpandFlower
+      objectReference: {fileID: 0}
+    - target: {fileID: 6847014516252878198, guid: b8b36ce02bee31b42a5400a84d40b823, type: 3}
+      propertyPath: offInvokeBrightObj.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: FoldFlower
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -25094,6 +25292,62 @@ PrefabInstance:
       propertyPath: brightPlants
       value: 
       objectReference: {fileID: 291688540}
+    - target: {fileID: 6847014516252878198, guid: b7ee35988260e894b9dcf50de09cc6f3, type: 3}
+      propertyPath: onInvokeBrightObj.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6847014516252878198, guid: b7ee35988260e894b9dcf50de09cc6f3, type: 3}
+      propertyPath: offInvokeBrightObj.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6847014516252878198, guid: b7ee35988260e894b9dcf50de09cc6f3, type: 3}
+      propertyPath: onInvokeBrightObj.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6847014516252878198, guid: b7ee35988260e894b9dcf50de09cc6f3, type: 3}
+      propertyPath: offInvokeBrightObj.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6847014516252878198, guid: b7ee35988260e894b9dcf50de09cc6f3, type: 3}
+      propertyPath: onInvokeBrightObj.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 5409841045886629739, guid: b7ee35988260e894b9dcf50de09cc6f3, type: 3}
+    - target: {fileID: 6847014516252878198, guid: b7ee35988260e894b9dcf50de09cc6f3, type: 3}
+      propertyPath: offInvokeBrightObj.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 5409841045886629739, guid: b7ee35988260e894b9dcf50de09cc6f3, type: 3}
+    - target: {fileID: 6847014516252878198, guid: b7ee35988260e894b9dcf50de09cc6f3, type: 3}
+      propertyPath: onInvokeBrightObj.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6847014516252878198, guid: b7ee35988260e894b9dcf50de09cc6f3, type: 3}
+      propertyPath: offInvokeBrightObj.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6847014516252878198, guid: b7ee35988260e894b9dcf50de09cc6f3, type: 3}
+      propertyPath: onInvokeBrightObj.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ExpandFlower
+      objectReference: {fileID: 0}
+    - target: {fileID: 6847014516252878198, guid: b7ee35988260e894b9dcf50de09cc6f3, type: 3}
+      propertyPath: offInvokeBrightObj.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: FoldFlower
+      objectReference: {fileID: 0}
+    - target: {fileID: 6847014516252878198, guid: b7ee35988260e894b9dcf50de09cc6f3, type: 3}
+      propertyPath: onInvokeBrightObj.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: BrightFlower, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6847014516252878198, guid: b7ee35988260e894b9dcf50de09cc6f3, type: 3}
+      propertyPath: offInvokeBrightObj.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: BrightFlower, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6847014516252878198, guid: b7ee35988260e894b9dcf50de09cc6f3, type: 3}
+      propertyPath: onInvokeBrightObj.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 6847014516252878198, guid: b7ee35988260e894b9dcf50de09cc6f3, type: 3}
+      propertyPath: offInvokeBrightObj.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -25160,6 +25414,22 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ebe2f14a7c5c3d4ea1c919fe4257567, type: 3}
+--- !u!114 &2012588639 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -6760132993244651979, guid: e6a65cfde89287142a6970210fbbc330, type: 3}
+  m_PrefabInstance: {fileID: 1524847742}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29ec39c99ae7dc949ba0efbb2fb3ef8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &2012588643 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3795337037020696762, guid: e6a65cfde89287142a6970210fbbc330, type: 3}
+  m_PrefabInstance: {fileID: 1524847742}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2031267661
 PrefabInstance:
   m_ObjectHideFlags: 0

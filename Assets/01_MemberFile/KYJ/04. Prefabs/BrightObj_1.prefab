@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3795337037020696762}
   - component: {fileID: 1341842693854358819}
-  - component: {fileID: 6847014516252878198}
   - component: {fileID: 4098452994114929475}
+  - component: {fileID: 6847014516252878198}
   - component: {fileID: -4009111338993628265}
   m_Layer: 12
   m_Name: BrightObj_1
@@ -81,6 +81,25 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.2, y: 0.3}
   m_EdgeRadius: 0
+--- !u!251 &4098452994114929475
+PlatformEffector2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1885889531909842598}
+  m_Enabled: 1
+  m_UseColliderMask: 1
+  m_ColliderMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RotationalOffset: 0
+  m_UseOneWay: 1
+  m_UseOneWayGrouping: 0
+  m_SurfaceArc: 150
+  m_UseSideFriction: 0
+  m_UseSideBounce: 0
+  m_SideArc: 1
 --- !u!114 &6847014516252878198
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -126,25 +145,6 @@ MonoBehaviour:
         m_CallState: 2
   brightnessLevel: 1
   isTure: 0
---- !u!251 &4098452994114929475
-PlatformEffector2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1885889531909842598}
-  m_Enabled: 1
-  m_UseColliderMask: 1
-  m_ColliderMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_RotationalOffset: 0
-  m_UseOneWay: 1
-  m_UseOneWayGrouping: 0
-  m_SurfaceArc: 150
-  m_UseSideFriction: 0
-  m_UseSideBounce: 0
-  m_SideArc: 1
 --- !u!114 &-4009111338993628265
 MonoBehaviour:
   m_ObjectHideFlags: 0
