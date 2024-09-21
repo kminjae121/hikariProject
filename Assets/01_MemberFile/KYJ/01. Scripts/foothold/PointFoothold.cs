@@ -4,17 +4,22 @@ using UnityEngine;
 
 public class PointFoothold : MonoBehaviour
 {
-    [SerializeField] private Transform[] _points;
+    [Header("Position Setting")]
+    [SerializeField] private Transform _startPos;
+    [SerializeField] private Transform _endPos;
+
+    [Header("Speed Setting")]
     [SerializeField] private float _moveSpeed;
 
-    public Transform _endPos;
+    private Transform[] _movePoints = new Transform[2];
 
-    private bool oo;
 
     private void Awake()
     {
-        transform.position = _points[0].position;
-        _points[1] = _endPos;
+        _movePoints[0] = _startPos;
+        _movePoints[1] = _endPos;
+
+        transform.position = _startPos.position;
     }
 
     private void FixedUpdate()
@@ -22,32 +27,38 @@ public class PointFoothold : MonoBehaviour
         MoveFoothold(_moveSpeed); 
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.transform.CompareTag("Player"))
+        {
+            collision.transform.SetParent(transform);
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.transform.CompareTag("Player"))
+        {
+            collision.transform.SetParent(null);
+        }
+    }
+
     private void MoveFoothold(float moveSpeed)
     {
         transform.position =
-            Vector3.MoveTowards(transform.position, _points[1].position, moveSpeed * Time.deltaTime);
+            Vector3.MoveTowards(transform.position, _movePoints[1].position, moveSpeed * Time.deltaTime);
 
-        if (Vector2.Distance(transform.position, _points[1].position) <= 0.05f && !oo)
+        if (Vector2.Distance(transform.position, _movePoints[1].position) <= 0.05f)
         {
-            if (_points[1] == _endPos)
+            if (_movePoints[1] == _endPos)
             {
-                _points[1] = _points[0];
+                _movePoints[1] = _movePoints[0];
             }
 
             else
             {
-                _points[1] = _endPos;
+                _movePoints[1] = _endPos;
             }
-
-            StartCoroutine(MoveWaitRotain());
         }
-    }
-
-    private IEnumerator MoveWaitRotain()
-    {
-        oo = true;
-        yield return new WaitForSeconds(3f);
-        print("d");
-        oo = false;
     }
 }
