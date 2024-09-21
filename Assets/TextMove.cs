@@ -5,27 +5,10 @@ using TMPro;
 
 public class TextMove : MonoBehaviour
 {
-    Mesh mesh;
-    Vector3[] vertices;
-    Color[] colors;
+    public TMP_Text tMP;
 
-
-
-
-    public void TextUpDownMove(TMP_Text text, bool isStart)
+    public void Start()
     {
-        mesh = text.mesh;
-        vertices = mesh.vertices;
-        colors = mesh.colors;
-
-        text.ForceMeshUpdate();
-
-        for (int i = 0; i < vertices.Length; ++i)
-        {
-            vertices[i] += Mathf.Sign(Time.time * 5 + (i / 4) * 2) * 0.5f * Vector3.up;
-        }
-
-        mesh.SetVertices(vertices);
-        mesh.SetColors(colors);
+        tMP.TextUpDownMove(3f);
     }
 }

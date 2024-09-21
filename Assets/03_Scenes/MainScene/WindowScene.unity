@@ -6066,7 +6066,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06ecf5a1982d5f0478520a998c9c3249, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thisObjectIsWhat: 8
+  thisObjectIsWhat: 0
 --- !u!212 &73805123
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6780,7 +6780,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.72, y: 0.72}
+  m_Size: {x: 1.125, y: 1.125}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -6813,7 +6813,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06ecf5a1982d5f0478520a998c9c3249, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thisObjectIsWhat: 1
+  thisObjectIsWhat: 0
 --- !u!61 &127067626
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6851,7 +6851,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 1.125, y: 1.125}
-    newSize: {x: 0.72, y: 0.72}
+    newSize: {x: 1.125, y: 1.125}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -19496,7 +19496,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06ecf5a1982d5f0478520a998c9c3249, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thisObjectIsWhat: 7
+  thisObjectIsWhat: 0
 --- !u!212 &317991155
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -26640,7 +26640,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 5.07, y: 2.91}
+  m_Size: {x: 15.84375, y: 9.09375}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -27400,7 +27400,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06ecf5a1982d5f0478520a998c9c3249, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thisObjectIsWhat: 6
+  thisObjectIsWhat: 0
 --- !u!212 &659486808
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -28810,9 +28810,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _glowScreen: {fileID: 210390532}
-  _background: {fileID: 288044754}
-  particleSystem: {fileID: 833126089}
-  blueBackGround: {fileID: 1845635939}
+  _background: {fileID: 0}
+  particleSystem: {fileID: 0}
+  blueBackGround: {fileID: 0}
 --- !u!1 &745601031
 GameObject:
   m_ObjectHideFlags: 0
@@ -29872,7 +29872,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06ecf5a1982d5f0478520a998c9c3249, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thisObjectIsWhat: 3
+  thisObjectIsWhat: 0
 --- !u!212 &830903146
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -53666,6 +53666,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c041e30d4676be54daf477c494583360, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tMP: {fileID: 1680008270}
 --- !u!4 &1338976405
 Transform:
   m_ObjectHideFlags: 0
@@ -74409,7 +74410,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06ecf5a1982d5f0478520a998c9c3249, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thisObjectIsWhat: 9
+  thisObjectIsWhat: 0
 --- !u!212 &1900186549
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -80574,7 +80575,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06ecf5a1982d5f0478520a998c9c3249, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thisObjectIsWhat: 4
+  thisObjectIsWhat: 0
 --- !u!212 &1997415097
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -99532,7 +99533,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &6111558588376465925
 GameObject:
   m_ObjectHideFlags: 0

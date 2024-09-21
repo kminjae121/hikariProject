@@ -23857,6 +23857,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 538474573}
     m_Modifications:
+    - target: {fileID: 1341842693854358819, guid: b8b36ce02bee31b42a5400a84d40b823, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1885889531909842598, guid: b8b36ce02bee31b42a5400a84d40b823, type: 3}
       propertyPath: m_Name
       value: BrightObj_1
