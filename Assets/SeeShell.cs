@@ -2,17 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
-
+using DG.Tweening;
 
 public class SeeShell : MonoBehaviour,IBrightDetection
 {
     public Animator shellAnimation;
-    public bool keepBright;
-    public float brightnessLevel;
+    private bool keepBright;
+    public int keepBrightTime;
     private float currentBright;
 
     [SerializeField]
     private Light2D _light;
+
+    private Tween tween;
 
     public void Attack()
     {
@@ -28,17 +30,27 @@ public class SeeShell : MonoBehaviour,IBrightDetection
     {
         if (canPlant && !keepBright)
         {//닿았을때
+            tween.Complete();
             keepBright = true;
             currentBright = brightStep;
-            _light.intensity = brightStep / 10;
+            print(currentBright);
+            _light.intensity = brightStep/2;
         }
-        else
+        else if(!canPlant)
         {//닿지 않았을때
             if (keepBright)
             {
                 //저장
-                print("저장중");
+                StartCoroutine(BrightRoutine());
             }
         }
+    }
+
+    private IEnumerator BrightRoutine()
+    {
+        yield return new WaitForSeconds(keepBrightTime);
+        currentBright = 0f;
+        tween = DOTween.To(() => _light.intensity, light => _light.intensity = light, 0, 2);
+        keepBright = false;
     }
 }

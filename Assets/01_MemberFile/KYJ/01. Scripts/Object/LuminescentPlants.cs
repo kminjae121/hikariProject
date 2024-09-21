@@ -9,7 +9,7 @@ public class LuminescentPlants : MonoBehaviour
     public bool _isReach;
     public bool _isHold;
 
-    public Action OnPlants;
+    public  Action OnPlants;
     private Rigidbody2D _rigidCompo;
 
     private Rigidbody2D _playerRigidCompo;
