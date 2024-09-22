@@ -10,8 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3795337037020696762}
   - component: {fileID: 1341842693854358819}
-  - component: {fileID: 6847014516252878198}
   - component: {fileID: 4098452994114929475}
+  - component: {fileID: 6847014516252878198}
+  - component: {fileID: -4009111338993628265}
   m_Layer: 12
   m_Name: BrightObj_1
   m_TagString: Untagged
@@ -80,21 +81,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.2, y: 0.3}
   m_EdgeRadius: 0
---- !u!114 &6847014516252878198
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1885889531909842598}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bbba5e5a2223f704b82eae3232435a46, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  brightPlants: {fileID: 0}
-  brightnessLevel: 1
-  isTure: 0
 --- !u!251 &4098452994114929475
 PlatformEffector2D:
   m_ObjectHideFlags: 0
@@ -114,6 +100,63 @@ PlatformEffector2D:
   m_UseSideFriction: 0
   m_UseSideBounce: 0
   m_SideArc: 1
+--- !u!114 &6847014516252878198
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1885889531909842598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbba5e5a2223f704b82eae3232435a46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brightPlants: {fileID: 0}
+  onInvokeBrightObj:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: -4009111338993628265}
+        m_TargetAssemblyTypeName: BrightFlower, Assembly-CSharp
+        m_MethodName: FoldFlower
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  offInvokeBrightObj:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: -4009111338993628265}
+        m_TargetAssemblyTypeName: BrightFlower, Assembly-CSharp
+        m_MethodName: ExpandFlower
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  brightnessLevel: 1
+  isTure: 0
+--- !u!114 &-4009111338993628265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1885889531909842598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29ec39c99ae7dc949ba0efbb2fb3ef8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4003550350571377242
 GameObject:
   m_ObjectHideFlags: 0

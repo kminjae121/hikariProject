@@ -5,7 +5,7 @@ using UnityEngine;
 public class BrightFlower : MonoBehaviour
 {
     private Animator anim;
-    private BoxCollider2D BrightCollider;
+    public BoxCollider2D BrightCollider;
 
     private void Awake()
     {
@@ -15,7 +15,7 @@ public class BrightFlower : MonoBehaviour
 
     public void FoldFlower()
     {
-        BrightCollider.isTrigger = true;
+        BrightCollider.isTrigger = true;    
         anim.SetBool("Fold", true);
         print("Æúµå");
     }

@@ -11,7 +11,24 @@ public class WindowManager : MonoBehaviour
     CinemachineBasicMultiChannelPerlin noise;
 
     [SerializeField]
-    private VideoPlayer player;
+    private VIdeoManager videoManager;
+
+    private void Start()
+    {
+        if(GameManager.Instance.isClearSea)
+        {
+            
+
+            if(GameManager.Instance.isCapture)
+            {
+
+            }
+        }
+        else
+        {
+            videoManager.StartVideo();
+        }
+    }
 
 
     public void OnButton()
