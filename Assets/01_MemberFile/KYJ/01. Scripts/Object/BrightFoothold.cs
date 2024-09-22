@@ -7,6 +7,7 @@ using UnityEngine.Events;
 public interface IBrightDetection
 {
     public void BrightnessDetection(bool canPlant, float brightStep);
+    public bool isBrightOn { get; set; }
 }
 
 public class BrightFoothold : MonoBehaviour, IBrightDetection
@@ -20,12 +21,13 @@ public class BrightFoothold : MonoBehaviour, IBrightDetection
 
     public Action OnBrightnessDetection;
 
-
-
     public bool isTure; // ´êÀ½°¨Áö
+
+    public bool isBrightOn { get; set; }
 
     public void BrightnessDetection(bool canPlant, float brightStep)
     {
+
         if (brightnessLevel == brightStep && canPlant)
         {
             onInvokeBrightObj?.Invoke();
