@@ -23334,6 +23334,10 @@ PrefabInstance:
       propertyPath: _playerTrm
       value: 
       objectReference: {fileID: 1653094031}
+    - target: {fileID: 1514734098653566499, guid: 8420e576b5f34f8489c3c14b5dbc4a62, type: 3}
+      propertyPath: _inputReader
+      value: 
+      objectReference: {fileID: 11400000, guid: 6e80fc45f1950254f97d814b632a4bd0, type: 2}
     - target: {fileID: 2760194067065482843, guid: 8420e576b5f34f8489c3c14b5dbc4a62, type: 3}
       propertyPath: m_Intensity
       value: 0
@@ -23352,11 +23356,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8147215859493366611, guid: 8420e576b5f34f8489c3c14b5dbc4a62, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 93.19
+      value: 86.66
       objectReference: {fileID: 0}
     - target: {fileID: 8147215859493366611, guid: 8420e576b5f34f8489c3c14b5dbc4a62, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 15.426
+      value: 15.61
       objectReference: {fileID: 0}
     - target: {fileID: 8147215859493366611, guid: 8420e576b5f34f8489c3c14b5dbc4a62, type: 3}
       propertyPath: m_LocalPosition.z
@@ -24103,6 +24107,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BrightObj_2
       objectReference: {fileID: 0}
+    - target: {fileID: 1885889531909842598, guid: 6c76214c1d44c384d8f50c782c776aef, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3795337037020696762, guid: 6c76214c1d44c384d8f50c782c776aef, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.17903137
@@ -24430,6 +24438,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BrightObj_1 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1885889531909842598, guid: b8b36ce02bee31b42a5400a84d40b823, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3795337037020696762, guid: b8b36ce02bee31b42a5400a84d40b823, type: 3}
       propertyPath: m_LocalPosition.x
       value: 8.754288
@@ -24654,6 +24666,10 @@ PrefabInstance:
     - target: {fileID: 1885889531909842598, guid: e6a65cfde89287142a6970210fbbc330, type: 3}
       propertyPath: m_Name
       value: BrightObj_0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1885889531909842598, guid: e6a65cfde89287142a6970210fbbc330, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3795337037020696762, guid: e6a65cfde89287142a6970210fbbc330, type: 3}
       propertyPath: m_LocalPosition.x
@@ -25103,6 +25119,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BrightObj_1 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1885889531909842598, guid: b8b36ce02bee31b42a5400a84d40b823, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3795337037020696762, guid: b8b36ce02bee31b42a5400a84d40b823, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.802925
@@ -25247,6 +25267,10 @@ PrefabInstance:
     - target: {fileID: 1885889531909842598, guid: b7ee35988260e894b9dcf50de09cc6f3, type: 3}
       propertyPath: m_Name
       value: BrightObj_3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1885889531909842598, guid: b7ee35988260e894b9dcf50de09cc6f3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3795337037020696762, guid: b7ee35988260e894b9dcf50de09cc6f3, type: 3}
       propertyPath: m_LocalPosition.x
