@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using System;
+using DG.Tweening;
 
 enum ObjectType
 {
@@ -25,9 +26,12 @@ public class ObjectGather : MonoBehaviour
     private bool _isDraw;
     private CaptureObject _captureObj;
 
+    private Transform _playerCam;
+    private Transform _playerCamTransform;
     [SerializeField] private Vector2 _boxSize;
     [SerializeField] private int _jumpPower;
     [SerializeField] private int _flyingSpeed;
+    [SerializeField] private int _downPower;
     [SerializeField] private LayerMask _playerLayer;
     [SerializeField] private LayerMask _GroundLayer;
     [SerializeField] private Rigidbody2D _rigid;
@@ -40,7 +44,8 @@ public class ObjectGather : MonoBehaviour
     [SerializeField] private Vector2 _groundCheckerSize;
 
     private void Awake()
-    {
+    { 
+        _playerCam = GameObject.Find("PlayerCam").transform;
         _IsSofa = false;
         _IsElectricFan = false;
         _IsWalkintDool = false;
@@ -68,6 +73,9 @@ public class ObjectGather : MonoBehaviour
             if (hitter == false)
             {
                 StartCoroutine(Down());
+                if (hitter == true)
+                {
+                }
             }
             Sofa();
             _isDraw = true;
@@ -86,6 +94,9 @@ public class ObjectGather : MonoBehaviour
             if (hitter == false)
             {
                 StartCoroutine(Down());
+                if (hitter == true)
+                {
+                }
             }
             ElectricFan();
             _isDraw = true;
@@ -213,10 +224,11 @@ public class ObjectGather : MonoBehaviour
     {
         yield return new WaitForSeconds(1.3f);
 
-        _rigid.AddForce(Vector2.down * _flyingSpeed, ForceMode2D.Impulse);
+        _rigid.AddForce(Vector2.down * _downPower, ForceMode2D.Impulse);
+        _playerCam.DOShakePosition(0.01f,0.013f);
     }
 
-    private void OnDrawGizmos()
+    public void OnDrawGizmos()
     {
         if (_isDraw == true)
         {
@@ -224,7 +236,12 @@ public class ObjectGather : MonoBehaviour
             Gizmos.DrawWireCube(_overlapPlace.position, _boxSize);
             Gizmos.color = Color.white;
         }
-        else
+        else if(_objectType == ObjectType.None || _objectType == ObjectType.Sofa || _objectType == ObjectType.ElectricFan)
+        {
+            Gizmos.color = Color.blue;
+            Gizmos.DrawWireCube(_groundChecker.position, _groundCheckerSize);
+            Gizmos.color = Color.white;
+        }
             return;
     }
 }

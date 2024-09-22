@@ -150,7 +150,7 @@ MonoBehaviour:
   m_Follow: {fileID: 6854029176958287593}
   m_Lens:
     FieldOfView: 60
-    OrthographicSize: 4.6
+    OrthographicSize: 1.5
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -213,7 +213,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee1a54423cff938459a6b3083251c085, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  captureSize: {x: 0.5, y: 0.5}
+  captureSize: {x: 4, y: 4}
   whatIsCaptureObj:
     serializedVersion: 2
     m_Bits: 264192

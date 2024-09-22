@@ -71,9 +71,9 @@ public class Door : MonoBehaviour
             {
                 SceneManager.LoadScene($"CaptureStage{_currentSceneIndex += 1}");
             }
-            else if (_currentSceneIndex == 5 && _isOpen == true)
+            else if (_currentSceneIndex == 5 && _isOpen == true && Input.GetKeyDown(KeyCode.F))
             {
-                return;
+                //SceneManager.LoadScene("¥Ÿ¿Ω æ¿");
             }
         }
     }
