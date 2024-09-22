@@ -10,7 +10,7 @@ public class FishState
     protected bool _endTriggerCalled;
 
     public FishState(FishSetting _onwer, StateMachine state, string animHashName)
-    {
+    { 
         _fish = _onwer;
         _stateMachine = state;
         _animBoolHash = Animator.StringToHash(animHashName);
