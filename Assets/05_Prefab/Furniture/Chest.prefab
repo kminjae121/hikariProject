@@ -34,7 +34,8 @@ Transform:
   m_LocalPosition: {x: -8.651769, y: -4.3617673, z: 0}
   m_LocalScale: {x: 0.7, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 638075942777774636}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &3720826598377542088
@@ -142,7 +143,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1430710994090879661}
-  m_BodyType: 2
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -191,7 +192,7 @@ MonoBehaviour:
   isPlaceTure: 0
   whatIsGround:
     serializedVersion: 2
-    m_Bits: 329728
+    m_Bits: 0
 --- !u!114 &1312372914158218597
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -207,11 +208,47 @@ MonoBehaviour:
   _objectType: 0
   _boxSize: {x: 0, y: 0}
   _jumpPower: 0
-  _flyingSpeed: 0
+  _flyingSpeed: 1
   _playerLayer:
     serializedVersion: 2
     m_Bits: 0
-  _rigid: {fileID: 0}
+  _GroundLayer:
+    serializedVersion: 2
+    m_Bits: 65536
+  _rigid: {fileID: 1431719652386406098}
   _overlapPlace: {fileID: 0}
   _endPosition: {fileID: 0}
   _player: {fileID: 0}
+  _groundChecker: {fileID: 638075942777774636}
+  _groundCheckerSize: {x: 1, y: 1}
+--- !u!1 &9104921669593115279
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 638075942777774636}
+  m_Layer: 18
+  m_Name: GroundChecker
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &638075942777774636
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9104921669593115279}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8822869914076179613}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
