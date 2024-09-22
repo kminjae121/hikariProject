@@ -77,14 +77,12 @@ public class BrightPlants : MonoBehaviour
 
     private void BrightnessRange()
     {
-        //_colliders = Physics2D.OverlapCircleAll(transform.position, size, foothold);
+        _colliders = Physics2D.OverlapCircleAll(transform.position, size, foothold);
 
-        //for(int i= 0; i<_colliders.Length; i++)
-        //{
-        //    var test = _colliders[i]?.GetComponent<IBrightDetection>();
-        //    _colliders[i]?.GetComponent<IBrightDetection>().BrightnessDetection(true, brightStep);
-        //    test.isBrightOn = true;
-        //}
+        for (int i = 0; i < _colliders.Length; i++)
+        {
+            _colliders[i]?.GetComponent<IBrightDetection>().BrightnessDetection(true, brightStep);
+        }
 
         //if (GetBright())
         //{
