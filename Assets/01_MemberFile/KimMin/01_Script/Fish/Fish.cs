@@ -8,6 +8,7 @@ public abstract class Fish : MonoBehaviour
     public FishMovement MoveCompo { get; protected set; }
     public Animator AnimCompo { get; protected set; }
     public BrightPlants BrightPlant { get; private set; }
+
     private GameObject _brightObj;
 
     protected virtual void Awake()
