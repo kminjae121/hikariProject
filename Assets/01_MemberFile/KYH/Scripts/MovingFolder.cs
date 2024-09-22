@@ -13,7 +13,7 @@ public enum App
     Youtube,
     PowerPoint,
     PortPolio,
-    Chrome
+    Chrome,
 }
 
 
