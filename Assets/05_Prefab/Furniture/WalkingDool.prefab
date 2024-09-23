@@ -180,9 +180,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _objectType: 4
+  <maxMoveDoolDistance>k__BackingField: 30
   _boxSize: {x: 0.5, y: 0.5}
   _jumpPower: 5
   _flyingSpeed: 2
+  _downPower: 0
   _playerLayer:
     serializedVersion: 2
     m_Bits: 8
