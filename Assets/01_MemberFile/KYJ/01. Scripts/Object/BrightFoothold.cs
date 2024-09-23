@@ -32,7 +32,6 @@ public class BrightFoothold : MonoBehaviour, IBrightDetection
         if (brightnessLevel == brightStep && canPlant)
         {
             onInvokeBrightObj?.Invoke();
-            print("dddd");
         }
         if (brightnessLevel != brightStep || !canPlant)
         {
