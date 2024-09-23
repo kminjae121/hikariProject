@@ -8,6 +8,7 @@ public interface IBrightDetection
 {
     public void BrightnessDetection(bool canPlant, float brightStep);
     public bool isBrightOn { get; set; }
+    public GameObject GameObject { get; }
 }
 
 public class BrightFoothold : MonoBehaviour, IBrightDetection
@@ -24,6 +25,7 @@ public class BrightFoothold : MonoBehaviour, IBrightDetection
     public bool isTure; // ´êÀ½°¨Áö
 
     public bool isBrightOn { get; set; }
+    public GameObject GameObject => gameObject;
 
     public void BrightnessDetection(bool canPlant, float brightStep)
     {

@@ -17,7 +17,7 @@ public class SeeShell : MonoBehaviour,IBrightDetection
     private Tween tween;
 
     public bool isBrightOn { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
-
+    public GameObject GameObject => gameObject;
 
 
     public void Attack()

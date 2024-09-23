@@ -81,6 +81,10 @@ public class FolderManager : MonoBehaviour
                 settingButton.holdObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
                 _isHeld = true;
             }
+            else if(hit.name == "OnButton(UsingNameIn<FolderManager>)")
+            {
+                GameObject.Find("OnButton(UsingNameIn<FolderManager>)").GetComponent<OnButton>().ActiveSettingPanel();
+            }
         }
     }
 
