@@ -5,10 +5,11 @@ using UnityEngine.Events;
 
 public class Octopus : MonoBehaviour
 {
-    private PlayerMove _agentMove;
+    [SerializeField] private PlayerMove _agentMove;
 
     [SerializeField] private float knockbackPower = 12f;
     private float knockbackTime = 0.5f;
+    
 
     public void OctopusKnockback()
     {
