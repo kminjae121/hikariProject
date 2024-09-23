@@ -10,13 +10,13 @@ public class CaptureStartText : MonoBehaviour
     private void Awake()
     {
         _textSequence = DOTween.Sequence()
-            .Append(_text.DOText("문을 향해 이동하세요", 4))
+            .Append(_text.DOText("문을 향해 이동하세요", 2))
             .AppendInterval(1f)
             .Append(_text.DOText("", 1))
-            .Append(_text.DOText("문에서 F키를 누르시면", 4))
+            .Append(_text.DOText("문에서 F키를 누르시면", 2))
             .AppendInterval(1f)
             .Append(_text.DOText("", 1))
-            .Append(_text.DOText("다음스테이지로 넘어갑니다", 5))
+            .Append(_text.DOText("다음스테이지로 넘어갑니다", 2.5f))
             .Append(_text.DOFade(0, 3));
     }
 
@@ -27,7 +27,7 @@ public class CaptureStartText : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.E))
             _text.enabled = false;
     }
 
