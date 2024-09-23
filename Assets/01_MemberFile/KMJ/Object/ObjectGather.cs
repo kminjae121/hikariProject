@@ -1,16 +1,16 @@
 using UnityEngine;
+using System.Collections;
+using System;
+using DG.Tweening;
 
 enum ObjectType
 {
-    box,
-    ClothPress,
-    BasicDoor,
-    CloseDoor,
+    None,
     Sofa,
-    TwoFloorBed,
     ElectricFan,
     Ballon,
     WalkingDoll,
+    NoneObject,
 }
 public class ObjectGather : MonoBehaviour
 {
@@ -22,12 +22,16 @@ public class ObjectGather : MonoBehaviour
     private bool _IsWalkintDool;
     private bool _isBallon;
     private bool _isUp;
+    private bool _isNone;
     private bool _isDraw;
     private CaptureObject _captureObj;
 
+    private Transform _playerCam;
+    private Transform _playerCamTransform;
     [SerializeField] private Vector2 _boxSize;
     [SerializeField] private int _jumpPower;
     [SerializeField] private int _flyingSpeed;
+    [SerializeField] private int _downPower;
     [SerializeField] private LayerMask _playerLayer;
     [SerializeField] private LayerMask _GroundLayer;
     [SerializeField] private Rigidbody2D _rigid;
@@ -36,8 +40,12 @@ public class ObjectGather : MonoBehaviour
     [SerializeField] private Transform _player;
     private PlayerMove _playermove;
 
+    [SerializeField] private Transform _groundChecker;
+    [SerializeField] private Vector2 _groundCheckerSize;
+
     private void Awake()
-    {
+    { 
+        _playerCam = GameObject.Find("PlayerCam").transform;
         _IsSofa = false;
         _IsElectricFan = false;
         _IsWalkintDool = false;
@@ -60,6 +68,15 @@ public class ObjectGather : MonoBehaviour
 
         if (_IsSofa == true)
         {
+            Collider2D hitter = Physics2D.OverlapBox(_groundChecker.position, _groundCheckerSize, 0, _GroundLayer);
+
+            if (hitter == false)
+            {
+                StartCoroutine(Down());
+                if (hitter == true)
+                {
+                }
+            }
             Sofa();
             _isDraw = true;
         }
@@ -72,6 +89,15 @@ public class ObjectGather : MonoBehaviour
 
         if (_IsElectricFan == true)
         {
+            Collider2D hitter = Physics2D.OverlapBox(_groundChecker.position, _groundCheckerSize, 0, _GroundLayer);
+
+            if (hitter == false)
+            {
+                StartCoroutine(Down());
+                if (hitter == true)
+                {
+                }
+            }
             ElectricFan();
             _isDraw = true;
         }
@@ -80,6 +106,16 @@ public class ObjectGather : MonoBehaviour
         {
             Ballon();
             _isDraw = true;
+        }
+        
+        if(_isNone == true)
+        {
+            Collider2D hitter = Physics2D.OverlapBox(_groundChecker.position, _groundCheckerSize, 0, _GroundLayer);
+
+            if (hitter == false)
+            {
+                StartCoroutine(Down());
+            }
         }
     }
 
@@ -99,10 +135,13 @@ public class ObjectGather : MonoBehaviour
             case ObjectType.Ballon:
                 _isBallon = true;
                 break;
+            case ObjectType.None:
+                _isNone = true;
+                break;
         }
     }
 
-    private void Ballon()   
+    private void Ballon()
     {
         Collider2D hit = Physics2D.OverlapBox(_overlapPlace.position, _boxSize, 0, _playerLayer);
 
@@ -124,7 +163,7 @@ public class ObjectGather : MonoBehaviour
                     _playerRigidBody.gravityScale = 3.14f;
                     _isUp = true;
                     _playermove.enabled = true;
-                    _captureObj.enabled = true; 
+                    _captureObj.enabled = true;
                     _playerRigidBody.mass = 1f;
                 }
             }
@@ -154,7 +193,8 @@ public class ObjectGather : MonoBehaviour
     }
 
     private void ElectricFan()
-    {
+    { 
+
         Collider2D hit = Physics2D.OverlapBox(_overlapPlace.position, _boxSize, 0, _playerLayer);
 
         if (hit == true)
@@ -170,16 +210,25 @@ public class ObjectGather : MonoBehaviour
 
     private void Sofa(float multiplier = 1f)
     {
+
         Collider2D hit = Physics2D.OverlapBox(_overlapPlace.position, _boxSize, 0, _playerLayer);
 
         if (hit == true)
         {
-            if (Input.GetKeyDown(KeyCode.Space))
-                _playerRigidBody.AddForce(Vector2.up.normalized * _jumpPower * multiplier, ForceMode2D.Impulse);
+            _playerRigidBody.velocity = Vector2.zero;
+            _playerRigidBody.AddForce(Vector2.up.normalized * _jumpPower * multiplier, ForceMode2D.Impulse);
         }
     }
 
-    private void OnDrawGizmos()
+    private IEnumerator Down()
+    {
+        yield return new WaitForSeconds(1.3f);
+
+        _rigid.AddForce(Vector2.down * _downPower, ForceMode2D.Impulse);
+        _playerCam.DOShakePosition(0.01f,0.013f);
+    }
+
+    public void OnDrawGizmos()
     {
         if (_isDraw == true)
         {
@@ -187,7 +236,12 @@ public class ObjectGather : MonoBehaviour
             Gizmos.DrawWireCube(_overlapPlace.position, _boxSize);
             Gizmos.color = Color.white;
         }
-        else
+        else if(_objectType == ObjectType.None || _objectType == ObjectType.Sofa || _objectType == ObjectType.ElectricFan)
+        {
+            Gizmos.color = Color.blue;
+            Gizmos.DrawWireCube(_groundChecker.position, _groundCheckerSize);
+            Gizmos.color = Color.white;
+        }
             return;
     }
 }

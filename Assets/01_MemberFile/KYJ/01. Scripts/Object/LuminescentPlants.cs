@@ -22,8 +22,6 @@ public class LuminescentPlants : MonoBehaviour
     private void Update()
     {
         HoldPlants(_playerTrm);
-        print(_inputReader.Movement.x);
-
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -45,7 +43,6 @@ public class LuminescentPlants : MonoBehaviour
         {
             gameObject.transform.SetParent(parent);
             _rigidCompo.bodyType = RigidbodyType2D.Kinematic;
-            PlantRenderer();    
             _isHold = true;
         }
 
@@ -60,27 +57,5 @@ public class LuminescentPlants : MonoBehaviour
         {
             OnPlants?.Invoke();
         }
-    }
-
-    private void PlantRenderer()
-    {
-        transform.position = new Vector2(_playerTrm.position.x - 0.3f, _playerTrm.position.y);
-
-        //float scaleX = transform.position.x;
-        //float scaleY = transform.position.y;
-        //float scaleZ = transform.position.z;
-
-        //if (_inputReader.Movement.x < 0)
-        //{
-        //    transform.position = new Vector3(-scaleX, scaleY, scaleZ);
-        //}
-        //else if (_inputReader.Movement.x == 0 )
-        //{
-        //    transform.position = new Vector3(-scaleX, scaleY, scaleZ);
-        //}
-        //else
-        //{
-        //    transform.position = new Vector3(scaleX, scaleY, scaleZ);
-        //}
     }
 }

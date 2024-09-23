@@ -7,6 +7,7 @@ using UnityEngine.Events;
 public interface IBrightDetection
 {
     public void BrightnessDetection(bool canPlant, float brightStep);
+    public bool isBrightOn { get; set; }
 }
 
 public class BrightFoothold : MonoBehaviour, IBrightDetection
@@ -20,35 +21,20 @@ public class BrightFoothold : MonoBehaviour, IBrightDetection
 
     public Action OnBrightnessDetection;
 
-    private bool canPlant;
+    public bool isTure; // ´êÀ½°¨Áö
 
-    private float size = 3f;
-    public LayerMask luminescentPlant;
+    public bool isBrightOn { get; set; }
 
     public void BrightnessDetection(bool canPlant, float brightStep)
     {
+
         if (brightnessLevel == brightStep && canPlant)
         {
             onInvokeBrightObj?.Invoke();
-            //this.canPlant = canPlant;
         }
         if (brightnessLevel != brightStep || !canPlant)
         {
             offInvokeBrightObj?.Invoke();
         }
     }
-
-    //private void Update()
-    //{
-    //    if (canPlant)
-    //    {
-    //        Collider2D[] collision = Physics2D.OverlapCircleAll(transform.position, size, luminescentPlant);
-    //        if (collision == null)
-    //        {
-    //            BrightnessDetection(false,-1);
-    //            canPlant = false;
-    //        }
-    //    }
-
-    //}
 }

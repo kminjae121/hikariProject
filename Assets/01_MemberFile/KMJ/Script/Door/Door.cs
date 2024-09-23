@@ -46,11 +46,15 @@ public class Door : MonoBehaviour
 
         if (hit == true)
         {
-            if (Input.GetKeyDown(KeyCode.F))
+            if(_currentSceneIndex == 5)
+            {
+                return;
+            }
+            else if (Input.GetKeyDown(KeyCode.F))
             {
                 SceneManager.LoadScene($"CaptureStage{_currentSceneIndex += 1}");
             }
-            if(_currentSceneIndex >= 2)
+            else if(_currentSceneIndex >= 3)
             {
                 _playerKeyFalse.blockKey = true;
             }
@@ -66,6 +70,10 @@ public class Door : MonoBehaviour
             if (_isOpen == true && Input.GetKeyDown(KeyCode.F))
             {
                 SceneManager.LoadScene($"CaptureStage{_currentSceneIndex += 1}");
+            }
+            else if (_currentSceneIndex == 5 && _isOpen == true && Input.GetKeyDown(KeyCode.F))
+            {
+                //SceneManager.LoadScene("¥Ÿ¿Ω æ¿");
             }
         }
     }

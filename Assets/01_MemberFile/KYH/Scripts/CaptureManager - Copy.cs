@@ -1,8 +1,5 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using System.Linq;
 
 public class CaptureManager : MonoBehaviour
 {
@@ -18,12 +15,16 @@ public class CaptureManager : MonoBehaviour
 
     public int inventoryIdx;
     [SerializeField] private Transform _captureCollection;
-  
 
+
+    private void Awake()
+    {
+        isNowCapture = false;
+    }
     private void Update()
     {
-        Capture();
         MouseFollow();
+        Capture();
     }
 
     private void MouseFollow()
@@ -34,20 +35,22 @@ public class CaptureManager : MonoBehaviour
             gameObject.transform.position = Vector3.Lerp(gameObject.transform.position, mousePos, 10f * Time.deltaTime);
     }
 
-    public void Capture()
+    private void Capture()
     {
-        Collider2D[] captureObject = Physics2D.OverlapBoxAll(gameObject.transform.position,captureSize,0,whatIsCaptureObj);
+        Collider2D[] captureObject = Physics2D.OverlapBoxAll(gameObject.transform.position, captureSize, 0, whatIsCaptureObj);
 
-        if(Input.GetMouseButtonDown(0) && !isNowCapture && transform.localPosition != _captureCollection.localPosition)
+        if (Input.GetMouseButtonDown(0) && !isNowCapture && transform.localPosition != _captureCollection.localPosition)
         {
-            if(captureObject != null)
+            if (captureObject != null)
             {
-                isNowCapture = true;
                 SaveInventory(captureObject);
                 StartCoroutine(WaitCaptureRoutine());
             }
-            print("캡쳐할 물cprk djqttmq니다");
-            isNowCapture = false;
+            else
+            {
+                print("캡쳐할 물cprk djqttmq니다");
+                isNowCapture = false;
+            }  
         }
     }
 
@@ -59,7 +62,7 @@ public class CaptureManager : MonoBehaviour
             {
                 captureObject[i].GetComponent<CaptureObject>().CaptureFinish(inventoryIdx);
                 inventoryIdx++;
-               
+
             }
             else
             {
@@ -71,7 +74,9 @@ public class CaptureManager : MonoBehaviour
 
     private IEnumerator WaitCaptureRoutine()
     {
-        yield return new WaitForSeconds(2f);
+        isNowCapture = true;
+        yield return new WaitForSeconds(1f);
+        isNowCapture = false;
     }
 
     private void OnDrawGizmos()
