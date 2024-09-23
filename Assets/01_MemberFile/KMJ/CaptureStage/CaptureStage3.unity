@@ -218,15 +218,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\uC778\uD615 \uBC30\uD130\uB9AC\n"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 7e63c9a37853d814998e003135ce9d1d, type: 2}
-  m_sharedMaterial: {fileID: 6556430889707946362, guid: 7e63c9a37853d814998e003135ce9d1d, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 5391b24e4838a9449bcf0e247b6b4bb2, type: 2}
+  m_sharedMaterial: {fileID: -7849333280444633400, guid: 5391b24e4838a9449bcf0e247b6b4bb2, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -889,8 +889,8 @@ Transform:
   m_GameObject: {fileID: 621425664}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 12.9, y: -7.6, z: 0}
-  m_LocalScale: {x: 119.03365, y: 74.40569, z: 1}
+  m_LocalPosition: {x: 12.9, y: -9.1155, z: 0}
+  m_LocalScale: {x: 119.03365, y: 79.13789, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1824446547}
@@ -2310,6 +2310,14 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: -1865516399
       objectReference: {fileID: 0}
+    - target: {fileID: 5533641599259819811, guid: 1571ca8fafdce73498a1f70ccd3771f2, type: 3}
+      propertyPath: m_fontSize
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5533641599259819811, guid: 1571ca8fafdce73498a1f70ccd3771f2, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 5718194757224215156, guid: 1571ca8fafdce73498a1f70ccd3771f2, type: 3}
       propertyPath: _buttonManager
       value: 
@@ -2322,6 +2330,10 @@ PrefabInstance:
       propertyPath: _buttonManager
       value: 
       objectReference: {fileID: 1893617072}
+    - target: {fileID: 8066811624543523495, guid: 1571ca8fafdce73498a1f70ccd3771f2, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -3.5
+      objectReference: {fileID: 0}
     - target: {fileID: 8400907023815607731, guid: 1571ca8fafdce73498a1f70ccd3771f2, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.68
