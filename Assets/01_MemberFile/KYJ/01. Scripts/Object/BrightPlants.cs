@@ -1,8 +1,6 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System;
-using UnityEngine.Rendering.Universal ;
+using UnityEngine.Rendering.Universal;
 
 public class BrightPlants : MonoBehaviour
 {
@@ -21,13 +19,17 @@ public class BrightPlants : MonoBehaviour
 
     public Vector2 pos;
     private float size = 3f;
-    public LayerMask foothold;
+    public ContactFilter2D filter;
 
     public bool _isReach;
     public bool canPlant;
 
     [SerializeField]
     private IBrightDetection[] existsNowBrightObj;
+
+    [SerializeField]
+    private List<GameObject> _inLightList = new();
+
 
     private void Awake()
     {
@@ -37,6 +39,8 @@ public class BrightPlants : MonoBehaviour
         luminescentPlants.OnPlants += BrightnessControl;
 
         _spriteCompo = GetComponent<SpriteRenderer>();
+
+        _colliders = new Collider2D[10];
     }
 
     private void Start()
@@ -68,7 +72,7 @@ public class BrightPlants : MonoBehaviour
             print(brightStep);
         }
     }
-   
+
     //public Collider2D GetBright()
     //{
     //    _cut = Physics2D.OverlapCircleNonAlloc(transform.position, size, _colliders, foothold);
@@ -77,36 +81,36 @@ public class BrightPlants : MonoBehaviour
 
     private void BrightnessRange()
     {
-        //_colliders = Physics2D.OverlapCircleAll(transform.position, size, foothold);
+        int count = Physics2D.OverlapCircle(transform.position, size, filter, _colliders);
 
-        //for(int i= 0; i<_colliders.Length; i++)
-        //{
-        //    var test = _colliders[i]?.GetComponent<IBrightDetection>();
-        //    _colliders[i]?.GetComponent<IBrightDetection>().BrightnessDetection(true, brightStep);
-        //    test.isBrightOn = true;
-        //}
+        for (int i = 0; i < count; i++)
+        {
+            var detector = _colliders[i].GetComponent<IBrightDetection>();
+            if(detector != null && !_inLightList.Contains(_colliders[i].gameObject))
+                _inLightList.Add(_colliders[i].gameObject);
+        }
 
-        //if (GetBright())
-        //{
-        //    for (int i = 0; i < _colliders.Length; i++)
-        //    {
-        //        IBrightDetection keepBright = _colliders[i]?.GetComponent<IBrightDetection>();
-        //        if (keepBright != null)
-        //        {
-        //            keepBright.BrightnessDetection(true, brightStep);
-        //        }
-        //    }
-        //}
-        //else
-        //{
-        //    if (existsNowBrightObj.Length > 0)
-        //    {
-        //        for (int j = 0; j < existsNowBrightObj.Length; j++)
-        //        {
-        //            existsNowBrightObj[j].BrightnessDetection(false, brightStep);
-        //        }
-        //    }
-        //}
+        CheckInRadius();
+    }
+
+    private void CheckInRadius()
+    {
+        for (int i = 0; i < _inLightList.Count; i++)
+        {
+            var obj = _inLightList[i];
+            var item = obj.GetComponent<IBrightDetection>();
+            Debug.Log(item);
+            if (Vector2.Distance(item.GameObject.transform.position, transform.position) < size)
+            {
+                item.BrightnessDetection(true, brightStep);
+            }
+            else
+            {
+                item.BrightnessDetection(false, brightStep);
+                _inLightList.RemoveAt(i);
+                i--;
+            }
+        }
     }
 
     void OnDrawGizmos() // 범위 그리기

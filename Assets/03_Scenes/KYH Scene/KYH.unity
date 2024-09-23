@@ -342,6 +342,10 @@ PrefabInstance:
       propertyPath: brightPlants
       value: 
       objectReference: {fileID: 1217916780}
+    - target: {fileID: 6847014516252878198, guid: b8b36ce02bee31b42a5400a84d40b823, type: 3}
+      propertyPath: luminescentPlant.m_Bits
+      value: 2097152
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -352,6 +356,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3795337037020696762, guid: b8b36ce02bee31b42a5400a84d40b823, type: 3}
   m_PrefabInstance: {fileID: 278072013}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &321417382 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2583058593113533413, guid: 1571ca8fafdce73498a1f70ccd3771f2, type: 3}
+  m_PrefabInstance: {fileID: 1760300061}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c2814a1dd96e30498ba1699f29eeb72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &412573734
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -408,6 +423,10 @@ PrefabInstance:
       propertyPath: brightPlants
       value: 
       objectReference: {fileID: 1217916780}
+    - target: {fileID: 6847014516252878198, guid: b7ee35988260e894b9dcf50de09cc6f3, type: 3}
+      propertyPath: luminescentPlant.m_Bits
+      value: 2097152
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -23857,13 +23876,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 538474573}
     m_Modifications:
+    - target: {fileID: 1341842693854358819, guid: b8b36ce02bee31b42a5400a84d40b823, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1885889531909842598, guid: b8b36ce02bee31b42a5400a84d40b823, type: 3}
       propertyPath: m_Name
       value: BrightObj_1
       objectReference: {fileID: 0}
     - target: {fileID: 3795337037020696762, guid: b8b36ce02bee31b42a5400a84d40b823, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.4702377
+      value: -2.44
       objectReference: {fileID: 0}
     - target: {fileID: 3795337037020696762, guid: b8b36ce02bee31b42a5400a84d40b823, type: 3}
       propertyPath: m_LocalPosition.y
@@ -23905,6 +23928,10 @@ PrefabInstance:
       propertyPath: brightPlants
       value: 
       objectReference: {fileID: 1217916780}
+    - target: {fileID: 6847014516252878198, guid: b8b36ce02bee31b42a5400a84d40b823, type: 3}
+      propertyPath: luminescentPlant.m_Bits
+      value: 2097152
+      objectReference: {fileID: 0}
     - target: {fileID: 6847014516252878198, guid: b8b36ce02bee31b42a5400a84d40b823, type: 3}
       propertyPath: onInvokeBrightObj.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: ExpandFlower
@@ -24234,6 +24261,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Luminescent Plants
       objectReference: {fileID: 0}
+    - target: {fileID: 598386727754540808, guid: 8420e576b5f34f8489c3c14b5dbc4a62, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 751805088953754918, guid: 8420e576b5f34f8489c3c14b5dbc4a62, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -24262,6 +24293,10 @@ PrefabInstance:
       propertyPath: _playerTrm
       value: 
       objectReference: {fileID: 1760300063}
+    - target: {fileID: 1514734098653566499, guid: 8420e576b5f34f8489c3c14b5dbc4a62, type: 3}
+      propertyPath: _inputReader
+      value: 
+      objectReference: {fileID: 11400000, guid: 6e80fc45f1950254f97d814b632a4bd0, type: 2}
     - target: {fileID: 3113936843582907905, guid: 8420e576b5f34f8489c3c14b5dbc4a62, type: 3}
       propertyPath: m_Constraints
       value: 4
@@ -24322,6 +24357,22 @@ PrefabInstance:
       propertyPath: brightFoothold
       value: 
       objectReference: {fileID: 1088049375}
+    - target: {fileID: 8424339241180300347, guid: 8420e576b5f34f8489c3c14b5dbc4a62, type: 3}
+      propertyPath: _playerAnimCompo
+      value: 
+      objectReference: {fileID: 321417382}
+    - target: {fileID: 8424339241180300347, guid: 8420e576b5f34f8489c3c14b5dbc4a62, type: 3}
+      propertyPath: filter.useTriggers
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8424339241180300347, guid: 8420e576b5f34f8489c3c14b5dbc4a62, type: 3}
+      propertyPath: filter.useLayerMask
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8424339241180300347, guid: 8420e576b5f34f8489c3c14b5dbc4a62, type: 3}
+      propertyPath: filter.layerMask.m_Bits
+      value: 4096
+      objectReference: {fileID: 0}
     - target: {fileID: 8658602338162016795, guid: 8420e576b5f34f8489c3c14b5dbc4a62, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.133
@@ -24629,6 +24680,10 @@ PrefabInstance:
       propertyPath: brightPlants
       value: 
       objectReference: {fileID: 1217916780}
+    - target: {fileID: 6847014516252878198, guid: 6c76214c1d44c384d8f50c782c776aef, type: 3}
+      propertyPath: luminescentPlant.m_Bits
+      value: 2097152
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -24999,6 +25054,10 @@ PrefabInstance:
       propertyPath: brightPlants
       value: 
       objectReference: {fileID: 1217916780}
+    - target: {fileID: 6847014516252878198, guid: b8b36ce02bee31b42a5400a84d40b823, type: 3}
+      propertyPath: luminescentPlant.m_Bits
+      value: 2097152
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
