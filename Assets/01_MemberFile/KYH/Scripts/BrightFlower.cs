@@ -5,24 +5,23 @@ using UnityEngine;
 public class BrightFlower : MonoBehaviour
 {
     private Animator anim;
-    public BoxCollider2D BrightCollider;
+    [SerializeField] private GameObject _collider;
 
     private void Awake()
     {
         anim = GetComponentInChildren<Animator>();
-        BrightCollider = GetComponent<BoxCollider2D>();
     }
 
     public void FoldFlower()
     {
-        BrightCollider.isTrigger = true;    
+        _collider.SetActive(false);
         anim.SetBool("Fold", true);
         print("폴드");
     }
 
     public void ExpandFlower()
     {
-        BrightCollider.isTrigger = false;
+        _collider.SetActive(true);
         anim.SetBool("Fold", false);
         print("액스펜드");
     }
