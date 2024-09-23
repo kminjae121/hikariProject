@@ -26,6 +26,8 @@ public class ObjectGather : MonoBehaviour
     private bool _isDraw;
     private CaptureObject _captureObj;
 
+    public  float maxMoveDoolDistance = 6;
+
     private Transform _playerCam;
     private Transform _playerCamTransform;
     [SerializeField] private Vector2 _boxSize;
@@ -66,6 +68,7 @@ public class ObjectGather : MonoBehaviour
     private void Update()
     {
 
+        Debug.Log(maxMoveDoolDistance);
         if (_IsSofa == true)
         {
             Collider2D hitter = Physics2D.OverlapBox(_groundChecker.position, _groundCheckerSize, 0, _GroundLayer);
@@ -184,11 +187,13 @@ public class ObjectGather : MonoBehaviour
             _rigid.velocity = Vector2.zero;
         }
 
-        else if (hit == true)
+        else if (hit == true && maxMoveDoolDistance >= 0)
         {
             animator.SetBool("Walk", true);
             _rigid.velocity = Vector2.zero;
             _rigid.AddForce(Vector2.right * _flyingSpeed * multiplier, ForceMode2D.Impulse);
+
+            maxMoveDoolDistance -= Time.deltaTime;
         }
     }
 
