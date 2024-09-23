@@ -2,26 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BrightFlower : MonoBehaviour
+public class OctopusAnimation : MonoBehaviour
 {
     private Animator anim;
-    [SerializeField] private GameObject _collider;
+    public BoxCollider2D BrightCollider;
+
 
     private void Awake()
     {
-        anim = GetComponentInChildren<Animator>();
+        anim = GetComponent<Animator>();
     }
-
     public void FoldFlower()
     {
-        _collider.SetActive(false);
+        BrightCollider.isTrigger = true;
         anim.SetBool("Fold", true);
         print("폴드");
     }
 
     public void ExpandFlower()
     {
-        _collider.SetActive(true);
+        BrightCollider.isTrigger = false;
         anim.SetBool("Fold", false);
         print("액스펜드");
     }

@@ -17,6 +17,10 @@ public class Intro : MonoBehaviour
 
     private Sequence glowScreenSeq;
 
+    [SerializeField]
+    private GameObject windowSideVolume;
+    [SerializeField]
+    private GameObject windowScreenNoise;
 
     public void BlinkTween()
     {
@@ -38,6 +42,8 @@ public class Intro : MonoBehaviour
             .Append(_background.DOFade(0, 0f))
             .Append(_glowScreen.DOFade(0, 1.25f))
             .JoinCallback(()=> particleSystem.Stop())
+            //.JoinCallback(() => windowScreenNoise.SetActive(false))
+            //.JoinCallback(() => windowSideVolume.SetActive(false))
             .OnComplete(() => transform.gameObject.SetActive(false));
     }
 }
