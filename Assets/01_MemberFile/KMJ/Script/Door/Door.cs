@@ -17,7 +17,7 @@ public class Door : MonoBehaviour
     [SerializeField] private LayerMask _player;
     [SerializeField] private DoorType _doorType;
 
-    private static int _currentSceneIndex =1;
+    public static int _currentSceneIndex =1;
     public bool _isOpen;
     public bool _isClear;
 

@@ -53,7 +53,7 @@ public class Clone1 : MonoBehaviour
             placeObj.placeHelp.GetComponent<Rigidbody2D>().simulated = true;
             placeObj.placeHelp.GetComponent<SpriteRenderer>().color = Color.white;
         }
-        else if (!furnitureObj.GetComponent<PlaceObj>().isPlaceTure)
+        else
         {
             placeObj.placeHelp.GetComponent<CaptureObject>().CaptureFinish(captureManager.inventoryIdx);
             if (captureManager.inventoryIdx != 5)
