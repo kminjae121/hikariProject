@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Playables;
 using Cinemachine;
 using UnityEngine.Video;
+using System;
 
 public class WindowManager : MonoBehaviour
 {
@@ -24,6 +25,8 @@ public class WindowManager : MonoBehaviour
     [SerializeField]
     private GameObject playerSprite;
 
+    public List<GameObject> gameObjects = new List<GameObject>();
+
     private void Start()
     {
         noise = vc.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
@@ -39,6 +42,10 @@ public class WindowManager : MonoBehaviour
         else
         {
             videoManager.StartVideo();
+            for (int i = 0; i < gameObjects.Count; i++)
+            {
+                gameObjects[i].SetActive(false);
+            }
         }
     }
 
@@ -79,6 +86,7 @@ public class WindowManager : MonoBehaviour
         playerSprite.SetActive(true);
         explotionParticle.Play();
         playerBoom.Play();
+        SetActiveTrueApp();
         noise.m_AmplitudeGain = 2f;
         noise.m_FrequencyGain = 4f;
         vc.Priority = 0;
@@ -89,5 +97,13 @@ public class WindowManager : MonoBehaviour
 
         //double videoCurrentTime = player.time;
 
+    }
+
+    private void SetActiveTrueApp()
+    {
+        for(int i=0; i<gameObjects.Count; i++)
+        {
+            gameObjects[i].SetActive(true);
+        }
     }
 }
