@@ -136,7 +136,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2, y: 5}
+  m_Size: {x: 25, y: 25}
   m_EdgeRadius: 0
 --- !u!1 &2053272556808992724
 GameObject:
@@ -254,7 +254,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6907310580503721934}
   - component: {fileID: 8420974918012214314}
-  m_Layer: 12
+  m_Layer: 0
   m_Name: CollideWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
