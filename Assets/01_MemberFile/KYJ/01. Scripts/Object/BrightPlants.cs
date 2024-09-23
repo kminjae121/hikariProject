@@ -72,7 +72,6 @@ public class BrightPlants : MonoBehaviour
 
     private void BrightnessRange()
     {
-        
         if (GetBright())
         {
             for (int i = 0; i < _colliders.Length; i++)
