@@ -52,6 +52,7 @@ public class Door : MonoBehaviour
             }
             else if (Input.GetKeyDown(KeyCode.F))
             {
+                ObjectGather.maxMoveDoolDistance = 6;
                 SceneManager.LoadScene($"CaptureStage{_currentSceneIndex += 1}");
             }
             else if(_currentSceneIndex >= 3)
@@ -69,6 +70,7 @@ public class Door : MonoBehaviour
         {
             if (_isOpen == true && Input.GetKeyDown(KeyCode.F))
             {
+                ObjectGather.maxMoveDoolDistance = 6;
                 SceneManager.LoadScene($"CaptureStage{_currentSceneIndex += 1}");
             }
             else if (_currentSceneIndex == 5 && _isOpen == true && Input.GetKeyDown(KeyCode.F))
