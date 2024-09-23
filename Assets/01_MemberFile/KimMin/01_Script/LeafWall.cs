@@ -16,12 +16,14 @@ public class LeafWall : MonoBehaviour
 
     public void OnBrightFunction()
     {
+        Debug.Log("¹à±â ¹ßµ¿");
         _spriteRenderer.enabled = false;
         _collideWall.enabled = false;
     }
 
     public void OffBrightFunction()
     {
+        Debug.Log("¹à±â ¹ß¤¤¤·¤±¤¤µ¿");
         _spriteRenderer.enabled = true;
         _collideWall.enabled = true;
     }

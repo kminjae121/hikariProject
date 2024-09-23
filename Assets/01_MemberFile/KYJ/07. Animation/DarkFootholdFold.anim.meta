@@ -1,6 +1,11 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/01_MemberFile/KYJ/07. Animation/DarkFootholdFold.anim.meta
 guid: d8ee35864dd77a447b369a77bd8f4a59
 NativeFormatImporter:
+========
+guid: a2cb655bccc943b4ca8d5ed03ae7ca80
+PrefabImporter:
+>>>>>>>> Base:Assets/01_MemberFile/KimMin/03_Prefab/MovingVine.prefab.meta
   externalObjects: {}
   mainObjectFileID: 7400000
   userData: 
