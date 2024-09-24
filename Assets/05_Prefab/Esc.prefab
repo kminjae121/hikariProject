@@ -544,8 +544,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 486145626023703871}
-        m_TargetAssemblyTypeName: ButtonMnager, Assembly-CSharp
+      - m_Target: {fileID: 1941669771901668093}
+        m_TargetAssemblyTypeName: ButtonManager, Assembly-CSharp
         m_MethodName: FireWall
         m_Mode: 1
         m_Arguments:
@@ -651,7 +651,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uC5F0\uACB0\uB428"
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5391b24e4838a9449bcf0e247b6b4bb2, type: 2}
   m_sharedMaterial: {fileID: -7849333280444633400, guid: 5391b24e4838a9449bcf0e247b6b4bb2, type: 2}
@@ -1644,7 +1644,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6474120762469440759}
-  - component: {fileID: 486145626023703871}
   - component: {fileID: 1769927630422696780}
   m_Layer: 0
   m_Name: ButtonManager
@@ -1668,38 +1667,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2560620015132387121}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &486145626023703871
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1388311935332614749}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f91f941c7d4e66b47be04b7f0636bb18, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _esc: {fileID: 3504212263360771164}
-  _currentText: {fileID: 4367734044105967408}
-  _brightButton: {fileID: 8739750826127604368}
-  _fireWallTrueText: {fileID: 3984281503321275304}
-  _basicFireWallSprtie: {fileID: 2800000, guid: 7edb62eb4490a9649bad230eaa4c0ca1, type: 3}
-  _falseFireWallSprtie: {fileID: 2800000, guid: efe9a6f6650f1044eb54d4cbdb820402, type: 3}
-  _fireWallManager: {fileID: 934377084034793462}
-  IsFireWallTrue: 0
-  _wifiCollectText: {fileID: 7203232793083541980}
-  _wifiRenderer: {fileID: 3880294355381650729}
-  <IsWifiTrue>k__BackingField: 0
-  _wifiAniamtion: {fileID: 5262490895182129977}
-  _MainsoundText: {fileID: 2676032813971289836}
-  _MainmusicSlider: {fileID: 4005778311313950107}
-  _EffectsoundText: {fileID: 6029302273341459235}
-  _EffectmusicSlider: {fileID: 1218055795505985019}
-  ChangeButton:
-  - {fileID: 0}
-  - {fileID: 0}
-  SceneNumber: 0
 --- !u!114 &1769927630422696780
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2405,6 +2372,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2560620015132387121}
+  - component: {fileID: 1941669771901668093}
   m_Layer: 0
   m_Name: Esc
   m_TagString: Untagged
@@ -2429,6 +2397,36 @@ Transform:
   - {fileID: 6474120762469440759}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1941669771901668093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2250889199580385153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f91f941c7d4e66b47be04b7f0636bb18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _esc: {fileID: 3504212263360771164}
+  _currentText: {fileID: 4367734044105967408}
+  _brightButton: {fileID: 8739750826127604368}
+  _fireWallTrueText: {fileID: 8928907450313841938}
+  _basicFireWallSprtie: {fileID: 2800000, guid: 7edb62eb4490a9649bad230eaa4c0ca1, type: 3}
+  _falseFireWallSprtie: {fileID: 2800000, guid: efe9a6f6650f1044eb54d4cbdb820402, type: 3}
+  _fireWallManager: {fileID: 934377084034793462}
+  IsFireWallTrue: 0
+  _wifiCollectText: {fileID: 7203232793083541980}
+  _wifiRenderer: {fileID: 3880294355381650729}
+  <IsWifiTrue>k__BackingField: 0
+  _wifiAniamtion: {fileID: 5262490895182129977}
+  _MainsoundText: {fileID: 3713171226111295533}
+  _MainmusicSlider: {fileID: 1218055795505985019}
+  _EffectsoundText: {fileID: 4803672535917828978}
+  _EffectmusicSlider: {fileID: 1218055795505985019}
+  ChangeButton: []
+  SceneNumber: 0
 --- !u!1 &2264876708853406550
 GameObject:
   m_ObjectHideFlags: 0
@@ -3908,7 +3906,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f002941e52d3f9e45a8574bc8e9b74ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _buttonManager: {fileID: 486145626023703871}
+  _buttonManager: {fileID: 1941669771901668093}
   _fireWallText: {fileID: 0}
 --- !u!1 &4877509793599546935
 GameObject:
@@ -4705,8 +4703,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 486145626023703871}
-        m_TargetAssemblyTypeName: ButtonMnager, Assembly-CSharp
+      - m_Target: {fileID: 1941669771901668093}
+        m_TargetAssemblyTypeName: ButtonManager, Assembly-CSharp
         m_MethodName: WifiTrue
         m_Mode: 1
         m_Arguments:

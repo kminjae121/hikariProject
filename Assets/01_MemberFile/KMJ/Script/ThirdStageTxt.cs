@@ -12,7 +12,7 @@ public class ThirdStageTxt : MonoBehaviour
     private void Awake()
     {
         _textSequence = DOTween.Sequence()
-            .Append(_text.DOText("바이러스로 인해.", 2))
+            .Append(_text.DOText("바이러스로 인해", 2))
             .AppendInterval(1f)
             .Append(_text.DOText("", 1))
             .Append(_text.DOText("점프가 봉쇄되었습니다.", 2.3f))

@@ -22,7 +22,7 @@ public class KeyPuzzle : MonoBehaviour
         _barrier = GameObject.Find("Barrier");
         _keyPosition = GameObject.Find("KeyPosition").transform;
 
-        _checkPlayer = GameObject.Find("Player")
+        _checkPlayer = GameObject.Find("PlayerPrefab")
             .GetComponent<CheckPlayerCollide>();
 
         _checkPlayer.OnPlayerCollide += HandlePlayerCollide;

@@ -27,7 +27,7 @@ public class FireWallText : MonoBehaviour
 
     private void Update()
     {
-        if(_buttonManager.IsFireWallTrue == false)
+        if(ButtonManager.IsFireWallTrue == false)
         {
             _fireWallText.enabled = true;
             _textSequence.Play();

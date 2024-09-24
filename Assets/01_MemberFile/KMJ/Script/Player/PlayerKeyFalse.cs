@@ -2,30 +2,20 @@ using UnityEngine;
 
 public class PlayerKeyFalse : MonoBehaviour
 {
-    private int _randNum;
+    private int _randNum = 1;
 
     [field: SerializeField] public bool blockKey { get; set; }
     private PlayerMove _playerMove;
 
     private void Awake()
     {
-        // blockKey = false;
-        _randNum = Random.Range(1, 3);
         _playerMove = GetComponent<PlayerMove>();
     }
 
     private void Start()
     {
-        Debug.Log(_randNum);
-        if (_randNum == 1)
-        {
-            Debug.Log("Á¡ÇÁ ºÀ¼â");
-        }
-        else if (_randNum == 2)
-        {
-            Debug.Log("Esc ºÀ¼â");
-        }
-    }
+
+    } 
     private void Update()
     {
         if (Door._currentSceneIndex != 5 || Door._currentSceneIndex >= 3)
