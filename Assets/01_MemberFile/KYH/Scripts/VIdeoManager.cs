@@ -40,7 +40,7 @@ public class VIdeoManager : MonoBehaviour
     {
         introVideo.clip = computerClip;
         introVideo.Play();
-        blackPanel.SetActive(false);
+        StartCoroutine(FrameBugFix());
     }
 
     private void Update()
@@ -74,5 +74,11 @@ public class VIdeoManager : MonoBehaviour
     {
         yield return new WaitForSeconds(2f);
         StartComputerVideo();
+    }
+
+    private IEnumerator FrameBugFix()
+    {
+        yield return new WaitForSeconds(0.3f);
+        blackPanel.SetActive(false);
     }
 }
