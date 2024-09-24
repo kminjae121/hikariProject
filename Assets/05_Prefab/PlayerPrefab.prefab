@@ -1868,8 +1868,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.097873926, y: -0.009787321}
-  m_Size: {x: 0.6565983, y: 1.3719208}
+  m_Offset: {x: -0.097873926, y: -0.047715425}
+  m_Size: {x: 0.6565983, y: 1.447777}
   m_Direction: 0
 --- !u!50 &3463938734308164322
 Rigidbody2D:
@@ -1915,7 +1915,7 @@ MonoBehaviour:
   <_jumpSpeed>k__BackingField: 8
   <_swimSpeed>k__BackingField: 5
   _groundChecker: {fileID: 5357142592218981264}
-  _boxSize: {x: 0.6, y: 0.2}
+  _boxSize: {x: 0.4, y: 0.3}
   _whatIsGround:
     serializedVersion: 2
     m_Bits: 327680

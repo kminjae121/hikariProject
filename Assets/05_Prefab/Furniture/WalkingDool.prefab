@@ -131,7 +131,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 6760271705040464676}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 3923c18b9c6eee34cbd9bbf5a593dc43, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -180,7 +180,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _objectType: 4
-  <maxMoveDoolDistance>k__BackingField: 30
   _boxSize: {x: 0.5, y: 0.5}
   _jumpPower: 5
   _flyingSpeed: 2
