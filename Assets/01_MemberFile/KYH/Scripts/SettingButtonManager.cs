@@ -12,6 +12,9 @@ public class SettingButtonManager : MonoBehaviour
     public GameObject holdObject;
     public App currentAPP;
 
+    public GameObject gameAppScreen;
+    public GameObject gameScriptManager;
+
     public void InvokeApp()
     {
         GetType().GetMethod($"{currentAPP}App", BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance).Invoke(this,null);
@@ -34,6 +37,7 @@ public class SettingButtonManager : MonoBehaviour
     private void YoutubeApp()
     {
         Process.Start("https://www.youtube.com/@jjangfish");
+        folderManager.CancelButton();
     }
 
     private void WhatControllApp()
@@ -43,6 +47,7 @@ public class SettingButtonManager : MonoBehaviour
     private void PortPolioApp()
     {
         Process.Start("https://ggm.gondr.net/circle/info/7");
+        folderManager.CancelButton();
     }
     private void PowerPointApp()
     {
@@ -50,6 +55,15 @@ public class SettingButtonManager : MonoBehaviour
     }
     private void GameApp()
     {
+        gameAppScreen.SetActive(true);
+        gameScriptManager.SetActive(true);
+        folderManager.CancelButton();
+    }
 
+    public void GameAppExit()
+    {
+        gameAppScreen.SetActive(false);
+        gameScriptManager.SetActive(false);
+        folderManager.CancelButton();
     }
 }
