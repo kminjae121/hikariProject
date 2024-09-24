@@ -14,23 +14,34 @@ public class Octopus : MonoBehaviour
     private BrightFoothold _brightFoothold;
     [SerializeField] private BrightPlants _brightPlants;
 
+    private float size = 1f;
+    public LayerMask targetMask;
+
     private void Awake()
     {
         _brightFoothold = GetComponent<BrightFoothold>();   
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    public void BrightnessRange()
     {
-        if (collision.gameObject.CompareTag("Player"))
+        Collider2D octopusOverlap = Physics2D.OverlapCircle(transform.position, size, targetMask);
+
+        if (octopusOverlap)
         {
             _canKnockback = true;
+            OctopusKnockback();
         }
     }
 
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(transform.position, size);
+    }
 
     public void OctopusKnockback()
     {
-        if ( _canKnockback)
+        if (_canKnockback)
         {
             _agentMove._isForce = true;
             _agentMove._rigid.velocity = Vector2.zero;
