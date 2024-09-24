@@ -4,24 +4,20 @@ using UnityEngine;
 
 public class OctopusAnimation : MonoBehaviour
 {
-    private Animator anim;
-    public BoxCollider2D BrightCollider;
+    [SerializeField] private Animator anim;
+    public GameObject _collider;
 
 
-    private void Awake()
-    {
-        anim = GetComponent<Animator>();
-    }
     public void FoldFlower()
     {
-        BrightCollider.isTrigger = true;
+        _collider.SetActive(false);
         anim.SetBool("Fold", true);
         print("폴드");
     }
 
     public void ExpandFlower()
     {
-        BrightCollider.isTrigger = false;
+        _collider.SetActive(true);
         anim.SetBool("Fold", false);
         print("액스펜드");
     }

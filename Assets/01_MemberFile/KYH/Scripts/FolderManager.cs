@@ -33,6 +33,7 @@ public class FolderManager : MonoBehaviour
 
     [SerializeField]
     private Transform usingApp;
+    private bool isDisableOnButton;
 
     private void Awake()
     {
@@ -81,9 +82,10 @@ public class FolderManager : MonoBehaviour
                 settingButton.holdObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
                 _isHeld = true;
             }
-            else if(hit.name == "OnButton(UsingNameIn<FolderManager>)")
+            else if(hit.name == "OnButton(UsingNameIn<FolderManager>)" && isDisableOnButton == false)
             {
                 GameObject.Find("OnButton(UsingNameIn<FolderManager>)").GetComponent<OnButton>().ActiveSettingPanel();
+                isDisableOnButton = true;
             }
         }
     }
@@ -145,7 +147,7 @@ public class FolderManager : MonoBehaviour
 
     public void CancelButton()
     {
-        if(settingButton.holdObject.GetComponent<MovingFolder>().thisObjectIsWhat == App.Chrome)
+        if(settingButton.holdObject != null && settingButton.holdObject.GetComponent<MovingFolder>().thisObjectIsWhat == App.Chrome)
             WindowObj.Instance.popUpChrome.SetActive(false);
         playerAnimator.SetBool("Hold", false);
         isSettingPanelChoose = false;

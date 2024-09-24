@@ -24,26 +24,61 @@ public class VIdeoManager : MonoBehaviour
     private GameObject[] testActiveFalse;
 
 
+    [SerializeField]
+    private VideoClip computerClip;
+    [SerializeField]
+    private GameObject blackPanel;
 
-    public void StartVideo()
+
+    public void StartHouseVideo()
     {
         introCanvas.SetActive(true);
         introVideo.Play();
     }
 
+    public void StartComputerVideo()
+    {
+        introVideo.clip = computerClip;
+        introVideo.Play();
+        StartCoroutine(FrameBugFix());
+    }
+
     private void Update()
     {
-        if(introVideo.time > 31f)
+        if(introVideo.clip == computerClip)
         {
-            intro.BlinkTween();
-            introVideo.Stop();
-            videoRawImage.SetActive(false);
-            windowVolume.SetActive(true);
-
-            for (int i =0; i<testActiveFalse.Length; i++)
+            if(introVideo.time > 31f)
             {
-                testActiveFalse[i].SetActive(false);
+                intro.BlinkTween();
+                introVideo.Stop();
+                videoRawImage.SetActive(false);
+                windowVolume.SetActive(true);
+
+                for (int i =0; i<testActiveFalse.Length; i++)
+                {
+                    testActiveFalse[i].SetActive(false);
+                }
             }
         }
+        else
+        {
+            if (introVideo.time > 25f)
+            {
+                blackPanel.SetActive(true);
+                StartCoroutine(BlackPanelWateRoutine());
+            }
+        }
+    }
+
+    private IEnumerator BlackPanelWateRoutine()
+    {
+        yield return new WaitForSeconds(2f);
+        StartComputerVideo();
+    }
+
+    private IEnumerator FrameBugFix()
+    {
+        yield return new WaitForSeconds(0.3f);
+        blackPanel.SetActive(false);
     }
 }

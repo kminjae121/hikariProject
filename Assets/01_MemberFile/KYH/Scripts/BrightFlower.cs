@@ -4,13 +4,8 @@ using UnityEngine;
 
 public class BrightFlower : MonoBehaviour
 {
-    private Animator anim;
+    [SerializeField] private Animator anim;
     [SerializeField] private GameObject _collider;
-
-    private void Awake()
-    {
-        anim = GetComponentInChildren<Animator>();
-    }
 
     public void FoldFlower()
     {
