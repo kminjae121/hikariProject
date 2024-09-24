@@ -145,7 +145,7 @@ public class FolderManager : MonoBehaviour
 
     public void CancelButton()
     {
-        if(settingButton.holdObject.GetComponent<MovingFolder>().thisObjectIsWhat == App.Chrome)
+        if(settingButton.holdObject != null && settingButton.holdObject.GetComponent<MovingFolder>().thisObjectIsWhat == App.Chrome)
             WindowObj.Instance.popUpChrome.SetActive(false);
         playerAnimator.SetBool("Hold", false);
         isSettingPanelChoose = false;
