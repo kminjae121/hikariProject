@@ -7,6 +7,7 @@ public class CaptureManager : MonoBehaviour
     private Door _door;
     [SerializeField]
     private Vector2 captureSize;
+    [SerializeField] private GameObject _captureBoxImage;
     [SerializeField]
     private LayerMask whatIsCaptureObj;
 
@@ -18,13 +19,14 @@ public class CaptureManager : MonoBehaviour
 
 
     private void Awake()
-    {
+    {   
         isNowCapture = false;
     }
     private void Update()
     {
         MouseFollow();
         Capture();
+        _captureBoxImage.transform.position = transform.position;
     }
 
     private void MouseFollow()
@@ -44,7 +46,7 @@ public class CaptureManager : MonoBehaviour
             if (captureObject != null)
             {
                 SaveInventory(captureObject);
-                StartCoroutine(WaitCaptureRoutine());
+                //StartCoroutine(WaitCaptureRoutine());
             }
             else
             {
@@ -72,12 +74,12 @@ public class CaptureManager : MonoBehaviour
         }
     }
 
-    private IEnumerator WaitCaptureRoutine()
-    {
-        isNowCapture = true;
-        yield return new WaitForSeconds(1f);
-        isNowCapture = false;
-    }
+    //private IEnumerator WaitCaptureRoutine()
+    //{
+      //  isNowCapture = true;
+      //  yield return new WaitForSeconds(1f);
+      //  isNowCapture = false;
+  //  }
 
     private void OnDrawGizmos()
     {

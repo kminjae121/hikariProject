@@ -40,7 +40,6 @@ public class ButtonManager : MonoBehaviour
         _esc.SetActive(false);
         IsWifiTrue = false;
         IsFireWallTrue = false;
-        _brightButton.interactable = false;
     }
 
     private void Start()
@@ -54,8 +53,6 @@ public class ButtonManager : MonoBehaviour
     {
         _mainvalue = (int)_MainmusicSlider.value;
         _effectvalue = (int)_EffectmusicSlider.value;
-
-        InteractablFalse();
 
         _MainsoundText.text = $"{_mainvalue}";
 
@@ -87,18 +84,6 @@ public class ButtonManager : MonoBehaviour
             _wifiCollectText.SetText("¿¬°á ¾ÈµÊ");
             _wifiCollectText.color = Color.red;
             _wifiAniamtion.enabled = false;
-        }
-    }
-
-    private void InteractablFalse()
-    {
-        if (SceneManager.GetActiveScene().buildIndex == 3)
-        {
-            _brightButton.interactable = true;
-        }
-        else
-        {
-            _brightButton.interactable = false;
         }
     }
 
