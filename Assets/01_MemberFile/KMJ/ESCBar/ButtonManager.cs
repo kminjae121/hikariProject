@@ -4,49 +4,44 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
-
-public class ButtonManager : MonoBehaviour
+    
+public class ButtonManager : MonoSingleton<ButtonManager>
 {
-    private int _mainvalue;
-    private int _effectvalue;
+    private  int _mainvalue;
+    private  int _effectvalue;
 
-    [SerializeField] private GameObject _esc;
-    [SerializeField] private TextMeshProUGUI _currentText;
-    [SerializeField] private Button _brightButton;
+    [SerializeField] public GameObject _esc;
+    [SerializeField] public TextMeshProUGUI _currentText;
+    [SerializeField] public Button _brightButton;
     [Header("방화벽")]
-    [SerializeField] private TextMeshProUGUI _fireWallTrueText;
-    [SerializeField] private Texture _basicFireWallSprtie;
-    [SerializeField] private Texture _falseFireWallSprtie;
-    [SerializeField] private RawImage _fireWallManager;
-    public bool IsFireWallTrue;
+    [SerializeField] public TextMeshProUGUI _fireWallTrueText;
+    [SerializeField] public Texture _basicFireWallSprtie;
+    [SerializeField] public Texture _falseFireWallSprtie;
+    [SerializeField] public RawImage _fireWallManager;
+    public static bool IsFireWallTrue = false;
     [Header("Wifi")]
-    [SerializeField] private TextMeshProUGUI _wifiCollectText;
-    [SerializeField] private SpriteRenderer _wifiRenderer;
-    [field :SerializeField] public bool IsWifiTrue { get; set; }
-    [SerializeField] private Animator _wifiAniamtion;
+    [SerializeField] private  TextMeshProUGUI _wifiCollectText;
+    [SerializeField] private  SpriteRenderer _wifiRenderer;
+    [field: SerializeField] public static bool IsWifiTrue { get; set; } = false;
+    [SerializeField] public Animator _wifiAniamtion;
     [Header("Sound")]
-    [SerializeField] private TextMeshProUGUI _MainsoundText;
-    [SerializeField] private Slider _MainmusicSlider;
+    [SerializeField] public TextMeshProUGUI _MainsoundText;
+    [SerializeField] public Slider _MainmusicSlider;
 
-    [SerializeField] private TextMeshProUGUI _EffectsoundText;
-    [SerializeField] private Slider _EffectmusicSlider;
+    [SerializeField] public TextMeshProUGUI _EffectsoundText;
+    [SerializeField] public Slider _EffectmusicSlider;
 
     [Header("ButtonList")]
     public List<GameObject> ChangeButton = new List<GameObject>();
-    public int SceneNumber;
+    public static int SceneNumber;
 
     private void Awake()
     {
         _esc.SetActive(false);
-        IsWifiTrue = false;
-        IsFireWallTrue = false;
     }
 
     private void Start()
     {
-        _fireWallTrueText.text = "연결 안됨";
-        _wifiCollectText.text = "연결 안됨";
-
     }
 
     private void Update()
