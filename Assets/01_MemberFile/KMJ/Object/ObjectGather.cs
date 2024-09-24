@@ -26,7 +26,7 @@ public class ObjectGather : MonoBehaviour
     private bool _isDraw;
     private CaptureObject _captureObj;
 
-    public  float maxMoveDoolDistance = 6;
+    public static float maxMoveDoolDistance = 6;
 
     private Transform _playerCam;
     private Transform _playerCamTransform;
@@ -46,7 +46,7 @@ public class ObjectGather : MonoBehaviour
     [SerializeField] private Vector2 _groundCheckerSize;
 
     private void Awake()
-    { 
+    {
         _playerCam = GameObject.Find("PlayerCam").transform;
         _IsSofa = false;
         _IsElectricFan = false;
@@ -76,9 +76,6 @@ public class ObjectGather : MonoBehaviour
             if (hitter == false)
             {
                 StartCoroutine(Down());
-                if (hitter == true)
-                {
-                }
             }
             Sofa();
             _isDraw = true;
@@ -97,9 +94,6 @@ public class ObjectGather : MonoBehaviour
             if (hitter == false)
             {
                 StartCoroutine(Down());
-                if (hitter == true)
-                {
-                }
             }
             ElectricFan();
             _isDraw = true;
