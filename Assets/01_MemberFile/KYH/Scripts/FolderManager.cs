@@ -33,16 +33,20 @@ public class FolderManager : MonoBehaviour
 
     [SerializeField]
     private Transform usingApp;
-    private bool isDisableOnButton;
+    public bool isDisableOnButton;
 
     private void Awake()
     {
-        playerAnimator = GameObject.Find("PlayerAnimation").GetComponent<Animator>();
+            playerAnimator = GameObject.Find("PlayerAnimation").GetComponent<Animator>();
     }
 
     private void Start()
     {
-        playerAnimator.gameObject.SetActive(false);
+        if (!GameManager.Instance.isClearSea && !GameManager.Instance.isCapture)
+            playerAnimator.gameObject.SetActive(false);
+        else
+            playerAnimator.gameObject.transform.root.position = new Vector3(0,10,0);
+
         GameManager.Instance.OnClickDown += ClickFolderInvoke;
     }
 
@@ -85,7 +89,6 @@ public class FolderManager : MonoBehaviour
             else if(hit.name == "OnButton(UsingNameIn<FolderManager>)" && isDisableOnButton == false)
             {
                 GameObject.Find("OnButton(UsingNameIn<FolderManager>)").GetComponent<OnButton>().ActiveSettingPanel();
-                isDisableOnButton = true;
             }
         }
     }
