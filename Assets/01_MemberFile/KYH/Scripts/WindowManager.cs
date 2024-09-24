@@ -41,7 +41,7 @@ public class WindowManager : MonoBehaviour
         }
         else
         {
-            videoManager.StartVideo();
+            videoManager.StartHouseVideo();
             for (int i = 0; i < gameObjects.Count; i++)
             {
                 gameObjects[i].SetActive(false);
