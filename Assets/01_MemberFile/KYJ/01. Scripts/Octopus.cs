@@ -9,6 +9,7 @@ public class Octopus : MonoBehaviour
 
     [SerializeField] private float knockbackPower = 12f;
     private float knockbackTime = 0.5f;
+    public bool _canKnockback;
 
     private BrightFoothold _brightFoothold;
     [SerializeField] private BrightPlants _brightPlants;
@@ -18,9 +19,18 @@ public class Octopus : MonoBehaviour
         _brightFoothold = GetComponent<BrightFoothold>();   
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            _canKnockback = true;
+        }
+    }
+
+
     public void OctopusKnockback()
     {
-        if (_brightFoothold.brightnessLevel != _brightPlants.brightStep)
+        if ( _canKnockback)
         {
             _agentMove._isForce = true;
             _agentMove._rigid.velocity = Vector2.zero;
@@ -37,6 +47,7 @@ public class Octopus : MonoBehaviour
         {
             yield return new WaitForSeconds(knockbackTime);
             _agentMove._isForce = false;
+            _canKnockback = false;
         }
     }
 }
