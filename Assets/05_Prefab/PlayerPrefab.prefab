@@ -1178,7 +1178,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -3.87, y: 2.45}
+  m_AnchoredPosition: {x: -11.1, y: 2.45}
   m_SizeDelta: {x: 12.7864, y: 6.8884}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &2425755363943670976
@@ -1270,8 +1270,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 30
-  m_fontSizeBase: 30
+  m_fontSize: 10
+  m_fontSizeBase: 10
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1306,7 +1306,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -7.4779263, w: 0}
+  m_margin: {x: 0, y: 0, z: -23.499102, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   _SortingLayer: 0
@@ -1951,12 +1951,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9216871937048155315}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 011b1388e4eca4940848f92a97a7fc8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <blockKey>k__BackingField: 0
+  <blockKey>k__BackingField: 1
 --- !u!1001 &8498066520028686464
 PrefabInstance:
   m_ObjectHideFlags: 0
