@@ -73,11 +73,6 @@ public class BrightPlants : MonoBehaviour
         }
     }
 
-    //public Collider2D GetBright()
-    //{
-    //    _cut = Physics2D.OverlapCircleNonAlloc(transform.position, size, _colliders, foothold);
-    //    return  _cut > 0 ?_colliders[0] : null;
-    //}
 
     private void BrightnessRange()
     {
