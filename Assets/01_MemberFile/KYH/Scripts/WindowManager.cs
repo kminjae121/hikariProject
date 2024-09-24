@@ -25,7 +25,13 @@ public class WindowManager : MonoBehaviour
     [SerializeField]
     private GameObject playerSprite;
 
+    [SerializeField]
+    private FolderManager folderManager;
+
     public List<GameObject> gameObjects = new List<GameObject>();
+
+    public GameObject questCanvas;
+    public GameObject onButton;
 
     private void Start()
     {
@@ -41,6 +47,7 @@ public class WindowManager : MonoBehaviour
         }
         else
         {
+            onButton.SetActive(true);
             videoManager.StartHouseVideo();
             for (int i = 0; i < gameObjects.Count; i++)
             {
@@ -56,6 +63,7 @@ public class WindowManager : MonoBehaviour
 
     public void OnButton()
     {
+        folderManager.isDisableOnButton = true;
         toolBox.SetActive(false);
         vc.Priority = 10;
         
@@ -93,6 +101,7 @@ public class WindowManager : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         noise.m_AmplitudeGain = 0f;
         noise.m_FrequencyGain = 0f;
+        questCanvas.SetActive(true);
         //if(player.length < 31f)
 
         //double videoCurrentTime = player.time;
