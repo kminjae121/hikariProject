@@ -5,21 +5,21 @@ using UnityEngine.UI;
 
 public class BackgroundScrolling : MonoBehaviour
 {
-    [SerializeField] private float BSpeed = 3f;
-    [SerializeField] private float scrollRange = 9.9f;
+    [SerializeField] private float _scrolling = 0.5f;
+    private SpriteRenderer spriteRenderer;
 
-    public Transform target;
 
+    private void Awake()
+    {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+    }
 
     private void Update()
     {
-        transform.position += Vector3.left * BSpeed * Time.deltaTime;
-
-        if (transform.position.x <= -scrollRange)
-        {
-            transform.position = target.position + Vector3.right * scrollRange;
-        }
+        Vector2 textureOffset = new Vector2(Time.time * _scrolling, 0);
+        spriteRenderer.material.mainTextureOffset = textureOffset;
     }
 }
+
 
 
