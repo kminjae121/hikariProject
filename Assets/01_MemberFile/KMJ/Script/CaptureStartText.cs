@@ -6,6 +6,7 @@ public class CaptureStartText : MonoBehaviour
 {
     private Sequence _textSequence;
     [SerializeField] private Text _text;
+    [SerializeField] private GameObject _textMember;
 
     private void Awake()
     {
@@ -13,9 +14,9 @@ public class CaptureStartText : MonoBehaviour
             .Append(_text.DOText("Esc에 있는 캡쳐를 이용해", 2.3f))
             .AppendInterval(1f)
             .Append(_text.DOText("", 1))
-            .Append(_text.DOText("물건을 캡쳐하여", 1.7f))
+            .Append(_text.DOText("물건을 캡쳐해서", 1.7f))
             .AppendInterval(1f)
-            .Append(_text.DOText("", 1))    
+            .Append(_text.DOText("", 1))
             .Append(_text.DOText("문을 향해 이동하세요", 2))
             .AppendInterval(1f)
             .Append(_text.DOText("", 1))
@@ -34,7 +35,7 @@ public class CaptureStartText : MonoBehaviour
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.E))
-            _text.enabled = false;
+            _textMember.SetActive(false);
     }
 
 

@@ -67,8 +67,6 @@ public class ObjectGather : MonoBehaviour
 
     private void Update()
     {
-
-        Debug.Log(maxMoveDoolDistance);
         if (_IsSofa == true)
         {
             Collider2D hitter = Physics2D.OverlapBox(_groundChecker.position, _groundCheckerSize, 0, _GroundLayer);
@@ -223,7 +221,7 @@ public class ObjectGather : MonoBehaviour
     {
         yield return new WaitForSeconds(1.3f);
 
-        _rigid.AddForce(Vector2.down * _downPower, ForceMode2D.Impulse);
+        _rigid.AddForce(Vector2.down.normalized * _downPower, ForceMode2D.Impulse);
         _playerCam.DOShakePosition(0.01f,0.013f);
     }
 

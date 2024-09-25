@@ -1,8 +1,14 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/01_MemberFile/KMJ/Physics2D.physicsMaterial2D.meta
+guid: 70b8b037555150f46b80db4e7dfce7fe
+NativeFormatImporter:
+========
 guid: c70daf75d4449b6459410e89dd44fa49
 folderAsset: yes
 DefaultImporter:
+>>>>>>>> 82e7239952a2f4179cc932b3b92699110f3eee7a:Assets/00_Scenes/CaptureStage.meta
   externalObjects: {}
+  mainObjectFileID: 6200000
   userData: 
   assetBundleName: 
   assetBundleVariant: 

@@ -33,7 +33,7 @@ public class PlayerWifi : MonoBehaviour
 
     private void Update()
     {
-        WifiTrue(_buttonManager.IsWifiTrue);
+        WifiTrue(ButtonManager.IsFireWallTrue);
     }
 
     private void WifiTrue(bool IsWifi)
@@ -62,6 +62,6 @@ public class PlayerWifi : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Buffering(_buttonManager.IsWifiTrue);
+        Buffering(ButtonManager.IsFireWallTrue);
     }
 }
