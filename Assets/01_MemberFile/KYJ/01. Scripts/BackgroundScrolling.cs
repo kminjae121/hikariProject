@@ -24,7 +24,7 @@ public class BackgroundScrolling : MonoBehaviour
 
     private void Update()
     {
-        Vector2 newPos = _startPos * 
+        //Vector2 newPos = _startPos * 
 
     }
 }
