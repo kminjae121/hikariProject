@@ -64,6 +64,5 @@ public class SettingButtonManager : MonoBehaviour
     {
         gameAppScreen.SetActive(false);
         gameScriptManager.SetActive(false);
-        folderManager.CancelButton();
     }
 }
