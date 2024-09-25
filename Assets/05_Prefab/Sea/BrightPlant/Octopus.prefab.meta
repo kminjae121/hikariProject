@@ -1,7 +1,13 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/01_MemberFile/KMJ/Physics2D.physicsMaterial2D.meta
+guid: 7b1a537b25260544781ff05ad692784b
+NativeFormatImporter:
+========
 guid: 2d44b73545d8f7d4e86c584ee45da185
 PrefabImporter:
+>>>>>>>> Base:Assets/05_Prefab/Sea/BrightPlant/Octopus.prefab.meta
   externalObjects: {}
+  mainObjectFileID: 6200000
   userData: 
   assetBundleName: 
   assetBundleVariant: 

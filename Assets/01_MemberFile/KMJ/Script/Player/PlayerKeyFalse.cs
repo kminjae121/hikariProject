@@ -18,7 +18,7 @@ public class PlayerKeyFalse : MonoBehaviour
     } 
     private void Update()
     {
-        if (Door._currentSceneIndex != 5 || Door._currentSceneIndex >= 3)
+        if (Door._currentSceneIndex != 5 && Door._currentSceneIndex >= 3)
             BlockKey(8, 0);
     }
 

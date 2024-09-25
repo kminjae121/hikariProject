@@ -979,6 +979,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _text: {fileID: 1962571571}
+  _textMember: {fileID: 1962571569}
 --- !u!1 &589767575
 GameObject:
   m_ObjectHideFlags: 0

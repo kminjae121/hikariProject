@@ -8,6 +8,7 @@ public class SecondText : MonoBehaviour
 {
     private Sequence _textSequence;
     [SerializeField] private Text _text;
+    [SerializeField] private GameObject _textMember;
 
     private void Awake()
     {
@@ -20,6 +21,7 @@ public class SecondText : MonoBehaviour
             .Append(_text.DOText("", 1))
             .Append(_text.DOText("게이지가 다 닳으면 움직이지 않습니다.", 3))
             .Append(_text.DOFade(0, 3));
+        _textMember.SetActive(false);
     }
 
     private void Start()
@@ -30,6 +32,6 @@ public class SecondText : MonoBehaviour
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.E))
-            _text.enabled = false;
+            _textMember.SetActive(false);
     }
 }
