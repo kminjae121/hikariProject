@@ -46,6 +46,7 @@ public class ButtonManager : MonoSingleton<ButtonManager>
 
     private void Update()
     {
+
         _mainvalue = (int)_MainmusicSlider.value;
         _effectvalue = (int)_EffectmusicSlider.value;
 

@@ -132,22 +132,6 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-<<<<<<< HEAD
-  - serializedVersion: 3
-    buildTarget: tvOS
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-=======
->>>>>>> KMJ
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -166,8 +150,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 237a9cccf59317f4d964e6685f35bddd
-      internalID: 1927338665
+      spriteID: f16020edd03b5a2439d8f18e5af4e3c4
+      internalID: -899957452
       vertices: []
       indices: 
       edges: []
@@ -187,8 +171,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1782c692391d71e4e8ad6ffc19659b64
-      internalID: -1302715415
+      spriteID: 8ac4a27dfb2f3004783aaedcca413c53
+      internalID: 991116528
       vertices: []
       indices: 
       edges: []
@@ -208,8 +192,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 128a93a0e4d24be43a4ac3d886fde0cb
-      internalID: -1427836484
+      spriteID: c250d2469478c694599fcd518779bf43
+      internalID: -164296468
       vertices: []
       indices: 
       edges: []
@@ -229,8 +213,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 975fe4ecaa00b7b4c880bab962dd9fe1
-      internalID: 1063337253
+      spriteID: 40123f72cef1d55439cb0346b9015202
+      internalID: -1066306700
       vertices: []
       indices: 
       edges: []
@@ -250,8 +234,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f54ec3696a90eb94797b8eac36089945
-      internalID: -459846579
+      spriteID: 16d185487ac84fc4186d12991fc37ae5
+      internalID: -1310928746
       vertices: []
       indices: 
       edges: []
@@ -271,8 +255,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a7e1be3c04d21884c91a108d4b65b1be
-      internalID: -8218902
+      spriteID: 6bd192e87eac5f2449656cb8784fa500
+      internalID: -405096998
       vertices: []
       indices: 
       edges: []
@@ -284,7 +268,7 @@ TextureImporter:
         x: 100
         y: 139
         width: 8
-        height: 7
+        height: 1
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -292,8 +276,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 73d5b85fab3c8ae438f8cef33bfc20e2
-      internalID: -1713229163
+      spriteID: 19cb8d798f7501f4ebb2ac0527a692ff
+      internalID: -229164383
       vertices: []
       indices: 
       edges: []
@@ -301,7 +285,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 31ccfce9470986d4fbf7fa4abf153f87
     internalID: 0
     vertices: []
     indices: 
@@ -309,13 +293,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Windows_Icons_0: 1927338665
-      Windows_Icons_1: -1302715415
-      Windows_Icons_2: -1427836484
-      Windows_Icons_3: 1063337253
-      Windows_Icons_4: -459846579
-      Windows_Icons_5: -8218902
-      Windows_Icons_6: -369394242
+      Windows_Icons_0: -899957452
+      Windows_Icons_1: 991116528
+      Windows_Icons_2: -164296468
+      Windows_Icons_3: -1066306700
+      Windows_Icons_4: -1310928746
+      Windows_Icons_5: -405096998
+      Windows_Icons_6: -229164383
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

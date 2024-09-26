@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnterCapture : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class EnterCapture : MonoBehaviour
     [SerializeField] private GameObject _captureUI;
     [SerializeField] private GameObject _Esc;
     [SerializeField] private GameObject _EscParent;
+    [SerializeField] private Button GallyButton;
 
     private void Awake()
     {
@@ -15,6 +17,7 @@ public class EnterCapture : MonoBehaviour
     }
     private void OnEnable()
     {
+        GallyButton.interactable = false;
         _EscParent.SetActive(false);
         gameObject.SetActive(false);
         _Esc.SetActive(false);
