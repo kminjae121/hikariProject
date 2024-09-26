@@ -9,6 +9,28 @@ public class TextMove : MonoBehaviour
 
     public void Start()
     {
-        tMP.TextUpDownMove(3f);
+        tMP.TextUpDownMove(3f, 2.5f, TextStyle.Moving);
+        foreach(object v in new E())
+        {
+            Debug.Log(v);
+        }
+
+        foreach(Transform trm in transform)
+        {
+            if (trm == transform) continue;
+
+
+        }
+
+        IDictionary dictioanry = new Dictionary<int ,int>();
+        IList ilist = new float[3];
+        IReadOnlyList<int> list = new int[3];
+
+        System.Array a = new int[3];
     }
+
+    private void Update()
+    {
+    }
+
 }
