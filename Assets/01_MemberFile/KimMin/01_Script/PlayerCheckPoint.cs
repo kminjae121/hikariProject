@@ -12,13 +12,13 @@ public class PlayerCheckPoint : MonoBehaviour
         _savedPos = transform.localPosition; 
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.transform.tag == "SavePos")
+        if (collision.CompareTag("SavePos"))
         {
             SavePosition();
         }
-        else if (collision.transform.tag == "ResetPos")
+        else if (collision.CompareTag("ResetPos"))
         {
             OnResetPosition();
         }
