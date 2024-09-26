@@ -83,7 +83,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 2.4444444
+    m_StopTime: 1.3333334
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -125,41 +125,6 @@ AnimationClip:
     intParameter: 0
     messageOptions: 0
   - time: 1.2222222
-    functionName: MoveSoundTrue
-    data: 
-    objectReferenceParameter: {fileID: 8300000, guid: f212e0ec8fad38345a7ce1ae20a9744a, type: 3}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 1.5555556
-    functionName: MoveSoundTrue
-    data: 
-    objectReferenceParameter: {fileID: 8300000, guid: f212e0ec8fad38345a7ce1ae20a9744a, type: 3}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 1.7777778
-    functionName: MoveSoundTrue
-    data: 
-    objectReferenceParameter: {fileID: 8300000, guid: f212e0ec8fad38345a7ce1ae20a9744a, type: 3}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 2
-    functionName: MoveSoundTrue
-    data: 
-    objectReferenceParameter: {fileID: 8300000, guid: f212e0ec8fad38345a7ce1ae20a9744a, type: 3}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 2.2222223
-    functionName: MoveSoundTrue
-    data: 
-    objectReferenceParameter: {fileID: 8300000, guid: f212e0ec8fad38345a7ce1ae20a9744a, type: 3}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 2.4444444
     functionName: MoveSoundTrue
     data: 
     objectReferenceParameter: {fileID: 8300000, guid: f212e0ec8fad38345a7ce1ae20a9744a, type: 3}
