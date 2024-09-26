@@ -1,37 +1,63 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class BackgroundScrolling : MonoBehaviour
 {
-	[SerializeField] GameObject camera_object = null;
+    [SerializeField] private float speed;
+    [SerializeField] private int startIndex;
+    [SerializeField] private int endIndex;
 
-	[SerializeField] Transform background_leftPoint = null, background_rightPoint = null;
-	[SerializeField] Transform ground_leftPoint = null, ground_rightPoint = null;
-	[SerializeField] Transform camera_leftPoint = null, camera_rightPoint = null;
+    [SerializeField] private Transform[] sprites;
 
-	float ground_sideSpace = 0f, background_sideSpace = 0f;
+    [SerializeField] private Transform _player;
 
-	void Start()
-	{
-		float camera_width = camera_leftPoint.position.x - camera_rightPoint.position.x;
-		ground_sideSpace = ground_rightPoint.position.x - ground_leftPoint.position.x;
-		background_sideSpace = background_leftPoint.position.x - background_rightPoint.position.x - camera_width * 0.5f;
-	}
+    private float viewHeight;
 
-	void Update()
-	{
-		SetPosition();
-	}
+    [SerializeField] private InputReader inputReader;
 
-	void SetPosition()
-	{
-		float background_xPos = camera_object.transform.position.x + ((camera_object.transform.position.x - ground_leftPoint.position.x) / ground_sideSpace - 0.5f) * background_sideSpace;
 
-		transform.position = new Vector2(background_xPos, transform.position.y);
-	}
+    void Update()
+    {
+        Move();
+    }
+
+    private void Move()
+    {
+        if (inputReader.Movement.x > 0)
+        {
+            Vector3 nextPos = Vector3.left * speed * Time.deltaTime;
+            transform.position += nextPos;
+
+            Scrolling();
+        }
+        else if (inputReader.Movement.x < 0)
+        {
+            Vector3 nextPos = Vector3.right * speed * Time.deltaTime;
+            transform.position += nextPos;
+
+            Scrolling();
+        }
+    }
+
+    private void Scrolling()
+    {
+        if (sprites[startIndex].position.x < _player.position.x - 20f)
+        {
+            sprites[startIndex].position = sprites[endIndex].position + Vector3.right * 30;
+
+            int startIndexSave = startIndex;
+            startIndex = endIndex;
+            endIndex = startIndexSave;
+        }
+
+        else if (sprites[startIndex].position.x > _player.position.x - 20f)
+        {
+            sprites[startIndex].position = sprites[endIndex].position + Vector3.left * 30;
+
+            //int startIndexSave = startIndex;
+            //startIndex = endIndex;
+            //endIndex = startIndexSave;
+        }
+    }
 }
-
-
-
