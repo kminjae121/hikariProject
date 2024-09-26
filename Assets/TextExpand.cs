@@ -2,30 +2,141 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System;
+
+[Flags]
+public enum TextStyle
+{
+    None = 0,
+    FadeIn = 1 << 0,
+    Moving = 1 << 1,
+}
+
+
+public class E : IEnumerable
+{
+    public IEnumerator GetEnumerator()
+    {
+        yield return 1;
+        yield return 2;
+        yield return 3;
+        yield return 4;
+        yield return 5;
+        yield return 6;
+        yield return 7;
+        yield return 8;
+        yield return 9;
+    }
+}
 
 
 public static class TextExpand
 {
-    public static void TextUpDownMove(this TMP_Text text,float time)
+
+
+    public static bool HasStyle(this TextStyle style, TextStyle checkingStyle)
+        => (style & checkingStyle) > 0;
+
+
+    public static void TextUpDownMove(this TMP_Text text, float time, float fadeoutTime = 2.5f, TextStyle textStyle = default)
     {
-        while(time > 0)
+        text.StartCoroutine(TextUpDownMoveRoutine(text, time, fadeoutTime, textStyle));
+        //TextUpDownMove(parameter, isStart);
+    }
+
+    private static IEnumerator TextUpDownMoveRoutine(TMP_Text text, float time, float fadeoutTime, TextStyle textStyle)
+    {
+        Vector3[] startVertices;
+        Vector3[] vertices;
+        var oneFrameWait = new WaitForEndOfFrame();
+
+        float currTime = time;
+        while (currTime > 0)
         {
-            Debug.Log("야야 실행");
-            time -= 0.1f;
+            text.ForceMeshUpdate();
             Mesh mesh = text.mesh;
-            Vector3[] vertices = mesh.vertices;
+            vertices = mesh.vertices;
             Color[] colors = mesh.colors;
 
-            text.ForceMeshUpdate();
 
             for (int i = 0; i < vertices.Length; ++i)
             {
-                vertices[i] += Mathf.Sign(Time.time * 5 + (i / 4) * 2) * 0.5f * Vector3.up;
+                if(textStyle.HasStyle(TextStyle.Moving))
+                {
+                    vertices[i] += Mathf.Sin(Time.time * 5 + (i / 4) * 2) * 0.5f * Vector3.up;
+                }
+
+                if (textStyle.HasStyle(TextStyle.FadeIn))
+                {
+                   if (1 - (currTime / time) >= ((i/2) / (float)(vertices.Length/2)))
+                        colors[i] = Color.white;
+                    else
+                        colors[i] = Color.clear;
+                }
+
             }
 
             mesh.SetVertices(vertices);
             mesh.SetColors(colors);
+
+            currTime -= Time.deltaTime;
+            yield return oneFrameWait;
         }
-        //TextUpDownMove(parameter, isStart);
+
+
+        startVertices = text.mesh.vertices.Clone() as Vector3[];
+        text.ForceMeshUpdate();
+        vertices = text.mesh.vertices.Clone() as Vector3[];
+
+        float currFadeoutTime = fadeoutTime;
+
+        while (currFadeoutTime > 0)
+        {
+            Mesh mesh = text.mesh;
+            Color[] colors = mesh.colors;
+
+
+            for (int i = 0; i < startVertices.Length; ++i)
+            {
+                startVertices[i] = Vector3.Lerp(startVertices[i], vertices[i]
+                    , t: 1 - (currFadeoutTime / fadeoutTime));
+            }
+
+            mesh.SetVertices(startVertices);
+            mesh.SetColors(colors);
+
+            currFadeoutTime -= Time.deltaTime;
+            yield return oneFrameWait;
+        }
     }
+
+    //public class A
+    //{
+    //    public MonoBehaviour _mono;
+
+    //    int a, b, c, d, e;
+    //    public static bool operator ==(A left, A right)
+    //    {
+    //        return ((left.a == right.a) && left.b == right.b);
+    //    }
+
+    //    public static bool operator !=(A left, A right)
+    //    {
+    //        return !(left == right);
+    //    }
+
+    //    public static implicit operator bool(A a)
+    //    {
+    //        Rigidbody2D rigid = null;
+    //        if (rigid && a._mono)
+    //        {
+
+    //        }
+
+    //        return a._mono;
+    //    }
+
+    //}
+
+
 }
