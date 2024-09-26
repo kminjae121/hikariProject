@@ -7,8 +7,8 @@ using TMPro;
     
 public class ButtonManager : MonoSingleton<ButtonManager>
 {
-    private  int _mainvalue;
-    private  int _effectvalue;
+    private static int _mainvalue;
+    private static int _effectvalue;
 
     [SerializeField] public GameObject _esc;
     [SerializeField] public TextMeshProUGUI _currentText;
@@ -42,11 +42,12 @@ public class ButtonManager : MonoSingleton<ButtonManager>
 
     private void Start()
     {
+        _MainmusicSlider.value = _mainvalue;
+        _EffectmusicSlider.value = _effectvalue;
     }
 
     private void Update()
     {
-
         _mainvalue = (int)_MainmusicSlider.value;
         _effectvalue = (int)_EffectmusicSlider.value;
 

@@ -29,7 +29,7 @@ public class BackgroundScrolling : MonoBehaviour
             Vector3 nextPos = Vector3.left * speed * Time.deltaTime;
             transform.position += nextPos;
 
-            if (sprites[startIndex].position.x < _player.position.x - 25f)
+            if (sprites[startIndex].position.x < _player.position.x - 30)
             {
                 sprites[startIndex].position = sprites[endIndex].position + Vector3.right * 30;
 
@@ -39,22 +39,22 @@ public class BackgroundScrolling : MonoBehaviour
 
                 print("right");
             }
-
         }
+
         else if (inputReader.Movement.x < 0)
         {
             Vector3 nextPos = Vector3.right * speed * Time.deltaTime;
             transform.position += nextPos;
 
-            if (sprites[startIndex].position.x > _player.position.x -25f)
+            if (sprites[endIndex].position.x - 30f > _player.position.x)
             {
                 print("left");
-                sprites[startIndex].position = sprites[startIndex].position + Vector3.left * 30;
+                sprites[endIndex].position = sprites[startIndex].position + Vector3.left * 30;
 
 
-                int startIndexSave = startIndex;
-                startIndex = endIndex;
-                endIndex = startIndexSave;
+                int endIndexSave = endIndex;
+                endIndex = startIndex;
+                startIndex = endIndexSave;
             }
 
         }
