@@ -1,25 +1,86 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class BackgroundScrolling : MonoBehaviour
 {
-    [SerializeField] private float _scrolling = 0.5f;
-    private SpriteRenderer spriteRenderer;
+    [SerializeField] private float speed;
+    [SerializeField] private int startIndex;
+    [SerializeField] private int endIndex;
+
+    [SerializeField] private Transform[] sprites;
+
+    [SerializeField] private Transform _player;
+
+    private float viewHeight;
+
+    [SerializeField] private InputReader inputReader;
 
 
-    private void Awake()
+    void Update()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        Move();
     }
 
-    private void Update()
+    private void Move()
     {
-        Vector2 textureOffset = new Vector2(Time.time * _scrolling, 0);
-        spriteRenderer.material.mainTextureOffset = textureOffset;
+        if (inputReader.Movement.x > 0)
+        {
+            Vector3 nextPos = Vector3.left * speed * Time.deltaTime;
+            transform.position += nextPos;
+
+            if (sprites[startIndex].position.x < _player.position.x - 25f)
+            {
+                sprites[startIndex].position = sprites[endIndex].position + Vector3.right * 30;
+
+                int startIndexSave = startIndex;
+                startIndex = endIndex;
+                endIndex = startIndexSave;
+
+                print("right");
+            }
+
+        }
+        else if (inputReader.Movement.x < 0)
+        {
+            Vector3 nextPos = Vector3.right * speed * Time.deltaTime;
+            transform.position += nextPos;
+
+            if (sprites[startIndex].position.x > _player.position.x -25f)
+            {
+                print("left");
+                sprites[startIndex].position = sprites[startIndex].position + Vector3.left * 30;
+
+
+                int startIndexSave = startIndex;
+                startIndex = endIndex;
+                endIndex = startIndexSave;
+            }
+
+        }
+    }
+
+    private void Scrolling()
+    {
+        if (sprites[startIndex].position.x < _player.position.x - 20f)
+        {
+            sprites[startIndex].position = sprites[endIndex].position + Vector3.right * 30;
+
+            int startIndexSave = startIndex;
+            startIndex = endIndex;
+            endIndex = startIndexSave;
+
+            print("right");
+        }
+
+        else if (sprites[endIndex].position.x > _player.position.x - 20f)
+        {
+            sprites[startIndex].position = sprites[endIndex].position + Vector3.left * 30;
+
+            print("left");
+            int startIndexSave = startIndex;
+            startIndex = endIndex;
+            endIndex = startIndexSave;
+        }
     }
 }
-
-
-
