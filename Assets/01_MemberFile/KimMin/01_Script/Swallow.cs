@@ -8,7 +8,7 @@ public class Swallow : MonoBehaviour
 
     private void AddingForce(Rigidbody2D rigid)
     {
-        rigid.AddForce(Vector2.down * _speed, ForceMode2D.Force);
+        rigid.AddForce(Vector2.up * -_speed, ForceMode2D.Force);
     }
 
     private void OnTriggerStay2D(Collider2D collision)
