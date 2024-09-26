@@ -30,6 +30,7 @@ public class Vine : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collision)
     {
         speedDown = false;
+        player._isVine = false;
     }
 
     private void Update()
@@ -43,13 +44,12 @@ public class Vine : MonoBehaviour
         {
             currentMoveSpeed = 1;
             player._moveSpeed = currentMoveSpeed;
-            player._isJump = false;
+            //player._isJump = false;
         }
+
         if (!speedDown)
         {
             player._moveSpeed = previousSpeed;
-            player._isJump = true;
-
         }
     }
 }

@@ -68,7 +68,7 @@ public class PlayerMove : MonoBehaviour
 
     private void Jump()
     {
-        if (_isJump == true)
+        if (_isJump == true && !_isVine)
         {
             _rigid.velocity = new Vector2(_rigid.velocity.x, 0);
 
