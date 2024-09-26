@@ -8,17 +8,16 @@ using UnityEngine.UI;
 public class SoundSlider : MonoBehaviour
 {
     public AudioMixer audioMixer;
-    public float minVolume = -40;
 
-    private void Awake()
+
+    private void Update()
     {
-        SetBackGroundMusicVolume(-80);
-        SetEffectMusicVolume(-80);
+        
     }
 
     public void SetEffectMusicVolume(float volume)
     {
-        audioMixer.SetFloat("Effect", volume-=80); 
+        audioMixer.SetFloat("Effect", volume-=80);
     }
 
     public void SetBackGroundMusicVolume(float volume)
