@@ -10,6 +10,7 @@ public enum TextStyle
     None = 0,
     FadeIn = 1 << 0,
     Moving = 1 << 1,
+    UI = 1 << 2
 }
 
 
@@ -63,7 +64,9 @@ public static class TextExpand
             {
                 if(textStyle.HasStyle(TextStyle.Moving))
                 {
-                    vertices[i] += Mathf.Sin(Time.time * 5 + (i / 4) * 2) * 0.5f * Vector3.up;
+                    float amount = textStyle.HasStyle(TextStyle.UI) ? 5f : 0.5f;
+
+                    vertices[i] += Mathf.Sin(Time.time * 5 + (i / 4) * 2) * amount * Vector3.up;
                 }
 
                 if (textStyle.HasStyle(TextStyle.FadeIn))
@@ -78,6 +81,9 @@ public static class TextExpand
 
             mesh.SetVertices(vertices);
             mesh.SetColors(colors);
+
+            if (textStyle.HasStyle(TextStyle.UI))
+                text.canvasRenderer.SetMesh(mesh);
 
             currTime -= Time.deltaTime;
             yield return oneFrameWait;
@@ -104,6 +110,10 @@ public static class TextExpand
 
             mesh.SetVertices(startVertices);
             mesh.SetColors(colors);
+
+
+            if (textStyle.HasStyle(TextStyle.UI))
+                text.canvasRenderer.SetMesh(mesh);
 
             currFadeoutTime -= Time.deltaTime;
             yield return oneFrameWait;
