@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,11 +12,17 @@ public class SoundSlider : MonoBehaviour
 
     private void Awake()
     {
-        SetMusicVolume(20);
+        SetBackGroundMusicVolume(-80);
+        SetEffectMusicVolume(-80);
     }
 
-    public void SetMusicVolume(float volume)
+    public void SetEffectMusicVolume(float volume)
     {
-        audioMixer.SetFloat("BackGround", volume * minVolume);
+        audioMixer.SetFloat("Effect", volume-=80); 
+    }
+
+    public void SetBackGroundMusicVolume(float volume)
+    {
+        audioMixer.SetFloat("BackGround", volume-=80);
     }
 }
