@@ -29,14 +29,34 @@ public class BackgroundScrolling : MonoBehaviour
             Vector3 nextPos = Vector3.left * speed * Time.deltaTime;
             transform.position += nextPos;
 
-            Scrolling();
+            if (sprites[startIndex].position.x < _player.position.x - 20f)
+            {
+                sprites[startIndex].position = sprites[endIndex].position + Vector3.right * 30;
+
+                int startIndexSave = startIndex;
+                startIndex = endIndex;
+                endIndex = startIndexSave;
+
+                print("right");
+            }
+
         }
         else if (inputReader.Movement.x < 0)
         {
             Vector3 nextPos = Vector3.right * speed * Time.deltaTime;
             transform.position += nextPos;
 
-            Scrolling();
+            if (sprites[startIndex].position.x > _player.position.x -20f)
+            {
+                print("left");
+                sprites[startIndex].position = sprites[startIndex].position + Vector3.left * 30;
+
+
+                int startIndexSave = startIndex;
+                startIndex = endIndex;
+                endIndex = startIndexSave;
+            }
+
         }
     }
 
@@ -49,15 +69,18 @@ public class BackgroundScrolling : MonoBehaviour
             int startIndexSave = startIndex;
             startIndex = endIndex;
             endIndex = startIndexSave;
+
+            print("right");
         }
 
-        else if (sprites[startIndex].position.x > _player.position.x - 20f)
+        else if (sprites[endIndex].position.x > _player.position.x - 20f)
         {
             sprites[startIndex].position = sprites[endIndex].position + Vector3.left * 30;
 
-            //int startIndexSave = startIndex;
-            //startIndex = endIndex;
-            //endIndex = startIndexSave;
+            print("left");
+            int startIndexSave = startIndex;
+            startIndex = endIndex;
+            endIndex = startIndexSave;
         }
     }
 }
