@@ -5,18 +5,16 @@ using UnityEngine;
 public class MainBackground : MonoBehaviour
 {
     [SerializeField] private Camera _mainCam;
-    [SerializeField] private Transform _target;
+    [SerializeField] private Transform _mainBackground;
 
     private void Awake()
     {
-        _mainCam = GetComponent<Camera>();
-
+        _mainCam = _mainCam.GetComponent<Camera>();
         _mainCam.transform.position = _mainCam.ScreenToWorldPoint(_mainCam.transform.position);
-        _target.position = _mainCam.transform.position;
     }
 
     private void Update()
     {
-        _target.position = _mainCam.transform.position;
+        _mainBackground.position = new Vector3(_mainCam.transform.position.x, _mainCam.transform.position.y, _mainCam.transform.position.z + 10f);
     }
 }
