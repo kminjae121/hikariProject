@@ -26110,18 +26110,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1918312484}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f36e925fedbdf1341824f41824c2d531, type: 3}
+  m_Script: {fileID: 11500000, guid: 25a4437f85c52384b97bf950d07c3309, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
-  startIndex: 0
-  endIndex: 1
-  sprites:
-  - {fileID: 835579791}
-  _player: {fileID: 1653094031}
-  inputReader: {fileID: 11400000, guid: 6e80fc45f1950254f97d814b632a4bd0, type: 2}
+  _mainCam: {fileID: 896149682}
+  _target: {fileID: 835579791}
 --- !u!4 &1939808987 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3317056702799802450, guid: 4697124360d49364e905a456d71142a6, type: 3}
