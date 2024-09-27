@@ -1531,6 +1531,7 @@ GameObject:
   - component: {fileID: 1157265917}
   - component: {fileID: 1157265919}
   - component: {fileID: 1157265918}
+  - component: {fileID: 1157265920}
   m_Layer: 0
   m_Name: StageText
   m_TagString: Untagged
@@ -1554,8 +1555,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.0000019073, y: -15}
-  m_SizeDelta: {x: 601.14, y: 420.09}
+  m_AnchoredPosition: {x: 589, y: 375}
+  m_SizeDelta: {x: 748.27, y: 441.89}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1157265918
 MonoBehaviour:
@@ -1577,12 +1578,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '
-
-'
+  m_text: "Esc\uC5D0 \uC788\uB294 \uCEA1\uCCD0\uB97C \uD65C\uC6A9\uD574 \n \uBB38\uC5D0
+    \uC774\uB3D9\uD574 F\uB97C \uB20C\uB7EC\n\uB2E4\uC74C\uC2A4\uD14C\uC774\uC9C0\uC5D0\uC774\uB3D9\uD558\uC138\uC694"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 5391b24e4838a9449bcf0e247b6b4bb2, type: 2}
+  m_sharedMaterial: {fileID: -7849333280444633400, guid: 5391b24e4838a9449bcf0e247b6b4bb2, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1593,7 +1593,7 @@ MonoBehaviour:
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
-    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topLeft: {r: 0, g: 0, b: 0, a: 1}
     topRight: {r: 1, g: 1, b: 1, a: 1}
     bottomLeft: {r: 1, g: 1, b: 1, a: 1}
     bottomRight: {r: 1, g: 1, b: 1, a: 1}
@@ -1656,6 +1656,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1157265916}
   m_CullTransparentMesh: 1
+--- !u!114 &1157265920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1157265916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 493916399fbad5f47991bb15f190b810, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _text: {fileID: 1157265918}
+  _textMember: {fileID: 1157265916}
 --- !u!1001 &1298435824
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1921,9 +1935,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: EscParent
       objectReference: {fileID: 0}
-    - target: {fileID: 2357480349356816785, guid: 38180baaba2da8c468af8c5fe13dbc68, type: 3}
+    - target: {fileID: 2250889199580385153, guid: 38180baaba2da8c468af8c5fe13dbc68, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2560620015132387121, guid: 38180baaba2da8c468af8c5fe13dbc68, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1965,10 +1979,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2878886448309069705, guid: 38180baaba2da8c468af8c5fe13dbc68, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3478009854827052981, guid: 38180baaba2da8c468af8c5fe13dbc68, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1993,13 +2003,21 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3879479235239955030, guid: 38180baaba2da8c468af8c5fe13dbc68, type: 3}
-      propertyPath: m_PlayOnAwake
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4896274752493294850, guid: 38180baaba2da8c468af8c5fe13dbc68, type: 3}
-      propertyPath: m_AnchorMax.x
+    - target: {fileID: 3504212263360771164, guid: 38180baaba2da8c468af8c5fe13dbc68, type: 3}
+      propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5769134667198139006, guid: 38180baaba2da8c468af8c5fe13dbc68, type: 3}
+      propertyPath: music1
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5769134667198139006, guid: 38180baaba2da8c468af8c5fe13dbc68, type: 3}
+      propertyPath: music2
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5769134667198139006, guid: 38180baaba2da8c468af8c5fe13dbc68, type: 3}
+      propertyPath: music3
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6149800724902117942, guid: 38180baaba2da8c468af8c5fe13dbc68, type: 3}
       propertyPath: m_Camera
