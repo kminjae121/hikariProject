@@ -9,7 +9,7 @@ public class TextMove : MonoBehaviour
 
     public void Start()
     {
-        tMP.TextUpDownMove(3f, 2.5f, TextStyle.Moving);
+        tMP.TextUpDownMove(3f, Color.white ,2.5f, TextStyle.Moving);
         foreach(object v in new E())
         {
             Debug.Log(v);

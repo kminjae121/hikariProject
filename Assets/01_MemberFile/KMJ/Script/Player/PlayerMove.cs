@@ -16,6 +16,7 @@ public class PlayerMove : MonoBehaviour
 
     [field: SerializeField] public bool isSwimming { get; set; }
 
+    private static bool _isWalk;
     private bool _isSecondJump;
     [field : SerializeField] public bool _isJump { get; set; }
     public bool _isForce;
@@ -56,7 +57,7 @@ public class PlayerMove : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.Space))
         {
-            _rigid.AddForce(Vector2.up * _jumpSpeed * 1, ForceMode2D.Impulse);
+            _rigid.velocity = new Vector2(0, _rigid.velocity.y * _jumpSpeed);
         }
     }
 
@@ -67,15 +68,18 @@ public class PlayerMove : MonoBehaviour
 
     private void Jump()
     {
-        if (_isJump == true)
+        if (_isJump == true && !_isVine)
         {
-            _rigid.AddForce(Vector2.up * _jumpSpeed * 1, ForceMode2D.Impulse);
+            _rigid.velocity = new Vector2(_rigid.velocity.x, 0);
 
+            _rigid.AddForce(Vector2.up * _jumpSpeed, ForceMode2D.Impulse);
             _isSecondJump = true;
         }
 
         else if (_isSecondJump == true)
         {
+            _rigid.velocity = new Vector2(_rigid.velocity.x,0);
+
             _rigid.AddForce(Vector2.up * _jumpSpeed, ForceMode2D.Impulse);
 
             _isSecondJump = false;

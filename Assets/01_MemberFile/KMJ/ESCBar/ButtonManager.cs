@@ -7,8 +7,11 @@ using TMPro;
     
 public class ButtonManager : MonoSingleton<ButtonManager>
 {
-    private  int _mainvalue;
-    private  int _effectvalue;
+    private static int _mainvalue;
+    private static int _effectvalue;
+
+    private int _randomInt;
+    private static float _currentTime;
 
     [SerializeField] public GameObject _esc;
     [SerializeField] public TextMeshProUGUI _currentText;
@@ -38,14 +41,44 @@ public class ButtonManager : MonoSingleton<ButtonManager>
     private void Awake()
     {
         _esc.SetActive(false);
+
+        _randomInt = Random.Range(1, 4);
     }
 
     private void Start()
     {
+        _MainmusicSlider.value = _mainvalue;
+        _EffectmusicSlider.value = _effectvalue;
     }
 
     private void Update()
     {
+        _currentTime += Time.deltaTime;
+
+        if (_currentTime >= 180)
+        {
+            switch (_randomInt)
+            {
+                case 1:
+                    _currentTime = 0;
+                    IsWifiTrue = false;
+                    _randomInt = Random.Range(1, 5);
+                    break;
+                case 2:
+                    _currentTime = 0;
+                    _randomInt = Random.Range(1, 5);
+                    break;
+                case 3:
+                    IsFireWallTrue = false;
+                    _currentTime = 0;
+                    _randomInt = Random.Range(1, 5);
+                    break;
+                default:
+                    _currentTime = 0;
+                    _randomInt = Random.Range(1, 5);
+                    break;
+            }
+        }
         _mainvalue = (int)_MainmusicSlider.value;
         _effectvalue = (int)_EffectmusicSlider.value;
 

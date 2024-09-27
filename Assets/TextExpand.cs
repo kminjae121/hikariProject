@@ -10,6 +10,7 @@ public enum TextStyle
     None = 0,
     FadeIn = 1 << 0,
     Moving = 1 << 1,
+    UI = 1 << 2
 }
 
 
@@ -38,13 +39,13 @@ public static class TextExpand
         => (style & checkingStyle) > 0;
 
 
-    public static void TextUpDownMove(this TMP_Text text, float time, float fadeoutTime = 2.5f, TextStyle textStyle = default)
+    public static void TextUpDownMove(this TMP_Text text, float time, Color color, float fadeoutTime = 2.5f, TextStyle textStyle = default)
     {
-        text.StartCoroutine(TextUpDownMoveRoutine(text, time, fadeoutTime, textStyle));
+        text.StartCoroutine(TextUpDownMoveRoutine(text, time, color, fadeoutTime, textStyle));
         //TextUpDownMove(parameter, isStart);
     }
 
-    private static IEnumerator TextUpDownMoveRoutine(TMP_Text text, float time, float fadeoutTime, TextStyle textStyle)
+    private static IEnumerator TextUpDownMoveRoutine(TMP_Text text, float time, Color color , float fadeoutTime, TextStyle textStyle)
     {
         Vector3[] startVertices;
         Vector3[] vertices;
@@ -63,13 +64,15 @@ public static class TextExpand
             {
                 if(textStyle.HasStyle(TextStyle.Moving))
                 {
-                    vertices[i] += Mathf.Sin(Time.time * 5 + (i / 4) * 2) * 0.5f * Vector3.up;
+                    float amount = textStyle.HasStyle(TextStyle.UI) ? 5f : 0.5f;
+
+                    vertices[i] += Mathf.Sin(Time.time * 5 + (i / 4) * 2) * amount * Vector3.up;
                 }
 
                 if (textStyle.HasStyle(TextStyle.FadeIn))
                 {
                    if (1 - (currTime / time) >= ((i/2) / (float)(vertices.Length/2)))
-                        colors[i] = Color.white;
+                        colors[i] = color;
                     else
                         colors[i] = Color.clear;
                 }
@@ -78,6 +81,9 @@ public static class TextExpand
 
             mesh.SetVertices(vertices);
             mesh.SetColors(colors);
+
+            if (textStyle.HasStyle(TextStyle.UI))
+                text.canvasRenderer.SetMesh(mesh);
 
             currTime -= Time.deltaTime;
             yield return oneFrameWait;
@@ -104,6 +110,10 @@ public static class TextExpand
 
             mesh.SetVertices(startVertices);
             mesh.SetColors(colors);
+
+
+            if (textStyle.HasStyle(TextStyle.UI))
+                text.canvasRenderer.SetMesh(mesh);
 
             currFadeoutTime -= Time.deltaTime;
             yield return oneFrameWait;

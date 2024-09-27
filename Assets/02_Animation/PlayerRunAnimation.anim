@@ -41,9 +41,9 @@ AnimationClip:
     - time: 1
       value: {fileID: 729165216, guid: 0a4f90b693a626c4ba6941e8d91077af, type: 3}
     - time: 1.1111112
-      value: {fileID: 483036538, guid: 0a4f90b693a626c4ba6941e8d91077af, type: 3}
-    - time: 1.2222222
       value: {fileID: -688817108, guid: 0a4f90b693a626c4ba6941e8d91077af, type: 3}
+    - time: 1.2222222
+      value: {fileID: 483036538, guid: 0a4f90b693a626c4ba6941e8d91077af, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -76,8 +76,8 @@ AnimationClip:
     - {fileID: 2129174239, guid: 0a4f90b693a626c4ba6941e8d91077af, type: 3}
     - {fileID: 1588733928, guid: 0a4f90b693a626c4ba6941e8d91077af, type: 3}
     - {fileID: 729165216, guid: 0a4f90b693a626c4ba6941e8d91077af, type: 3}
-    - {fileID: 483036538, guid: 0a4f90b693a626c4ba6941e8d91077af, type: 3}
     - {fileID: -688817108, guid: 0a4f90b693a626c4ba6941e8d91077af, type: 3}
+    - {fileID: 483036538, guid: 0a4f90b693a626c4ba6941e8d91077af, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
@@ -102,4 +102,32 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events: []
+  m_Events:
+  - time: 0
+    functionName: MoveSoundTrue
+    data: 
+    objectReferenceParameter: {fileID: 8300000, guid: f212e0ec8fad38345a7ce1ae20a9744a, type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.44444445
+    functionName: MoveSoundTrue
+    data: 
+    objectReferenceParameter: {fileID: 8300000, guid: f212e0ec8fad38345a7ce1ae20a9744a, type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.8888889
+    functionName: MoveSoundTrue
+    data: 
+    objectReferenceParameter: {fileID: 8300000, guid: f212e0ec8fad38345a7ce1ae20a9744a, type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 1.2222222
+    functionName: MoveSoundTrue
+    data: 
+    objectReferenceParameter: {fileID: 8300000, guid: f212e0ec8fad38345a7ce1ae20a9744a, type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
