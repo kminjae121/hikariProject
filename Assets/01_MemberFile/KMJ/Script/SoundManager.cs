@@ -19,7 +19,6 @@ public class SoundManager : MonoBehaviour
         music2 = GameObject.Find("MainSoundAsset").GetComponent<AudioSource>();
         music3 = GameObject.Find("SeaSoundAsset").GetComponent<AudioSource>();
         music4 = GameObject.Find("VirusSoundAsset").GetComponent<AudioSource>();
-
     }
 
     private void Start()
@@ -61,5 +60,10 @@ public class SoundManager : MonoBehaviour
 
     private void Update()
     {
+    }
+
+    public void ChangeMainStageVolume(AudioClip mainClip)
+    {
+        music2.clip = mainClip;
     }
 }
