@@ -5,22 +5,20 @@ using UnityEngine.Events;
 
 public class Octopus : MonoBehaviour
 {
-    [SerializeField] private PlayerMove _agentMove;
-
-    [SerializeField] private float knockbackPower = 12f;
-    private float knockbackTime = 0.5f;
-    public bool _canKnockback;
-
-    private BrightFoothold _brightFoothold;
+    [Header("Luminescent Plants Visual Input")]
     [SerializeField] private BrightPlants _brightPlants;
+
+    [Header("Player Input")]
+    [SerializeField] private PlayerMove _PlayerMove;
+
+    [Header("Knockback Setting")]
+    [SerializeField] private float knockbackPower = 12f;
+    public bool _canKnockback;
+    private float knockbackTime = 0.5f;
 
     private float size = 1f;
     public LayerMask targetMask;
 
-    private void Awake()
-    {
-        _brightFoothold = GetComponent<BrightFoothold>();   
-    }
 
     public void BrightnessRange()
     {
@@ -43,10 +41,10 @@ public class Octopus : MonoBehaviour
     {
         if (_canKnockback)
         {
-            _agentMove._isForce = true;
-            _agentMove._rigid.velocity = Vector2.zero;
+            _PlayerMove._isForce = true;
+            _PlayerMove._rigid.velocity = Vector2.zero;
 
-            _agentMove._rigid.AddForce(((Vector2)_agentMove.transform.position - (Vector2)transform.position) * knockbackPower, ForceMode2D.Impulse);
+            _PlayerMove._rigid.AddForce(((Vector2)_PlayerMove.transform.position - (Vector2)transform.position) * knockbackPower, ForceMode2D.Impulse);
 
             StartCoroutine(JumpRoutine());
         }
@@ -54,10 +52,10 @@ public class Octopus : MonoBehaviour
 
     private IEnumerator JumpRoutine() //코루틴 뒤에 무조건 Routine 붙이기!
     {
-        if (_agentMove._isForce)
+        if (_PlayerMove._isForce)
         {
             yield return new WaitForSeconds(knockbackTime);
-            _agentMove._isForce = false;
+            _PlayerMove._isForce = false;
             _canKnockback = false;
         }
     }

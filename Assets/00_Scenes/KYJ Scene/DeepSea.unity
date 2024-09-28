@@ -23378,7 +23378,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 916464469}
     m_Modifications:
     - target: {fileID: 3373733715739930276, guid: 7b1a537b25260544781ff05ad692784b, type: 3}
       propertyPath: m_Name
@@ -23397,12 +23397,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 291688540}
     - target: {fileID: 8935897641292950911, guid: 7b1a537b25260544781ff05ad692784b, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.0630635
+      objectReference: {fileID: 0}
+    - target: {fileID: 8935897641292950911, guid: 7b1a537b25260544781ff05ad692784b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.6504897
+      value: 5.1199136
       objectReference: {fileID: 0}
     - target: {fileID: 8935897641292950911, guid: 7b1a537b25260544781ff05ad692784b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.31598657
+      value: -0.16817604
       objectReference: {fileID: 0}
     - target: {fileID: 8935897641292950911, guid: 7b1a537b25260544781ff05ad692784b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -23441,6 +23445,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7b1a537b25260544781ff05ad692784b, type: 3}
+--- !u!4 &645264719 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8935897641292950911, guid: 7b1a537b25260544781ff05ad692784b, type: 3}
+  m_PrefabInstance: {fileID: 645264718}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &734982149
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23465,6 +23474,10 @@ PrefabInstance:
       propertyPath: brightPlants
       value: 
       objectReference: {fileID: 291688540}
+    - target: {fileID: 6261117938781008619, guid: 7b1a537b25260544781ff05ad692784b, type: 3}
+      propertyPath: footholdBrightnessLevel
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8935897641292950911, guid: 7b1a537b25260544781ff05ad692784b, type: 3}
       propertyPath: m_LocalPosition.x
       value: -7.045409
@@ -23812,9 +23825,17 @@ PrefabInstance:
       objectReference: {fileID: 1653094032}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 2137775179488425848, guid: 42f9fc4446270fb4b8c9b2892e2a3934, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 645264719}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 42f9fc4446270fb4b8c9b2892e2a3934, type: 3}
+--- !u!4 &916464469 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2137775179488425848, guid: 42f9fc4446270fb4b8c9b2892e2a3934, type: 3}
+  m_PrefabInstance: {fileID: 916464468}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &987266589 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2137775179488425848, guid: 42f9fc4446270fb4b8c9b2892e2a3934, type: 3}
@@ -26028,8 +26049,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  brightnessLevel: 0
-  isTure: 0
+  footholdBrightnessLevel: 0
 --- !u!114 &5937266381671316924
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26042,10 +26062,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9caffb3d4aafb874883390e1ecd980fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _agentMove: {fileID: 1653094032}
+  _brightPlants: {fileID: 291688540}
+  _PlayerMove: {fileID: 0}
   knockbackPower: 3
   _canKnockback: 0
-  _brightPlants: {fileID: 291688540}
   targetMask:
     serializedVersion: 2
     m_Bits: 0
@@ -26213,6 +26233,5 @@ SceneRoots:
   - {fileID: 330163331}
   - {fileID: 3268133151884251699}
   - {fileID: 734982149}
-  - {fileID: 645264718}
   - {fileID: 916464468}
   - {fileID: 1620084236}

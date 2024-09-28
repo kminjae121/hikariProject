@@ -13,27 +13,29 @@ public interface IBrightDetection
 
 public class BrightFoothold : MonoBehaviour, IBrightDetection
 {
+    [Header("Luminescent Plants Visual Input")]
     public BrightPlants brightPlants;
 
+    [Header("Luminescent Plants Event")]
     public UnityEvent onInvokeBrightObj;
     public UnityEvent offInvokeBrightObj;
 
-    public float brightnessLevel;
+    [Header("Foothold Setting")]
+    public float footholdBrightnessLevel;
+    public bool isBrightOn { get; set; }
 
     public Action OnBrightnessDetection;
-
-    public bool isTure; // ´êÀ½°¨Áö
-
-    public bool isBrightOn { get; set; }
     public GameObject GameObject => gameObject;
+
+     
 
     public void BrightnessDetection(bool canPlant, float brightStep)
     {
-        if (brightnessLevel == brightStep && canPlant)
+        if (footholdBrightnessLevel == brightStep && canPlant)
         {
             onInvokeBrightObj?.Invoke();
         }
-        if (brightnessLevel != brightStep || !canPlant)
+        if (footholdBrightnessLevel != brightStep || !canPlant)
         {
             offInvokeBrightObj?.Invoke();
         }
