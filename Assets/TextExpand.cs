@@ -39,13 +39,13 @@ public static class TextExpand
         => (style & checkingStyle) > 0;
 
 
-    public static void TextUpDownMove(this TMP_Text text, float time, float fadeoutTime = 2.5f, TextStyle textStyle = default)
+    public static void TextUpDownMove(this TMP_Text text, float time, Color color, float fadeoutTime = 2.5f, TextStyle textStyle = default)
     {
-        text.StartCoroutine(TextUpDownMoveRoutine(text, time, fadeoutTime, textStyle));
+        text.StartCoroutine(TextUpDownMoveRoutine(text, time, color, fadeoutTime, textStyle));
         //TextUpDownMove(parameter, isStart);
     }
 
-    private static IEnumerator TextUpDownMoveRoutine(TMP_Text text, float time, float fadeoutTime, TextStyle textStyle)
+    private static IEnumerator TextUpDownMoveRoutine(TMP_Text text, float time, Color color , float fadeoutTime, TextStyle textStyle)
     {
         Vector3[] startVertices;
         Vector3[] vertices;
@@ -72,7 +72,7 @@ public static class TextExpand
                 if (textStyle.HasStyle(TextStyle.FadeIn))
                 {
                    if (1 - (currTime / time) >= ((i/2) / (float)(vertices.Length/2)))
-                        colors[i] = Color.white;
+                        colors[i] = color;
                     else
                         colors[i] = Color.clear;
                 }

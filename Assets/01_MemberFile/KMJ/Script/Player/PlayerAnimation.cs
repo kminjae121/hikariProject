@@ -61,7 +61,7 @@ public class PlayerAnimation : MonoBehaviour
     }
     private void RunAnimation()
     {
-        if (_inputReader.Movement.x != 0 && isFlower == false)
+        if (_inputReader.Movement.x != 0 && isFlower == false && _playerMove._isJump == true)
         {
             _animator.SetBool("Run", true);
         }

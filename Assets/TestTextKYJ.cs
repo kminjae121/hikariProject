@@ -10,7 +10,7 @@ public class TestTextKYJ : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        text.TextUpDownMove(5f,2.5f,TextStyle.FadeIn);
+        text.TextUpDownMove(5f,Color.white,2.5f,TextStyle.FadeIn);
     }
 
 }
