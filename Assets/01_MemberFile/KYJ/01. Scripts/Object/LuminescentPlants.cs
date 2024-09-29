@@ -5,14 +5,16 @@ using UnityEngine;
 
 public class LuminescentPlants : MonoBehaviour
 {
+    [Header("Player Input")]
     [SerializeField] private Transform _playerTrm;
+    [SerializeField] private InputReader _inputReader;
+
     public bool _isReach;
     public bool _isHold;
 
     public  Action OnPlants;
     private Rigidbody2D _rigidCompo;
 
-    [SerializeField] private InputReader _inputReader;
 
     private void Awake()
     {

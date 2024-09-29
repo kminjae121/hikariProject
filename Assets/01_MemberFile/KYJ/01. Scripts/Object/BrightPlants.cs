@@ -4,31 +4,26 @@ using UnityEngine.Rendering.Universal;
 
 public class BrightPlants : MonoBehaviour
 {
+    [Header("Luminescent Plants Input")]
     [SerializeField]
     private LuminescentPlants luminescentPlants;
     [SerializeField]
     private Light2D _light;
-    private SpriteRenderer _spriteCompo;
+
+    [Header("Player Input")]
     [SerializeField] private PlayerAnimation _playerAnimCompo;
 
-    public int brightStep;
-
-    private int _cut;
-
     [SerializeField] private Collider2D[] _colliders;
-
-    public Vector2 pos;
-    private float size = 3f;
+    [SerializeField] private List<GameObject> _inLightList = new();
     public ContactFilter2D filter;
-
     public bool _isReach;
     public bool canPlant;
+    public int brightStep;
 
-    [SerializeField]
-    private IBrightDetection[] existsNowBrightObj;
 
-    [SerializeField]
-    private List<GameObject> _inLightList = new();
+    private SpriteRenderer _spriteCompo;
+
+    private float size = 3f;
 
 
     private void Awake()
@@ -46,8 +41,6 @@ public class BrightPlants : MonoBehaviour
     private void Start()
     {
         _colliders = new Collider2D[20];
-
-        existsNowBrightObj = GameObject.Find("BrightObjManager").GetComponentsInChildren<IBrightDetection>();
     }
 
     private void Update()

@@ -21,10 +21,6 @@ public class Vine : MonoBehaviour
             speedDown = true;
             player._isVine = true;
         }
-        else
-        {
-            player._isVine = false;
-        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
