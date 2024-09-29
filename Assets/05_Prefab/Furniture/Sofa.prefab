@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4600098469258140024}
   - component: {fileID: 5553984027709340454}
   - component: {fileID: -7622215725821490806}
-  m_Layer: 18
+  m_Layer: 11
   m_Name: Sofa
   m_TagString: CaptureObj
   m_Icon: {fileID: 0}
@@ -100,7 +100,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 7199731060242410248}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: 3923c18b9c6eee34cbd9bbf5a593dc43, type: 2}
+  m_Material: {fileID: 6200000, guid: aebcfca6fdbe3924cabf769ace6164d9, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -152,7 +152,7 @@ MonoBehaviour:
   _boxSize: {x: 3.14, y: 1.1}
   _jumpPower: 15
   _flyingSpeed: 1
-  _downPower: 200
+  _downPower: 20
   _playerLayer:
     serializedVersion: 2
     m_Bits: 8
