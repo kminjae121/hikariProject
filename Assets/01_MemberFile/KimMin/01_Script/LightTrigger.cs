@@ -7,8 +7,10 @@ public class LightTrigger : MonoBehaviour
     [SerializeField] GameObject _target;
 
     private Transform _visual;
-
     private LineRenderer _lineRenderer;
+
+    private bool _isEnabled;
+    private Vector3[] linePos = new Vector3[2];
 
     private void Awake()
     {
@@ -18,17 +20,27 @@ public class LightTrigger : MonoBehaviour
 
     private void Update()
     {
-        DrawingLine();
+        if (_isEnabled)
+            DrawingLine();
     }
 
     private void DrawingLine()
     {
-        _lineRenderer.SetPosition(0, _visual.position);
-        _lineRenderer.SetPosition(1, _target.transform.position);
+        linePos[0] = _visual.position;
+        linePos[1] = _target.transform.position;
+
+        _lineRenderer.positionCount = linePos.Length;
+        _lineRenderer.SetPositions(linePos);
     }
 
     public void OnTargetLight()
     {
+        _isEnabled = true;
+    }
 
+    public void OffTargetLight()
+    {
+        _lineRenderer.positionCount = 0;
+        _isEnabled = false;
     }
 }
