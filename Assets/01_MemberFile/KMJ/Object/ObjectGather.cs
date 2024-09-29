@@ -222,6 +222,7 @@ public class ObjectGather : MonoBehaviour
         yield return new WaitForSeconds(1.3f);
 
         _rigid.AddForce(Vector2.down.normalized * _downPower, ForceMode2D.Impulse);
+
         _playerCam.DOShakePosition(0.01f,0.013f);
     }
 

@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class SoundSlider : MonoBehaviour
 {
     public AudioMixer audioMixer;
-    [SerializeField] private AudioManager _audioManager;
+    //[SerializeField] private AudioManager _audioManager;
     private List<AudioClip> MainAudioClip = new List<AudioClip>();
 
     private void Start()
