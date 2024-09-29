@@ -10,7 +10,7 @@ public class StartUI : MonoBehaviour
     [SerializeField] private Image _titleObj;
     [SerializeField] private TextMeshProUGUI _title;
 
-    [SerializeField] private Image _menuObj;
+    public Image _menuObj;
     [SerializeField] private GameObject[] button;
 
 
@@ -18,8 +18,6 @@ public class StartUI : MonoBehaviour
     {
         TitleUI();
         StartCoroutine(MenuUICoroutine());
-
-        BtnUI();
     }
 
     private void MenuUI()
@@ -32,14 +30,6 @@ public class StartUI : MonoBehaviour
         _titleObj.DOFade(1, 2);
         _title.DOFade(1,2);
         StartCoroutine(TitleCoroutine());
-    }
-
-    private void BtnUI()
-    {
-        for (int i = 0; i < button.Length; i++)
-        {
-            button[i].GetComponent<Image>().DOFade(1, 2);
-        }
     }
 
 
