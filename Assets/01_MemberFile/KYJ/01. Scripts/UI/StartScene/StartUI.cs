@@ -10,8 +10,8 @@ public class StartUI : MonoBehaviour
     [SerializeField] private Image _titleObj;
     [SerializeField] private TextMeshProUGUI _title;
 
-    public Image _menuObj;
-    [SerializeField] private GameObject[] button;
+    public CanvasGroup _menuObj;
+    public CanvasGroup[] button;
 
 
     private void Update()

@@ -27,7 +27,20 @@ public class ButtonUI : MonoBehaviour
 
     public void SoundBtn()
     {
-        startUI._menuObj.gameObject.SetActive(false);
+        startUI._menuObj.DOFade(0.5f, 1);
         soundUI.GetComponent<RectTransform>().DOAnchorPosX(-400, 1);
+    }
+
+    public void BackBtn()
+    {
+        soundUI.GetComponent<RectTransform>().DOAnchorPosX(400, 1);
+        startUI._menuObj.DOFade(1, 1);
+    }
+
+    private IEnumerator BtnCoroutine()
+    {
+        yield return new WaitForSeconds(3f);
+        startUI._menuObj.gameObject.SetActive(false);
+
     }
 }
