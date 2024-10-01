@@ -124,8 +124,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  brightnessLevel: 4
-  isTure: 0
+  footholdBrightnessLevel: 4
 --- !u!114 &4262855961269063802
 MonoBehaviour:
   m_ObjectHideFlags: 0
