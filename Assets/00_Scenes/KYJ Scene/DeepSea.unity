@@ -25661,9 +25661,41 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 734982150}
     m_Modifications:
+    - target: {fileID: 1000471954969409996, guid: 8e59df9eb418d5c46b67b059cc27fb08, type: 3}
+      propertyPath: m_Size.x
+      value: 32
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000471954969409996, guid: 8e59df9eb418d5c46b67b059cc27fb08, type: 3}
+      propertyPath: m_Size.y
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000471954969409996, guid: 8e59df9eb418d5c46b67b059cc27fb08, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: bfa06cf351b1579458aa77af55a2ffb1, type: 3}
+    - target: {fileID: 1000471954969409996, guid: 8e59df9eb418d5c46b67b059cc27fb08, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1602056470752362356, guid: 8e59df9eb418d5c46b67b059cc27fb08, type: 3}
       propertyPath: m_Name
       value: Background
+      objectReference: {fileID: 0}
+    - target: {fileID: 1884780614868610839, guid: 8e59df9eb418d5c46b67b059cc27fb08, type: 3}
+      propertyPath: m_Size.x
+      value: 32
+      objectReference: {fileID: 0}
+    - target: {fileID: 1884780614868610839, guid: 8e59df9eb418d5c46b67b059cc27fb08, type: 3}
+      propertyPath: m_Size.y
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1884780614868610839, guid: 8e59df9eb418d5c46b67b059cc27fb08, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: bfa06cf351b1579458aa77af55a2ffb1, type: 3}
+    - target: {fileID: 1884780614868610839, guid: 8e59df9eb418d5c46b67b059cc27fb08, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3673160336675593515, guid: 8e59df9eb418d5c46b67b059cc27fb08, type: 3}
       propertyPath: _player
