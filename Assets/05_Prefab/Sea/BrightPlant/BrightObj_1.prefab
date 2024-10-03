@@ -99,7 +99,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: -4009111338993628265}
         m_TargetAssemblyTypeName: BrightFlower, Assembly-CSharp
-        m_MethodName: FoldFlower
+        m_MethodName: ExpandFlower
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -114,7 +114,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: -4009111338993628265}
         m_TargetAssemblyTypeName: BrightFlower, Assembly-CSharp
-        m_MethodName: ExpandFlower
+        m_MethodName: FoldFlower
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

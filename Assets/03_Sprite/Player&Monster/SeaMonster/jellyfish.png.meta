@@ -132,7 +132,6 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-<<<<<<< HEAD
   - serializedVersion: 3
     buildTarget: tvOS
     maxTextureSize: 2048
@@ -146,8 +145,6 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-=======
->>>>>>> KMJ
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -155,19 +152,19 @@ TextureImporter:
       name: jellyfish_0
       rect:
         serializedVersion: 2
-        x: 12
-        y: 21
-        width: 38
-        height: 22
+        x: 0
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8308147079f0e8742b44cf5207b74477
-      internalID: 580333965
+      spriteID: 22603e1c7ff921b49afc611ad38968e8
+      internalID: -1069497091
       vertices: []
       indices: 
       edges: []
@@ -176,19 +173,19 @@ TextureImporter:
       name: jellyfish_1
       rect:
         serializedVersion: 2
-        x: 79
-        y: 21
-        width: 34
-        height: 22
+        x: 64
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 021428f5084d01447b4435f04e3e7c70
-      internalID: -1282396849
+      spriteID: 4288a6c83b527fe4d9c55e745a2183ee
+      internalID: -27053749
       vertices: []
       indices: 
       edges: []
@@ -197,19 +194,19 @@ TextureImporter:
       name: jellyfish_2
       rect:
         serializedVersion: 2
-        x: 141
-        y: 21
-        width: 36
-        height: 22
+        x: 128
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6e0bc2957e300c2479e50d64455c6ff9
-      internalID: 1560006766
+      spriteID: 59d6aa39c29d9be4fa9377f6e08ba59d
+      internalID: 860171696
       vertices: []
       indices: 
       edges: []
@@ -218,19 +215,19 @@ TextureImporter:
       name: jellyfish_3
       rect:
         serializedVersion: 2
-        x: 203
-        y: 23
-        width: 41
-        height: 22
+        x: 192
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a647935a67ad50a409cadaa258ad7fa6
-      internalID: 1074125825
+      spriteID: 474ff97ddf4c2f848a68d46d684295ee
+      internalID: 1849912463
       vertices: []
       indices: 
       edges: []
@@ -239,19 +236,19 @@ TextureImporter:
       name: jellyfish_4
       rect:
         serializedVersion: 2
-        x: 268
-        y: 27
-        width: 38
-        height: 19
+        x: 256
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 53a988997eb098547ae884616777cdca
-      internalID: -290673453
+      spriteID: 88339be243182834ea1895ad71c580e5
+      internalID: 1729718669
       vertices: []
       indices: 
       edges: []
@@ -260,19 +257,19 @@ TextureImporter:
       name: jellyfish_5
       rect:
         serializedVersion: 2
-        x: 333
-        y: 27
-        width: 37
-        height: 17
+        x: 320
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bf70a3a4996947e4cb040d66c469f688
-      internalID: 2048749286
+      spriteID: f09265aa0229ae2479fca767c776a7cd
+      internalID: 418426796
       vertices: []
       indices: 
       edges: []
@@ -280,7 +277,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 25073675c3cba0b49b055be872bc7aae
     internalID: 0
     vertices: []
     indices: 
@@ -288,12 +285,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      jellyfish_0: 580333965
-      jellyfish_1: -1282396849
-      jellyfish_2: 1560006766
-      jellyfish_3: 1074125825
-      jellyfish_4: -290673453
-      jellyfish_5: 2048749286
+      jellyfish_0: -1069497091
+      jellyfish_1: -27053749
+      jellyfish_2: 860171696
+      jellyfish_3: 1849912463
+      jellyfish_4: 1729718669
+      jellyfish_5: 418426796
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
