@@ -311,10 +311,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9caffb3d4aafb874883390e1ecd980fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _agentMove: {fileID: 0}
+  _brightPlants: {fileID: 0}
+  _PlayerMove: {fileID: 0}
   knockbackPower: 7
   _canKnockback: 0
-  _brightPlants: {fileID: 0}
   targetMask:
     serializedVersion: 2
     m_Bits: 8
@@ -373,5 +373,4 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  brightnessLevel: 1
-  isTure: 0
+  footholdBrightnessLevel: 2
