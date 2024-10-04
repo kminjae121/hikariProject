@@ -11,19 +11,21 @@ public enum DoorType
 }
 public class Door : MonoBehaviour
 {
+    private StageManager _stageManager;
     private PlayerKeyFalse _playerKeyFalse;
     [SerializeField] private Transform _doorTransform;
     [SerializeField] private Vector2 _boxSize;
     [SerializeField] private LayerMask _player;
     [SerializeField] private DoorType _doorType;
 
-    public static int _currentSceneIndex =1;
+    public static int _currentSceneIndex = 0;
     public bool _isOpen;
     public bool _isClear;
 
 
     private void Awake()
     {
+        _stageManager = GameObject.Find("StageManager").GetComponent<StageManager>();
         _playerKeyFalse = GameObject.Find("PlayerPrefab").GetComponent<PlayerKeyFalse>();
         _isOpen = false;
     }
@@ -53,9 +55,10 @@ public class Door : MonoBehaviour
             else if (Input.GetKeyDown(KeyCode.F))
             {
                 ObjectGather.maxMoveDoolDistance = 6;
-                SceneManager.LoadScene($"CaptureStage{_currentSceneIndex += 1}");
+                _stageManager.stageList[_currentSceneIndex].SetActive(false);
+                _stageManager.stageList[_currentSceneIndex += 1].SetActive(true);
             }
-            else if(_currentSceneIndex >= 3)
+            else if(_currentSceneIndex >= 3 && _currentSceneIndex != 5)
             {
                 _playerKeyFalse.blockKey = true;
             }
@@ -71,7 +74,7 @@ public class Door : MonoBehaviour
             if (_isOpen == true && Input.GetKeyDown(KeyCode.F))
             {
                 ObjectGather.maxMoveDoolDistance = 6;
-                SceneManager.LoadScene($"CaptureStage{_currentSceneIndex += 1}");
+                _currentSceneIndex += 1;
             }
             else if (_currentSceneIndex == 5 && _isOpen == true && Input.GetKeyDown(KeyCode.F))
             {

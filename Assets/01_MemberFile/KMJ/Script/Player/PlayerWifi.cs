@@ -18,8 +18,8 @@ public class PlayerWifi : MonoBehaviour
     private void Start()
     {
         _mySequence = DOTween.Sequence()
-                        .Append(transform.DOMoveX(transform.position.x + 1f, 0.1f))
-                        .Append(transform.DOMoveX(transform.position.x - 0f, 0.1f))
+                        .Append(transform.DOMove(new Vector3(1f, 0, 0), 0.1f))
+                        .Append(transform.DOMove(new Vector3(0, 0, 0), 0.1f))
                         .AppendInterval(1f)
                         .SetLoops(-1, LoopType.Yoyo)
                         .SetAutoKill(false);
@@ -33,7 +33,7 @@ public class PlayerWifi : MonoBehaviour
 
     private void Update()
     {
-        WifiTrue(ButtonManager.IsFireWallTrue);
+        WifiTrue(ButtonManager.IsWifiTrue);
     }
 
     private void WifiTrue(bool IsWifi)
@@ -62,6 +62,6 @@ public class PlayerWifi : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Buffering(ButtonManager.IsFireWallTrue);
+        Buffering(ButtonManager.IsWifiTrue);
     }
 }

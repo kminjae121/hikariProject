@@ -11,7 +11,7 @@ public class ControlPannel : MonoBehaviour
     public void OnPanelClick()
     {
         int index = int.Parse(EventSystem.current.currentSelectedGameObject.name.Substring(0, 1));
-        _currentPanel = _panels[index - 1];
+        _currentPanel = _panels[index - 1]; 
 
         if (_currentPanel != null)
             _currentPanel.SetActive(true);
