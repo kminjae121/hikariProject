@@ -9,6 +9,7 @@ public class DragDropObject : MonoBehaviour , IBeginDragHandler, IDragHandler, I
     private CaptureManager captureManager;
 
     private Image image;
+    public Sprite basicImage;
     private GameObject furnitureObj = null;
     private GameObject furniture;
 
@@ -35,7 +36,7 @@ public class DragDropObject : MonoBehaviour , IBeginDragHandler, IDragHandler, I
         furnitureObj.GetComponent<ObjectGather>().enabled = false;
 
         GetComponent<FurnitureDistince>().placeObjSO = null;
-        GetComponent<Image>().sprite = null;
+        GetComponent<Image>().sprite = basicImage;
         furnitureObj.GetComponent<PlaceObj>().PlaceIt();
     }
 
