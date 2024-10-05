@@ -38,7 +38,7 @@ public class PlaceObj : MonoBehaviour
                 direction: Vector2.down,
                 distance : Mathf.Infinity
             );
-            print(hit.collider.name);
+            //print(hit.collider.name);
 
             placeHelp.transform.position = hit.point;//이거로 배치할 곳 띄우고 배치
 
