@@ -6,6 +6,8 @@ using UnityEngine.EventSystems;
 
 public class AnchorSpawner : MonoBehaviour
 {
+    private PlayerMove _agentMove;
+
     [SerializeField] private GameObject anchorPrefab;
     public Stack<GameObject> AnchorPool = new Stack<GameObject>();
     
@@ -14,19 +16,23 @@ public class AnchorSpawner : MonoBehaviour
 
     [SerializeField] private Transform[] spawnPoints;
 
-    public event Action OnSpawn;
-
     private bool test;
+    private bool tTest;
 
     private void Awake()
     {
+        _agentMove = GameObject.Find("PlayerPrefab").GetComponent<PlayerMove>();
+
         CreatAnchorPool();
     }
 
     private void Update()
     {
         if (!test)
-            AnchorSpawn();  
+            AnchorSpawn();
+
+        if(!tTest)
+            StartCoroutine(JumpRoutine());
     }
 
     private void DestroyAnchor()
@@ -70,5 +76,21 @@ public class AnchorSpawner : MonoBehaviour
         yield return new WaitForSeconds(5f);
         DestroyAnchor();
         test = false;
+    }
+
+    private void KnockbackCoroutine()
+    {
+        if (_agentMove._isForce)
+        {
+            _agentMove._isForce = false;
+        }
+    }
+
+    public IEnumerator JumpRoutine() //코루틴 뒤에 무조건 Routine 붙이기!
+    {
+        tTest = true;
+         yield return new WaitForSeconds(1);
+        _agentMove._isForce = false;
+        tTest = false;
     }
 }
