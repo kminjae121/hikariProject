@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 using UnityEngine.Video;
+using DG.Tweening;
 
 
 public class VIdeoManager : MonoBehaviour
@@ -28,6 +30,17 @@ public class VIdeoManager : MonoBehaviour
     private VideoClip computerClip;
     [SerializeField]
     private GameObject blackPanel;
+
+    [SerializeField]
+    private TextMeshProUGUI text;
+
+
+    private bool sorry;
+    private bool sorry2;
+    private bool sorry3;
+    private bool sorry4;
+    private bool sorry5;
+    private bool sorry6;
 
 
     public void StartHouseVideo()
@@ -62,11 +75,67 @@ public class VIdeoManager : MonoBehaviour
         }
         else
         {
+            if(introVideo.time > 0f && !sorry)
+            {
+                IntroText();
+            }
+            if (introVideo.time > 6f && !sorry2)
+            {
+                FirstIntroText();
+            }
+            if (introVideo.time > 11f && !sorry3)
+            {
+                SecondIntroText();
+            }
+            if (introVideo.time > 18f && !sorry4)
+            {
+                ThirdIntroText();
+            }
             if (introVideo.time > 25f)
             {
                 blackPanel.SetActive(true);
                 StartCoroutine(BlackPanelWateRoutine());
+                text.gameObject.SetActive(false);
             }
+        }
+    }
+
+    public void IntroText()
+    {
+        if (!sorry)
+        {
+            sorry = true;
+            text.TextUpDownMove(3f, Color.white, 2.5f, TextStyle.FadeIn | TextStyle.UI);
+        }
+    }
+
+    public void FirstIntroText()
+    {
+        if(!sorry2)
+        {
+            sorry2 = true;
+            text.text = "이제 슬슬 시작해야겠지?";
+            text.TextUpDownMove(3f, Color.white, 2.5f, TextStyle.FadeIn | TextStyle.UI);
+        }
+    }
+
+    public void SecondIntroText()
+    {
+        if (!sorry3)
+        {
+            sorry3 = true;
+            text.text = "이번에도 늦으면 교수님 얼굴 어떻게 보고살아";
+            text.TextUpDownMove(3f, Color.white, 2.5f, TextStyle.FadeIn | TextStyle.UI);
+        }
+    }
+
+    public void ThirdIntroText()
+    {
+        if (!sorry4)
+        {
+            sorry4 = true;
+            text.text = "그냥 빨리 끝내버리자";
+            text.TextUpDownMove(3f, Color.white, 2.5f, TextStyle.FadeIn | TextStyle.UI);
         }
     }
 
