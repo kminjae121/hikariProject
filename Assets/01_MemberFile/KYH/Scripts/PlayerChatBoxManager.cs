@@ -80,8 +80,6 @@ public class PlayerChatBoxManager : MonoBehaviour
         isPutInTimer = true;
         print("¿ÀÀ×");
         return this;
-
-
     }
 
     private void Hide()
