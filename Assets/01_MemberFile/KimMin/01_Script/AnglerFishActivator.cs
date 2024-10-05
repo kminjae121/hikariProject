@@ -4,12 +4,7 @@ using UnityEngine;
 
 public class AnglerFishActivator : MonoBehaviour
 {
-    private GameObject _anglerFish;
-
-    private void Awake()
-    {
-        _anglerFish = GameObject.Find("AnglerFish");
-    }
+    [SerializeField] private GameObject _anglerFish;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
