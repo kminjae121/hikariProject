@@ -22,6 +22,11 @@ public class Intro : MonoBehaviour
     [SerializeField]
     private GameObject windowScreenNoise;
 
+    [SerializeField]
+    private GameObject[] outLine;
+
+    public GameObject onButton;
+
     public void BlinkTween()
     {
         _background.gameObject.SetActive(true);
@@ -40,10 +45,18 @@ public class Intro : MonoBehaviour
             .JoinCallback(() => particleSystem.Play())
             .Join(blueBackGround.DOColor(new Color(150, 170, 255, 255), 5f))
             .Append(_background.DOFade(0, 0f))
+            .JoinCallback(() => windowScreenNoise.SetActive(true))
+            .JoinCallback(SetActiveOutLine())
+            .JoinCallback(() => onButton.SetActive(true))
             .Append(_glowScreen.DOFade(0, 1.25f))
             .JoinCallback(()=> particleSystem.Stop())
-            //.JoinCallback(() => windowScreenNoise.SetActive(false))
-            //.JoinCallback(() => windowSideVolume.SetActive(false))
             .OnComplete(() => transform.gameObject.SetActive(false));
+    }
+
+    private TweenCallback SetActiveOutLine()
+    {
+        for (int i = 0; i < outLine.Length; i++)
+        { outLine[i].SetActive(true); }
+        return null;
     }
 }

@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using DG.Tweening;
+using Cinemachine;
 
 public class PlayerChatBoxManager : MonoBehaviour
 {
@@ -20,6 +21,10 @@ public class PlayerChatBoxManager : MonoBehaviour
     [SerializeField]
     private PlayerMove playerMove;
     private float currentTimer;
+
+    [SerializeField]
+    private bool isWindowScene;
+
 
     private void Awake()
     {
@@ -73,7 +78,8 @@ public class PlayerChatBoxManager : MonoBehaviour
     public PlayerChatBoxManager Show(string text, float second, bool isMoveStop)
     {
         print("코루틴 실행됨");
-        playerMove._isForce = isMoveStop;
+        if(!isWindowScene)
+            playerMove._isForce = isMoveStop;
         textImage.gameObject.SetActive(true);
         SetText(text, second);
         putInTimer = second;
@@ -84,7 +90,8 @@ public class PlayerChatBoxManager : MonoBehaviour
 
     private void Hide()
     {
-        playerMove._isForce = false;
+        if (!isWindowScene)
+            playerMove._isForce = false;
         textImage.gameObject.SetActive(false);
         isPutInTimer = false;
         currentTimer = 0f;

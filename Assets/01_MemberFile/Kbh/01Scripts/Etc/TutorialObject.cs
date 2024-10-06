@@ -34,6 +34,7 @@ public class TutorialObject : MonoBehaviour
 
    [SerializeField] private TextMeshProUGUI _textDisplay;
    [SerializeField] private Button _selectGuideButton;
+   [SerializeField] private Image _selectGuidePointer;
    private Vector3 _selectGuideStartPosition;
 
    [SerializeField] private TutorialContentStruct[] _tutorialContentList;
@@ -53,11 +54,19 @@ public class TutorialObject : MonoBehaviour
    private TutorialContentStruct _currentContent;
    private float _lastTimeStamp;
 
+    [SerializeField]
+    private TextMeshProUGUI text;
+    [SerializeField]
+    private string FinishText;
+
+    [SerializeField]
+    private TutorialControllPannel tutorial;
+
 
    private void Awake()
    {
       _selectGuideStartPosition
-         = _selectGuideButton.transform.position;
+         = _selectGuidePointer.transform.position;
       Initialize();
    }
 
@@ -77,6 +86,7 @@ public class TutorialObject : MonoBehaviour
    private void EnableAction()
    {
       _selectGuideButton.gameObject.SetActive(true);
+        _selectGuidePointer.gameObject.SetActive(true);
 
       if (_isWithFade)
       {
@@ -103,7 +113,7 @@ public class TutorialObject : MonoBehaviour
       }
 
       _selectGuideButton.image.color = Color.white;
-      _selectGuideButton.transform.position
+        _selectGuidePointer.transform.position
          = _selectGuideStartPosition;
 
       _textDisplay.text = _currentContent.text;
@@ -160,6 +170,11 @@ public class TutorialObject : MonoBehaviour
       {
          _isEnable = false;
          DisableAction();
+            //³¡³µÀ»¶§
+            text.gameObject.SetActive(true);
+            text.text = FinishText;
+            tutorial.ButtonTutorial();
+            gameObject.SetActive(false);
          return;
       }
 
@@ -206,14 +221,14 @@ public class TutorialObject : MonoBehaviour
          {
             _selectGuideButton.interactable = false;
 
-            _selectGuideButton.transform
+                _selectGuidePointer.transform
                .DOMove(_currentContent.btnGoalTrm.position,
                    _btnInterpolationTime).SetEase(_btnInterpolationEase)
                .OnComplete(() => _selectGuideButton.interactable = true);
          }
          else
          {
-            _selectGuideButton.transform.position
+                _selectGuidePointer.transform.position
                = _currentContent.btnGoalTrm.position;
          }
 
@@ -234,6 +249,7 @@ public class TutorialObject : MonoBehaviour
       OnEndEvent?.Invoke();
       _selectGuideButton.onClick.RemoveListener(HandleSelectGuideButtonClick);
       _selectGuideButton.gameObject.SetActive(false);
+        _selectGuidePointer.gameObject.SetActive(false);
 
       if (_isWithFade)
       {

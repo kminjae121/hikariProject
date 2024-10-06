@@ -55,6 +55,17 @@ public class Door : MonoBehaviour
             else if (Input.GetKeyDown(KeyCode.F))
             {
                 ObjectGather.maxMoveDoolDistance = 6;
+
+                GameObject[] CloneObjects = FindObjectsOfType<GameObject>();
+
+                foreach (GameObject Cloneobj in CloneObjects)
+                {
+                    if (Cloneobj.name.Contains("Clone"))
+                    {
+                        Cloneobj.SetActive(false);
+                    }
+                }
+
                 _stageManager.stageList[_currentSceneIndex].SetActive(false);
                 _stageManager.stageList[_currentSceneIndex += 1].SetActive(true);
             }

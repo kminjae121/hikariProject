@@ -451,6 +451,7 @@ MonoBehaviour:
   _isTransition: 0
   _textDisplay: {fileID: 1985297488645233652}
   _selectGuideButton: {fileID: 813705323734675954}
+  _selectGuidePointer: {fileID: 0}
   _tutorialContentList:
   - text: It is Start Text Please Click Button
     nextOverType: 2
@@ -1042,8 +1043,8 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 3649250778092663722}
   - {fileID: 2331217381515606429}
+  - {fileID: 3649250778092663722}
   - {fileID: 3202775861918349632}
   - {fileID: 2637756313935609144}
   m_Father: {fileID: 2254770366287524980}
@@ -1296,8 +1297,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1333664240437310635}
   - {fileID: 7789161052387913707}
+  - {fileID: 1333664240437310635}
   m_Father: {fileID: 2331217381515606429}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}

@@ -7,7 +7,6 @@ public class Anchor : MonoBehaviour
     private PlayerMove _agentMove;
 
     [SerializeField] private float knockbackPower = 12f;
-    private float knockbackTime = 0.5f;
 
     private void Awake()
     {
@@ -18,8 +17,8 @@ public class Anchor : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            if(!_agentMove._isForce)
-            KnockedBack(_agentMove.transform.position);
+            if (!_agentMove._isForce)
+                KnockedBack(_agentMove.transform.position);
         }
     }
 
@@ -29,16 +28,5 @@ public class Anchor : MonoBehaviour
         _agentMove._rigid.velocity = Vector2.zero;
 
         _agentMove._rigid.AddForce((playerDirection - (Vector2)transform.position) * knockbackPower, ForceMode2D.Impulse);
- 
-        StartCoroutine(JumpRoutine());
-    }
-
-    private IEnumerator JumpRoutine() //코루틴 뒤에 무조건 Routine 붙이기!
-    {
-        if(_agentMove._isForce)
-        {
-            yield return new WaitForSeconds(knockbackTime);
-            _agentMove._isForce = false;
-        }
     }
 }

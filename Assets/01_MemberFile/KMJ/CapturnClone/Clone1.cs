@@ -55,16 +55,16 @@ public class Clone1 : MonoBehaviour
         }
         else
         {
-            placeObj.placeHelp.GetComponent<CaptureObject>().CaptureFinish(captureManager.inventoryIdx);
-            if (captureManager.inventoryIdx != 5)
-            {
-                captureManager.inventoryIdx++;
-            }
-            else
-            {
-                captureManager.inventoryIdx = 0;
-            }
-            Destroy(placeObj.placeHelp);
+           // placeObj.placeHelp.GetComponent<CaptureObject>().CaptureFinish(CaptureManager.inventoryIdx);
+           // if (CaptureManager.inventoryIdx != 5)
+          //  {
+            //    CaptureManager.inventoryIdx++;
+         //   }
+         //   else
+         //   {
+          //      CaptureManager.inventoryIdx = 0;
+         //   }
+         //   Destroy(placeObj.placeHelp);
         }
 
         placeObj.isPlaceStart = false;
