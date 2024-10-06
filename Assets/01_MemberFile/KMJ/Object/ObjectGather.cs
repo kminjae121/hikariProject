@@ -179,13 +179,11 @@ public class ObjectGather : MonoBehaviour
             _rigid.velocity = Vector2.zero;
         }
 
-        else if (hit == true && maxMoveDoolDistance >= 0)
+        else if (hit == true)
         {
             animator.SetBool("Walk", true);
             _rigid.velocity = Vector2.zero;
             _rigid.AddForce(Vector2.right * _flyingSpeed * multiplier, ForceMode2D.Impulse);
-
-            maxMoveDoolDistance -= Time.deltaTime;
         }
     }
 

@@ -13,7 +13,8 @@ public class SoundSlider : MonoBehaviour
 
     private void Start()
     {
-       // AudioManager.Instance.PlaySound2D();
+        SetBackGroundMusicVolume(80);
+        SetBackGroundMusicVolume(80);
     }
     private void Update()
     {

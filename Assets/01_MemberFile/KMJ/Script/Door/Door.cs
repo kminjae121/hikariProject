@@ -1,7 +1,4 @@
 using UnityEngine;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine.SceneManagement;
 
 
 public enum DoorType
@@ -17,6 +14,9 @@ public class Door : MonoBehaviour
     [SerializeField] private Vector2 _boxSize;
     [SerializeField] private LayerMask _player;
     [SerializeField] private DoorType _doorType;
+    private ButtonManager _btnManager;
+
+    private GameObject _esc;
 
     public static int _currentSceneIndex = 0;
     public bool _isOpen;
@@ -25,20 +25,29 @@ public class Door : MonoBehaviour
 
     private void Awake()
     {
+        _esc = GameObject.Find("EscCanvas");
         _stageManager = GameObject.Find("StageManager").GetComponent<StageManager>();
+
         _playerKeyFalse = GameObject.Find("PlayerPrefab").GetComponent<PlayerKeyFalse>();
+
         _isOpen = false;
     }
 
+    private void Start()
+    {
+        _btnManager = GameObject.Find("EscParent").GetComponent<ButtonManager>();
+    }
     private void LateUpdate()
     {
         if (_doorType == DoorType.Normal)
         {
             NormalDoor();
+            NextStage();
         }
-        else if(_doorType == DoorType.lockdoor)
+        else if (_doorType == DoorType.lockdoor)
         {
             LockDoor();
+            NextStage();
         }
     }
 
@@ -48,10 +57,12 @@ public class Door : MonoBehaviour
 
         if (hit == true)
         {
-            if(_currentSceneIndex == 5)
+            if (_currentSceneIndex == 5)
             {
+                _playerKeyFalse.blockKey = false;
                 return;
             }
+
             else if (Input.GetKeyDown(KeyCode.F))
             {
                 ObjectGather.maxMoveDoolDistance = 6;
@@ -65,13 +76,21 @@ public class Door : MonoBehaviour
                         Cloneobj.SetActive(false);
                     }
                 }
-
-                _stageManager.stageList[_currentSceneIndex].SetActive(false);
-                _stageManager.stageList[_currentSceneIndex += 1].SetActive(true);
             }
-            else if(_currentSceneIndex >= 3 && _currentSceneIndex != 5)
+            else if (_currentSceneIndex == 3)
             {
                 _playerKeyFalse.blockKey = true;
+            }
+
+            else if(_currentSceneIndex ==4)
+            {
+                _btnManager.isEscFalse = true;
+                _esc.SetActive(false);
+            }
+            else
+            {
+                _esc.SetActive(true);
+                _btnManager.isEscFalse = false;
             }
         }
     }
@@ -90,6 +109,20 @@ public class Door : MonoBehaviour
             else if (_currentSceneIndex == 5 && _isOpen == true && Input.GetKeyDown(KeyCode.F))
             {
                 //SceneManager.LoadScene("¥Ÿ¿Ω æ¿");
+            }
+        }
+    }
+
+    private void NextStage()
+    {
+        Collider2D hit = Physics2D.OverlapBox(_doorTransform.position, _boxSize, 0, _player);
+
+        if(hit == true)
+        {
+            if(Input.GetKeyDown(KeyCode.F))
+            {
+                _stageManager.stageList[_currentSceneIndex].SetActive(false);
+                _stageManager.stageList[_currentSceneIndex += 1].SetActive(true);
             }
         }
     }

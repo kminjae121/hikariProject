@@ -34,19 +34,7 @@ public class SoundManager : MonoBehaviour
             case "WindowScene":
                 music2.Play();
                 break;
-            case "CaptureStage1":
-                music1.Play();
-                break;
-            case "CaptureStage2":
-                music1.Play();
-                break;
-            case "CaptureStage3":
-                music1.Play();
-                break;
-            case "CaptureStage4":
-                music1.Play();
-                break;
-            case "CaptureStage5":
+            case "CaptureStage":
                 music1.Play();
                 break;
             case "SeaScene":
