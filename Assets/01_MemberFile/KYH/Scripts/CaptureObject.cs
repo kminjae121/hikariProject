@@ -29,7 +29,7 @@ public class CaptureObject : MonoBehaviour
             gameObject.GetComponent<ObjectGather>().enabled = false;
 
         DoTweenSequence(sprite);
-        GameObject furniture = GameObject.Find("App" + invenIdx);
+        Transform furniture = GameObject.Find("Gallury").transform.GetChild(invenIdx);
         furniture.GetComponent<FurnitureDistince>().placeObjSO = captureSprite; 
         Image appImage = furniture.GetComponent<Image>();
         appImage.sprite = captureSprite.sprite;
