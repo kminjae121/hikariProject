@@ -8,10 +8,10 @@ public class DragDropObject : MonoBehaviour , IBeginDragHandler, IDragHandler, I
 {
     private CaptureManager captureManager;
 
-    private Image image;
-    public Sprite basicImage;
-    private GameObject furnitureObj = null;
-    private GameObject furniture;
+    private  Image image;
+    public  Sprite basicImage;
+    private  GameObject furnitureObj = null;
+    private  GameObject furniture;
 
     [HideInInspector] public Transform parentAfterDrag;
 
@@ -54,6 +54,7 @@ public class DragDropObject : MonoBehaviour , IBeginDragHandler, IDragHandler, I
         PlaceObj placeObj = furnitureObj.GetComponent<PlaceObj>();
         if(furnitureObj.GetComponent<PlaceObj>().isPlaceTure)
         {
+            CaptureManager.inventoryIdx -= 1;
             placeObj.placeHelp.GetComponent<ObjectGather>().enabled = true;
             placeObj.placeHelp.GetComponent<BoxCollider2D>().enabled = true;
             placeObj.placeHelp.GetComponent<Rigidbody2D>().simulated = true;
@@ -61,16 +62,16 @@ public class DragDropObject : MonoBehaviour , IBeginDragHandler, IDragHandler, I
         }
         else if(!furnitureObj.GetComponent<PlaceObj>().isPlaceTure)
         {
-            placeObj.placeHelp.GetComponent<CaptureObject>().CaptureFinish(captureManager.inventoryIdx);
-            if (captureManager.inventoryIdx != 5)
-            {
-                captureManager.inventoryIdx++;
-            }
-            else
-            {
-                captureManager.inventoryIdx = 0;
-            }
-                Destroy(placeObj.placeHelp);
+            placeObj.placeHelp.GetComponent<CaptureObject>().CaptureFinish(CaptureManager.inventoryIdx);
+           // if (CaptureManager.inventoryIdx != 7)
+           // {
+            //    CaptureManager.inventoryIdx++;
+           // }
+          //  else
+          //  {
+          //      CaptureManager.inventoryIdx = 0;
+         //    }
+            Destroy(placeObj.placeHelp);
         }
 
         placeObj.isPlaceStart = false;
