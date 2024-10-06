@@ -9,6 +9,8 @@ public class GameManager : MonoSingleton<GameManager>
     public Action OnClickDown;
     public Action OnClickUp;
 
+    public bool isFinishIntro;
+    public bool isFinishTutorial;
     public bool isClearSea;
     public bool isCapture;
 

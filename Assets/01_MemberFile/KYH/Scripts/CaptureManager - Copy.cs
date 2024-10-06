@@ -1,4 +1,3 @@
-using System.Collections;
 using UnityEngine;
 
 public class CaptureManager : MonoBehaviour
@@ -14,19 +13,29 @@ public class CaptureManager : MonoBehaviour
     private Vector2 mousePos;
     private bool isNowCapture;
 
-    public int inventoryIdx;
+    public static int inventoryIdx;
     [SerializeField] private Transform _captureCollection;
 
 
     private void Awake()
-    {   
+    {
         isNowCapture = false;
+    }
+
+    private void Start()
+    {
+        inventoryIdx = -1;
     }
     private void Update()
     {
+        Debug.Log(inventoryIdx);
         MouseFollow();
         Capture();
         _captureBoxImage.transform.position = transform.position;
+        if (inventoryIdx >= 7)
+        {
+            inventoryIdx = -1;
+        }
     }
 
     private void MouseFollow()
@@ -52,7 +61,7 @@ public class CaptureManager : MonoBehaviour
             {
                 print("캡쳐할 물cprk djqttmq니다");
                 isNowCapture = false;
-            }  
+            }
         }
     }
 
@@ -60,26 +69,25 @@ public class CaptureManager : MonoBehaviour
     {
         for (int i = 0; i < captureObject.Length; i++)
         {
-            if (inventoryIdx < 6)
+            if (inventoryIdx <= 6)
             {
-                captureObject[i].GetComponent<CaptureObject>().CaptureFinish(inventoryIdx);
-                inventoryIdx++;
-
-            }
-            else
-            {
-                inventoryIdx = 0;
+                inventoryIdx += 1;
                 captureObject[i].GetComponent<CaptureObject>().CaptureFinish(inventoryIdx);
             }
+            //else
+           // {
+                //inventoryIdx = 0;
+            //    captureObject[i].GetComponent<CaptureObject>().CaptureFinish(inventoryIdx);
+           // }
         }
     }
 
     //private IEnumerator WaitCaptureRoutine()
     //{
-      //  isNowCapture = true;
-      //  yield return new WaitForSeconds(1f);
-      //  isNowCapture = false;
-  //  }
+    //  isNowCapture = true;
+    //  yield return new WaitForSeconds(1f);
+    //  isNowCapture = false;
+    //  }
 
     private void OnDrawGizmos()
     {

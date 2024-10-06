@@ -12,6 +12,12 @@ public class OpenControlPanel : MonoBehaviour
     {
         _isTrue = true;
     }
+
+    private void Start()
+    {
+        _isTrue = true;
+    }
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape) && _isTrue == true)
