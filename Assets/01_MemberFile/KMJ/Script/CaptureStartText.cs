@@ -16,19 +16,18 @@ public class CaptureStartText : MonoBehaviour
 
     private void Start()
     {
-        _text.TextUpDownMove(7f, Color.black, 2.4f,TextStyle.Moving | TextStyle.UI | TextStyle.FadeIn);
+        _text.TextUpDownMove(5f, Color.black, 2.4f,TextStyle.Moving | TextStyle.UI | TextStyle.FadeIn);
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
-            _textMember.SetActive(false);
+        StartCoroutine(Wait());
     }
 
     
     IEnumerator Wait()
     {
-        yield return new WaitForSeconds(8);
+        yield return new WaitForSeconds(7);
         _textMember.SetActive(false);
     }
 
