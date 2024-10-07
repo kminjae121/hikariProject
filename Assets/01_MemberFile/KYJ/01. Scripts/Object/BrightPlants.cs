@@ -52,14 +52,22 @@ public class BrightPlants : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.I))
         {
-            _light.intensity = Mathf.Clamp(_light.intensity, 0.1f, 0.4f);
+            _light.intensity = Mathf.Clamp(_light.intensity, 0f, 0.4f);
+
+            if (_light.intensity >= 0.4f)
+                return;
+
             _light.intensity += 0.1f;
             brightStep = (int)(_light.intensity * 10);
             print(brightStep);
         }
         else if (Input.GetKeyDown(KeyCode.U))
         {
-            _light.intensity = Mathf.Clamp(_light.intensity, 0.1f, 0.4f);
+            _light.intensity = Mathf.Clamp(_light.intensity, 0f, 0.4f);
+
+            if (_light.intensity <= 0)
+                return;
+
             _light.intensity -= 0.1f;
             brightStep = (int)(_light.intensity * 10);
             print(brightStep);
