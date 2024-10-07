@@ -16,6 +16,10 @@ public class ThirdStageTxt : MonoBehaviour
 
     private void Start()
     {
+    }
+
+    private void OnEnable()
+    {
         PlayerChatBoxManager.Instance.Show("바이러스가 점프를 막았어!", 3, true)
             .Show("선풍기를 활용해 소파위를 올라가자!", 3.5f, true)
             .End();

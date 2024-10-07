@@ -101,7 +101,7 @@ public class Door : MonoBehaviour
 
         if (hit == true)
         {
-            if (_isOpen == true && Input.GetKeyDown(KeyCode.F))
+            if (_isOpen == true && Input.GetKey(KeyCode.F))
             {
                 ObjectGather.maxMoveDoolDistance = 6;
                 _currentSceneIndex += 1;
@@ -119,7 +119,7 @@ public class Door : MonoBehaviour
 
         if(hit == true)
         {
-            if(Input.GetKeyDown(KeyCode.F))
+            if(Input.GetKey(KeyCode.F))
             {
                 _stageManager.stageList[_currentSceneIndex].SetActive(false);
                 _stageManager.stageList[_currentSceneIndex += 1].SetActive(true);
