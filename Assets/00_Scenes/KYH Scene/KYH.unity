@@ -247,6 +247,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6149800724902117942, guid: 38180baaba2da8c468af8c5fe13dbc68, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 1475075867}
     - target: {fileID: 6470908188322047499, guid: 38180baaba2da8c468af8c5fe13dbc68, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

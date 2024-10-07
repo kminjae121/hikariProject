@@ -12,8 +12,6 @@ public class StartUI : MonoBehaviour
 
     public CanvasGroup _menuObj;
     public CanvasGroup[] button;
-
-
     private void Update()
     {
         TitleUI();
@@ -22,7 +20,8 @@ public class StartUI : MonoBehaviour
 
     private void MenuUI()
     {
-        _menuObj.GetComponent<RectTransform>().DOAnchorPosX(-400,1);
+        _menuObj.GetComponent<RectTransform>().DOAnchorPosX(-400, 1);
+        
     }
 
     private void TitleUI()
