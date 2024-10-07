@@ -95,13 +95,16 @@ public class PlayerMove : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(!_isForce)
+        if(!_isForce && OpenControlPanel._isTrue == true)
         {
             if (isSwimming)
                 Swimming(_swimSpeed);
             else
                 PlayerMovement(_moveSpeed);
         }
+
+        if (OpenControlPanel._isTrue == true)
+            _rigid.velocity = Vector2.zero;
     }
 
     private void OnDrawGizmos()
