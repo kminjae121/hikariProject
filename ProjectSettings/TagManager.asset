@@ -17,6 +17,7 @@ TagManager:
   - KeyHole
   - SavePos
   - ResetPos
+  - curserTag
   layers:
   - Default
   - TransparentFX

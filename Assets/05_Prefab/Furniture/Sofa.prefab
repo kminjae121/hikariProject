@@ -152,7 +152,7 @@ MonoBehaviour:
   _boxSize: {x: 3.14, y: 1.1}
   _jumpPower: 15
   _flyingSpeed: 1
-  _downPower: 20
+  _downPower: 150
   _playerLayer:
     serializedVersion: 2
     m_Bits: 8

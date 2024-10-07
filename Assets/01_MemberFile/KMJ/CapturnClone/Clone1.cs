@@ -39,6 +39,7 @@ public class Clone1 : MonoBehaviour
     public void OnDrag(PointerEventData eventData)
     {
         Vector2 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
         furnitureObj.transform.position = pos;
 
         print(furnitureObj.transform.position);
