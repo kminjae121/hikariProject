@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerAnimation : MonoBehaviour
@@ -9,11 +6,12 @@ public class PlayerAnimation : MonoBehaviour
     [SerializeField] private InputReader _inputReader;
     private Animator _animator;
     private SpriteRenderer _spriteCompo;
+    public bool _isAnimator { get; set; }
     [field: SerializeField] public bool isFlower { get; set; }
-    
+
 
     private void Awake()
-    { 
+    {
         _spriteCompo = GetComponent<SpriteRenderer>();
         _animator = GetComponent<Animator>();
     }
@@ -31,7 +29,7 @@ public class PlayerAnimation : MonoBehaviour
 
     private void ChangeAnimation()
     {
-        if(isFlower)
+        if (isFlower && _isAnimator == true)
         {
             _animator.SetLayerWeight(0, 1f);
             _animator.SetLayerWeight(1, 1f);
@@ -46,11 +44,11 @@ public class PlayerAnimation : MonoBehaviour
 
     private void PlayerFilpX()
     {
-        if (_inputReader.Movement.x < 0)
+        if (_inputReader.Movement.x < 0 && _isAnimator == true)
         {
             _spriteCompo.flipX = true;
         }
-        else if (_inputReader.Movement.x == 0 && _spriteCompo.flipX == true)
+        else if (_inputReader.Movement.x == 0 && _spriteCompo.flipX == true && _isAnimator == true)
         {
             _spriteCompo.flipX = true;
         }
@@ -61,7 +59,7 @@ public class PlayerAnimation : MonoBehaviour
     }
     private void RunAnimation()
     {
-        if (_inputReader.Movement.x != 0 && isFlower == false && _playerMove._isJump == true)
+        if (_inputReader.Movement.x != 0 && isFlower == false && _playerMove._isJump == true && _isAnimator == true)
         {
             _animator.SetBool("Run", true);
         }
@@ -73,14 +71,14 @@ public class PlayerAnimation : MonoBehaviour
 
     private void JumpAniamtion()
     {
-        if(_playerMove._isJump == false && isFlower == false)
+        if (_playerMove._isJump == false && isFlower == false && _isAnimator == true)
         {
             _animator.SetBool("Jump", true);
         }
         else
         {
             _animator.SetBool("Jump", false);
-        }    
+        }
     }
 
 
@@ -107,7 +105,7 @@ public class PlayerAnimation : MonoBehaviour
 
     private void SwimAnimation()
     {
-        if(_playerMove.isSwimming == true)
+        if (_playerMove.isSwimming == true && _isAnimator == true)
         {
             _spriteCompo.flipX = false;
             _animator.SetLayerWeight(0, 0f);

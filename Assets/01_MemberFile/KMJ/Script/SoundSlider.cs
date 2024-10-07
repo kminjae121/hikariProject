@@ -11,10 +11,8 @@ public class SoundSlider : MonoBehaviour
     //[SerializeField] private AudioManager _audioManager;
     private List<AudioClip> MainAudioClip = new List<AudioClip>();
 
-    private void Start()
+    private void Awake()
     {
-        SetBackGroundMusicVolume(80);
-        SetBackGroundMusicVolume(80);
     }
     private void Update()
     {
