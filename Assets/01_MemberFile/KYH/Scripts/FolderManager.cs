@@ -42,6 +42,9 @@ public class FolderManager : MonoBehaviour
     [SerializeField]
     private AppDescription appDescription;
 
+    [SerializeField]
+    private MouseDrageDrop mouseDrageDrop;
+
     private void Awake()
     {
             playerAnimator = GameObject.Find("PlayerAnimation").GetComponent<Animator>();
@@ -79,9 +82,13 @@ public class FolderManager : MonoBehaviour
     {
         Collider2D hit = Physics2D.OverlapCircle(UtillClass.GetMousePointerPosition(), holdingRadius, whatIsApp);
 
-        if (hit)
+        if (hit && !QuestPopUp.isQuestHold)
         {
-            if (hit.CompareTag("Lock"))
+            if(hit.CompareTag("PopUp"))
+            {
+                hit.GetComponent<PopupPrefab>().DragChecker(hit);
+            }
+            else if (hit.CompareTag("Lock"))
             {
                 hit.gameObject.GetComponent<LockfadeIn>().LockFade();
             }
@@ -95,6 +102,10 @@ public class FolderManager : MonoBehaviour
             {
                 print("´©¸§");
                 GameObject.Find("OnButton(UsingNameIn<FolderManager>)").GetComponent<OnButton>().ActiveSettingPanel();
+            }
+            else if (hit.CompareTag("Player") && GameManager.Instance.isFinishTutorial)
+            {
+                mouseDrageDrop.MousePosRay(hit);
             }
         }
     }
@@ -112,7 +123,7 @@ public class FolderManager : MonoBehaviour
 
         if (Input.GetMouseButtonUp(0))
         {
-            if (player)
+            if (player && putStation)
             {
                 settingCamera.Priority = 2;
                 settingButton.holdObject.transform.SetParent(usingApp);
@@ -148,10 +159,6 @@ public class FolderManager : MonoBehaviour
         if (settingButton.holdObject == null) return;
         Gizmos.color = Color.red;
         Gizmos.DrawWireCube(settingButton.holdObject.transform.position, boxSize);
-        Gizmos.color = Color.white;
-
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(UtillClass.GetMousePointerPosition(), holdingRadius);
         Gizmos.color = Color.white;
     }
 
