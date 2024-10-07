@@ -7,6 +7,14 @@ public class ControlPannel : MonoBehaviour
 {
     [SerializeField] private GameObject[] _panels;
     private GameObject _currentPanel;
+    private PlayerAnimation _playerAnimator;
+    private PlayerMove _playerMove;
+
+    private void Awake()
+    {
+        _playerAnimator = GameObject.Find("PlayerAnimation").GetComponent<PlayerAnimation>();
+        _playerMove = GameObject.Find("PlayerPrefab").GetComponent<PlayerMove>();
+    }
 
     public void OnPanelClick()
     {
@@ -25,6 +33,8 @@ public class ControlPannel : MonoBehaviour
 
     public void OnCloseClick()
     {
+        _playerAnimator._isAnimator = true;
+        _playerMove._isForce = false;
         OpenControlPanel._isTrue = true;
         gameObject.SetActive(false);
     }
