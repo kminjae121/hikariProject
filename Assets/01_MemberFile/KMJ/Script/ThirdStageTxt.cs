@@ -16,7 +16,13 @@ public class ThirdStageTxt : MonoBehaviour
 
     private void Start()
     {
-        _text.TextUpDownMove(7f, Color.red, 2.4f, TextStyle.Moving | TextStyle.UI | TextStyle.FadeIn);
+    }
+
+    private void OnEnable()
+    {
+        PlayerChatBoxManager.Instance.Show("바이러스가 점프를 막았어!", 3, true)
+            .Show("선풍기를 활용해 소파위를 올라가자!", 3.5f, true)
+            .End();
     }
 
     private void Update()

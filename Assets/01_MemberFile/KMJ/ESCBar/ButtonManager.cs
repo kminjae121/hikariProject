@@ -1,10 +1,8 @@
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 using TMPro;
-    
+using UnityEngine;
+using UnityEngine.UI;
+
 public class ButtonManager : MonoSingleton<ButtonManager>
 {
     private static int _mainvalue;
@@ -23,8 +21,11 @@ public class ButtonManager : MonoSingleton<ButtonManager>
     [SerializeField] public RawImage _fireWallManager;
     public static bool IsFireWallTrue = false;
     [Header("Wifi")]
-    [SerializeField] private  TextMeshProUGUI _wifiCollectText;
-    [SerializeField] private  SpriteRenderer _wifiRenderer;
+    [SerializeField] private TextMeshProUGUI _wifiCollectText;
+    [SerializeField] private SpriteRenderer _wifiRenderer;
+    [SerializeField] private Sprite _falsewifiRenderer;
+
+    [field: SerializeField] public bool isEscFalse;
     [field: SerializeField] public static bool IsWifiTrue { get; set; } = false;
     [SerializeField] public Animator _wifiAniamtion;
     [Header("Sound")]
@@ -40,6 +41,8 @@ public class ButtonManager : MonoSingleton<ButtonManager>
 
     private void Awake()
     {
+        isEscFalse = false;
+
         _esc.SetActive(false);
 
         _randomInt = Random.Range(1, 4);
@@ -53,32 +56,17 @@ public class ButtonManager : MonoSingleton<ButtonManager>
 
     private void Update()
     {
-        _currentTime += Time.deltaTime;
-
-        if (_currentTime >= 180)
+        if (isEscFalse)
         {
-            switch (_randomInt)
+            _currentTime += Time.deltaTime;
+
+            if (_currentTime >= 20)
             {
-                case 1:
-                    _currentTime = 0;
-                    IsWifiTrue = false;
-                    _randomInt = Random.Range(1, 5);
-                    break;
-                case 2:
-                    _currentTime = 0;
-                    _randomInt = Random.Range(1, 5);
-                    break;
-                case 3:
-                    IsFireWallTrue = false;
-                    _currentTime = 0;
-                    _randomInt = Random.Range(1, 5);
-                    break;
-                default:
-                    _currentTime = 0;
-                    _randomInt = Random.Range(1, 5);
-                    break;
+                _currentTime = 0;
+                IsWifiTrue = false;
             }
         }
+
         _mainvalue = (int)_MainmusicSlider.value;
         _effectvalue = (int)_EffectmusicSlider.value;
 
@@ -93,7 +81,7 @@ public class ButtonManager : MonoSingleton<ButtonManager>
             _fireWallTrueText.color = Color.green;
             _fireWallTrueText.SetText("¿¬°áµÊ");
         }
-        else if (IsFireWallTrue == false )
+        else if (IsFireWallTrue == false)
         {
             _fireWallManager.texture = _falseFireWallSprtie;
             _fireWallManager.color = Color.red;
@@ -106,25 +94,28 @@ public class ButtonManager : MonoSingleton<ButtonManager>
             _wifiCollectText.SetText("¿¬°áµÊ");
             _wifiCollectText.color = Color.green;
             _wifiAniamtion.enabled = true;
+            _wifiAniamtion.gameObject.GetComponent<Image>().color = Color.white;
         }
         else if (IsWifiTrue == false)
         {
+            _wifiRenderer.sprite = _falsewifiRenderer;
             _wifiCollectText.SetText("¿¬°á ¾ÈµÊ");
             _wifiCollectText.color = Color.red;
             _wifiAniamtion.enabled = false;
+            _wifiAniamtion.gameObject.GetComponent<Image>().color = Color.gray;
         }
     }
 
     public void FireWall()
     {
-        if(IsFireWallTrue == true)
+        if (IsFireWallTrue == true)
         {
             IsFireWallTrue = false;
         }
         else
         {
             IsFireWallTrue = true;
-        }    
+        }
     }
 
     public void WifiTrue()

@@ -11,9 +11,8 @@ public class SoundSlider : MonoBehaviour
     //[SerializeField] private AudioManager _audioManager;
     private List<AudioClip> MainAudioClip = new List<AudioClip>();
 
-    private void Start()
+    private void Awake()
     {
-       // AudioManager.Instance.PlaySound2D();
     }
     private void Update()
     {

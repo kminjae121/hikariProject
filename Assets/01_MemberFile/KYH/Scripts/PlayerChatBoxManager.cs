@@ -4,12 +4,14 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using DG.Tweening;
+using Cinemachine;
 
 public class PlayerChatBoxManager : MonoBehaviour
 {
     private TextMeshProUGUI _text;
     private Image textImage;
 
+    private PlayerAnimation _playerAnimator;
     public static PlayerChatBoxManager Instance { get; private set; }
 
     private bool isPutInTimer;
@@ -21,6 +23,10 @@ public class PlayerChatBoxManager : MonoBehaviour
     private PlayerMove playerMove;
     private float currentTimer;
 
+    [SerializeField]
+    private bool isWindowScene;
+
+
     private void Awake()
     {
         if (Instance == null)
@@ -30,7 +36,10 @@ public class PlayerChatBoxManager : MonoBehaviour
 
         _text = GetComponentInChildren<TextMeshProUGUI>();
         textImage = GetComponentInChildren<Image>();
+        _playerAnimator = GameObject.Find("PlayerAnimation").GetComponent<PlayerAnimation>();
+
         Hide();
+
     }
 
     public void SetText(string text, float second)
@@ -73,19 +82,23 @@ public class PlayerChatBoxManager : MonoBehaviour
     public PlayerChatBoxManager Show(string text, float second, bool isMoveStop)
     {
         print("ÄÚ·çÆ¾ ½ÇÇàµÊ");
-        playerMove._isForce = isMoveStop;
+        if(!isWindowScene)
+            playerMove._isForce = isMoveStop;
         textImage.gameObject.SetActive(true);
         SetText(text, second);
         putInTimer = second;
         isPutInTimer = true;
+        _playerAnimator._isAnimator = false;
         print("¿ÀÀ×");
         return this;
     }
 
     private void Hide()
     {
-        playerMove._isForce = false;
+        if (!isWindowScene)
+            playerMove._isForce = false;
         textImage.gameObject.SetActive(false);
+        _playerAnimator._isAnimator = true;
         isPutInTimer = false;
         currentTimer = 0f;
         return;

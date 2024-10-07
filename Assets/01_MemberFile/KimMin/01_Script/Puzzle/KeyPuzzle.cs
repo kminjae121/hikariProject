@@ -45,7 +45,7 @@ public class KeyPuzzle : MonoBehaviour
     {
         if (isHoleHit && hasKey)
         {
-            if (Input.GetKeyDown(KeyCode.E))
+            if (Input.GetKeyDown(KeyCode.F))
                 OnKeyEnter();
         }
     }

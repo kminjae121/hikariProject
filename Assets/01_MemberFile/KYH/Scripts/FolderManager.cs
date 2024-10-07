@@ -35,6 +35,16 @@ public class FolderManager : MonoBehaviour
     private Transform usingApp;
     public bool isDisableOnButton;
 
+    [SerializeField]
+    private GameObject gameScriptManager;
+    [SerializeField]
+    private GameObject gameAppScreen;
+    [SerializeField]
+    private AppDescription appDescription;
+
+    [SerializeField]
+    private MouseDrageDrop mouseDrageDrop;
+
     private void Awake()
     {
             playerAnimator = GameObject.Find("PlayerAnimation").GetComponent<Animator>();
@@ -42,7 +52,7 @@ public class FolderManager : MonoBehaviour
 
     private void Start()
     {
-        if (!GameManager.Instance.isClearSea && !GameManager.Instance.isCapture)
+        if (!GameManager.Instance.isClearSea && !GameManager.Instance.isCapture && !GameManager.Instance.isFinishIntro)
             playerAnimator.gameObject.SetActive(false);
         else
             playerAnimator.gameObject.transform.root.position = new Vector3(0,10,0);
@@ -72,30 +82,36 @@ public class FolderManager : MonoBehaviour
     {
         Collider2D hit = Physics2D.OverlapCircle(UtillClass.GetMousePointerPosition(), holdingRadius, whatIsApp);
 
-        if (hit)
+        if (hit && !QuestPopUp.isQuestHold)
         {
-            if (hit.CompareTag("Lock"))
+            if(hit.CompareTag("PopUp"))
             {
-                print("ttqq");
+                hit.GetComponent<PopupPrefab>().DragChecker(hit);
+            }
+            else if (hit.CompareTag("Lock"))
+            {
                 hit.gameObject.GetComponent<LockfadeIn>().LockFade();
             }
-            else if (hit.CompareTag("Application"))
+            else if (hit.CompareTag("Application") && GameManager.Instance.isFinishTutorial)
             {
-                print("댐");
                 settingButton.holdObject = hit.gameObject;
                 settingButton.holdObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
                 _isHeld = true;
             }
             else if(hit.name == "OnButton(UsingNameIn<FolderManager>)" && isDisableOnButton == false)
             {
+                print("누름");
                 GameObject.Find("OnButton(UsingNameIn<FolderManager>)").GetComponent<OnButton>().ActiveSettingPanel();
+            }
+            else if (hit.CompareTag("Player") && GameManager.Instance.isFinishTutorial)
+            {
+                mouseDrageDrop.MousePosRay(hit);
             }
         }
     }
 
     private void HoldObject()
     {
-        print("실행중");
         Collider2D player = null;
         Collider2D putStation = null;
 
@@ -107,7 +123,7 @@ public class FolderManager : MonoBehaviour
 
         if (Input.GetMouseButtonUp(0))
         {
-            if (player)
+            if (player && putStation)
             {
                 settingCamera.Priority = 2;
                 settingButton.holdObject.transform.SetParent(usingApp);
@@ -116,6 +132,9 @@ public class FolderManager : MonoBehaviour
                 isSettingPanelChoose = true;
                 returnPos = putStation;
                 settingButton.currentAPP = holdApp;
+                appDescription.currentAPP = holdApp;
+                gameAppScreen.SetActive(false);
+                gameScriptManager.SetActive(false);
 
                 playerAnimator.SetBool("Hold", true);
                 return;
@@ -131,7 +150,6 @@ public class FolderManager : MonoBehaviour
 
     private void EndHold()
     {
-        print("실행확인");
         _isHeld = false;
         settingButton.holdObject.transform.localPosition = Vector2.zero;
     }
@@ -141,10 +159,6 @@ public class FolderManager : MonoBehaviour
         if (settingButton.holdObject == null) return;
         Gizmos.color = Color.red;
         Gizmos.DrawWireCube(settingButton.holdObject.transform.position, boxSize);
-        Gizmos.color = Color.white;
-
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(UtillClass.GetMousePointerPosition(), holdingRadius);
         Gizmos.color = Color.white;
     }
 

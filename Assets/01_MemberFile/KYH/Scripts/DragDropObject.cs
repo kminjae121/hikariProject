@@ -1,10 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class DragDropObject : MonoBehaviour , IBeginDragHandler, IDragHandler, IEndDragHandler
+public class DragDropObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     private CaptureManager captureManager;
 
@@ -23,60 +21,80 @@ public class DragDropObject : MonoBehaviour , IBeginDragHandler, IDragHandler, I
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        
-        transform.SetAsLastSibling();
-        //parentAfterDrag = transform.parent;
-        //transform.SetParent(transform.root);
-        image.raycastTarget = false;
+        if (image.sprite == basicImage)
+            return;
+        else
+        {
+            transform.SetAsLastSibling();
+            //parentAfterDrag = transform.parent;
+            //transform.SetParent(transform.root);
+            image.raycastTarget = false;
 
-        PlaceObjSO placeObjSO = GetComponent<FurnitureDistince>().placeObjSO;
-        furniture = placeObjSO.prefab;
-        furnitureObj = Instantiate(furniture, transform);
-        furnitureObj.GetComponent<Rigidbody2D>().simulated = false;
-        furnitureObj.GetComponent<ObjectGather>().enabled = false;
+            PlaceObjSO placeObjSO = GetComponent<FurnitureDistince>().placeObjSO;
 
-        GetComponent<FurnitureDistince>().placeObjSO = null;
-        GetComponent<Image>().sprite = basicImage;
-        furnitureObj.GetComponent<PlaceObj>().PlaceIt();
+            furniture = placeObjSO.prefab;
+            furnitureObj = Instantiate(furniture, transform);
+            furnitureObj.GetComponent<Rigidbody2D>().simulated = false;
+            furnitureObj.GetComponent<ObjectGather>().enabled = false;
+
+            GetComponent<FurnitureDistince>().placeObjSO = null;
+            furnitureObj.GetComponent<PlaceObj>().PlaceIt();
+        }
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        Vector2 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        furnitureObj.transform.position = pos;
+        if (image.sprite == basicImage)
+            return;
+        else
+        {
+            Vector2 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-        print(furnitureObj.transform.position);
-        print(furnitureObj.name);
+            furnitureObj.transform.position = pos;
+
+            print(furnitureObj.transform.position);
+            print(furnitureObj.name);
+        }
     }
-    
+
     public void OnEndDrag(PointerEventData eventData)
     {
-        PlaceObj placeObj = furnitureObj.GetComponent<PlaceObj>();
-        if(furnitureObj.GetComponent<PlaceObj>().isPlaceTure)
+
+        if (image.sprite == basicImage)
+            return;
+        else
         {
-            placeObj.placeHelp.GetComponent<ObjectGather>().enabled = true;
-            placeObj.placeHelp.GetComponent<BoxCollider2D>().enabled = true;
-            placeObj.placeHelp.GetComponent<Rigidbody2D>().simulated = true;
-            placeObj.placeHelp.GetComponent<SpriteRenderer>().color = Color.white;
-        }
-        else if(!furnitureObj.GetComponent<PlaceObj>().isPlaceTure)
-        {
-            placeObj.placeHelp.GetComponent<CaptureObject>().CaptureFinish(captureManager.inventoryIdx);
-            if (captureManager.inventoryIdx != 5)
+            PlaceObj placeObj = furnitureObj.GetComponent<PlaceObj>();
+
+            if (furnitureObj.GetComponent<PlaceObj>().isPlaceTure)
             {
-                captureManager.inventoryIdx++;
+                image.sprite = basicImage;
+                CaptureManager.inventoryIdx -= 1;
+                placeObj.placeHelp.GetComponent<ObjectGather>().enabled = true;
+                placeObj.placeHelp.GetComponent<BoxCollider2D>().enabled = true;
+                placeObj.placeHelp.GetComponent<Rigidbody2D>().simulated = true;
+                placeObj.placeHelp.GetComponent<SpriteRenderer>().color = Color.white;
             }
-            else
+            else if (!furnitureObj.GetComponent<PlaceObj>().isPlaceTure)
             {
-                captureManager.inventoryIdx = 0;
-            }
+                image.sprite = basicImage;
+                placeObj.placeHelp.GetComponent<CaptureObject>().CaptureFinish(CaptureManager.inventoryIdx);
+                // if (CaptureManager.inventoryIdx != 7)
+                // {
+                //    CaptureManager.inventoryIdx++;
+                // }
+                //  else
+                //  {
+                //      CaptureManager.inventoryIdx = 0;
+                //    }
                 Destroy(placeObj.placeHelp);
+            }
+
+            placeObj.isPlaceStart = false;
+
+            Destroy(furnitureObj);
+            furnitureObj = null;
+            image.raycastTarget = true;
         }
-
-        placeObj.isPlaceStart = false;
-
-        Destroy(furnitureObj);
-        furnitureObj = null;
-        image.raycastTarget = true;
     }
 }
