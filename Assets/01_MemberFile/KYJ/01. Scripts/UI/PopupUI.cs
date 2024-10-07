@@ -14,9 +14,9 @@ public class PopupUI : MonoBehaviour
 
     private Vector2 pos;
 
-    private void Awake()
+    private void Start()
     {
-        popupUI.gameObject.SetActive(false);
+        Instantiate(popupUI, pos, Quaternion.identity, GameObject.Find("PopupManager").transform);
     }
 
     private void Update()
