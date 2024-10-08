@@ -1,5 +1,12 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using DG.Tweening;
+
+public enum IApp
+{
+    Chrome,
+    PowerPoint
+}
 
 public class ScreenMove : MonoBehaviour
 {
@@ -8,9 +15,41 @@ public class ScreenMove : MonoBehaviour
     [SerializeField]
     private float yMoveInstance;
 
+    public IApp app;
+
+    [SerializeField]
+    private bool isInApp;
+
     private void Start()
     {
         DOYMove();
+    }
+
+    private void Update()
+    {
+        if(isInApp && Input.GetKeyDown(KeyCode.E))
+        {
+            if (app == IApp.Chrome)
+                SceneManager.LoadScene("Setting");
+            if (app == IApp.PowerPoint)
+                print("ppt¿¬°á");
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            isInApp = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            isInApp = false;
+        }
     }
 
     private void DOYMove()

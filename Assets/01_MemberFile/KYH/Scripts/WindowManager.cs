@@ -51,8 +51,9 @@ public class WindowManager : MonoBehaviour
     private void Start()
     {
         noise = vc.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
-        if(GameManager.Instance.isFinishIntro)
+        if(GameManager.Instance.isFinishTutorial)
         {
+            stageApp.FinishTutorial();
 
             if (GameManager.Instance.isClearSea)
             {
@@ -146,9 +147,11 @@ public class WindowManager : MonoBehaviour
 
     private IEnumerator StartTutorialRoutine()
     {
-        yield return new WaitForSeconds(4f);
+        yield return new WaitForSeconds(3f);
         TutorialCamera();
-        PlayerChatBoxManager.Instance.Show("자 이제 과제를\n시작해볼까?", 3f, false).End();
+        PlayerChatBoxManager.Instance.Show("자 이제 과제를\n시작해볼까?", 3f, false)
+            .Show("ESC를 눌러서 컴퓨터가 잘 작동되는지 확인해보자", 6f, false)
+            .End();
         yield return new WaitForSeconds(3f);
         CancelTutorialCamera();
         StartCoroutine(RepeatChat());
@@ -163,12 +166,12 @@ public class WindowManager : MonoBehaviour
             .Show("안 킨지 오래됐는데..ESC를 눌러서 확인해볼까?", 3f, false)
             .End();
             yield return new WaitForSeconds(10f);
+            PlayerChatBoxManager.Instance.Show("ESC 눌러서 확인한번 해보자", 3f, false)
+            .Show("아..배고프다 과제 이따가 할까", 3f, false)
+            .End();
+            yield return new WaitForSeconds(8f);
             if (!isRepeat)
             {
-                PlayerChatBoxManager.Instance.Show("ESC 눌러서 확인한번 해보자", 3f, false)
-                .Show("아..배고프다 과제 이따가 할까", 3f, false)
-                .End();
-                yield return new WaitForSeconds(8f);
                 StartCoroutine(RepeatChat());
             }
         }

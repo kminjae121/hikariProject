@@ -9,6 +9,11 @@ public class QuestPopupUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _questTxt;
     private int currentQuest = 0;
 
+    private void Start()
+    {
+        _questTxt.text = _questDialogue[0];
+    }
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.K))

@@ -42,6 +42,9 @@ public class FolderManager : MonoBehaviour
     [SerializeField]
     private AppDescription appDescription;
 
+    [SerializeField]
+    private MouseDrageDrop mouseDrageDrop;
+
     private void Awake()
     {
             playerAnimator = GameObject.Find("PlayerAnimation").GetComponent<Animator>();
@@ -79,9 +82,13 @@ public class FolderManager : MonoBehaviour
     {
         Collider2D hit = Physics2D.OverlapCircle(UtillClass.GetMousePointerPosition(), holdingRadius, whatIsApp);
 
-        if (hit)
+        if (hit && !QuestPopUp.isQuestHold)
         {
-            if (hit.CompareTag("Lock"))
+            if(hit.CompareTag("PopUp"))
+            {
+                hit.GetComponent<PopupPrefab>().DragChecker(hit);
+            }
+            else if (hit.CompareTag("Lock"))
             {
                 hit.gameObject.GetComponent<LockfadeIn>().LockFade();
             }
@@ -96,6 +103,10 @@ public class FolderManager : MonoBehaviour
                 print("누름");
                 GameObject.Find("OnButton(UsingNameIn<FolderManager>)").GetComponent<OnButton>().ActiveSettingPanel();
             }
+            else if (hit.CompareTag("Player") && GameManager.Instance.isFinishTutorial)
+            {
+                mouseDrageDrop.MousePosRay(hit);
+            }
         }
     }
 
@@ -103,34 +114,42 @@ public class FolderManager : MonoBehaviour
     {
         Collider2D player = null;
         Collider2D putStation = null;
+        putStation = Physics2D.OverlapBox(settingButton.holdObject.transform.position, boxSize, 0, whatIsPutStation); // 슬롯
+        player = Physics2D.OverlapBox(settingButton.holdObject.transform.position, boxSize, 0, whatIsPlayer); // 플레이어
 
         App holdApp = settingButton.holdObject.GetComponent<MovingFolder>().thisObjectIsWhat;
 
         settingButton.holdObject.transform.position = Vector3.Lerp(settingButton.holdObject.transform.position, UtillClass.GetMousePointerPosition(), 10f * Time.deltaTime);
-        putStation = Physics2D.OverlapBox(settingButton.holdObject.transform.position, boxSize, 0, whatIsPutStation); // 슬롯
-        player = Physics2D.OverlapBox(settingButton.holdObject.transform.position, boxSize, 0, whatIsPlayer); // 플레이어
 
         if (Input.GetMouseButtonUp(0))
         {
-            if (player)
+            if(!putStation)
             {
-                settingCamera.Priority = 2;
-                settingButton.holdObject.transform.SetParent(usingApp);
+                _isHeld = false;
                 settingButton.holdObject.transform.localPosition = Vector2.zero;
-                settingButton.gameObject.SetActive(true);
-                isSettingPanelChoose = true;
-                returnPos = putStation;
-                settingButton.currentAPP = holdApp;
-                appDescription.currentAPP = holdApp;
-                gameAppScreen.SetActive(false);
-                gameScriptManager.SetActive(false);
-
-                playerAnimator.SetBool("Hold", true);
-                return;
             }
-            else if ((putStation.gameObject.transform.childCount < 1 && putStation.CompareTag("Slot")))
+            else
             {
-                settingButton.holdObject.transform.SetParent(putStation.transform);
+                if (player && putStation)
+                {
+                    settingCamera.Priority = 2;
+                    settingButton.holdObject.transform.SetParent(usingApp);
+                    settingButton.holdObject.transform.localPosition = Vector2.zero;
+                    settingButton.gameObject.SetActive(true);
+                    isSettingPanelChoose = true;
+                    returnPos = putStation;
+                    settingButton.currentAPP = holdApp;
+                    appDescription.currentAPP = holdApp;
+                    gameAppScreen.SetActive(false);
+                    gameScriptManager.SetActive(false);
+
+                    playerAnimator.SetBool("Hold", true);
+                    return;
+                }
+                else if ((putStation.gameObject.transform.childCount < 1 && putStation.CompareTag("Slot")))
+                {
+                    settingButton.holdObject.transform.SetParent(putStation.transform);
+                }
             }
             EndHold();
         }
@@ -148,10 +167,6 @@ public class FolderManager : MonoBehaviour
         if (settingButton.holdObject == null) return;
         Gizmos.color = Color.red;
         Gizmos.DrawWireCube(settingButton.holdObject.transform.position, boxSize);
-        Gizmos.color = Color.white;
-
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(UtillClass.GetMousePointerPosition(), holdingRadius);
         Gizmos.color = Color.white;
     }
 

@@ -36,7 +36,6 @@ public class PlayerChatBoxManager : MonoBehaviour
 
         _text = GetComponentInChildren<TextMeshProUGUI>();
         textImage = GetComponentInChildren<Image>();
-        _playerAnimator = GameObject.Find("PlayerAnimation").GetComponent<PlayerAnimation>();
 
         Hide();
 
@@ -88,7 +87,6 @@ public class PlayerChatBoxManager : MonoBehaviour
         SetText(text, second);
         putInTimer = second;
         isPutInTimer = true;
-        _playerAnimator._isAnimator = false;
         print("¿ÀÀ×");
         return this;
     }
@@ -98,7 +96,6 @@ public class PlayerChatBoxManager : MonoBehaviour
         if (!isWindowScene)
             playerMove._isForce = false;
         textImage.gameObject.SetActive(false);
-        _playerAnimator._isAnimator = true;
         isPutInTimer = false;
         currentTimer = 0f;
         return;
