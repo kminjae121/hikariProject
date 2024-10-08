@@ -16,6 +16,8 @@ public class ScreenMove : MonoBehaviour
     private float yMoveInstance;
 
     public IApp app;
+
+    [SerializeField]
     private bool isInApp;
 
     private void Start()
@@ -25,7 +27,7 @@ public class ScreenMove : MonoBehaviour
 
     private void Update()
     {
-        if(isInApp && Input.GetKeyDown(KeyCode.Escape))
+        if(isInApp && Input.GetKeyDown(KeyCode.E))
         {
             if (app == IApp.Chrome)
                 SceneManager.LoadScene("Setting");
@@ -34,15 +36,15 @@ public class ScreenMove : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player"))
         {
-            isInApp =true;
+            isInApp = true;
         }
     }
 
-    private void OnCollisionExit2D(Collision2D collision)
+    private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {

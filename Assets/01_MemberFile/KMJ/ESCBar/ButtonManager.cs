@@ -98,7 +98,6 @@ public class ButtonManager : MonoSingleton<ButtonManager>
         }
         else if (IsWifiTrue == false)
         {
-            _wifiRenderer.sprite = _falsewifiRenderer;
             _wifiCollectText.SetText("¿¬°á ¾ÈµÊ");
             _wifiCollectText.color = Color.red;
             _wifiAniamtion.enabled = false;

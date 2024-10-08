@@ -114,34 +114,42 @@ public class FolderManager : MonoBehaviour
     {
         Collider2D player = null;
         Collider2D putStation = null;
+        putStation = Physics2D.OverlapBox(settingButton.holdObject.transform.position, boxSize, 0, whatIsPutStation); // 슬롯
+        player = Physics2D.OverlapBox(settingButton.holdObject.transform.position, boxSize, 0, whatIsPlayer); // 플레이어
 
         App holdApp = settingButton.holdObject.GetComponent<MovingFolder>().thisObjectIsWhat;
 
         settingButton.holdObject.transform.position = Vector3.Lerp(settingButton.holdObject.transform.position, UtillClass.GetMousePointerPosition(), 10f * Time.deltaTime);
-        putStation = Physics2D.OverlapBox(settingButton.holdObject.transform.position, boxSize, 0, whatIsPutStation); // 슬롯
-        player = Physics2D.OverlapBox(settingButton.holdObject.transform.position, boxSize, 0, whatIsPlayer); // 플레이어
 
         if (Input.GetMouseButtonUp(0))
         {
-            if (player && putStation)
+            if(!putStation)
             {
-                settingCamera.Priority = 2;
-                settingButton.holdObject.transform.SetParent(usingApp);
+                _isHeld = false;
                 settingButton.holdObject.transform.localPosition = Vector2.zero;
-                settingButton.gameObject.SetActive(true);
-                isSettingPanelChoose = true;
-                returnPos = putStation;
-                settingButton.currentAPP = holdApp;
-                appDescription.currentAPP = holdApp;
-                gameAppScreen.SetActive(false);
-                gameScriptManager.SetActive(false);
-
-                playerAnimator.SetBool("Hold", true);
-                return;
             }
-            else if ((putStation.gameObject.transform.childCount < 1 && putStation.CompareTag("Slot")))
+            else
             {
-                settingButton.holdObject.transform.SetParent(putStation.transform);
+                if (player && putStation)
+                {
+                    settingCamera.Priority = 2;
+                    settingButton.holdObject.transform.SetParent(usingApp);
+                    settingButton.holdObject.transform.localPosition = Vector2.zero;
+                    settingButton.gameObject.SetActive(true);
+                    isSettingPanelChoose = true;
+                    returnPos = putStation;
+                    settingButton.currentAPP = holdApp;
+                    appDescription.currentAPP = holdApp;
+                    gameAppScreen.SetActive(false);
+                    gameScriptManager.SetActive(false);
+
+                    playerAnimator.SetBool("Hold", true);
+                    return;
+                }
+                else if ((putStation.gameObject.transform.childCount < 1 && putStation.CompareTag("Slot")))
+                {
+                    settingButton.holdObject.transform.SetParent(putStation.transform);
+                }
             }
             EndHold();
         }
