@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Diagnostics;
 using System.Reflection;
+using System;
 
 public class SettingButtonManager : MonoBehaviour
 {
@@ -50,7 +51,19 @@ public class SettingButtonManager : MonoBehaviour
 
     private void HowControllApp()
     {
+        string strPath = Application.dataPath + "/GameControll.png";
 
+        print(strPath);
+
+        Process.Start($"ms-photos://GameControll.png");
+        //Process.Start("notepad.exe");
+
+
+
+        //Process process = new Process();
+        //process.StartInfo.WorkingDirectory = strPath;
+        //process.StartInfo.FileName = "Photos.exe";
+        //process.Start();
     }
     private void PortPolioApp()
     {

@@ -55,6 +55,7 @@ public class VIdeoManager : MonoBehaviour
 
     private void Start()
     {
+        if(!GameManager.Instance.isFinishIntro)
         StartCoroutine(WaitRoutine());
     }
 
