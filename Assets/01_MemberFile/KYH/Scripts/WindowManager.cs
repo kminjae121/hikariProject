@@ -148,6 +148,7 @@ public class WindowManager : MonoBehaviour
     private IEnumerator StartTutorialRoutine()
     {
         yield return new WaitForSeconds(3f);
+        SoundManager.Instance.ChangeMainStageVolume("windowSceneBGM", true);
         TutorialCamera();
         PlayerChatBoxManager.Instance.Show("자 이제 과제를\n시작해볼까?", 3f, false)
             .Show("ESC를 눌러서 컴퓨터가 잘 작동되는지 확인해보자", 6f, false)

@@ -33,7 +33,11 @@ public class ScreenMove : MonoBehaviour
         if(isInApp && Input.GetKeyDown(KeyCode.E))
         {
             if (app == IApp.Chrome)
+            {
+                SoundManager.Instance.ChangeMainStageVolume("windowSceneBGM", true);
                 SceneManager.LoadScene("Setting");
+                QuestPopupUI.Instance.QuestTxt();
+            }
             if (app == IApp.PowerPoint)
                 print("ppt¿¬°á");
         }

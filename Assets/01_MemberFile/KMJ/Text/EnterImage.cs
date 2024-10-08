@@ -27,6 +27,9 @@ public class EnterImage : MonoBehaviour
     [SerializeField]
     private GameObject playerFake;
 
+    [SerializeField]
+    private GameObject light;
+
     private void Awake()
     {
         _image = GetComponent<Image>();
@@ -62,18 +65,21 @@ public class EnterImage : MonoBehaviour
     {
         playerRigging.transform.root.gameObject.GetComponent<Transform>().DOScale(new Vector3(0,0,0),1.2f);
         yield return new WaitForSeconds(0.5f);
-        //tmpro.DOFade(0, 3);
-        //tmpText.DOFade(0, 3);
-        //tmp.DOFade(0, 3);
-        //image.ForEach(f => f.DOFade(0, 3));
+        tmpro.DOFade(0, 3);
+        tmpText.DOFade(0, 3);
+        tmp.DOFade(0, 3);
+        image.ForEach(f => f.DOFade(0, 3));
+        light.SetActive(true);
         yield return new WaitForSeconds(3.3f);
+        image.ForEach(image => image.DOKill(true));
+        tmpro.DOKill(true);
+        tmp.DOKill(true);
+        yield return new WaitForSeconds(0.3f);
+        _panel.SetActive(false);
+        playerFake.GetComponent<Rigidbody2D>().gravityScale = 9.8f;
+        yield return new WaitForSeconds(2f);
+        QuestPopupUI.Instance.QuestTxt();
         SceneManager.LoadScene("KimMin");
-        //image.ForEach(image => image.DOKill(true));
-        //tmpro.DOKill(true);
-        //tmp.DOKill(true);
-        //yield return new WaitForSeconds(0.3f);
-        //_panel.SetActive(false);
-        //playerFake.GetComponent<Rigidbody2D>().gravityScale = 9.8f;
     }
 
     private void OnDrawGizmos()
