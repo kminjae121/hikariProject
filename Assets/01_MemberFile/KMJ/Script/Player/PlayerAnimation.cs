@@ -44,11 +44,11 @@ public class PlayerAnimation : MonoBehaviour
 
     private void PlayerFilpX()
     {
-        if (_inputReader.Movement.x < 0 && _isAnimator == true)
+        if (_inputReader.Movement.x < 0  && _playerMove._isForce == false)
         {
             _spriteCompo.flipX = true;
         }
-        else if (_inputReader.Movement.x == 0 && _spriteCompo.flipX == true && _isAnimator == true)
+        else if (_inputReader.Movement.x == 0 && _spriteCompo.flipX == true && _playerMove._isForce == false)
         {
             _spriteCompo.flipX = true;
         }
@@ -59,7 +59,7 @@ public class PlayerAnimation : MonoBehaviour
     }
     private void RunAnimation()
     {
-        if (_inputReader.Movement.x != 0 && isFlower == false && _playerMove._isJump == true && _isAnimator == true)
+        if (_inputReader.Movement.x != 0 && isFlower == false && _playerMove._isJump == true&& _playerMove._isForce == false)
         {
             _animator.SetBool("Run", true);
         }

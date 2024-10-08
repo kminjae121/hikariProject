@@ -82,7 +82,10 @@ public class PlayerChatBoxManager : MonoBehaviour
     {
         print("코루틴 실행됨");
         if(!isWindowScene)
+        {
             playerMove._isForce = isMoveStop;
+            playerMove.transform.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        }
         textImage.gameObject.SetActive(true);
         SetText(text, second);
         putInTimer = second;

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 
@@ -15,6 +16,7 @@ public class Door : MonoBehaviour
     [SerializeField] private LayerMask _player;
     [SerializeField] private DoorType _doorType;
     private ButtonManager _btnManager;
+    private StageText _stageText;
 
     private GameObject _esc;
 
@@ -24,7 +26,8 @@ public class Door : MonoBehaviour
 
 
     private void Awake()
-    {
+    {         _stageText = GameObject.Find("StageManager").GetComponent<StageText>();
+
         _esc = GameObject.Find("EscCanvas");
         _stageManager = GameObject.Find("StageManager").GetComponent<StageManager>();
 
@@ -37,6 +40,37 @@ public class Door : MonoBehaviour
     {
         _btnManager = GameObject.Find("EscParent").GetComponent<ButtonManager>();
     }
+
+    private void Update()
+    {
+        switch (_currentSceneIndex)
+        {
+            case 1:
+                CaptureStartText._isStart = true;
+                _stageText.CaptureText[0].SetActive(true);
+                break;
+            case 2:
+                break;
+            case 3:
+                _stageText.CaptureText[0].SetActive(false);
+                _stageText.CaptureText[1].SetActive(true);
+                break;
+            case 4:
+                _stageText.CaptureText[1].SetActive(false);
+                _stageText.CaptureText[2].SetActive(true);
+                break;
+            case 5:
+                _stageText.CaptureText[2].SetActive(false);
+                _stageText.CaptureText[3].SetActive(true);
+                break;
+        }
+    }
+
+    private void TextOpen()
+    {
+
+    }
+
     private void LateUpdate()
     {
         if (_doorType == DoorType.Normal)
@@ -57,13 +91,7 @@ public class Door : MonoBehaviour
 
         if (hit == true)
         {
-            if (_currentSceneIndex == 5)
-            {
-                _playerKeyFalse.blockKey = false;
-                return;
-            }
-
-            else if (Input.GetKeyDown(KeyCode.F))
+            if (Input.GetKeyDown(KeyCode.F))
             {
                 ObjectGather.maxMoveDoolDistance = 6;
 
@@ -76,21 +104,6 @@ public class Door : MonoBehaviour
                         Cloneobj.SetActive(false);
                     }
                 }
-            }
-            else if (_currentSceneIndex == 3)
-            {
-                _playerKeyFalse.blockKey = true;
-            }
-
-            else if(_currentSceneIndex ==4)
-            {
-                _btnManager.isEscFalse = true;
-                _esc.SetActive(false);
-            }
-            else
-            {
-                _esc.SetActive(true);
-                _btnManager.isEscFalse = false;
             }
         }
     }
@@ -121,10 +134,31 @@ public class Door : MonoBehaviour
         {
             if(Input.GetKey(KeyCode.F))
             {
+                PlayerChatBoxManager.Instance.End();
                 _stageManager.stageList[_currentSceneIndex].SetActive(false);
                 _stageManager.stageList[_currentSceneIndex += 1].SetActive(true);
+                _playerKeyFalse.transform.GetComponent<PlayerMove>()._isForce = false;
             }
+
         }
+        if (_currentSceneIndex == 5)
+        {
+            _playerKeyFalse.blockKey = false;
+            return;
+        }
+
+        if (_currentSceneIndex == 3)
+            {
+                _playerKeyFalse.blockKey = true;
+            }
+            else if (_currentSceneIndex == 4)
+            {
+                _btnManager.isEscFalse = true;
+            }
+            else
+            {
+                _btnManager.isEscFalse = false;
+            }
     }
 
 

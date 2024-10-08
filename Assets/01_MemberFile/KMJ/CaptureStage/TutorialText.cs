@@ -18,11 +18,16 @@ public class TutorialText : MonoBehaviour
         if (_isEndCurrentText == false)
         {
             if (collision.gameObject.CompareTag("Player"))
-            { 
-                collision.gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-                PlayerChatBoxManager.Instance.Show(tutorialText[_textNumber], 4, true);
-                PlayerChatBoxManager.Instance.End();
-                _textNumber++;
+            {
+                if (tutorialText[_textNumber] == null)
+                    return;
+                else
+                {
+                    PlayerChatBoxManager.Instance.Show(tutorialText[_textNumber], 2, true)
+                     .Show(tutorialText[_textNumber+=1],4,true);
+                    PlayerChatBoxManager.Instance.End();
+                    _textNumber++;
+                }
             }
             else
                 return;
@@ -31,7 +36,7 @@ public class TutorialText : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if(collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player"))
         {
             _isEndCurrentText = true;
         }

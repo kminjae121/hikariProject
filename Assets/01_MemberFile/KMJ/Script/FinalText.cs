@@ -7,20 +7,21 @@ using TMPro;
 
 public class FinalText : MonoBehaviour
 {
-        private Sequence _textSequence;
-        [SerializeField] private TextMeshProUGUI _text;
+    public static bool _isStart;
 
-        private void Awake()
-        {
-         }
+    private void Awake()
+    {
+        _isStart = false;
+    }
 
-        private void Start()
-        {
-           _text.TextUpDownMove(7f, Color.green, 2.4f, TextStyle.Moving | TextStyle.UI | TextStyle.FadeIn);
-        }
+    private void OnEnable()
+    {
+        PlayerChatBoxManager.Instance.Show("바이러스가 꺼졌어", 3, true)
+           .Show("이제 마지막이야 빨리 탈출하자!", 3.5f, true)
+           .End();
+    }
 
-        private void Update()
-        {
-
-        }
+    private void Update()
+    {
+    }
 }
