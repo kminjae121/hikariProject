@@ -18,6 +18,11 @@ public class SearchBar : MonoBehaviour
         _answerScreen.SetActive(false);
     }
 
+    private void Start()
+    {
+        SoundManager.Instance.ChangeMainStageVolume("SettingSceneBGM", true);
+    }
+
     public void EnterSearch()
     {
         if(_inputFieldText.text == "심해속 탐험" || _inputFieldText.text == "심해에 있는 물고기" || _inputFieldText.text == "심해속 생물")

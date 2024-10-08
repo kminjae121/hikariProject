@@ -38,6 +38,7 @@ public class SoundManager : MonoBehaviour
 
     public void ChangeMainStageVolume(string mainClip, bool isPlay)
     {
+        bgmAudioPlayer.Pause();
         bgmAudioPlayer.clip = audioDic[mainClip];
         if (isPlay)
             bgmAudioPlayer.Play();
