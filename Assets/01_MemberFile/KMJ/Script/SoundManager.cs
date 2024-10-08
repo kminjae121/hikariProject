@@ -37,7 +37,7 @@ public class SoundManager : MonoBehaviour
             case "CaptureStage":
                 music1.Play();
                 break;
-            case "SeaScene":
+            case "KimMin":
                 music3.Play();
                 break;
             default:

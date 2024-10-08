@@ -29,7 +29,7 @@ public class PlayerAnimation : MonoBehaviour
 
     private void ChangeAnimation()
     {
-        if (isFlower && _isAnimator == true)
+        if (isFlower)
         {
             _animator.SetLayerWeight(0, 1f);
             _animator.SetLayerWeight(1, 1f);
@@ -71,7 +71,7 @@ public class PlayerAnimation : MonoBehaviour
 
     private void JumpAniamtion()
     {
-        if (_playerMove._isJump == false && isFlower == false && _isAnimator == true)
+        if (_playerMove._isJump == false && isFlower == false)
         {
             _animator.SetBool("Jump", true);
         }

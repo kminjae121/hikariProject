@@ -21,7 +21,7 @@ public class PlayerChatBoxManager : MonoBehaviour
 
     [SerializeField]
     private PlayerMove playerMove;
-    private float currentTimer;
+    private float currentTimer;     
 
     [SerializeField]
     private bool isWindowScene;
