@@ -12,6 +12,8 @@ public class PlayerDialogue : MonoBehaviour
             .Show("깊은 심해인거 같아", 3f, true)
             .Show("이곳을 빠져나가야 할것같아!", 3.5f, true)
             .End();
+
+        QuestPopupUI.Instance.QuestTxt();
     }
 
     public void LuminescentPlantDialogue()
@@ -22,6 +24,8 @@ public class PlayerDialogue : MonoBehaviour
             .Show("이 물체를 들고 I와 U를 눌러서 밝기를 조절할 수 있어", 4.5f, true)
             .Show("그리고 밝기를 이용해 특정한 물체들을 동작시킬 수 있어", 4f, true)
             .End();
+
+        QuestPopupUI.Instance.QuestTxt();
     }
 
     public void LeafWallDialogue()
@@ -40,6 +44,8 @@ public class PlayerDialogue : MonoBehaviour
             .Show("아귀는 정말 무시무시한 존재지", 3.5f, true)
             .Show("하지만 걱정마 만약 너가 불빛을 내지 않는다면 아귀가 공격하는 일은 없을테니까!", 6.5f, true)
             .End();
+
+        QuestPopupUI.Instance.QuestTxt();
     }
 
     public void BrightFlowerDialogue()
