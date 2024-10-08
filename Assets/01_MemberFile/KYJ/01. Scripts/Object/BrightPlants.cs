@@ -8,7 +8,7 @@ public class BrightPlants : MonoBehaviour
     [SerializeField]
     private LuminescentPlants luminescentPlants;
     [SerializeField]
-    private Light2D _light;
+    public Light2D light;
 
     [Header("Player Input")]
     [SerializeField] private PlayerAnimation _playerAnimCompo;
@@ -28,7 +28,7 @@ public class BrightPlants : MonoBehaviour
 
     private void Awake()
     {
-        _light.intensity = 0;
+        light.intensity = 0;
 
         luminescentPlants.OnPlants += BrightnessRange;
         luminescentPlants.OnPlants += BrightnessControl;
@@ -52,24 +52,24 @@ public class BrightPlants : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.I))
         {
-            _light.intensity = Mathf.Clamp(_light.intensity, 0f, 0.4f);
+            light.intensity = Mathf.Clamp(light.intensity, 0f, 0.4f);
 
-            if (_light.intensity >= 0.4f)
+            if (light.intensity >= 0.4f)
                 return;
 
-            _light.intensity += 0.1f;
-            brightStep = (int)(_light.intensity * 10);
+            light.intensity += 0.1f;
+            brightStep = (int)(light.intensity * 10);
             print(brightStep);
         }
         else if (Input.GetKeyDown(KeyCode.U))
         {
-            _light.intensity = Mathf.Clamp(_light.intensity, 0f, 0.4f);
+            light.intensity = Mathf.Clamp(light.intensity, 0f, 0.4f);
 
-            if (_light.intensity <= 0)
+            if (light.intensity <= 0)
                 return;
 
-            _light.intensity -= 0.1f;
-            brightStep = (int)(_light.intensity * 10);
+            light.intensity -= 0.1f;
+            brightStep = (int)(light.intensity * 10);
             print(brightStep);
         }
     }
