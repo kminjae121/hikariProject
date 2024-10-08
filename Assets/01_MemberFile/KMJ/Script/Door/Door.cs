@@ -43,27 +43,6 @@ public class Door : MonoBehaviour
 
     private void Update()
     {
-        switch (_currentSceneIndex)
-        {
-            case 1:
-                CaptureStartText._isStart = true;
-                _stageText.CaptureText[0].SetActive(true);
-                break;
-            case 2:
-                break;
-            case 3:
-                _stageText.CaptureText[0].SetActive(false);
-                _stageText.CaptureText[1].SetActive(true);
-                break;
-            case 4:
-                _stageText.CaptureText[1].SetActive(false);
-                _stageText.CaptureText[2].SetActive(true);
-                break;
-            case 5:
-                _stageText.CaptureText[2].SetActive(false);
-                _stageText.CaptureText[3].SetActive(true);
-                break;
-        }
     }
 
     private void TextOpen()

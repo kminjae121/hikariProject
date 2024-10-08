@@ -7,21 +7,19 @@ using TMPro;
 
 public class FinalText : MonoBehaviour
 {
-    public static bool _isStart;
+    [SerializeField] private TextMeshProUGUI _txt;
 
-    private void Awake()
+    
+
+    private void Start()
     {
-        _isStart = false;
+        _txt.TextUpDownMove(5, Color.green, 2.5f, TextStyle.Moving | TextStyle.UI | TextStyle.FadeIn);
+        StartCoroutine(WaitEndText());
     }
 
-    private void OnEnable()
+    IEnumerator WaitEndText()
     {
-        PlayerChatBoxManager.Instance.Show("바이러스가 꺼졌어", 3, true)
-           .Show("이제 마지막이야 빨리 탈출하자!", 3.5f, true)
-           .End();
-    }
-
-    private void Update()
-    {
+        yield return new WaitForSeconds(8);
+        _txt.enabled = false;
     }
 }
