@@ -19,20 +19,25 @@ public class CaptureObject : MonoBehaviour
 
     public void CaptureFinish(int invenIdx)
     {
-        Collider2D collider = gameObject.GetComponent<Collider2D>();
-        collider.enabled = false;
-        collider.enabled = false;
+        if (invenIdx > 6)
+            return;
+        else
+        {
+            Collider2D collider = gameObject.GetComponent<Collider2D>();
+            collider.enabled = false;
+            collider.enabled = false;
 
-        SpriteRenderer sprite = gameObject.GetComponent<SpriteRenderer>();
-        sprite.sprite = captureSprite.sprite;
-        if(gameObject.GetComponent<ObjectGather>() != null)
-            gameObject.GetComponent<ObjectGather>().enabled = false;
+            SpriteRenderer sprite = gameObject.GetComponent<SpriteRenderer>();
+            sprite.sprite = captureSprite.sprite;
+            if (gameObject.GetComponent<ObjectGather>() != null)
+                gameObject.GetComponent<ObjectGather>().enabled = false;
 
-        DoTweenSequence(sprite);
-        Transform furniture = GameObject.Find("Gallury").transform.GetChild(invenIdx);
-        furniture.GetComponent<FurnitureDistince>().placeObjSO = captureSprite; 
-        Image appImage = furniture.GetComponent<Image>();
-        appImage.sprite = captureSprite.sprite;
+            DoTweenSequence(sprite);
+            Transform furniture = GameObject.Find("Gallury").transform.GetChild(invenIdx);
+            furniture.GetComponent<FurnitureDistince>().placeObjSO = captureSprite;
+            Image appImage = furniture.GetComponent<Image>();
+            appImage.sprite = captureSprite.sprite;
+        }
     }
 
     private void DoTweenSequence(SpriteRenderer sprite)

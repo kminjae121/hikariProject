@@ -83,12 +83,14 @@ public class PlayerChatBoxManager : MonoBehaviour
     {
         print("ÄÚ·çÆ¾ ½ÇÇàµÊ");
         if(!isWindowScene)
+        {
             playerMove._isForce = isMoveStop;
+            playerMove.transform.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        }
         textImage.gameObject.SetActive(true);
         SetText(text, second);
         putInTimer = second;
         isPutInTimer = true;
-        _playerAnimator._isAnimator = false;
         print("¿ÀÀ×");
         return this;
     }
@@ -98,7 +100,6 @@ public class PlayerChatBoxManager : MonoBehaviour
         if (!isWindowScene)
             playerMove._isForce = false;
         textImage.gameObject.SetActive(false);
-        _playerAnimator._isAnimator = true;
         isPutInTimer = false;
         currentTimer = 0f;
         return;

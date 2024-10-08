@@ -23,11 +23,13 @@ public class PlaceObj : MonoBehaviour
         _collider = GetComponent<Collider2D>();
     }
 
-
+    private void Update()
+    {
+        
+    }
 
     private void FixedUpdate()
     {
-
         MousePos();
         if (isPlaceStart)
         {
@@ -36,13 +38,15 @@ public class PlaceObj : MonoBehaviour
                 size: new Vector2(_collider.bounds.size.x, 1),
                 angle: 0,
                 direction: Vector2.down,
-                distance : Mathf.Infinity
+                distance: Mathf.Infinity
             );
-            //print(hit.collider.name);
+
+            print(hit.collider.name);
+
+            SpriteRenderer sp = placeHelp.GetComponent<SpriteRenderer>();
 
             placeHelp.transform.position = hit.point;//이거로 배치할 곳 띄우고 배치
 
-            SpriteRenderer sp = placeHelp.GetComponent<SpriteRenderer>();
 
             LayerMask colliisionMask = 1 << hit.transform.gameObject.layer;
 

@@ -222,7 +222,7 @@ MonoBehaviour:
   isPlaceTure: 0
   whatIsGround:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 329728
 --- !u!1 &7754284567760925932
 GameObject:
   m_ObjectHideFlags: 0

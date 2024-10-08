@@ -14,19 +14,19 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/00_Scenes/KYJ Scene/PreviewScenes.unity
     guid: 43443827e0a5c1b4e8b4d76bff20ca15
-  - enabled: 1
+  - enabled: 0
     path: Assets/00_Scenes/CaptureStage/CaptureStage2.unity
     guid: cac99aa1ae3387445b1b5280fb25a1d3
-  - enabled: 1
+  - enabled: 0
     path: Assets/00_Scenes/CaptureStage/CaptureStage3.unity
     guid: d42f4e4882b392141b2c445b78bf7c2d
-  - enabled: 1
+  - enabled: 0
     path: Assets/00_Scenes/CaptureStage/CaptureStage4.unity
     guid: 3008243d4d20d0344ad552ddeca9f3b5
-  - enabled: 1
+  - enabled: 0
     path: Assets/00_Scenes/CaptureStage/CaptureStage5.unity
     guid: c45560c0e97a9554480e6a2fe5fb2bcd
-  - enabled: 1
+  - enabled: 0
     path: Assets/00_Scenes/CaptureStage/CaptureStage1.unity
     guid: d9c1863cf778b2d4d9f779c60b7fa767
   m_configObjects: {}
