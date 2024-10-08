@@ -50,7 +50,7 @@ public class TutorialControllPannel : MonoBehaviour
             gameObject.transform.root.gameObject.SetActive(false);
             popUp.SetActive(true);
             quest.SetActive(true);
-            PlayerChatBoxManager.Instance.Show("마우스로 나를 옮길 수 있어", 6f, false)
+            PlayerChatBoxManager.Instance.Show("마우스로 나를\n 옮길 수 있어", 6f, false)
             .End();
         }
         else
