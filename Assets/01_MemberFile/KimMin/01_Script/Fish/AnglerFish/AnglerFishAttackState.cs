@@ -19,6 +19,7 @@ public class AnglerFishAttackState : AnglerFishState
 
         if (_endTriggerCalled)
         {
+            _fish.BrightPlant.brightStep = 0;
             _stateMachine.ChangeState(FishStateEnum.Move);
         }
     }
