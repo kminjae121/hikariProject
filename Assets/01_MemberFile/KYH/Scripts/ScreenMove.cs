@@ -15,6 +15,9 @@ public class ScreenMove : MonoBehaviour
     [SerializeField]
     private float yMoveInstance;
 
+    [SerializeField]
+    private GameObject pushEKey;
+
     public IApp app;
 
     [SerializeField]
@@ -41,6 +44,7 @@ public class ScreenMove : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             isInApp = true;
+            pushEKey.SetActive(true);
         }
     }
 
@@ -49,6 +53,7 @@ public class ScreenMove : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             isInApp = false;
+            pushEKey.SetActive(false);
         }
     }
 

@@ -2071,6 +2071,52 @@ MonoBehaviour:
   _inputSlide: {fileID: 1600974188}
   _answerScreen: {fileID: 579943105}
   _SecondSettingBar: {fileID: 1052859758}
+--- !u!1 &560173119
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 560173121}
+  - component: {fileID: 560173122}
+  m_Layer: 0
+  m_Name: MouseDragDrop
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &560173121
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 560173119}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &560173122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 560173119}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b4a3022e1006f6478a24042b3d9f471, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  riggingPlayer: {fileID: 1136977994}
+  playerSprite: {fileID: 971877741}
 --- !u!1 &578370543
 GameObject:
   m_ObjectHideFlags: 0
@@ -5878,3 +5924,4 @@ SceneRoots:
   - {fileID: 1879357941}
   - {fileID: 335492905}
   - {fileID: 1091891395}
+  - {fileID: 560173121}

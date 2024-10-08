@@ -22,7 +22,11 @@ public class AppDescription : MonoBehaviour
         //GetType().GetMethod("currnetApp").Invoke(this, new object[] {3, 4 });
     }
 
-
+    private void WeatherDescription()
+    {
+        descriptionPanel.SetActive(true);
+        descriptionText.text = "지금 날씨는 어떻지?";
+    }
 
     private void ChromeDescription()
     {

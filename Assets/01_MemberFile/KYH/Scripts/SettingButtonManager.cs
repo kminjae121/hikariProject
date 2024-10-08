@@ -49,13 +49,18 @@ public class SettingButtonManager : MonoBehaviour
         folderManager.CancelButton();
     }
 
+    private void WeatherApp()
+    {
+        Process.Start("msnweather://forecast?la=[latitude]&lo=[longitude]");
+    }
+
     private void HowControllApp()
     {
         string strPath = Application.dataPath + "/GameControll.png";
 
         print(strPath);
 
-        Process.Start($"ms-photos://GameControll.png");
+        Process.Start($"ms-photos:viewer?fileName={strPath}");
         //Process.Start("notepad.exe");
 
 

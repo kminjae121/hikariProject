@@ -6,7 +6,7 @@ public enum App
 {
     Exit,
     HowControll,
-    File,
+    Weather,
     Notion,
     Game,
     Steam,
