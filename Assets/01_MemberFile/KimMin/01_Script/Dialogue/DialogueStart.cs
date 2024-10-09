@@ -12,8 +12,8 @@ public class DialogueStart : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            DialogueEvent?.Invoke();
             transform.gameObject.SetActive(false);
+            DialogueEvent?.Invoke();
         }
     }
 }
