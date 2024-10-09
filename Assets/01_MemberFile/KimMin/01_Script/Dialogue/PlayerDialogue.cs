@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerDialogue : MonoBehaviour
 {
-    void Start()
+    public void StartDialogue()
     {
         PlayerChatBoxManager.Instance
             .Show("으으 어지러워", 3f, true)
