@@ -45,6 +45,7 @@ public class ScreenMove : MonoBehaviour
             }
             if (app == IApp.PowerPoint)
             {
+                QuestPopupUI.Instance.QuestTxt();
                 SceneManager.LoadScene("CaptureStage");
                 print("ppt¿¬°á");
             }
