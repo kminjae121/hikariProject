@@ -72,8 +72,9 @@ public class AnchorSpawner : MonoBehaviour
 
     private IEnumerator SpawnCoroutaine()
     {
+        int coolTime = UnityEngine.Random.Range(4, 6);
         test = true;
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(coolTime);
         DestroyAnchor();
         test = false;
     }
