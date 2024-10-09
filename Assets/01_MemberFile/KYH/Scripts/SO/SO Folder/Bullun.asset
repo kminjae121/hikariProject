@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79f642b03eee636429633ac584adb8af, type: 3}
   m_Name: Bullun
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: 1b3685f4142ffc34d8a1ce37e739bef9, type: 3}
+  sprite: {fileID: -1033542337, guid: 1b3685f4142ffc34d8a1ce37e739bef9, type: 3}
   name: Bullun
   prefab: {fileID: 8523488740190210719, guid: d9ae6193da0e05c4a8626344efa3852a, type: 3}

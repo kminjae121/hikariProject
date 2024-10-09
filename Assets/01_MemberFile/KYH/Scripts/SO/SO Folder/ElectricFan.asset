@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79f642b03eee636429633ac584adb8af, type: 3}
   m_Name: ElectricFan
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: 2e6abc3242a2999448c6971d88bc23b0, type: 3}
+  sprite: {fileID: -597005397, guid: 2e6abc3242a2999448c6971d88bc23b0, type: 3}
   name: Fan
   prefab: {fileID: 7130338374306468576, guid: fa9fc95a4cf13c34ebd08e210eef0eb3, type: 3}
