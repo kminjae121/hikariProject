@@ -120,7 +120,9 @@ public class WindowManager : MonoBehaviour
         yield return new WaitForSeconds(1f);
         noise.m_AmplitudeGain = 0f;
         noise.m_FrequencyGain = 0f;
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f);
+        SoundManager.Instance.ChangeMainStageVolume("Explosion", true, ISOund.VFX);
+        yield return new WaitForSeconds(1f);
         playerSprite.SetActive(true);
         explotionParticle.Play();
         playerBoom.Play();

@@ -87,6 +87,7 @@ public class EnterImage : MonoBehaviour
         black.gameObject.SetActive(true);
         black.DOFade(0, 2);
         yield return new WaitForSeconds(3f);
+        SoundManager.Instance.ChangeMainStageVolume("SettingSceneBGM", false, ISOund.BGM);
         SceneManager.LoadScene("KimMin");
     }
 
