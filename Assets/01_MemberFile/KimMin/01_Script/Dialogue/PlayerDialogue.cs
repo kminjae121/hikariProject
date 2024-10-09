@@ -13,7 +13,7 @@ public class PlayerDialogue : MonoBehaviour
             .Show("이곳을 빠져나가야겠어!", 3.5f, true)
             .End();
 
-        QuestPopupUI.Instance.QuestTxt();
+        //QuestPopupUI.Instance.QuestTxt();
     }
 
     public void LuminescentPlantDialogue()
@@ -25,7 +25,7 @@ public class PlayerDialogue : MonoBehaviour
             .Show("그리고 밝기를 이용해 특정한 물체들을 동작시킬 수 있어", 4f, true)
             .End();
 
-        QuestPopupUI.Instance.QuestTxt();
+       // QuestPopupUI.Instance.QuestTxt();
     }
 
     public void LeafWallDialogue()
@@ -45,7 +45,7 @@ public class PlayerDialogue : MonoBehaviour
             .Show("하지만 걱정마 만약 너가 불빛을 내지 않는다면 아귀가 공격하는 일은 없을테니까!", 6.5f, true)
             .End();
 
-        QuestPopupUI.Instance.QuestTxt();
+        //QuestPopupUI.Instance.QuestTxt();
     }
 
     public void BrightFlowerDialogue()
@@ -66,7 +66,5 @@ public class PlayerDialogue : MonoBehaviour
             .Show("문어는 특정 밝기에만 반응해", 3f, true)
             .Show("문어가 반응하면 박스의 윗부분을 밀어내 더 높이 올라갈 수 있을거야", 5.5f, true)
             .End();
-
-        QuestPopupUI.Instance.QuestTxt();
     }
 }

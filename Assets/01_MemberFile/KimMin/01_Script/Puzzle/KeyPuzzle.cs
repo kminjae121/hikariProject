@@ -12,7 +12,7 @@ public class KeyPuzzle : MonoBehaviour
     private CheckPlayerCollide _checkPlayer;
 
     private float _keySpeed = 5f;
-    private bool hasKey;
+    public bool hasKey;
     private bool isHoleHit;
 
     private void Awake()
@@ -28,6 +28,15 @@ public class KeyPuzzle : MonoBehaviour
         _checkPlayer.OnPlayerCollide += HandlePlayerCollide;
     }
 
+    private void Update()
+    {
+        if (isHoleHit && hasKey)
+        {
+            if (Input.GetKeyDown(KeyCode.F))
+                OnKeyEnter();
+        }
+    }
+
     private void HandlePlayerCollide(string name)
     {
         if (name == "Key")
@@ -38,15 +47,6 @@ public class KeyPuzzle : MonoBehaviour
         else if (name == "KeyHole")
         {
             isHoleHit = true;
-        }
-    }
-
-    private void Update()
-    {
-        if (isHoleHit && hasKey)
-        {
-            if (Input.GetKeyDown(KeyCode.F))
-                OnKeyEnter();
         }
     }
 
