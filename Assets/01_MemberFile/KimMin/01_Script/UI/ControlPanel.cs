@@ -33,6 +33,11 @@ public class ControlPannel : MonoBehaviour
 
     public void OnCloseClick()
     {
+        if (_playerAnimator == null)
+            return;
+        if (_playerMove == null)
+            return;
+
         _playerAnimator._isAnimator = true;
         _playerMove._isForce = false;
         OpenControlPanel._isTrue = true;
