@@ -4,7 +4,7 @@ using UnityEngine;
 public class TutorialText : MonoBehaviour
 {
     public List<string> tutorialText = new List<string>();
-    private static int _textNumber;
+    private int _textNumber;
     private bool _isEndCurrentText;
 
     private void Start()
@@ -15,6 +15,11 @@ public class TutorialText : MonoBehaviour
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            PlayerChatBoxManager.Instance.Show(tutorialText[1], 3, true);
+            PlayerChatBoxManager.Instance.End();
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
