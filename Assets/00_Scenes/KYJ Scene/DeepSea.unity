@@ -24163,7 +24163,10 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8147215859493366611, guid: 8420e576b5f34f8489c3c14b5dbc4a62, type: 3}
       insertIndex: -1
       addedObject: {fileID: 996711805}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8795439088560845897, guid: 8420e576b5f34f8489c3c14b5dbc4a62, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 8420e576b5f34f8489c3c14b5dbc4a62, type: 3}
 --- !u!1 &330163330
 GameObject:
@@ -25315,7 +25318,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.17157173, y: 0.14025468}
+  m_AnchoredPosition: {x: 0.17, y: 0.14}
   m_SizeDelta: {x: 20, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &1007678458
