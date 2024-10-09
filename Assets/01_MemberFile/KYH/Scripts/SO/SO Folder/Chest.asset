@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79f642b03eee636429633ac584adb8af, type: 3}
   m_Name: Chest
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: 1b36bd372851baf468f7b17a215e8663, type: 3}
+  sprite: {fileID: 426432708, guid: 1b36bd372851baf468f7b17a215e8663, type: 3}
   name: Chest
   prefab: {fileID: 1430710994090879661, guid: e059f3f898e7cba4aa472b18369acbb3, type: 3}
