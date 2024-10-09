@@ -15,11 +15,6 @@ public class TutorialText : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            PlayerChatBoxManager.Instance.Show(tutorialText[1], 3, true);
-            PlayerChatBoxManager.Instance.End();
-        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -32,8 +27,8 @@ public class TutorialText : MonoBehaviour
                     return;
                 else
                 {
-                    PlayerChatBoxManager.Instance.Show(tutorialText[_textNumber], 2.5f, true)
-                     .Show(tutorialText[_textNumber+=1],3,true);
+                    PlayerChatBoxManager.Instance.Show(tutorialText[_textNumber], 2.2f, true)
+                     .Show(tutorialText[_textNumber+=1],2.2f,true);
                     PlayerChatBoxManager.Instance.End();
                     _textNumber++;
                 }

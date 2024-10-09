@@ -6031,7 +6031,7 @@ MonoBehaviour:
   tutorialText:
   - "\uB2E4\uC74C\uC740 \uC120\uD48D\uAE30\uC57C!"
   - "\uC120\uD48D\uAE30\uB294 \uACF5\uC911\uC744 \uB0A0\uC544\uB2E4\uB2C8\uAC8C \uD574\uC918!
-    \uB0AD\uB5A8\uC5B4\uC9C0\uB97C \uB118\uC5B4\uBCF4\uC790!"
+    \uB0AD\uB5A0\uB7EC\uB97C \uB118\uC5B4\uBCF4\uC790!"
 --- !u!61 &499940395
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -17996,7 +17996,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tutorialText:
-  - "\uC18C\uD30C\uB294 \uB192\uC744 \uACF3\uC744 \uC62C\uB77C\uAC08 \uC218\uC788\uC5B4!"
+  - "\uC18C\uD30C\uB294 \uB192\uC740 \uACF3\uC744 \uC62C\uB77C\uAC08 \uC218\uC788\uC5B4!"
   - "\uC18C\uD30C\uB97C \uC774\uC6A9\uD574 \uC704\uB85C \uC62C\uB77C\uAC00\uBCF4\uC790"
 --- !u!61 &1267205547
 BoxCollider2D:
