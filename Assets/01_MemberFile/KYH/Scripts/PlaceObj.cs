@@ -87,6 +87,7 @@ public class PlaceObj : MonoBehaviour
 
         if (gameObject.GetComponent<ObjectGather>() != null)
             placeHelp.GetComponent<ObjectGather>().enabled = false;
+
         isPlaceStart = true;
     }
     

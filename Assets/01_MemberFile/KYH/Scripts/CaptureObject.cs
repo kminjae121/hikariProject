@@ -25,8 +25,9 @@ public class CaptureObject : MonoBehaviour
             collider.enabled = false;
 
             SpriteRenderer sprite = gameObject.GetComponent<SpriteRenderer>();
-            Animator animator;
             sprite.sprite = captureSprite.sprite;
+            if (gameObject.GetComponentInChildren<Collider2D>() != null)
+                gameObject.GetComponentInChildren<Collider2D>().enabled = false;
             if (gameObject.GetComponent<ObjectGather>() != null)
                 gameObject.GetComponent<ObjectGather>().enabled = false;
             if (gameObject.GetComponent<Animator>() != null)

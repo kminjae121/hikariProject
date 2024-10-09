@@ -63,7 +63,7 @@ public class ButtonManager : MonoSingleton<ButtonManager>
         {
             _currentTime += Time.deltaTime;
 
-            if (_currentTime >= 33)
+            if (_currentTime >= 40)
             {
                 _currentTime = 0;
                 IsWifiTrue = false;
