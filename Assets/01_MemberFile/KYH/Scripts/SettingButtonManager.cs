@@ -48,7 +48,7 @@ public class SettingButtonManager : MonoBehaviour
 
     private void YoutubeApp()
     {
-        Process.Start("https://www.youtube.com/@jjangfish");
+        Process.Start("https://youtu.be/QmcnyXTKrKg");
         folderManager.CancelButton();
     }
 
