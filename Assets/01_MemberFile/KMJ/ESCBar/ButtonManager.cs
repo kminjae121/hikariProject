@@ -46,6 +46,9 @@ public class ButtonManager : MonoSingleton<ButtonManager>
         _esc.SetActive(false);
 
         _randomInt = Random.Range(1, 4);
+
+        IsWifiTrue = true;
+        IsFireWallTrue = true;
     }
 
     private void Start()

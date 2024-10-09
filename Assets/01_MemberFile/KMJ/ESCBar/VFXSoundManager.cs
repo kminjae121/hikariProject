@@ -12,10 +12,10 @@ public class VFXSoundManager : MonoBehaviour
         
     }
 
-    public void MoveSoundTrue(AudioClip clip)
-    {
-        music1.clip = clip;
+  //  public void MoveSoundTrue(AudioClip clip)
+   // {
+     //   music1.clip = clip;
 
-        music1.Play();
-    }
+    //    music1.Play();
+   // }
 }
