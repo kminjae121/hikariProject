@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 
 public enum DoorType
@@ -39,7 +40,7 @@ public class Door : MonoBehaviour
     private void Start()
     {
         _btnManager = GameObject.Find("EscParent").GetComponent<ButtonManager>();
-    }
+    } 
 
     private void Update()
     {
@@ -119,7 +120,8 @@ public class Door : MonoBehaviour
                 _playerKeyFalse.transform.GetComponent<PlayerMove>()._isForce = false;
             }
             else if (Input.GetKey(KeyCode.F) && _currentSceneIndex == 5)
-                return;
+                SceneManager.LoadScene("EndingScene");
+                
 
         }
         if (_currentSceneIndex == 5)

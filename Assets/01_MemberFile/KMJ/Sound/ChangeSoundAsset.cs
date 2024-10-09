@@ -29,7 +29,9 @@ public class ChangeSoundAsset : MonoBehaviour
                 SoundManager.Instance.ChangeMainStageVolume("CaptureStageSound", true,ISOund.BGM);
                 break;
             case "KimMin":
-                SoundManager.Instance.ChangeMainStageVolume("Sea Stage Sound", true, ISOund.BGM);
+                SoundManager.Instance.ChangeMainStageVolume("SeaStageSound", true, ISOund.BGM);
+                break;
+            default:
                 break;
         }
     }
