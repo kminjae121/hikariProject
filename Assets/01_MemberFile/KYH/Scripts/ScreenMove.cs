@@ -34,12 +34,15 @@ public class ScreenMove : MonoBehaviour
         {
             if (app == IApp.Chrome)
             {
-                SoundManager.Instance.ChangeMainStageVolume("windowSceneBGM", true);
-                SceneManager.LoadScene("Setting");
                 QuestPopupUI.Instance.QuestTxt();
+                SoundManager.Instance.ChangeMainStageVolume("windowSceneBGM", true, ISOund.BGM);
+                SceneManager.LoadScene("Setting");
             }
             if (app == IApp.PowerPoint)
+            {
+                SceneManager.LoadScene("CaptureStage");
                 print("ppt¿¬°á");
+            }
         }
     }
 

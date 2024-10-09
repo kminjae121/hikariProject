@@ -8,6 +8,7 @@ public class LuminescentPlants : MonoBehaviour
     [Header("Player Input")]
     [SerializeField] private Transform _playerTrm;
     [SerializeField] private InputReader _inputReader;
+    [SerializeField] private GameObject _hotkey;
 
     public bool _isReach;
     public bool _isHold;
@@ -30,12 +31,14 @@ public class LuminescentPlants : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            _hotkey.gameObject.SetActive(true);
             _isReach = true;
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
+        _hotkey.gameObject.SetActive(false);
         _isReach = false;
     }
 
@@ -45,6 +48,7 @@ public class LuminescentPlants : MonoBehaviour
         {
             gameObject.transform.SetParent(parent);
             _rigidCompo.bodyType = RigidbodyType2D.Kinematic;
+            _hotkey.gameObject.SetActive(false);
             _isHold = true;
         }
 /*        else if (_isHold == true && Input.GetKeyDown(KeyCode.K))

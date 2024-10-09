@@ -23,12 +23,17 @@ public class EnterImage : MonoBehaviour
     private GameObject playerRigging;
     [SerializeField]
     private GameObject playerAnimation;
+
+    [SerializeField]
+    private Image black;
     
     [SerializeField]
     private GameObject playerFake;
 
     [SerializeField]
     private GameObject light;
+
+    private bool isOneTime;
 
     private void Awake()
     {
@@ -48,8 +53,9 @@ public class EnterImage : MonoBehaviour
         Collider2D hit = Physics2D.OverlapBox(transform.position, _imageSize, 0, whatIsPlayer);
 
         
-        if (hit == true && Input.GetMouseButtonUp(0))
+        if (hit == true && Input.GetMouseButtonUp(0) && !isOneTime)
         {
+            isOneTime = true;
             playerAnimation.SetActive(false);
             playerRigging.SetActive(true);
             playerRigging.transform.root.gameObject.GetComponent<Rigidbody2D>().gravityScale = 0f;
@@ -75,10 +81,12 @@ public class EnterImage : MonoBehaviour
         tmpro.DOKill(true);
         tmp.DOKill(true);
         yield return new WaitForSeconds(0.3f);
-        _panel.SetActive(false);
         playerFake.GetComponent<Rigidbody2D>().gravityScale = 9.8f;
         yield return new WaitForSeconds(2f);
         QuestPopupUI.Instance.QuestTxt();
+        black.gameObject.SetActive(true);
+        black.DOFade(0, 2);
+        yield return new WaitForSeconds(3f);
         SceneManager.LoadScene("KimMin");
     }
 
