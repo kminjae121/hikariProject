@@ -7,9 +7,9 @@ using TMPro;
 
 public class ThirdStageTxt : MonoBehaviour
 {
-    public static bool _isStart;
+    public  bool _isStart;
     private Sequence _textSequence;
-    [SerializeField] private TextMeshProUGUI _text;
+    [SerializeField] private TextMeshProUGUI _txt;
 
     private void Awake()
     {
@@ -18,16 +18,15 @@ public class ThirdStageTxt : MonoBehaviour
 
     private void Start()
     {
+        _txt.TextUpDownMove(5, Color.red, 2.5f, TextStyle.Moving | TextStyle.UI | TextStyle.FadeIn);
+        StartCoroutine(WaitEndText());
     }
 
-    private void OnEnable()
+    IEnumerator WaitEndText()
     {
-        PlayerChatBoxManager.Instance.Show("바이러스가 점프를 막았어!", 3, true)
-                    .Show("내 바로 밑에 소파를 설치해서 위로 올라가자!", 3.5f, true)
-                    .End();
+        yield return new WaitForSeconds(8);
+        _txt.enabled = false;
     }
 
-    private void Update()
-    { 
-    }
+
 }

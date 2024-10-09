@@ -21,6 +21,8 @@ public class SettingButtonManager : MonoBehaviour
     [SerializeField]
     private GameObject descriptionPanel;
 
+    [SerializeField]
+    private GameObject howControll;
 
     public void InvokeApp()
     {
@@ -33,6 +35,7 @@ public class SettingButtonManager : MonoBehaviour
 
     private void ChromeApp()
     {
+        QuestPopupUI.Instance.QuestTxt();
         folderManager.CancelButton();
         WindowObj.Instance.popUpChrome.SetActive(true);
     }
@@ -52,23 +55,19 @@ public class SettingButtonManager : MonoBehaviour
     private void WeatherApp()
     {
         Process.Start("msnweather://forecast?la=[latitude]&lo=[longitude]");
+        folderManager.CancelButton();
     }
 
     private void HowControllApp()
     {
-        string strPath = Application.dataPath + "/GameControll.png";
+        howControll.SetActive(true);
+        folderManager.CancelButton();
+        //string strPath = Application.dataPath + "/GameControll.png";
 
-        print(strPath);
+        //print(strPath);
 
-        Process.Start($"ms-photos:viewer?fileName={strPath}");
+        //Process.Start($"ms-photos:viewer?fileName={strPath}");
         //Process.Start("notepad.exe");
-
-
-
-        //Process process = new Process();
-        //process.StartInfo.WorkingDirectory = strPath;
-        //process.StartInfo.FileName = "Photos.exe";
-        //process.Start();
     }
     private void PortPolioApp()
     {

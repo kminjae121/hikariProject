@@ -19,6 +19,9 @@ public class StageApp : MonoBehaviour
 
     public void ClearChrome()
     {
+        chromeLock.SetActive(true);
+        chrome.layer = 0;
+        chrome.tag = "Untagged";
         powerPointLock.SetActive(false);
         powerPoint.layer = 15;
         powerPoint.tag = "Application";
