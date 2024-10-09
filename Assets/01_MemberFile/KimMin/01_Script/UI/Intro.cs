@@ -50,9 +50,9 @@ public class Intro : MonoBehaviour
             .JoinCallback(() => windowScreenNoise.SetActive(true))
             .JoinCallback(SetActiveOutLine())
             .JoinCallback(() => onButton.SetActive(true))
+            .JoinCallback(() => SoundManager.Instance.ChangeMainStageVolume("WindowStart", true))
             .Append(_glowScreen.DOFade(0, 1.25f))
             .JoinCallback(()=> particleSystem.Stop())
-            .AppendCallback(() => SoundManager.Instance.ChangeMainStageVolume("WindowStart", true))
             .OnComplete(() => transform.gameObject.SetActive(false));
     }
 
