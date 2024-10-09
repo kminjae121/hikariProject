@@ -30,9 +30,6 @@ public class TutorialControllPannel : MonoBehaviour
     [SerializeField]
     private GameObject quest;
 
-    [SerializeField]
-    private GameObject reallyESC;
-
     public void OnPanelClick()
     {
         int index = int.Parse(EventSystem.current.currentSelectedGameObject.name.Substring(0, 1));
@@ -53,7 +50,6 @@ public class TutorialControllPannel : MonoBehaviour
             gameObject.transform.root.gameObject.SetActive(false);
             popUp.SetActive(true);
             quest.SetActive(true);
-            reallyESC.SetActive(true);
             PlayerChatBoxManager.Instance.Show("마우스로 나를\n 옮길 수 있어", 6f, false)
             .End();
         }
