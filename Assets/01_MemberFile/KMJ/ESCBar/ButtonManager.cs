@@ -41,14 +41,14 @@ public class ButtonManager : MonoSingleton<ButtonManager>
 
     private void Awake()
     {
+
+        IsFireWallTrue = false;
+        IsFireWallTrue = false;
         isEscFalse = false;
 
         _esc.SetActive(false);
 
         _randomInt = Random.Range(1, 4);
-
-        IsWifiTrue = true;
-        IsFireWallTrue = true;
     }
 
     private void Start()
