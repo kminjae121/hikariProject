@@ -26,10 +26,10 @@ public class ChangeSoundAsset : MonoBehaviour
         switch(_currentSceneName)
         {
             case "CaptureStage":
-                SoundManager.Instance.ChangeMainStageVolume("CaptureStageSound", true);
+                SoundManager.Instance.ChangeMainStageVolume("CaptureStageSound", true,ISOund.BGM);
                 break;
             case "KimMin":
-                SoundManager.Instance.ChangeMainStageVolume("Sea Stage Sound", true);
+                SoundManager.Instance.ChangeMainStageVolume("Sea Stage Sound", true, ISOund.BGM);
                 break;
         }
     }

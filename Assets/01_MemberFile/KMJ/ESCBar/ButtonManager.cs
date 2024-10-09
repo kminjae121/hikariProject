@@ -63,7 +63,7 @@ public class ButtonManager : MonoSingleton<ButtonManager>
         {
             _currentTime += Time.deltaTime;
 
-            if (_currentTime >= 38)
+            if (_currentTime >= 33)
             {
                 _currentTime = 0;
                 IsWifiTrue = false;
@@ -97,14 +97,13 @@ public class ButtonManager : MonoSingleton<ButtonManager>
             _wifiCollectText.SetText("¿¬°áµÊ");
             _wifiCollectText.color = Color.green;
             _wifiAniamtion.enabled = true;
-            _wifiAniamtion.gameObject.GetComponent<Image>().color = Color.white;
         }
         else if (IsWifiTrue == false)
         {
             _wifiCollectText.SetText("¿¬°á ¾ÈµÊ");
             _wifiCollectText.color = Color.red;
             _wifiAniamtion.enabled = false;
-            _wifiAniamtion.gameObject.GetComponent<Image>().color = Color.gray;
+            _wifiAniamtion.gameObject.GetComponent<Image>().sprite = _falsewifiRenderer;
         }
     }
 
