@@ -13,6 +13,10 @@ public class TutorialText : MonoBehaviour
         _textNumber = 0;
     }
 
+    private void Update()
+    {
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (_isEndCurrentText == false)
@@ -23,8 +27,8 @@ public class TutorialText : MonoBehaviour
                     return;
                 else
                 {
-                    PlayerChatBoxManager.Instance.Show(tutorialText[_textNumber], 2, true)
-                     .Show(tutorialText[_textNumber+=1],4,true);
+                    PlayerChatBoxManager.Instance.Show(tutorialText[_textNumber], 2.5f, true)
+                     .Show(tutorialText[_textNumber+=1],3,true);
                     PlayerChatBoxManager.Instance.End();
                     _textNumber++;
                 }
@@ -33,6 +37,8 @@ public class TutorialText : MonoBehaviour
                 return;
         }
     }
+
+    
 
     private void OnTriggerExit2D(Collider2D collision)
     {
