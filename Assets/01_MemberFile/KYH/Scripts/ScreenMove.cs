@@ -35,7 +35,7 @@ public class ScreenMove : MonoBehaviour
             if (app == IApp.Chrome)
             {
                 QuestPopupUI.Instance.QuestTxt();
-                SoundManager.Instance.ChangeMainStageVolume("windowSceneBGM", true);
+                SoundManager.Instance.ChangeMainStageVolume("windowSceneBGM", true, ISOund.BGM);
                 SceneManager.LoadScene("Setting");
             }
             if (app == IApp.PowerPoint)

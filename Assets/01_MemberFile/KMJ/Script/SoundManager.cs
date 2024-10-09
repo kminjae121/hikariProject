@@ -1,7 +1,14 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+
+public enum ISOund
+{
+    BGM,
+    VFX
+}
 
 public class SoundManager : MonoBehaviour
 {
@@ -11,8 +18,12 @@ public class SoundManager : MonoBehaviour
     [SerializeField] AudioClip[] music;
 
 
+    private ISOund soundType;
+
     [SerializeField]
     private AudioSource bgmAudioPlayer;
+    [SerializeField]
+    private AudioSource vfxAudioPlayer;
 
     private Dictionary<string, AudioClip> audioDic = new Dictionary<string, AudioClip>();
     //private string _currentScene;
@@ -36,13 +47,29 @@ public class SoundManager : MonoBehaviour
         bgmAudioPlayer.clip = null;
     }
 
-    public void ChangeMainStageVolume(string mainClip, bool isPlay)
+    public void ChangeMainStageVolume(string mainClip, bool isPlay, ISOund soundType)
     {
-        bgmAudioPlayer.Pause();
-        bgmAudioPlayer.clip = audioDic[mainClip];
-        if (isPlay)
-            bgmAudioPlayer.Play();
-        else
+        if (soundType == ISOund.BGM)
+        {
             bgmAudioPlayer.Pause();
+            bgmAudioPlayer.clip = audioDic[mainClip];
+            if (isPlay)
+                bgmAudioPlayer.Play();
+            else
+                bgmAudioPlayer.Pause();
+        }
+        if (soundType == ISOund.VFX)
+        {
+            AudioSource soundPlayer = Instantiate(vfxAudioPlayer);
+            soundPlayer.clip = audioDic[mainClip];
+            soundPlayer.Play();
+            StartCoroutine(SoundEnd(soundPlayer));
+        }
+    }
+
+    private IEnumerator SoundEnd(AudioSource soundPlayer)
+    {
+        yield return new WaitForSeconds(soundPlayer.clip.length);
+        Destroy(soundPlayer.gameObject);
     }
 }
