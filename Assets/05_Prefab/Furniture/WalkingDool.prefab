@@ -64,7 +64,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.09662628, y: 1.7632126}
+  m_Offset: {x: 0.06894302, y: 1.7239945}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -75,7 +75,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.9748688, y: 0.26562095}
+  m_Size: {x: 0.55039215, y: 0.18718481}
   m_EdgeRadius: 0
 --- !u!1 &4610379598212135641
 GameObject:
@@ -260,7 +260,7 @@ MonoBehaviour:
   _objectType: 4
   _boxSize: {x: 0.5, y: 0.5}
   _jumpPower: 5
-  _flyingSpeed: 2
+  _flyingSpeed: 250
   _downPower: 0
   _playerLayer:
     serializedVersion: 2
@@ -286,7 +286,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 200
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
