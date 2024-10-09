@@ -20,7 +20,7 @@ public class SearchBar : MonoBehaviour
 
     private void Start()
     {
-        SoundManager.Instance.ChangeMainStageVolume("SettingSceneBGM", true);
+        SoundManager.Instance.ChangeMainStageVolume("SettingSceneBGM", true,ISOund.BGM);
     }
 
     public void EnterSearch()
