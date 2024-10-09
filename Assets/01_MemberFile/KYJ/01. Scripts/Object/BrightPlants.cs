@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
+using TMPro;
 
 public class BrightPlants : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class BrightPlants : MonoBehaviour
     private LuminescentPlants luminescentPlants;
     [SerializeField]
     public Light2D light;
+    [SerializeField] private GameObject levelTxt;
 
     [Header("Player Input")]
     [SerializeField] private PlayerAnimation _playerAnimCompo;
@@ -72,6 +74,8 @@ public class BrightPlants : MonoBehaviour
             brightStep = (int)(light.intensity * 10);
             print(brightStep);
         }
+
+        levelTxt.GetComponent<TextMeshPro>().text = brightStep.ToString();
     }
 
 
