@@ -1,9 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
-using DG.Tweening;
-using System;
 
 public class CaptureObject : MonoBehaviour
 {
@@ -28,9 +25,12 @@ public class CaptureObject : MonoBehaviour
             collider.enabled = false;
 
             SpriteRenderer sprite = gameObject.GetComponent<SpriteRenderer>();
+            Animator animator;
             sprite.sprite = captureSprite.sprite;
             if (gameObject.GetComponent<ObjectGather>() != null)
                 gameObject.GetComponent<ObjectGather>().enabled = false;
+            if (gameObject.GetComponent<Animator>() != null)
+                gameObject.GetComponent<Animator>().enabled = false;
 
             DoTweenSequence(sprite);
             Transform furniture = GameObject.Find("Gallury").transform.GetChild(invenIdx);

@@ -111,13 +111,15 @@ public class Door : MonoBehaviour
 
         if(hit == true)
         {
-            if(Input.GetKey(KeyCode.F))
+            if (Input.GetKey(KeyCode.F) && _currentSceneIndex != 5)
             {
                 PlayerChatBoxManager.Instance.End();
                 _stageManager.stageList[_currentSceneIndex].SetActive(false);
                 _stageManager.stageList[_currentSceneIndex += 1].SetActive(true);
                 _playerKeyFalse.transform.GetComponent<PlayerMove>()._isForce = false;
             }
+            else if (Input.GetKey(KeyCode.F) && _currentSceneIndex == 5)
+                return;
 
         }
         if (_currentSceneIndex == 5)
