@@ -96,14 +96,13 @@ public class ButtonManager : MonoSingleton<ButtonManager>
         {
             _wifiCollectText.SetText("¿¬°áµÊ");
             _wifiCollectText.color = Color.green;
-            _wifiAniamtion.gameObject.GetComponent<Image>().color = Color.clear;
+            _wifiAniamtion.enabled = true;
         }
         else if (IsWifiTrue == false)
         {
             _wifiCollectText.SetText("¿¬°á ¾ÈµÊ");
             _wifiCollectText.color = Color.red;
             _wifiAniamtion.enabled = false;
-            _wifiAniamtion.gameObject.GetComponent<Image>().color = new Color(158, 158, 158);
         }
     }
 
