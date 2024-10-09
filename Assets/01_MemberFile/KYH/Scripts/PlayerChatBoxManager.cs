@@ -80,7 +80,6 @@ public class PlayerChatBoxManager : MonoBehaviour
 
     public PlayerChatBoxManager Show(string text, float second, bool isMoveStop)
     {
-        print("ÄÚ·çÆ¾ ½ÇÇàµÊ");
         if(!isWindowScene)
         {
             playerMove._isForce = isMoveStop;
@@ -90,7 +89,6 @@ public class PlayerChatBoxManager : MonoBehaviour
         SetText(text, second);
         putInTimer = second;
         isPutInTimer = true;
-        print("¿ÀÀ×");
         return this;
     }
 
