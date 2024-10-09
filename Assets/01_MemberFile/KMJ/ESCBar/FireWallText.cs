@@ -27,17 +27,21 @@ public class FireWallText : MonoBehaviour
 
     private void Update()
     {
-        if(ButtonManager.IsFireWallTrue == false)
-        {
-            _fireWallText.enabled = true;
-            _textSequence.Play();
-        }
+        if (_fireWallText == null)
+            return;
         else
         {
-            _fireWallText.enabled = false;
-            _textSequence.Pause();
+            if (ButtonManager.IsFireWallTrue == false)
+            {
+                _fireWallText.enabled = true;
+                _textSequence.Play();
+            }
+            else
+            {
+                _fireWallText.enabled = false;
+                _textSequence.Pause();
+            }
         }    
-            
     }
 
 }
