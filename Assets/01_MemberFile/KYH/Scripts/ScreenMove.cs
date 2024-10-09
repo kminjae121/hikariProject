@@ -23,6 +23,10 @@ public class ScreenMove : MonoBehaviour
     [SerializeField]
     private bool isInApp;
 
+    [SerializeField]
+    private FolderManager folderManager;
+
+
     private void Start()
     {
         DOYMove();
@@ -36,6 +40,7 @@ public class ScreenMove : MonoBehaviour
             {
                 QuestPopupUI.Instance.QuestTxt();
                 SoundManager.Instance.ChangeMainStageVolume("windowSceneBGM", true, ISOund.BGM);
+                GameManager.Instance.OnClickDown -= folderManager.ClickFolderInvoke;
                 SceneManager.LoadScene("Setting");
             }
             if (app == IApp.PowerPoint)

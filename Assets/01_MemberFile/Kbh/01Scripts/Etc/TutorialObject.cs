@@ -174,7 +174,7 @@ public class TutorialObject : MonoBehaviour
             text.gameObject.SetActive(true);
             text.text = FinishText;
             tutorial.ButtonTutorial();
-            gameObject.SetActive(false);
+            Destroy(gameObject);
          return;
       }
 
