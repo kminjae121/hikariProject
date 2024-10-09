@@ -48,6 +48,7 @@ public class FolderManager : MonoBehaviour
     private void Awake()
     {
             playerAnimator = GameObject.Find("PlayerAnimation").GetComponent<Animator>();
+        GameManager.Instance.OnClickDown += ClickFolderInvoke;
     }
 
     private void Start()
@@ -57,7 +58,6 @@ public class FolderManager : MonoBehaviour
         else
             playerAnimator.gameObject.transform.root.position = new Vector3(0,10,0);
 
-        GameManager.Instance.OnClickDown += ClickFolderInvoke;
     }
 
     private void Update()
@@ -66,7 +66,7 @@ public class FolderManager : MonoBehaviour
             HoldObject();
     }
 
-    private void ClickFolderInvoke()
+    public void ClickFolderInvoke()
     {
         if (isLock)
         {
@@ -105,6 +105,7 @@ public class FolderManager : MonoBehaviour
             }
             else if (hit.CompareTag("Player") && GameManager.Instance.isFinishTutorial)
             {
+                print(mouseDrageDrop);
                 mouseDrageDrop.MousePosRay(hit);
             }
         }
@@ -160,6 +161,7 @@ public class FolderManager : MonoBehaviour
     {
         _isHeld = false;
         settingButton.holdObject.transform.localPosition = Vector2.zero;
+
     }
 
     void OnDrawGizmos()
