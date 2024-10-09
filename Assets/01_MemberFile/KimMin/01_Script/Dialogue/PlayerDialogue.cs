@@ -10,7 +10,7 @@ public class PlayerDialogue : MonoBehaviour
             .Show("으으 어지러워", 3f, true)
             .Show("이곳은 어디일까?", 3f, true)
             .Show("깊은 심해인거 같아", 3f, true)
-            .Show("이곳을 빠져나가야 할것같아!", 3.5f, true)
+            .Show("이곳을 빠져나가야겠어!", 3.5f, true)
             .End();
 
         QuestPopupUI.Instance.QuestTxt();
@@ -51,11 +51,22 @@ public class PlayerDialogue : MonoBehaviour
     public void BrightFlowerDialogue()
     {
         PlayerChatBoxManager.Instance
-            .Show("이곳은 다양한 꽃들을 밟아서 위로 올라가야해", 3.5f, true)
+            .Show("이곳은 다양한 꽃들을 밟아서 위로 올라가야해", 4f, true)
             .Show("꽃들은 특정한 밝기에만 꽃봉우리가 열릴거야", 4f, true)
             .Show("왼쪽 밑에 있는 \"책 모양 버튼\"을 클릭해 사전을 열어봐", 5f, true)
             .Show("사전에는 무슨 꽃이 무슨 밝기에 열리는지 적혀있어!", 5f, true)
             .Show("사전을 잘 참조해봐!", 5f, true)
             .End();
+    }
+
+    public void OctopusDialogue()
+    {
+        PlayerChatBoxManager.Instance
+            .Show("이 박스 안에는 문어가 있어", 3f, true)
+            .Show("문어는 특정 밝기에만 반응해", 3f, true)
+            .Show("문어가 반응하면 박스의 윗부분을 밀어내 더 높이 올라갈 수 있을거야", 5.5f, true)
+            .End();
+
+        QuestPopupUI.Instance.QuestTxt();
     }
 }
