@@ -5,19 +5,22 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/00_Scenes/MainScene/WindowScene.unity
     guid: 8623ec8631706a1478fa9fde364300a6
-  - enabled: 1
+  - enabled: 0
     path: Assets/00_Scenes/MainScene/Setting.unity
     guid: 27c53a57c32847c43aa6ca7f0f3f9d4d
+  - enabled: 1
+    path: Assets/00_Scenes/CaptureStage/CaptureStage.unity
+    guid: 152e9384eb8e16743aa3274d91373b1e
   - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
-  - enabled: 1
+  - enabled: 0
     path: Assets/00_Scenes/KimMin.unity
     guid: 066ca40efefbbc04795af16eadeb7f2b
-  - enabled: 1
+  - enabled: 0
     path: Assets/00_Scenes/KYJ Scene/PreviewScenes.unity
     guid: 43443827e0a5c1b4e8b4d76bff20ca15
   - enabled: 1

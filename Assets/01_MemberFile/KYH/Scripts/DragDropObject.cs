@@ -8,6 +8,7 @@ public class DragDropObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
 
     private Image image;
     public Sprite basicImage;
+    public Sprite nullImage;
     private GameObject furnitureObj = null;
     private GameObject furniture;
 
@@ -25,6 +26,7 @@ public class DragDropObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
             return;
         else
         {
+            image.sprite = nullImage;
             transform.SetAsLastSibling();
             //parentAfterDrag = transform.parent;
             //transform.SetParent(transform.root);
@@ -48,7 +50,8 @@ public class DragDropObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
             return;
         else
         {
-            Vector2 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            image.sprite = nullImage;
+            Vector2 pos = UtillClass.GetMousePointerPosition();
 
             furnitureObj.transform.position = pos;
 
@@ -73,6 +76,8 @@ public class DragDropObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
                 placeObj.placeHelp.GetComponent<ObjectGather>().enabled = true;
                 placeObj.placeHelp.GetComponent<BoxCollider2D>().enabled = true;
                 placeObj.placeHelp.GetComponent<Rigidbody2D>().simulated = true;
+                if (gameObject.GetComponent<Animator>() != null)
+                    placeObj.placeHelp.GetComponent<Animator>().enabled = true;
                 placeObj.placeHelp.GetComponent<SpriteRenderer>().color = Color.white;
             }
             else if (!furnitureObj.GetComponent<PlaceObj>().isPlaceTure)

@@ -19,7 +19,7 @@ public class DownFloor : MonoBehaviour
     {
         if(collision.gameObject.name == _player.name)
         {
-            transform.DOMoveY(-40, 2);
+            transform.DOMoveY(-38, 2);
         }
     }
 }
