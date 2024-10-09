@@ -38,8 +38,8 @@ public class Intro : MonoBehaviour
                 _glowScreen.gameObject.SetActive(true);
             })
             .PrependInterval(5f)
-            .Append(_glowScreen.DOFade(1, 0f))
             .JoinCallback(() => SoundManager.Instance.ChangeMainStageVolume("WindowStart2", true))
+            .Append(_glowScreen.DOFade(1, 0f))
             .Append(_glowScreen.transform.DOScaleX(200, 7f)).SetEase(Ease.OutCubic)
             .Join(_glowScreen.transform.DOScaleY(0.4f, 7f)).SetEase(Ease.OutCubic)
             .Append(_glowScreen.transform.DOScaleY(120, 2.5f)).SetEase(Ease.OutCubic)
