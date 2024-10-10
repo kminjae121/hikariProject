@@ -15,4 +15,5 @@ public class EndGame : MonoBehaviour
 
         Application.Quit();
         Debug.Log("æ∆¿’");
+    }
    }
