@@ -78,6 +78,8 @@ public class DragDropObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
                 placeObj.placeHelp.GetComponent<Rigidbody2D>().simulated = true;
                 if (gameObject.GetComponent<Animator>() != null)
                     placeObj.placeHelp.GetComponent<Animator>().enabled = true;
+                if (gameObject.GetComponentInChildren<Collider2D>() != null)
+                    gameObject.GetComponentInChildren<Collider2D>().enabled = true;
                 placeObj.placeHelp.GetComponent<SpriteRenderer>().color = Color.white;
             }
             else if (!furnitureObj.GetComponent<PlaceObj>().isPlaceTure)
