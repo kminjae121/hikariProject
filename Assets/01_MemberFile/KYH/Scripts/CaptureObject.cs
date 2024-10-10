@@ -11,8 +11,15 @@ public class CaptureObject : MonoBehaviour
     private void Awake()
     {
         uiPos = GameObject.Find("UIPos").GetComponent<Transform>();
+
     }
 
+    private void Start()
+    {
+        PlaceObjManager.SavePlaceObj(captureSprite);
+
+        captureSprite = PlaceObjManager.LoadPlaceObj();
+    }
 
     public void CaptureFinish(int invenIdx)
     {

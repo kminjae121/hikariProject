@@ -26,7 +26,7 @@ public class ButtonManager : MonoSingleton<ButtonManager>
     [SerializeField] private Sprite _falsewifiRenderer;
 
     [field: SerializeField] public bool isEscFalse;
-    [field: SerializeField] public static bool IsWifiTrue { get; set; } = false;
+    [field: SerializeField] public static bool IsWifiTrue = false;
     [SerializeField] public Animator _wifiAniamtion;
     [Header("Sound")]
     [SerializeField] public TextMeshProUGUI _MainsoundText;
@@ -41,9 +41,6 @@ public class ButtonManager : MonoSingleton<ButtonManager>
 
     private void Awake()
     {
-
-        IsFireWallTrue = false;
-        IsFireWallTrue = false;
         isEscFalse = false;
 
         _esc.SetActive(false);
