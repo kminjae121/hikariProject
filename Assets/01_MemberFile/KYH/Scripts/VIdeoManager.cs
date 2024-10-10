@@ -55,8 +55,14 @@ public class VIdeoManager : MonoBehaviour
 
     private void Start()
     {
-        if(!GameManager.Instance.isFinishIntro)
-        StartCoroutine(WaitRoutine());
+        if (!GameManager.Instance.isFinishIntro)
+            StartCoroutine(WaitRoutine());
+        else
+        {
+            skipGageBar.SetActive(false);
+            speedVideo.SetActive(false);
+            youCanSkipText.gameObject.SetActive(false);
+        }
     }
 
     private IEnumerator WaitRoutine()
@@ -82,86 +88,89 @@ public class VIdeoManager : MonoBehaviour
 
     private void Update()
     {
-        if(isSpeedy)
+        if (!GameManager.Instance.isFinishIntro)
         {
-            introVideo.playbackSpeed = 5;
-            speedVideo.SetActive(true);
-        }
-        else
-        {
-            introVideo.playbackSpeed = 1;
-            speedVideo.SetActive(false);
-        }
-
-
-        if (!(introVideo.clip == computerClip))
-        {
-            skipGageBar.GetComponent<RectTransform>().localScale = new Vector3(skipGage,skipGageBar.transform.localScale.y,0);
-            if (Input.GetKey(KeyCode.Space))
+            if (isSpeedy)
             {
-                if (skipGage > 8)
+                introVideo.playbackSpeed = 5;
+                speedVideo.SetActive(true);
+            }
+            else
+            {
+                introVideo.playbackSpeed = 1;
+                speedVideo.SetActive(false);
+            }
+
+
+            if (!(introVideo.clip == computerClip))
+            {
+                skipGageBar.GetComponent<RectTransform>().localScale = new Vector3(skipGage, skipGageBar.transform.localScale.y, 0);
+                if (Input.GetKey(KeyCode.Space))
                 {
-                    FirstIntroEnd();
-                    skipGageBar.SetActive(false);
+                    if (skipGage > 8)
+                    {
+                        FirstIntroEnd();
+                        skipGageBar.SetActive(false);
+                    }
+                    else
+                    {
+                        skipGage += Time.deltaTime * 2;
+                        skipGageBar.GetComponent<Image>().DOFade(1, skipGage);
+                    }
                 }
                 else
                 {
-                    skipGage += Time.deltaTime *2;
-                    skipGageBar.GetComponent<Image>().DOFade(1,skipGage);
+                    if (skipGage > 0)
+                    {
+                        skipGage -= Time.deltaTime * 3;
+                        skipGageBar.GetComponent<Image>().DOFade(0, skipGage);
+                    }
+                }
+
+                if (introVideo.time > 0f && !sorry)
+                {
+                    IntroText();
+                }
+                if (introVideo.time > 6f && !sorry2)
+                {
+                    FirstIntroText();
+                }
+                if (introVideo.time > 11f && !sorry3)
+                {
+                    SecondIntroText();
+                }
+                if (introVideo.time > 18f && !sorry4)
+                {
+                    ThirdIntroText();
+                }
+                if (introVideo.time > 25f)
+                {
+                    FirstIntroEnd();
                 }
             }
             else
             {
-                if(skipGage > 0)
+                skipGageBar.SetActive(false);
+                if (introVideo.time > 1f)
                 {
-                    skipGage -= Time.deltaTime * 3;
-                    skipGageBar.GetComponent<Image>().DOFade(0, skipGage);
+                    if (Input.GetKeyDown(KeyCode.Space))
+                    {
+                        isSpeedy = !isSpeedy;
+                    }
                 }
-            }
-
-            if (introVideo.time > 0f && !sorry)
-            {
-                IntroText();
-            }
-            if (introVideo.time > 6f && !sorry2)
-            {
-                FirstIntroText();
-            }
-            if (introVideo.time > 11f && !sorry3)
-            {
-                SecondIntroText();
-            }
-            if (introVideo.time > 18f && !sorry4)
-            {
-                ThirdIntroText();
-            }
-            if (introVideo.time > 25f)
-            {
-                FirstIntroEnd();
-            }
-        }
-        else
-        {
-            skipGageBar.SetActive(false);
-            if (introVideo.time > 1f)
-            {
-                if (Input.GetKeyDown(KeyCode.Space))
+                if (introVideo.time > 31f)
                 {
-                    isSpeedy = !isSpeedy;
-                }
-            }
-            if (introVideo.time > 31f)
-            {
-                isSpeedy = false;
-                speedVideo.SetActive(false);
-                intro.BlinkTween();
-                introVideo.Stop();
-                videoRawImage.SetActive(false);
-                windowVolume.SetActive(true);
+                    isSpeedy = false;
+                    speedVideo.SetActive(false);
+                    intro.BlinkTween();
+                    introVideo.Stop();
+                    videoRawImage.SetActive(false);
+                    windowVolume.SetActive(true);
 
-                for (int i = 0; i < testActiveFalse.Length; i++)
-                {
-                    testActiveFalse[i].SetActive(false);
+                    for (int i = 0; i < testActiveFalse.Length; i++)
+                    {
+                        testActiveFalse[i].SetActive(false);
+                    }
                 }
             }
         }
