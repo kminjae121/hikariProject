@@ -27,6 +27,7 @@ public class ButtonManager : MonoSingleton<ButtonManager>
     [SerializeField] private TextMeshProUGUI _wifiCollectText;
     [SerializeField] private SpriteRenderer _wifiRenderer;
     [SerializeField] private Sprite _falsewifiRenderer;
+    [SerializeField] private Button _captureButton;
 
     [field: SerializeField] public bool isEscFalse;
     [field: SerializeField] public static bool IsWifiTrue = false;
@@ -64,10 +65,12 @@ public class ButtonManager : MonoSingleton<ButtonManager>
             case "KimMin":
                 IsWifiTrue = true;
                 IsFireWallTrue = true;
+                _captureButton.interactable = false;
                 break;
             case "CaptureStage":
                 IsWifiTrue = true;
                 IsFireWallTrue = true;
+                _captureButton.interactable = true;
                 break;
             default:
                 break;
