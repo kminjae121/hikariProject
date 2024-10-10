@@ -58,7 +58,7 @@ public class WindowManager : MonoBehaviour
             if (GameManager.Instance.isClearSea)
             {
                 stageApp.ClearChrome();
-
+                SoundManager.Instance.ChangeMainStageVolume("windowSceneBGM", true, ISOund.BGM);
                 if (GameManager.Instance.isCapture)
                 {
 

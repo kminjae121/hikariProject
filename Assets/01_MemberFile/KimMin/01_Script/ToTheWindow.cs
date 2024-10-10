@@ -10,6 +10,7 @@ public class ToTheWindow : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
+            QuestPopupUI.Instance.QuestTxt();
             GameManager.Instance.isClearSea = true;
             SceneManager.LoadScene("WindowScene");
         }

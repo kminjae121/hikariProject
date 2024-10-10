@@ -48,7 +48,7 @@ public class FolderManager : MonoBehaviour
     private void Awake()
     {
             playerAnimator = GameObject.Find("PlayerAnimation").GetComponent<Animator>();
-        GameManager.Instance.OnClickDown += ClickFolderInvoke;
+            GameManager.Instance.OnClickDown += ClickFolderInvoke;
     }
 
     private void Start()
