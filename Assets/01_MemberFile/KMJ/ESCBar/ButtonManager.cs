@@ -2,12 +2,15 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class ButtonManager : MonoSingleton<ButtonManager>
 {
     private static int _mainvalue;
     private static int _effectvalue;
 
+
+    private string _sceneName;
     private int _randomInt;
     private static float _currentTime;
 
@@ -50,8 +53,25 @@ public class ButtonManager : MonoSingleton<ButtonManager>
 
     private void Start()
     {
+        _sceneName = SceneManager.GetActiveScene().name;
+
         _MainmusicSlider.value = _mainvalue;
         _EffectmusicSlider.value = _effectvalue;
+
+
+        switch(_sceneName)
+        {
+            case "KimMin":
+                IsWifiTrue = true;
+                IsFireWallTrue = true;
+                break;
+            case "CaptureStage":
+                IsWifiTrue = true;
+                IsFireWallTrue = true;
+                break;
+            default:
+                break;
+        }
     }
 
     private void Update()
@@ -60,7 +80,7 @@ public class ButtonManager : MonoSingleton<ButtonManager>
         {
             _currentTime += Time.deltaTime;
 
-            if (_currentTime >= 40)
+            if (_currentTime >= 60)
             {
                 _currentTime = 0;
                 IsWifiTrue = false;
