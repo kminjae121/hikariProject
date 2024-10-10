@@ -7,6 +7,7 @@ public class PlaceObjData
 {
     public string spritePath;
     public string name;
+
     public string prefabPath;
 
     // PlaceObjSO 데이터를 PlaceObjData로 변환했음
