@@ -14,6 +14,5 @@ public class EndGame : MonoBehaviour
         yield return new WaitForSeconds(28f);
 
         Application.Quit();
-
-    }
-}
+        Debug.Log("æ∆¿’");
+   }
